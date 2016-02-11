@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+  <datef>dd/mm/yyyy</datef>
+  <num__dec>0.0</num__dec>
+  <currency>euro</currency>
+  <language>english</language>
+  <file>json</file>
+  <theme>Nimbus</theme>
+  <dummy>false</dummy>
+</Config>
