@@ -6,7 +6,6 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 import Appweb.Classes.Config.Classconfig;
 import Appweb.Classes.Date.ClassDate;
-import Appweb.Main.Testapp;
 import Appweb.Tools.Format_tools;
 
 /**
@@ -246,7 +245,7 @@ public class Client extends User implements Serializable {
 
 			if (Classconfig.getInstance().getnum_dec() == "0.0") {
 
-				money = money + "Purchase: " + Format_tools.F_1dec(getPurchase()) + " € \n";
+				money = money + "Purchase: " + Format_tools.F_1dec(getPurchase()) + " ï¿½ \n";
 
 			}
 
@@ -258,7 +257,7 @@ public class Client extends User implements Serializable {
 
 			if (Classconfig.getInstance().getnum_dec() == "0.000") {
 
-				money = money + "Purchase: " + Format_tools.F_3dec(getPurchase()) + " € \n";
+				money = money + "Purchase: " + Format_tools.F_3dec(getPurchase()) + " ï¿½ \n";
 
 			}
 
@@ -297,7 +296,7 @@ public class Client extends User implements Serializable {
 
 			if (Classconfig.getInstance().getnum_dec() == "0.0") {
 
-				money = money + "Purchase: £" + Format_tools.F_1dec(calp) + "   \n";
+				money = money + "Purchase: ï¿½" + Format_tools.F_1dec(calp) + "   \n";
 			}
 
 			if (Classconfig.getInstance().getnum_dec() == "0.00") {
@@ -308,7 +307,7 @@ public class Client extends User implements Serializable {
 
 			if (Classconfig.getInstance().getnum_dec() == "0.000") {
 
-				money = money + "Purchase: £" + Format_tools.F_3dec(calp) + "   \n";
+				money = money + "Purchase: ï¿½" + Format_tools.F_3dec(calp) + "   \n";
 			}
 
 			break;

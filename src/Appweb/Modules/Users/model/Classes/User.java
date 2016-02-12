@@ -7,7 +7,6 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import Appweb.Classes.Config.Classconfig;
 import Appweb.Classes.Date.ClassDate;
 import Appweb.Classes.Language.Lang;
-import Appweb.Main.Testapp;
 import Appweb.Tools.Format_tools;
 
 /**
@@ -281,7 +280,7 @@ public abstract class User implements Comparable<User>, Serializable {
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.0") ) {
 
-				money = money + Lang.getInstance().getProperty("Benefits") + ": " + Format_tools.F_1dec(getBenefits()) + " € \n";
+				money = money + Lang.getInstance().getProperty("Benefits") + ": " + Format_tools.F_1dec(getBenefits()) + " ï¿½ \n";
 
 			}
 
@@ -293,7 +292,7 @@ public abstract class User implements Comparable<User>, Serializable {
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.000")) {
 
-				money = money + Lang.getInstance().getProperty("Benefits") + ": " + Format_tools.F_3dec(getBenefits()) + " € \n";
+				money = money + Lang.getInstance().getProperty("Benefits") + ": " + Format_tools.F_3dec(getBenefits()) + " ï¿½ \n";
 
 			}
 
@@ -332,7 +331,7 @@ public abstract class User implements Comparable<User>, Serializable {
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.0")) {
 
-				money = money + Lang.getInstance().getProperty("Benefits") + ": £" + Format_tools.F_1dec(calp) + "   \n";
+				money = money + Lang.getInstance().getProperty("Benefits") + ": ï¿½" + Format_tools.F_1dec(calp) + "   \n";
 			}
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.00")) {
@@ -343,7 +342,7 @@ public abstract class User implements Comparable<User>, Serializable {
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.000")) {
 
-				money = money + Lang.getInstance().getProperty("Benefits") + ": £" + Format_tools.F_3dec(calp) + "   \n";
+				money = money + Lang.getInstance().getProperty("Benefits") + ": ï¿½" + Format_tools.F_3dec(calp) + "   \n";
 			}
 
 			break;
