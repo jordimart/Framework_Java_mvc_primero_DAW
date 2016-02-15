@@ -47,7 +47,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="labelHeader1" min="-2" pref="464" max="-2" attributes="0"/>
+                      <Component id="lab_Admin_menu" min="-2" pref="464" max="-2" attributes="0"/>
                       <Component id="panelRect1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="325" max="32767" attributes="0"/>
@@ -58,10 +58,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                  <Component id="labelHeader1" min="-2" pref="64" max="-2" attributes="0"/>
+                  <Component id="lab_Admin_menu" min="-2" pref="64" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="panelRect1" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="panelRect1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="panelCurves1" min="-2" pref="100" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -72,7 +72,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
         </Container>
-        <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader1">
+        <Component class="org.edisoncor.gui.label.LabelHeader" name="lab_Admin_menu">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="text" type="java.lang.String" value="MENU ADMINISTRADOR"/>
@@ -91,6 +91,8 @@
                           <Component id="btn_ges_users" alignment="0" max="32767" attributes="0"/>
                           <Component id="btn_ges_averias" alignment="0" max="32767" attributes="0"/>
                           <Component id="btn_Exit" max="32767" attributes="0"/>
+                          <Component id="btn_Config" max="32767" attributes="0"/>
+                          <Component id="btn_Volver" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="38" max="32767" attributes="0"/>
                   </Group>
@@ -106,8 +108,12 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btn_ges_averias" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btn_Config" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btn_Volver" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btn_Exit" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="117" max="32767" attributes="0"/>
+                      <EmptySpace pref="53" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -137,6 +143,19 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_ExitActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_Config">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="CONFIGURACION"/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_Volver">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="VOLVER"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_VolverActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

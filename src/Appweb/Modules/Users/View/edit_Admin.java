@@ -5,6 +5,8 @@
  */
 package Appweb.Modules.Users.View;
 
+import Appweb.Modules.Main.Menu_Admin;
+
 /**
  *
  * @author ASUSG50V
@@ -283,6 +285,11 @@ public class edit_Admin extends javax.swing.JFrame {
 
         buttonAeroRight2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         buttonAeroRight2.setText("Cancelar");
+        buttonAeroRight2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAeroRight2ActionPerformed(evt);
+            }
+        });
 
         buttonAeroRight3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         buttonAeroRight3.setText("Borrar todo");
@@ -367,6 +374,14 @@ public class edit_Admin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonAeroRight2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAeroRight2ActionPerformed
+        
+        this.dispose();
+        table_Users menu = new table_Users();
+        menu.setLocationRelativeTo(null);
+        menu.setVisible(true);
+    }//GEN-LAST:event_buttonAeroRight2ActionPerformed
 
     /**
     public static void main(String args[]) {

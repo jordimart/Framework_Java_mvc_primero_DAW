@@ -52,10 +52,11 @@ public class Menu_entrada extends javax.swing.JFrame {
         Login_Tecnic = new javax.swing.JButton();
         Login_Client = new javax.swing.JButton();
         btn_Exit = new javax.swing.JButton();
+        btn_Test = new javax.swing.JButton();
         panelCurves1 = new org.edisoncor.gui.panel.PanelCurves();
         btn_valencian_main = new javax.swing.JButton();
         btn_spain_main = new javax.swing.JButton();
-        btnIngles_main = new javax.swing.JButton();
+        btn_Ingles_main = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,6 +80,8 @@ public class Menu_entrada extends javax.swing.JFrame {
             }
         });
 
+        btn_Test.setText("Entrada Test");
+
         javax.swing.GroupLayout panelNice1Layout = new javax.swing.GroupLayout(panelNice1);
         panelNice1.setLayout(panelNice1Layout);
         panelNice1Layout.setHorizontalGroup(
@@ -89,7 +92,8 @@ public class Menu_entrada extends javax.swing.JFrame {
                     .addComponent(Login_Admin, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
                     .addComponent(Login_Tecnic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Login_Client, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_Test, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         panelNice1Layout.setVerticalGroup(
@@ -102,15 +106,17 @@ public class Menu_entrada extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Login_Client)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_Test)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_Exit)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         btn_valencian_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Main/img/BanderaValencia.png"))); // NOI18N
 
         btn_spain_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Main/img/Spain-Flag-icon40x30.jpg"))); // NOI18N
 
-        btnIngles_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Main/img/United-Kingdom-flag-icon40x30.jpg"))); // NOI18N
+        btn_Ingles_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Main/img/United-Kingdom-flag-icon40x30.jpg"))); // NOI18N
 
         javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
         panelImage1.setLayout(panelImage1Layout);
@@ -118,7 +124,7 @@ public class Menu_entrada extends javax.swing.JFrame {
             panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage1Layout.createSequentialGroup()
                 .addContainerGap(640, Short.MAX_VALUE)
-                .addComponent(btnIngles_main, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_Ingles_main, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_spain_main, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -136,9 +142,9 @@ public class Menu_entrada extends javax.swing.JFrame {
                     .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btn_valencian_main, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btn_spain_main)
-                        .addComponent(btnIngles_main))
+                        .addComponent(btn_Ingles_main))
                     .addComponent(panelNice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 322, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
                 .addComponent(panelCurves1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -161,7 +167,7 @@ public class Menu_entrada extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Login_AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login_AdminActionPerformed
-
+        this.dispose();
         Menu_Admin menu = new Menu_Admin();
         menu.setLocationRelativeTo(null);
         menu.setVisible(true);
@@ -169,7 +175,7 @@ public class Menu_entrada extends javax.swing.JFrame {
     }//GEN-LAST:event_Login_AdminActionPerformed
 
     private void btn_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ExitActionPerformed
-       
+
         exit();
     }//GEN-LAST:event_btn_ExitActionPerformed
 
@@ -222,8 +228,9 @@ public class Menu_entrada extends javax.swing.JFrame {
     private javax.swing.JButton Login_Admin;
     private javax.swing.JButton Login_Client;
     private javax.swing.JButton Login_Tecnic;
-    private javax.swing.JButton btnIngles_main;
     private javax.swing.JButton btn_Exit;
+    private javax.swing.JButton btn_Ingles_main;
+    private javax.swing.JButton btn_Test;
     private javax.swing.JButton btn_spain_main;
     private javax.swing.JButton btn_valencian_main;
     private org.edisoncor.gui.panel.PanelCurves panelCurves1;

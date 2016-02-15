@@ -5,6 +5,8 @@
  */
 package Appweb.Modules.Users.View;
 
+import Appweb.Modules.Main.Menu_Admin;
+
 /**
  *
  * @author ASUSG50V
@@ -71,7 +73,7 @@ public class create_Admin extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         panelRect2 = new org.edisoncor.gui.panel.PanelRect();
-        buttonAeroRight2 = new org.edisoncor.gui.button.ButtonAeroRight();
+        btn_can_cAdmin = new org.edisoncor.gui.button.ButtonAeroRight();
         buttonAeroRight3 = new org.edisoncor.gui.button.ButtonAeroRight();
         buttonAeroRight4 = new org.edisoncor.gui.button.ButtonAeroRight();
 
@@ -91,7 +93,6 @@ public class create_Admin extends javax.swing.JFrame {
         );
 
         panelImage1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Crear datos de un Administrador", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 18), new java.awt.Color(20, 20, 20))); // NOI18N
-        panelImage1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUSG50V\\Desktop\\Walpapers\\Fondos grandes\\Fondo_004.jpg")); // NOI18N
 
         labelHeader1.setText("Dni:");
 
@@ -295,8 +296,13 @@ public class create_Admin extends javax.swing.JFrame {
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
-        buttonAeroRight2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        buttonAeroRight2.setText("Cancelar");
+        btn_can_cAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_can_cAdmin.setText("Cancelar");
+        btn_can_cAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_can_cAdminActionPerformed(evt);
+            }
+        });
 
         buttonAeroRight3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         buttonAeroRight3.setText("Borrar todo");
@@ -310,7 +316,7 @@ public class create_Admin extends javax.swing.JFrame {
             .addGroup(panelRect2Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(panelRect2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonAeroRight2, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                    .addComponent(btn_can_cAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
                     .addComponent(buttonAeroRight3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonAeroRight4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(28, Short.MAX_VALUE))
@@ -321,7 +327,7 @@ public class create_Admin extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addComponent(buttonAeroRight4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(buttonAeroRight2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_can_cAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(buttonAeroRight3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(38, Short.MAX_VALUE))
@@ -369,10 +375,18 @@ public class create_Admin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_can_cAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_can_cAdminActionPerformed
+        
+        this.dispose();
+        table_Users menu = new table_Users();
+        menu.setLocationRelativeTo(null);
+        menu.setVisible(true);
+    }//GEN-LAST:event_btn_can_cAdminActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.edisoncor.gui.button.ButtonAeroRight buttonAeroRight2;
+    private org.edisoncor.gui.button.ButtonAeroRight btn_can_cAdmin;
     private org.edisoncor.gui.button.ButtonAeroRight buttonAeroRight3;
     private org.edisoncor.gui.button.ButtonAeroRight buttonAeroRight4;
     private com.toedter.calendar.JDateChooser jDateChooser1;

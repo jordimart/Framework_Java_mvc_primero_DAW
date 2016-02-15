@@ -5,6 +5,9 @@
  */
 package Appweb.Modules.Users.View;
 
+import Appweb.Menu_entrada;
+import Appweb.Modules.Main.Menu_Admin;
+
 /**
  *
  * @author ASUSG50V
@@ -126,6 +129,11 @@ public class table_Users extends javax.swing.JFrame {
         labelRect1.setText("Selecciona user:");
 
         buttonAero3.setText("Volver");
+        buttonAero3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAero3ActionPerformed(evt);
+            }
+        });
 
         buttonAero4.setText("Crear");
         buttonAero4.addActionListener(new java.awt.event.ActionListener() {
@@ -253,6 +261,7 @@ public class table_Users extends javax.swing.JFrame {
 
     private void buttonAero4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAero4ActionPerformed
         
+        this.dispose();
         create_Admin create=new create_Admin();
          create.setLocationRelativeTo(null);
         create.setVisible(true);
@@ -261,10 +270,19 @@ public class table_Users extends javax.swing.JFrame {
 
     private void buttonAero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAero1ActionPerformed
         
+        this.dispose();
         edit_Admin edit=new edit_Admin();
          edit.setLocationRelativeTo(null);
         edit.setVisible(true);
     }//GEN-LAST:event_buttonAero1ActionPerformed
+
+    private void buttonAero3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAero3ActionPerformed
+        
+         this.dispose();
+        Menu_Admin menu = new Menu_Admin();
+        menu.setLocationRelativeTo(null);
+        menu.setVisible(true);
+    }//GEN-LAST:event_buttonAero3ActionPerformed
 
     
 

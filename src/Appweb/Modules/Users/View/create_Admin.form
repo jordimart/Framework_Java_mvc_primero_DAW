@@ -72,9 +72,6 @@
             </TitledBorder>
           </Border>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\ASUSG50V\Desktop\Walpapers\Fondos grandes\Fondo_004.jpg"/>
-        </Property>
       </Properties>
 
       <Layout>
@@ -458,7 +455,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="buttonAeroRight2" alignment="0" pref="118" max="32767" attributes="0"/>
+                          <Component id="btn_can_cAdmin" alignment="0" pref="118" max="32767" attributes="0"/>
                           <Component id="buttonAeroRight3" alignment="0" max="32767" attributes="0"/>
                           <Component id="buttonAeroRight4" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -472,7 +469,7 @@
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="buttonAeroRight4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="buttonAeroRight2" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_can_cAdmin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="buttonAeroRight3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="38" max="32767" attributes="0"/>
@@ -481,7 +478,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="org.edisoncor.gui.button.ButtonAeroRight" name="buttonAeroRight2">
+            <Component class="org.edisoncor.gui.button.ButtonAeroRight" name="btn_can_cAdmin">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -490,6 +487,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cancelar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_can_cAdminActionPerformed"/>
+              </Events>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonAeroRight" name="buttonAeroRight3">
               <Properties>
