@@ -2,7 +2,7 @@ package Appweb.Tools;
 
 
 
-import Appweb.Classes.Config.Classconfig;
+import Appweb.Modules.Config.Classconfig;
 
 /**
  * 
@@ -13,7 +13,7 @@ import Appweb.Classes.Config.Classconfig;
 public class Validate {
 
 	private static final String okdni = "^([0-9]{8})[a-zA-Z]*{1}$";
-	private static final String okword = "[a-zA-ZñÑ\\s]+([ ]?)+([a-zA-Z]*)+([ ]?)+([a-zA-Z]*)+([ ]?)+([a-zA-Z]*)";
+	private static final String okword = "[a-zA-Zï¿½ï¿½\\s]+([ ]?)+([a-zA-Z]*)+([ ]?)+([a-zA-Z]*)+([ ]?)+([a-zA-Z]*)";
 	private static final String okmobile = "^[0-9]{9}$";
 	private static final String okage = "^([0-9]{2})";
 	private static final String okmail = "^[\\w-]+(\\.[\\w-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";

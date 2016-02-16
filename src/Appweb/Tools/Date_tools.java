@@ -2,7 +2,7 @@ package Appweb.Tools;
 
 import javax.swing.JOptionPane;
 
-import Appweb.Classes.Config.Classconfig;
+import Appweb.Modules.Config.Classconfig;
 import Appweb.Classes.Date.ClassDate;
 import Appweb.Classes.Language.Lang;
 
@@ -18,7 +18,7 @@ public class Date_tools {
 	/**
 	 * Menu para introducir una fecha con un parametro minimo que puede servir
 	 * para determinar la edad minma. Valida que sea una fecha correcta en
-	 * dias,meses y años. Calcula los años y lo compara con el minimo para
+	 * dias,meses y aï¿½os. Calcula los aï¿½os y lo compara con el minimo para
 	 * dejarlo pasar o no. Valida el formato correcto.
 	 * 
 	 * @param message
@@ -106,8 +106,8 @@ public class Date_tools {
 
 	/**
 	 * Menu para introducir una fecha con un parametro minimo y uno maximo de
-	 * años que puede servir para determinar la edad minma o maxima. Valida que
-	 * sea una fecha correcta en dias,meses y años. Calcula los años y lo
+	 * aï¿½os que puede servir para determinar la edad minma o maxima. Valida que
+	 * sea una fecha correcta en dias,meses y aï¿½os. Calcula los aï¿½os y lo
 	 * compara con el minimo y el maximo para dejarlo pasar o no. Valida el
 	 * formato correcto.
 	 * 
@@ -169,7 +169,7 @@ public class Date_tools {
 					JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("This_date_does_not_exist_in_the_calendar"),
 							Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
 				}
-				// Controlamos que la edad este entre 16 y 18 años
+				// Controlamos que la edad este entre 16 y 18 aï¿½os
 				if ((age >= min) && (age <= max)) {
 
 					val1 = true;

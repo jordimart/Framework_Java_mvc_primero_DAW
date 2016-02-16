@@ -2,7 +2,7 @@ package Appweb.Modules.Users.model.BLL;
 
 import javax.swing.JOptionPane;
 
-import Appweb.Classes.Config.Classconfig;
+import Appweb.Modules.Config.Classconfig;
 import Appweb.Classes.Language.Lang;
 import Appweb.Modules.Users.model.Classes.Admin;
 import Appweb.Modules.Users.model.Classes.Client;

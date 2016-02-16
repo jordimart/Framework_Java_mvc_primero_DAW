@@ -75,8 +75,8 @@
                       </Group>
                       <Component id="panelNice1" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="279" max="32767" attributes="0"/>
-                  <Component id="panelCurves1" min="-2" pref="100" max="-2" attributes="0"/>
+                  <EmptySpace pref="339" max="32767" attributes="0"/>
+                  <Component id="panelCurves1" min="-2" pref="90" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

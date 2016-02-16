@@ -1,4 +1,4 @@
-package Appweb.Classes.Config;
+package Appweb.Modules.Config;
 
 import java.io.Serializable;
 import java.util.ArrayList;

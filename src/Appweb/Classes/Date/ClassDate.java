@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import Appweb.Classes.Config.Classconfig;
+import Appweb.Modules.Config.Classconfig;
 
 /**
  * 
@@ -142,7 +142,7 @@ public class ClassDate implements Serializable {
 	}
 
 	/**
-	 * Estos sets añadidos modificaran los atributos cada vez que cambie la
+	 * Estos sets aï¿½adidos modificaran los atributos cada vez que cambie la
 	 * fecha.
 	 */
 	public void setDate(String date) {
@@ -335,7 +335,7 @@ public class ClassDate implements Serializable {
 		mydatemilis = mydate.getTimeInMillis();
 		diferencia = systemmilis - mydatemilis;
 
-		// pasamos el resultado a años casteando a int
+		// pasamos el resultado a aï¿½os casteando a int
 		years = (int) (diferencia / (24 * 60 * 60 * 1000)) / 365;
 
 		return years;
@@ -363,7 +363,7 @@ public class ClassDate implements Serializable {
 		diferencia = date2milis - date1milis;
 		
 	
-		// pasamos el resultado a años casteando a int
+		// pasamos el resultado a aï¿½os casteando a int
 		years = (int) (diferencia / (24 * 60 * 60 * 1000)) / 365;
 
 		return years;

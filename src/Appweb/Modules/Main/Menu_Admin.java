@@ -5,6 +5,7 @@
  */
 package Appweb.Modules.Main;
 
+import Appweb.Modules.Config.menu_Settings;
 import Appweb.Classes.Language.Lang;
 import Appweb.Menu_entrada;
 import Appweb.Modules.Users.View.table_Users;
@@ -78,6 +79,11 @@ public class Menu_Admin extends javax.swing.JFrame {
         });
 
         btn_Config.setText("CONFIGURACION");
+        btn_Config.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ConfigActionPerformed(evt);
+            }
+        });
 
         btn_Volver.setText("VOLVER");
         btn_Volver.addActionListener(new java.awt.event.ActionListener() {
@@ -177,6 +183,15 @@ public class Menu_Admin extends javax.swing.JFrame {
         menu.setLocationRelativeTo(null);
         menu.setVisible(true);
     }//GEN-LAST:event_btn_VolverActionPerformed
+
+    private void btn_ConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConfigActionPerformed
+        
+         this.dispose();
+        menu_Settings menu = new menu_Settings();
+        menu.setLocationRelativeTo(null);
+        menu.setVisible(true);
+        
+    }//GEN-LAST:event_btn_ConfigActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

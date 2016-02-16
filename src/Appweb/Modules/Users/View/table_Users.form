@@ -51,7 +51,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jComboBox1" max="32767" attributes="0"/>
-                              <Component id="jLabel1" pref="126" max="32767" attributes="0"/>
+                              <Component id="jLabel1" pref="110" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -66,7 +66,9 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="panelTranslucido1" max="32767" attributes="0"/>
+                          <Component id="panelTranslucido1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btn_Volver" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -81,8 +83,11 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="panelCurves1" min="-2" pref="100" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="panelTranslucido1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="415" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="panelTranslucido1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_Volver" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="417" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jPanel2" alignment="1" min="-2" pref="54" max="-2" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
@@ -283,36 +288,42 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelRect1" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="comboBoxRound1" min="-2" pref="117" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="buttonAero4" min="-2" pref="125" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="labelRect1" min="-2" pref="130" max="-2" attributes="0"/>
+                          <Component id="comboBoxRound1" min="-2" pref="175" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="buttonAero1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="buttonAero2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="buttonAero3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="buttonAction1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="buttonAction2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="buttonAction3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="buttonAction4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="80" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="labelRect1" min="-2" pref="17" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="comboBoxRound1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonAero1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonAero2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonAero3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonAero4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="labelRect1" min="-2" pref="17" max="-2" attributes="0"/>
+                              <EmptySpace pref="8" max="32767" attributes="0"/>
+                              <Component id="comboBoxRound1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="buttonAction1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buttonAction2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buttonAction3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buttonAction4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -321,42 +332,47 @@
           <SubComponents>
             <Component class="org.edisoncor.gui.comboBox.ComboBoxRound" name="comboBoxRound1">
             </Component>
-            <Component class="org.edisoncor.gui.button.ButtonAero" name="buttonAero1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Modificar seleccion"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAero1ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="org.edisoncor.gui.button.ButtonAero" name="buttonAero2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Borrar seleccion"/>
-              </Properties>
-            </Component>
             <Component class="org.edisoncor.gui.label.LabelRect" name="labelRect1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Selecciona user:"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.button.ButtonAero" name="buttonAero3">
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="buttonAction1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Volver"/>
+                <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAero3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAction1ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="org.edisoncor.gui.button.ButtonAero" name="buttonAero4">
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="buttonAction2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Crear"/>
+                <Property name="text" type="java.lang.String" value="Editar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAero4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAction2ActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="buttonAction3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Borrar"/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="buttonAction4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mostrar"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
+        <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_Volver">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Volver"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_VolverActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

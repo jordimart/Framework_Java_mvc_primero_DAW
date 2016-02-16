@@ -24,7 +24,7 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.Annotations;
 import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
 
-import Appweb.Classes.Config.Classconfig;
+import Appweb.Modules.Config.Classconfig;
 import Appweb.Classes.Language.Lang;
 import Appweb.Modules.Users.model.Classes.Admin;
 import Appweb.Modules.Users.model.Classes.singleton;

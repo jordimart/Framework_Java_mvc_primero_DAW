@@ -5,13 +5,23 @@
  */
 package Appweb;
 
-import Appweb.Classes.Config.Classconfig;
+import Appweb.Modules.Config.Classconfig;
 import Appweb.Classes.Language.Lang;
 import Appweb.Modules.Main.Menu_Admin;
 import Appweb.Modules.Users.View.create_Admin;
 import Appweb.Modules.Users.View.edit_Admin;
 import Appweb.Modules.Users.View.table_Users;
+import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaBlueSteelLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaGreenDreamLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaMauveMetallicLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaSkyMetallicLookAndFeel;
+import java.text.ParseException;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import Appweb.Tools.Config_tools;
+import static Appweb.Tools.Config_tools.open_all_file_config_format;
+import static Appweb.Tools.Config_tools.open_json_config;
 
 /**
  *
@@ -24,6 +34,7 @@ public class Menu_entrada extends javax.swing.JFrame {
      */
     public Menu_entrada() {
         initComponents();
+         open_all_file_config_format();
     }
 
     /**
@@ -144,8 +155,8 @@ public class Menu_entrada extends javax.swing.JFrame {
                         .addComponent(btn_spain_main)
                         .addComponent(btn_Ingles_main))
                     .addComponent(panelNice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
-                .addComponent(panelCurves1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 339, Short.MAX_VALUE)
+                .addComponent(panelCurves1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -182,44 +193,19 @@ public class Menu_entrada extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu_entrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu_entrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu_entrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu_entrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    public static void main(String args[]) throws ParseException {
+       
+      
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Classconfig.getInstance();
+               
                 new Menu_entrada().setVisible(true);
+                 
 
-                /**
-                 * new create_Admin().setVisible(true); new
-                 * edit_Admin().setVisible(true); new
-                 * table_Users().setVisible(true); new
-                 * Menu_Admin().setVisible(true);
-                 *
-                 *
-                 */
+               
             }
         });
     }

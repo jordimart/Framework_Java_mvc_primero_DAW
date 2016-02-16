@@ -3,7 +3,7 @@ package Appweb.Classes.Language;
 import java.io.IOException;
 import java.util.Properties;
 
-import Appweb.Classes.Config.Classconfig;
+import Appweb.Modules.Config.Classconfig;
 
 /**
  * 
@@ -38,14 +38,14 @@ public class Lang extends Properties {
 
 	public Lang() {
 
-		// Modificar si quieres añadir mas idiomas
-		// Cambia el nombre de los ficheros o añade los necesarios
+		// Modificar si quieres aï¿½adir mas idiomas
+		// Cambia el nombre de los ficheros o aï¿½ade los necesarios
 		switch (Classconfig.getInstance().getLanguage()) {
 
 		case "english":
 			getProperties("english.properties");
 			break;
-		case "español":
+		case "espaï¿½ol":
 			getProperties("espanol.properties");
 			break;
 		case "valencia":
@@ -67,7 +67,7 @@ public class Lang extends Properties {
 		case "english":
 			getProperties("english.properties");
 			break;
-		case "español":
+		case "espaï¿½ol":
 			getProperties("espanol.properties");
 			break;
 		case "valencia":
