@@ -1,4 +1,4 @@
-package Appweb.Tools;
+package Appweb.Modules.Config;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -27,6 +27,20 @@ import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
 
 import Appweb.Modules.Config.Classconfig;
 import Appweb.Classes.Language.Lang;
+import static Appweb.Modules.Config.menu_Settings.Combo_Theme;
+import static Appweb.Modules.Config.menu_Settings.chk_curr_dollar;
+import static Appweb.Modules.Config.menu_Settings.chk_curr_euro;
+import static Appweb.Modules.Config.menu_Settings.chk_curr_pound;
+import static Appweb.Modules.Config.menu_Settings.chk_day_bar;
+import static Appweb.Modules.Config.menu_Settings.chk_day_bar2;
+import static Appweb.Modules.Config.menu_Settings.chk_lang_en;
+import static Appweb.Modules.Config.menu_Settings.chk_lang_es;
+import static Appweb.Modules.Config.menu_Settings.chk_lang_val;
+import static Appweb.Modules.Config.menu_Settings.chk_one_d;
+import static Appweb.Modules.Config.menu_Settings.chk_three_d;
+import static Appweb.Modules.Config.menu_Settings.chk_two_d;
+import static Appweb.Modules.Config.menu_Settings.chk_year_bar;
+import static Appweb.Modules.Config.menu_Settings.chk_year_bar2;
 import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
 
 public class Config_tools {
@@ -283,77 +297,18 @@ public class Config_tools {
 
     /**
      * Funcion que guarda la configuracion actual en los tres formatos de forma
-     * automatica.
+     * automatica.Implementada en grafica.
      */
-    public static void save_all_file_config_format() {
+    public static void auto_save_config_json() {
 
         String PATH = " ";
 
         try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Tools/Files_config/appconfig";
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-/**
-        try {
-            OutputStream os = new ByteArrayOutputStream();
-            OutputStreamWriter osw = new OutputStreamWriter(os);
-            XStream xstream = new XStream();
-            Annotations.configureAliases(xstream, Classconfig.class);
-
-            String header = "<?xml version=\"1.0\" encoding=\"" + ENCODING + "\"?>\n";
-            xstream.toXML(Classconfig.getInstance(), osw);
-            StringBuffer xml = new StringBuffer();
-            xml.append(header);
-            xml.append(os.toString());
-
-            File JFC = new File(PATH);
-            PATH = JFC.getAbsolutePath();
-            PATH = PATH + ".xml";
-
-            FileWriter fileXml = new FileWriter(PATH);
-            fileXml.write(xml.toString());
-            fileXml.close();
-            osw.close();
-            os.close();
-            System.out.print(Lang.getInstance().getProperty("Config_file_saved") + " xml\n");
-
-        } catch (Exception e1) {
-            e1.printStackTrace();
-            System.out.print(Lang.getInstance().getProperty("Failed_to_save_config") + " xml\n");
-        }
-
-        try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Tools/Files_config/appconfig";
+            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Config/Files_config/appconfig.json";
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        try {
-
-            File f;
-
-            File JFC = new File(PATH);
-            PATH = JFC.getAbsolutePath();
-            PATH = PATH + ".txt";
-            f = new File(PATH);
-
-            FileOutputStream fo = new FileOutputStream(f);
-            ObjectOutputStream o = new ObjectOutputStream(fo);
-            o.writeObject(Classconfig.getInstance());
-            o.close();
-            System.out.print(Lang.getInstance().getProperty("Config_file_saved") + " txt\n");
-
-        } catch (Exception e) {
-            System.out.print(Lang.getInstance().getProperty("Failed_to_save_config") + " txt\n");
-        }
-
-        try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Tools/Files_config/appconfig";
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-*/
         try {
             XStream xstreamjson = new XStream(new JettisonMappedXmlDriver());
             xstreamjson.setMode(XStream.NO_REFERENCES);
@@ -380,78 +335,20 @@ public class Config_tools {
 
     /**
      * Funcion que carga la configuracion actual en los tres formatos de forma
-     * automatica.
+     * automatica.Implementada en grafica.
      */
-    public static void open_all_file_config_format() {
+    public static void auto_open_config_json() {
 
         String PATH = " ";
         Classconfig config = null;
-/**
-        try {
-            XStream xstream = new XStream();
-            Annotations.configureAliases(xstream, Classconfig.class);
 
-            try {
-                PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Tools/Files_config/appconfig.xml";
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            File JFC = new File(PATH);
-            PATH = JFC.getAbsolutePath();
-            config = (Classconfig) xstream.fromXML(new FileReader(PATH));
-
-            Classconfig.getInstance().setCurrency(config.getCurrency());
-            Classconfig.getInstance().setdatef(config.getdatef());
-            Classconfig.getInstance().setDummy(config.getDummy());
-            Classconfig.getInstance().setFile(config.getFile());
-            Classconfig.getInstance().setLanguage(config.getLanguage());
-            Classconfig.getInstance().setnum_dec(config.getnum_dec());
-            Classconfig.getInstance().setTheme(config.getTheme());
-
-            System.out.print(Lang.getInstance().getProperty("Loaded_settings_file") + " xml\n");
-
-        } catch (Exception e1) {
-            System.out.print(Lang.getInstance().getProperty("Error_loading_file") + " xml\n");
-        }
-
-        try {
-            File f;
-
-            try {
-                PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Tools/Files_config/appconfig.txt";
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            File JFC = new File(PATH);
-            PATH = JFC.getAbsolutePath();
-            f = new File(PATH);
-
-            FileInputStream fi = new FileInputStream(f);
-            ObjectInputStream oi = new ObjectInputStream(fi);
-            config = (Classconfig) oi.readObject();
-            oi.close();
-
-            Classconfig.getInstance().setCurrency(config.getCurrency());
-            Classconfig.getInstance().setdatef(config.getdatef());
-            Classconfig.getInstance().setDummy(config.getDummy());
-            Classconfig.getInstance().setFile(config.getFile());
-            Classconfig.getInstance().setLanguage(config.getLanguage());
-            Classconfig.getInstance().setnum_dec(config.getnum_dec());
-            Classconfig.getInstance().setTheme(config.getTheme());
-
-            System.out.print(Lang.getInstance().getProperty("Loaded_settings_file") + " txt\n");
-        } catch (Exception e) {
-            System.out.print(Lang.getInstance().getProperty("Error_loading_file") + " xml\n");
-        }
-*/
         try {
             XStream xstream = new XStream(new JettisonMappedXmlDriver());
             xstream.setMode(XStream.NO_REFERENCES);
             xstream.alias("Config", Classconfig.class);
 
             try {
-                PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Tools/Files_config/appconfig.json";
+                PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Config/Files_config/appconfig.json";
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -478,13 +375,13 @@ public class Config_tools {
             System.out.print(Lang.getInstance().getProperty("Loaded_settings_file") + " json\n");
 
         } catch (Exception e) {
-            System.out.print(Lang.getInstance().getProperty("Error_loading_file") + " xml\n");
+            System.out.print(Lang.getInstance().getProperty("Error_loading_file") + " json\n");
         }
     }
 
     /**
      * Funcion que modifica la apariencia de la aplicacion dependiendo de lo que
-     * haya en configuracion.
+     * haya en configuracion.Implementada en Grafica faltan mas looks.
      */
     public static void Function_theme() {
 
@@ -518,15 +415,15 @@ public class Config_tools {
                 case "Synthetica":
 
                     try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
-                    break;
-                }
-            }
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            
-        }
+                        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                            if ("Nimbus".equals(info.getName())) {
+                                UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
+                                break;
+                            }
+                        }
+                    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+
+                    }
 
                     break;
 
@@ -538,4 +435,170 @@ public class Config_tools {
         }
 
     }
+
+    //// Funciones Configuracion//////
+    /**
+     * Main combox for select language
+     *
+     */
+    public static void radio_button_language() {
+
+        if (chk_lang_en.getSelectedIcon() == null) {
+        } else {
+            Classconfig.getInstance().setLanguage(chk_lang_en.getSelectedIcon().toString());
+        }
+        if (chk_lang_es.getSelectedIcon() == null) {
+        } else {
+            Classconfig.getInstance().setLanguage(chk_lang_es.getSelectedIcon().toString());
+        }
+        if (chk_lang_val.getSelectedIcon() == null) {
+        } else {
+            Classconfig.getInstance().setLanguage(chk_lang_val.getSelectedIcon().toString());
+        }
+
+    }
+
+    /**
+     * Main combox for select format date
+     *
+     */
+    public static void radio_button_datef() {
+
+        if (chk_day_bar.getSelectedIcon() == null) {
+        } else {
+            Classconfig.getInstance().setdatef(chk_day_bar.getSelectedIcon().toString());
+        }
+        if (chk_day_bar2.getSelectedIcon() == null) {
+        } else {
+            Classconfig.getInstance().setdatef(chk_day_bar2.getSelectedIcon().toString());
+        }
+        if (chk_year_bar.getSelectedIcon() == null) {
+        } else {
+            Classconfig.getInstance().setdatef(chk_year_bar.getSelectedIcon().toString());
+        }
+        if (chk_year_bar2.getSelectedIcon() == null) {
+        } else {
+            Classconfig.getInstance().setdatef(chk_year_bar2.getSelectedIcon().toString());
+        }
+
+    }
+
+    /**
+     *
+     * Main combox for select number of decimal
+     */
+    public static void radio_button_decimal() {
+
+        if (chk_one_d.getSelectedIcon() == null) {
+        } else {
+            Classconfig.getInstance().setnum_dec(chk_one_d.getSelectedIcon().toString());
+        }
+        if (chk_two_d.getSelectedIcon() == null) {
+        } else {
+            Classconfig.getInstance().setnum_dec(chk_two_d.getSelectedIcon().toString());
+        }
+        if (chk_three_d.getSelectedIcon() == null) {
+        } else {
+            Classconfig.getInstance().setnum_dec(chk_three_d.getSelectedIcon().toString());
+        }
+
+    }
+
+    /**
+     * Main combox for select currency
+     *
+     */
+    public static void radio_button_currency() {
+
+        if (chk_curr_dollar.getSelectedIcon() == null) {
+        } else {
+            Classconfig.getInstance().setCurrency(chk_curr_dollar.getSelectedIcon().toString());
+        }
+        if (chk_curr_euro.getSelectedIcon() == null) {
+        } else {
+            Classconfig.getInstance().setCurrency(chk_curr_euro.getSelectedIcon().toString());
+        }
+        if (chk_curr_pound.getSelectedIcon() == null) {
+        } else {
+            Classconfig.getInstance().setCurrency(chk_curr_pound.getSelectedIcon().toString());
+        }
+
+    }
+
+    /**
+     * This function changes the appearance of the application. Options
+     * Metal,System,Motif,Nimbus and Windows classic
+     *
+     *
+     */
+    public static void Menu_theme() {
+
+        String s = " ";
+
+        s = (String) Combo_Theme.getSelectedItem().toString();
+
+        try {
+            switch (s) {
+
+                case "Metal":// Metal
+                    Classconfig.getInstance().setTheme("Metal");
+
+                    break;
+
+                case "System":// GTK - WINDOWS
+                    Classconfig.getInstance().setTheme("System");
+                    break;
+
+                case "Motif":// CDE/Motif
+                    Classconfig.getInstance().setTheme("Motif");
+                    break;
+
+                case "Nimbus":// Nimbus
+
+                    Classconfig.getInstance().setTheme("Nimbus");
+
+                    break;// Windows Clasic
+
+                case "Windows classic":
+
+                    Classconfig.getInstance().setTheme("Windows classic");
+
+                    break;
+
+                case "Synthetica":
+
+                    Classconfig.getInstance().setTheme("Synthetica");
+
+                    break;
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("The_appearance_failed_to_change"), "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
+    }
+
+    /**
+     * Function menu that contains the configuration of basic parameters of the
+     * app. In the menu data such as date format , currency , number of decimals
+     * and language of the application they are configured.
+     *
+     *
+     */
+    public static void Configuration_accept() {
+
+        try {
+            radio_button_language();
+            radio_button_datef();
+            radio_button_decimal();
+            radio_button_currency();
+            Menu_theme();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

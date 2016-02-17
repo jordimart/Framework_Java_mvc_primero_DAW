@@ -5,8 +5,7 @@
  */
 package Appweb.Modules.Users.View;
 
-import Appweb.Menu_entrada;
-import Appweb.Modules.Main.Menu_Admin;
+import Appweb.Modules.Main.Menu_entrada;
 
 /**
  *
@@ -19,6 +18,11 @@ public class table_Users extends javax.swing.JFrame {
      */
     public table_Users() {
         initComponents();
+        
+        this.setTitle("Menu Login");
+	this.setLocationRelativeTo(null);
+	this.setSize(1000,650);//ancho x alto
+	this.setResizable(false);
     }
 
     /**

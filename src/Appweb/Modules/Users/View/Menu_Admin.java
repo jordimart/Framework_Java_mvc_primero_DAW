@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Appweb.Modules.Main;
+package Appweb.Modules.Users.View;
 
 import Appweb.Modules.Config.menu_Settings;
 import Appweb.Classes.Language.Lang;
-import Appweb.Menu_entrada;
+import Appweb.Modules.Config.Classconfig;
+import Appweb.Modules.Main.Menu_entrada;
 import Appweb.Modules.Users.View.table_Users;
 import javax.swing.JOptionPane;
 
@@ -22,6 +23,12 @@ public class Menu_Admin extends javax.swing.JFrame {
      */
     public Menu_Admin() {
         initComponents();
+
+        this.setTitle(Lang.getInstance().getProperty("Admin"));
+        this.setLocationRelativeTo(null);
+        this.setSize(1000, 650);//ancho x alto
+        this.setResizable(false);
+
     }
 
     private void exit() {
@@ -177,20 +184,20 @@ public class Menu_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ges_usersActionPerformed
 
     private void btn_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VolverActionPerformed
-       
-         this.dispose();
+
+        this.dispose();
         Menu_entrada menu = new Menu_entrada();
         menu.setLocationRelativeTo(null);
         menu.setVisible(true);
     }//GEN-LAST:event_btn_VolverActionPerformed
 
     private void btn_ConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConfigActionPerformed
-        
-         this.dispose();
+
+        this.dispose();
         menu_Settings menu = new menu_Settings();
         menu.setLocationRelativeTo(null);
         menu.setVisible(true);
-        
+
     }//GEN-LAST:event_btn_ConfigActionPerformed
 
 

@@ -3,25 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Appweb;
+package Appweb.Modules.Main;
 
-import Appweb.Modules.Config.Classconfig;
 import Appweb.Classes.Language.Lang;
-import Appweb.Modules.Main.Menu_Admin;
-import Appweb.Modules.Users.View.create_Admin;
-import Appweb.Modules.Users.View.edit_Admin;
-import Appweb.Modules.Users.View.table_Users;
-import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
-import de.javasoft.plaf.synthetica.SyntheticaBlueSteelLookAndFeel;
-import de.javasoft.plaf.synthetica.SyntheticaGreenDreamLookAndFeel;
-import de.javasoft.plaf.synthetica.SyntheticaMauveMetallicLookAndFeel;
-import de.javasoft.plaf.synthetica.SyntheticaSkyMetallicLookAndFeel;
-import java.text.ParseException;
+import static Appweb.Modules.Config.Config_tools.auto_open_config_json;
+import Appweb.Modules.Users.View.Menu_Admin;
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
-import Appweb.Tools.Config_tools;
-import static Appweb.Tools.Config_tools.open_all_file_config_format;
-import static Appweb.Tools.Config_tools.open_json_config;
 
 /**
  *
@@ -34,7 +21,14 @@ public class Menu_entrada extends javax.swing.JFrame {
      */
     public Menu_entrada() {
         initComponents();
-         open_all_file_config_format();
+        
+        this.setTitle("Menu Login");
+	this.setLocationRelativeTo(null);
+	this.setSize(1000,650);//ancho x alto
+	this.setResizable(false);
+	
+       
+         auto_open_config_json();
     }
 
     /**
@@ -178,10 +172,11 @@ public class Menu_entrada extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Login_AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login_AdminActionPerformed
+        
         this.dispose();
         Menu_Admin menu = new Menu_Admin();
-        menu.setLocationRelativeTo(null);
         menu.setVisible(true);
+       
 
     }//GEN-LAST:event_Login_AdminActionPerformed
 
@@ -190,25 +185,7 @@ public class Menu_entrada extends javax.swing.JFrame {
         exit();
     }//GEN-LAST:event_btn_ExitActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) throws ParseException {
-       
-      
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Classconfig.getInstance();
-               
-                new Menu_entrada().setVisible(true);
-                 
-
-               
-            }
-        });
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Login_Admin;

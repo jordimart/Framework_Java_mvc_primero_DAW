@@ -5,11 +5,13 @@
  */
 package Appweb.Modules.Config;
 
-import Appweb.Modules.Main.Menu_Admin;
-import static Appweb.Tools.Config_tools.save_all_file_config_format;
-import static Appweb.Tools.Config_tools.save_json_config;
-import Appweb.Tools.Menus_config;
-import static Appweb.Tools.Menus_config.Menu_theme;
+import static Appweb.Modules.Config.Config_tools.Configuration_accept;
+import static Appweb.Modules.Config.Config_tools.Menu_theme;
+import Appweb.Modules.Users.View.Menu_Admin;
+import static Appweb.Modules.Config.Config_tools.auto_save_config_json;
+import static Appweb.Modules.Config.Config_tools.save_json_config;
+
+
 
 /**
  *
@@ -22,6 +24,10 @@ public class menu_Settings extends javax.swing.JFrame {
      */
     public menu_Settings() {
         initComponents();
+        this.setTitle("Menu Settings");
+	this.setLocationRelativeTo(null);
+	this.setSize(980,800);//ancho x alto
+	this.setResizable(false);
     }
 
     /**
@@ -67,6 +73,7 @@ public class menu_Settings extends javax.swing.JFrame {
         btn_Accept_Settings = new org.edisoncor.gui.button.ButtonAction();
         btn_Load_Settings = new org.edisoncor.gui.button.ButtonAction();
         btn_Return_Settings = new org.edisoncor.gui.button.ButtonAction();
+        buttonAction1 = new org.edisoncor.gui.button.ButtonAction();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -278,6 +285,8 @@ public class menu_Settings extends javax.swing.JFrame {
             }
         });
 
+        buttonAction1.setText("Guardar");
+
         javax.swing.GroupLayout panelRectTranslucido1Layout = new javax.swing.GroupLayout(panelRectTranslucido1);
         panelRectTranslucido1.setLayout(panelRectTranslucido1Layout);
         panelRectTranslucido1Layout.setHorizontalGroup(
@@ -296,23 +305,27 @@ public class menu_Settings extends javax.swing.JFrame {
                         .addComponent(panelRound4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btn_Accept_Settings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Load_Settings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_Return_Settings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_Return_Settings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonAction1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         panelRectTranslucido1Layout.setVerticalGroup(
             panelRectTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRectTranslucido1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(panelRectTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelRectTranslucido1Layout.createSequentialGroup()
+                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelRectTranslucido1Layout.createSequentialGroup()
                         .addComponent(btn_Accept_Settings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btn_Load_Settings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+                        .addComponent(buttonAction1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(btn_Return_Settings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(panelRectTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelRound4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -326,12 +339,9 @@ public class menu_Settings extends javax.swing.JFrame {
         panelImage1Layout.setHorizontalGroup(
             panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelImage1Layout.createSequentialGroup()
-                .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelRectTranslucido1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage1Layout.createSequentialGroup()
-                        .addGap(0, 22, Short.MAX_VALUE)
-                        .addComponent(panelCurves1, javax.swing.GroupLayout.PREFERRED_SIZE, 913, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(panelRectTranslucido1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(panelCurves1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelImage1Layout.setVerticalGroup(
             panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -346,9 +356,7 @@ public class menu_Settings extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelImage1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(panelImage1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -368,8 +376,10 @@ public class menu_Settings extends javax.swing.JFrame {
 
     private void btn_Accept_SettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Accept_SettingsActionPerformed
         
-        Menu_theme();
-        save_all_file_config_format();
+        Configuration_accept();
+        auto_save_config_json();
+        
+        
     }//GEN-LAST:event_btn_Accept_SettingsActionPerformed
 
    
@@ -379,19 +389,20 @@ public class menu_Settings extends javax.swing.JFrame {
     private org.edisoncor.gui.button.ButtonAction btn_Accept_Settings;
     private org.edisoncor.gui.button.ButtonAction btn_Load_Settings;
     private org.edisoncor.gui.button.ButtonAction btn_Return_Settings;
-    private javax.swing.JRadioButton chk_curr_dollar;
-    private javax.swing.JRadioButton chk_curr_euro;
-    private javax.swing.JRadioButton chk_curr_pound;
-    private javax.swing.JRadioButton chk_day_bar;
-    private javax.swing.JRadioButton chk_day_bar2;
-    private javax.swing.JRadioButton chk_lang_en;
-    private javax.swing.JRadioButton chk_lang_es;
-    private javax.swing.JRadioButton chk_lang_val;
-    private javax.swing.JRadioButton chk_one_d;
-    private javax.swing.JRadioButton chk_three_d;
-    private javax.swing.JRadioButton chk_two_d;
-    private javax.swing.JRadioButton chk_year_bar;
-    private javax.swing.JRadioButton chk_year_bar2;
+    private org.edisoncor.gui.button.ButtonAction buttonAction1;
+    public static javax.swing.JRadioButton chk_curr_dollar;
+    public static javax.swing.JRadioButton chk_curr_euro;
+    public static javax.swing.JRadioButton chk_curr_pound;
+    public static javax.swing.JRadioButton chk_day_bar;
+    public static javax.swing.JRadioButton chk_day_bar2;
+    public static javax.swing.JRadioButton chk_lang_en;
+    public static javax.swing.JRadioButton chk_lang_es;
+    public static javax.swing.JRadioButton chk_lang_val;
+    public static javax.swing.JRadioButton chk_one_d;
+    public static javax.swing.JRadioButton chk_three_d;
+    public static javax.swing.JRadioButton chk_two_d;
+    public static javax.swing.JRadioButton chk_year_bar;
+    public static javax.swing.JRadioButton chk_year_bar2;
     private javax.swing.ButtonGroup group_currency;
     private javax.swing.ButtonGroup group_date;
     private javax.swing.ButtonGroup group_dec;

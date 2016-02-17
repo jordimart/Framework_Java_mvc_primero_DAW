@@ -33,10 +33,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="panelImage1" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
+          <Component id="panelImage1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -57,15 +54,10 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="panelRectTranslucido1" max="32767" attributes="0"/>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="22" max="32767" attributes="0"/>
-                          <Component id="panelCurves1" min="-2" pref="913" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <Component id="panelRectTranslucido1" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
+              <Component id="panelCurves1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -113,8 +105,9 @@
                           <Component id="btn_Accept_Settings" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_Load_Settings" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_Return_Settings" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonAction1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="32" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -123,17 +116,21 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="panelRound1" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="panelRound1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="panelRound2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="btn_Accept_Settings" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btn_Load_Settings" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="buttonAction1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btn_Return_Settings" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="panelRound2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="panelRound4" max="32767" attributes="0"/>
@@ -194,6 +191,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="dd/mm/yyyy"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="chk_day_bar2">
                   <Properties>
@@ -202,6 +202,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="dd-mm-yyyy"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="chk_year_bar">
                   <Properties>
@@ -210,6 +213,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="yyyy/mm/dd"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="chk_year_bar2">
                   <Properties>
@@ -218,6 +224,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="yyyy-mm-dd"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
                 <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader1">
                   <Properties>
@@ -269,6 +278,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="0.0"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="chk_two_d">
                   <Properties>
@@ -277,6 +289,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="0.00"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="chk_three_d">
                   <Properties>
@@ -285,6 +300,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="0.000"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
                 <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader2">
                   <Properties>
@@ -336,6 +354,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="English"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="chk_lang_es">
                   <Properties>
@@ -344,6 +365,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Spanish"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="chk_lang_val">
                   <Properties>
@@ -352,6 +376,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Valencian"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
                 <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader4">
                   <Properties>
@@ -456,6 +483,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Euro"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="chk_curr_dollar">
                   <Properties>
@@ -464,6 +494,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Dollar"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="chk_curr_pound">
                   <Properties>
@@ -472,6 +505,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Pound"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
                 <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader3">
                   <Properties>
@@ -500,6 +536,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_Return_SettingsActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="buttonAction1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Guardar"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
