@@ -5,6 +5,8 @@ import javax.swing.JOptionPane;
 import Appweb.Modules.Config.Classconfig;
 import Appweb.Classes.Date.ClassDate;
 import Appweb.Classes.Language.Lang;
+import static Appweb.Modules.Users.View.create_Admin.pick_Date_contr_create_admin;
+import static Appweb.Modules.Users.View.create_Admin.pick_date_birth_create_admin;
 
 /**
  * 
@@ -118,35 +120,16 @@ public class Date_tools {
 	 * @return objeto de tipo fecha.
 	 * 
 	 */
-	public static ClassDate Date_min_max_condition(String message, String title, int min, int max) {
+	public static ClassDate Date_min_max_condition(int min, int max) {
 
-		String date = "";
+		String date = pick_date_birth_create_admin.getDateFormatString();
 		int age = 0;
 
 		boolean val1 = false;
 
 		do {
 
-			switch (Classconfig.getInstance().getdatef()) {
-
-			case "dd/mm/yyyy":
-				date = Request_variable.damestring(Lang.getInstance().getProperty("Enter_Birthday_date") + "\n"
-						+ Lang.getInstance().getProperty("Format_example") + ": dd/mm/yyyy", title);
-				break;
-			case "dd-mm-yyyy":
-				date = Request_variable.damestring(Lang.getInstance().getProperty("Enter_Birthday_date") + "\n"
-						+ Lang.getInstance().getProperty("Format_example") + ": dd-mm-yyyy", title);
-				break;
-			case "yyyy/mm/dd":
-				date = Request_variable.damestring(Lang.getInstance().getProperty("Enter_Birthday_date") + "\n"
-						+ Lang.getInstance().getProperty("Format_example") + ": yyyy/mm/dd", title);
-				break;
-			case "yyyy-mm-dd":
-				date = Request_variable.damestring(Lang.getInstance().getProperty("Enter_Birthday_date") + "\n"
-						+ Lang.getInstance().getProperty("Format_example") + ": yyyy-mm-dd", title);
-				break;
-
-			}
+			
 
 			val1 = Validate.okdate(date);
 
@@ -212,9 +195,9 @@ public class Date_tools {
 	 * @param min
 	 * @return objeto fecha.
 	 */
-	public static ClassDate Date_registered(String message, String title, ClassDate d, int min) {
+	public static ClassDate Date_registered( ClassDate d, int min) {
 
-		String date = "";
+		String date = pick_Date_contr_create_admin.getDateFormatString();
 		boolean val1 = false;
 		boolean valok = true;
 		boolean valcomps = true;
@@ -224,26 +207,7 @@ public class Date_tools {
 
 		do {
 
-			switch (Classconfig.getInstance().getdatef()) {
-
-			case "dd/mm/yyyy":
-				date = Request_variable.damestring(Lang.getInstance().getProperty("Enter_recruitment_date") + "\n"
-						+ Lang.getInstance().getProperty("Format_example") + ": dd/mm/yyyy", Lang.getInstance().getProperty("Request"));
-				break;
-			case "dd-mm-yyyy":
-				date = Request_variable.damestring(Lang.getInstance().getProperty("Enter_recruitment_date") + "\n"
-						+ Lang.getInstance().getProperty("Format_example") + ": dd-mm-yyyy", Lang.getInstance().getProperty("Request"));
-				break;
-			case "yyyy/mm/dd":
-				date = Request_variable.damestring(Lang.getInstance().getProperty("Enter_recruitment_date") + "\n"
-						+ Lang.getInstance().getProperty("Format_example") + ": yyyy/mm/dd", Lang.getInstance().getProperty("Request"));
-				break;
-			case "yyyy-mm-dd":
-				date = Request_variable.damestring(Lang.getInstance().getProperty("Enter_recruitment_date") + "\n"
-						+ Lang.getInstance().getProperty("Format_example") + ": yyyy-mm-dd", Lang.getInstance().getProperty("Request"));
-				break;
-
-			}
+			
 			// validamos el formato con forma regular.
 			val1 = Validate.okdate(date);
 

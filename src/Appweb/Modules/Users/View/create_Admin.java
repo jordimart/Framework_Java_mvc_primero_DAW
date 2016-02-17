@@ -50,13 +50,13 @@ public class create_Admin extends javax.swing.JFrame {
         labelHeader12 = new org.edisoncor.gui.label.LabelHeader();
         labelHeader13 = new org.edisoncor.gui.label.LabelHeader();
         txtDni_create_admin = new org.edisoncor.gui.textField.TextField();
-        txtNombre_create_admin = new org.edisoncor.gui.textField.TextField();
-        txtLas_name_creat_admin = new org.edisoncor.gui.textField.TextField();
+        txtName_create_admin = new org.edisoncor.gui.textField.TextField();
+        txtLast_name_create_admin = new org.edisoncor.gui.textField.TextField();
         txtMobile_create_admin = new org.edisoncor.gui.textField.TextField();
         txtEmail_create_admin = new org.edisoncor.gui.textField.TextField();
         txtUser_create_admin = new org.edisoncor.gui.textField.TextField();
         txtStatus_create_admin = new org.edisoncor.gui.textField.TextField();
-        txtSalario_create_admin = new org.edisoncor.gui.textField.TextField();
+        txtSalary_create_admin = new org.edisoncor.gui.textField.TextField();
         txtActivity_create_admin = new org.edisoncor.gui.textField.TextField();
         pick_date_birth_create_admin = new com.toedter.calendar.JDateChooser();
         pick_Date_contr_create_admin = new com.toedter.calendar.JDateChooser();
@@ -126,9 +126,19 @@ public class create_Admin extends javax.swing.JFrame {
             }
         });
 
-        txtNombre_create_admin.setText("Introduzca Nombre");
+        txtName_create_admin.setText("Introduzca Nombre");
+        txtName_create_admin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtName_create_adminMouseClicked(evt);
+            }
+        });
+        txtName_create_admin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtName_create_adminKeyTyped(evt);
+            }
+        });
 
-        txtLas_name_creat_admin.setText("Introduzca Apellido");
+        txtLast_name_create_admin.setText("Introduzca Apellido");
 
         txtMobile_create_admin.setText("Introduzca numero");
 
@@ -138,7 +148,7 @@ public class create_Admin extends javax.swing.JFrame {
 
         txtStatus_create_admin.setText("Introduzca Status");
 
-        txtSalario_create_admin.setText("Introduzca Salario");
+        txtSalary_create_admin.setText("Introduzca Salario");
 
         txtActivity_create_admin.setText("Introduzca Actividad");
 
@@ -198,13 +208,13 @@ public class create_Admin extends javax.swing.JFrame {
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(labAvatar_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtDni_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtNombre_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtLas_name_creat_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtName_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtLast_name_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtMobile_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtEmail_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtUser_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtStatus_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtSalario_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtSalary_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtActivity_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pick_date_birth_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pick_Date_contr_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -231,19 +241,20 @@ public class create_Admin extends javax.swing.JFrame {
             panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRect1Layout.createSequentialGroup()
                 .addGap(124, 124, 124)
-                .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDni_create_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labDni_create_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labDni_create_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDni_create_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHeader2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombre_create_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtName_create_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labName_create_admin))
                 .addGap(18, 18, 18)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHeader3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtLas_name_creat_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtLast_name_create_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lab_last_n_create_admin))
                 .addGap(18, 18, 18)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -283,7 +294,7 @@ public class create_Admin extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHeader11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSalario_create_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSalary_create_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labSalary_create_admin))
                 .addGap(18, 18, 18)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -403,8 +414,17 @@ public class create_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDni_create_adminMouseClicked
 
     private void txtDni_create_adminKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDni_create_adminKeyTyped
-         Core_users.pideDni_();
+         Core_users.Enterdnia();
     }//GEN-LAST:event_txtDni_create_adminKeyTyped
+
+    private void txtName_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtName_create_adminMouseClicked
+        
+        txtName_create_admin.setText("");
+    }//GEN-LAST:event_txtName_create_adminMouseClicked
+
+    private void txtName_create_adminKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtName_create_adminKeyTyped
+        Core_users.Enterword();
+    }//GEN-LAST:event_txtName_create_adminKeyTyped
 
    
 
@@ -449,11 +469,11 @@ public class create_Admin extends javax.swing.JFrame {
     public static org.edisoncor.gui.textField.TextField txtActivity_create_admin;
     public static org.edisoncor.gui.textField.TextField txtDni_create_admin;
     public static org.edisoncor.gui.textField.TextField txtEmail_create_admin;
-    public static org.edisoncor.gui.textField.TextField txtLas_name_creat_admin;
+    public static org.edisoncor.gui.textField.TextField txtLast_name_create_admin;
     public static org.edisoncor.gui.textField.TextField txtMobile_create_admin;
-    public static org.edisoncor.gui.textField.TextField txtNombre_create_admin;
+    public static org.edisoncor.gui.textField.TextField txtName_create_admin;
     public static org.edisoncor.gui.passwordField.PasswordField txtPassword_create_admin;
-    public static org.edisoncor.gui.textField.TextField txtSalario_create_admin;
+    public static org.edisoncor.gui.textField.TextField txtSalary_create_admin;
     public static org.edisoncor.gui.textField.TextField txtStatus_create_admin;
     public static org.edisoncor.gui.textField.TextField txtUser_create_admin;
     // End of variables declaration//GEN-END:variables

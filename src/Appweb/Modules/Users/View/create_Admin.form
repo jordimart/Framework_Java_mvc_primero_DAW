@@ -112,13 +112,13 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="labAvatar_create_admin" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtDni_create_admin" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtNombre_create_admin" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtLas_name_creat_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtName_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtLast_name_create_admin" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtMobile_create_admin" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtEmail_create_admin" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtUser_create_admin" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtStatus_create_admin" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtSalario_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtSalary_create_admin" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtActivity_create_admin" alignment="0" max="32767" attributes="0"/>
                           <Component id="pick_date_birth_create_admin" alignment="0" max="32767" attributes="0"/>
                           <Component id="pick_Date_contr_create_admin" alignment="0" max="32767" attributes="0"/>
@@ -149,21 +149,23 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelHeader1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtDni_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="labDni_create_admin" alignment="0" min="-2" pref="15" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="labelHeader1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDni_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelHeader2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtNombre_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtName_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labName_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelHeader3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtLas_name_creat_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtLast_name_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lab_last_n_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -211,7 +213,7 @@
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelHeader11" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtSalario_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtSalary_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labSalary_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -310,12 +312,16 @@
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDni_create_adminKeyTyped"/>
               </Events>
             </Component>
-            <Component class="org.edisoncor.gui.textField.TextField" name="txtNombre_create_admin">
+            <Component class="org.edisoncor.gui.textField.TextField" name="txtName_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Introduzca Nombre"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtName_create_adminMouseClicked"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtName_create_adminKeyTyped"/>
+              </Events>
             </Component>
-            <Component class="org.edisoncor.gui.textField.TextField" name="txtLas_name_creat_admin">
+            <Component class="org.edisoncor.gui.textField.TextField" name="txtLast_name_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Introduzca Apellido"/>
               </Properties>
@@ -340,7 +346,7 @@
                 <Property name="text" type="java.lang.String" value="Introduzca Status"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.textField.TextField" name="txtSalario_create_admin">
+            <Component class="org.edisoncor.gui.textField.TextField" name="txtSalary_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Introduzca Salario"/>
               </Properties>
