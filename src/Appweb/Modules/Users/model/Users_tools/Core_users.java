@@ -3,9 +3,13 @@ package Appweb.Modules.Users.model.Users_tools;
 import javax.swing.JOptionPane;
 
 import Appweb.Classes.Language.Lang;
+import static Appweb.Modules.Users.View.create_Admin.labDni_create_admin;
 import Appweb.Modules.Users.model.BLL.Look_for_dni;
 import Appweb.Tools.Request_variable;
 import Appweb.Tools.Validate;
+import static Appweb.Modules.Users.View.create_Admin.txtDni_create_admin;
+import Appweb.Modules.Users.model.Classes.Admin;
+import java.awt.Color;
 
 /**
  * 
@@ -67,6 +71,40 @@ public class Core_users {
 		return dni;
 	}
 
+        public static boolean pideDni_() {
+        int pos;
+        boolean correcto = false;
+
+        if (txtDni_create_admin.getText().equals("")) {
+            txtDni_create_admin.setBackground(Color.red);
+            txtDni_create_admin.requestFocus();
+            correcto = false;
+            //  EFCrear.EFguardar.setEnabled(false);
+        } else {
+            Admin emp = new Admin(txtDni_create_admin.getText().toUpperCase());
+            pos = Look_for_dni.Look_for_dni_admin(txtDni_create_admin.getText().toString());
+
+            if (pos != -1) {
+                // JOptionPane.showMessageDialog(null, "El DNI que ha introducido ya existe", "Aviso", JOptionPane.WARNING_MESSAGE);
+                txtDni_create_admin.setBackground(Color.red);
+                txtDni_create_admin.requestFocus();
+                correcto = false;
+
+            } else {
+                if (Validate.okdni(txtDni_create_admin.getText()) == false) {
+                    txtDni_create_admin.setBackground(Color.red);
+                    txtDni_create_admin.requestFocus();
+
+                } else {
+                    txtDni_create_admin.setBackground(Color.CYAN);
+                    txtDni_create_admin.requestFocus();
+                    correcto = true;
+
+                }
+            }
+        }
+        return correcto;
+    }
 	/**
 	 * Fucion que valida que el dni pueda existir.Pero ademas comprueba que no
 	 * este repetido en los Admin.
@@ -75,7 +113,7 @@ public class Core_users {
 	 * @param title
 	 * @return string dni
 	 */
-	public static String Enterdnia(String message, String title) {
+	public static String Enterdnia() {
 
 		int num = 0, rest = 0;
 		char letter = ' ', pass = ' ';
@@ -83,15 +121,17 @@ public class Core_users {
 		boolean ok = false;
 		int pos = -1;
 
-		do {
+		
 
-			dni = Request_variable.damestring(message, title);
+			dni = txtDni_create_admin.getText().toString();
 			dni = dni.toUpperCase();
 			ok = Validate.okdni(dni);
-			if (ok == false)
-				JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
-						Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
-			else {
+			if (ok == false){
+                            //labDni_create_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Users/Img/Imagen_no_ok_Delete_16x16.png")));
+                            txtDni_create_admin.setBackground(Color.red);
+				//JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
+						//Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+                        }else {
 
 				aux = "";
 
@@ -108,6 +148,7 @@ public class Core_users {
 				if (pass == letter) {
 					ok = true;
 				} else {
+                                    
 					JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("This_Dni_don't_exist"),
 							Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
 					ok = false;
@@ -129,7 +170,7 @@ public class Core_users {
 
 			}
 
-		} while (ok == false);
+		 txtDni_create_admin.setBackground(Color.GREEN);
 
 		return dni;
 	}

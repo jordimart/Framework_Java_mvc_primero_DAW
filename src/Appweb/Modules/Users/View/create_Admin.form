@@ -17,7 +17,7 @@
     <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
-    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="9"/>
   </AuxValues>
 
   <Layout>
@@ -80,7 +80,7 @@
                       <Component id="panelRect2" min="-2" max="-2" attributes="0"/>
                       <Component id="panelRect1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="78" max="32767" attributes="0"/>
+                  <EmptySpace pref="75" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -110,36 +110,36 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textField1" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textField2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textField3" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textField4" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textField5" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textField6" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textField8" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textField9" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textField10" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textField11" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jDateChooser1" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jDateChooser2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="passwordField1" alignment="0" pref="162" max="32767" attributes="0"/>
+                          <Component id="labAvatar_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtDni_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtNombre_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtLas_name_creat_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtMobile_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtEmail_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtUser_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtStatus_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtSalario_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtActivity_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="pick_date_birth_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="pick_Date_contr_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtPassword_create_admin" alignment="0" pref="162" max="32767" attributes="0"/>
+                          <Component id="buttonAero1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="labDni_create_admin" max="32767" attributes="0"/>
+                          <Component id="labName_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lab_last_n_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labMobile_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labDate_birth_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labEmail_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lab_User_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labPassword_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labStatus_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labDate_contr_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labSalary_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labActivity_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="laberrorAvatar_create_admin" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="43" max="32767" attributes="0"/>
                   </Group>
@@ -151,83 +151,85 @@
                       <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelHeader1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtDni_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labDni_create_admin" alignment="0" min="-2" pref="15" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelHeader2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNombre_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labName_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelHeader3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textField3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtLas_name_creat_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lab_last_n_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelHeader4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textField4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtMobile_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labMobile_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="labelHeader5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jDateChooser1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="pick_date_birth_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labDate_birth_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelHeader6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textField5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtEmail_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labEmail_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelHeader7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textField6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtUser_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lab_User_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelHeader8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="passwordField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtPassword_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labPassword_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelHeader9" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textField8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtStatus_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labStatus_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="labelHeader10" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jDateChooser2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="pick_Date_contr_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labDate_contr_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelHeader11" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textField9" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtSalario_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labSalary_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelHeader12" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textField10" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtActivity_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labActivity_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelHeader13" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="textField11" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="labelHeader13" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="laberrorAvatar_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="buttonAero1" min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="136" max="-2" attributes="0"/>
+                      <Component id="labAvatar_create_admin" min="-2" pref="136" max="-2" attributes="0"/>
                       <EmptySpace pref="89" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -299,133 +301,141 @@
                 <Property name="text" type="java.lang.String" value="Avatar:"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.textField.TextField" name="textField1">
+            <Component class="org.edisoncor.gui.textField.TextField" name="txtDni_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Introduzca Dni"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtDni_create_adminMouseClicked"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDni_create_adminKeyTyped"/>
+              </Events>
             </Component>
-            <Component class="org.edisoncor.gui.textField.TextField" name="textField2">
+            <Component class="org.edisoncor.gui.textField.TextField" name="txtNombre_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Introduzca Nombre"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.textField.TextField" name="textField3">
+            <Component class="org.edisoncor.gui.textField.TextField" name="txtLas_name_creat_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Introduzca Apellido"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.textField.TextField" name="textField4">
+            <Component class="org.edisoncor.gui.textField.TextField" name="txtMobile_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Introduzca numero"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.textField.TextField" name="textField5">
+            <Component class="org.edisoncor.gui.textField.TextField" name="txtEmail_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Introduzca Email"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.textField.TextField" name="textField6">
+            <Component class="org.edisoncor.gui.textField.TextField" name="txtUser_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Introduzca Usuario"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.textField.TextField" name="textField8">
+            <Component class="org.edisoncor.gui.textField.TextField" name="txtStatus_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Introduzca Status"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.textField.TextField" name="textField9">
+            <Component class="org.edisoncor.gui.textField.TextField" name="txtSalario_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Introduzca Salario"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.textField.TextField" name="textField10">
+            <Component class="org.edisoncor.gui.textField.TextField" name="txtActivity_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Introduzca Actividad"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.textField.TextField" name="textField11">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Introduzca Avatar"/>
-              </Properties>
+            <Component class="com.toedter.calendar.JDateChooser" name="pick_date_birth_create_admin">
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+            <Component class="com.toedter.calendar.JDateChooser" name="pick_Date_contr_create_admin">
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser2">
-            </Component>
-            <Component class="org.edisoncor.gui.passwordField.PasswordField" name="passwordField1">
+            <Component class="org.edisoncor.gui.passwordField.PasswordField" name="txtPassword_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="passwordField1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="labAvatar_create_admin">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Selecion imagen"/>
+                <Property name="text" type="java.lang.String" value="Seleccion imagen"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="labDni_create_admin">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel2"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Appweb/Modules/Users/Img/Imagen_ok_16x16.png"/>
+                </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="labName_create_admin">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel3"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Appweb/Modules/Users/Img/Imagen_ok_16x16.png"/>
+                </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="lab_last_n_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel4"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="labMobile_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel5"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel6">
+            <Component class="javax.swing.JLabel" name="labDate_birth_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel6"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel7">
+            <Component class="javax.swing.JLabel" name="labEmail_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel7"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel8">
+            <Component class="javax.swing.JLabel" name="lab_User_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel8"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel9">
+            <Component class="javax.swing.JLabel" name="labPassword_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel9"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel10">
+            <Component class="javax.swing.JLabel" name="labStatus_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel10"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel11">
+            <Component class="javax.swing.JLabel" name="labDate_contr_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel11"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel12">
+            <Component class="javax.swing.JLabel" name="labSalary_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel12"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel13">
+            <Component class="javax.swing.JLabel" name="labActivity_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel13"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel14">
+            <Component class="javax.swing.JLabel" name="laberrorAvatar_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel14"/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.button.ButtonAero" name="buttonAero1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="A&#xf1;adir Avatar"/>
               </Properties>
             </Component>
           </SubComponents>

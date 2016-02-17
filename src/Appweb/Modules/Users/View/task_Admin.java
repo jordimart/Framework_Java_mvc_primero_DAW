@@ -16,12 +16,12 @@ import javax.swing.JOptionPane;
  *
  * @author ASUSG50V
  */
-public class Menu_Admin extends javax.swing.JFrame {
+public class task_Admin extends javax.swing.JFrame {
 
     /**
      * Creates new form Menu_Admin
      */
-    public Menu_Admin() {
+    public task_Admin() {
         initComponents();
 
         this.setTitle(Lang.getInstance().getProperty("Admin"));

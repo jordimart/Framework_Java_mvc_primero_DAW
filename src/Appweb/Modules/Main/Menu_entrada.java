@@ -7,7 +7,7 @@ package Appweb.Modules.Main;
 
 import Appweb.Classes.Language.Lang;
 import static Appweb.Modules.Config.Config_tools.auto_open_config_json;
-import Appweb.Modules.Users.View.Menu_Admin;
+import Appweb.Modules.Users.View.task_Admin;
 import javax.swing.JOptionPane;
 
 /**
@@ -174,7 +174,7 @@ public class Menu_entrada extends javax.swing.JFrame {
     private void Login_AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login_AdminActionPerformed
         
         this.dispose();
-        Menu_Admin menu = new Menu_Admin();
+        task_Admin menu = new task_Admin();
         menu.setVisible(true);
        
 

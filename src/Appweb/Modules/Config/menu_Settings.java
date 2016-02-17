@@ -7,7 +7,7 @@ package Appweb.Modules.Config;
 
 import static Appweb.Modules.Config.Config_tools.Configuration_accept;
 import static Appweb.Modules.Config.Config_tools.Menu_theme;
-import Appweb.Modules.Users.View.Menu_Admin;
+import Appweb.Modules.Users.View.task_Admin;
 import static Appweb.Modules.Config.Config_tools.auto_save_config_json;
 import static Appweb.Modules.Config.Config_tools.save_json_config;
 
@@ -369,7 +369,7 @@ public class menu_Settings extends javax.swing.JFrame {
     private void btn_Return_SettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Return_SettingsActionPerformed
         
          this.dispose();
-        Menu_Admin menu = new Menu_Admin();
+        task_Admin menu = new task_Admin();
         menu.setLocationRelativeTo(null);
         menu.setVisible(true);
     }//GEN-LAST:event_btn_Return_SettingsActionPerformed

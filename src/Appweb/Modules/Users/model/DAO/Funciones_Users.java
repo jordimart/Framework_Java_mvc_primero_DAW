@@ -51,9 +51,8 @@ public class Funciones_Users {
 		ClassDate Date_birth = null;
 
 		// Enter User atributtes
-		Dni = Core_users.Enterdnia(
-				Lang.getInstance().getProperty("Enter_Dni") + "\n" + Lang.getInstance().getProperty("Format_example") + ": 48293555N",
-				Lang.getInstance().getProperty("Request"));
+		Dni = Core_users.Enterdnia();
+				
 		Name = Core_users.Enterword(Lang.getInstance().getProperty("Enter_Name"), Lang.getInstance().getProperty("Request"));
 		Last_name = Core_users.Enterword(Lang.getInstance().getProperty("Enter_Last_Name"), Lang.getInstance().getProperty("Request"));
 		Mobile = Core_users.Entermobile(
@@ -215,9 +214,8 @@ public class Funciones_Users {
 		switch (pos) {
 
 		case 0:
-			Dni = Core_users.Enterdnia(
-					Lang.getInstance().getProperty("Enter_Dni") + "\n" + Lang.getInstance().getProperty("Format_example") + ": 48293555N",
-					Lang.getInstance().getProperty("Request"));
+			Dni = Core_users.Enterdnia();
+					
 
 			singleton.Admin_array.get(i).setDni(Dni);
 

@@ -293,7 +293,7 @@ public class table_Users extends javax.swing.JFrame {
     private void btn_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VolverActionPerformed
        
          this.dispose();
-        Menu_Admin menu = new Menu_Admin();
+        task_Admin menu = new task_Admin();
         menu.setLocationRelativeTo(null);
         menu.setVisible(true);
     }//GEN-LAST:event_btn_VolverActionPerformed
