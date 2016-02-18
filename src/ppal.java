@@ -2,6 +2,7 @@
 import Appweb.Modules.Config.Classconfig;
 import Appweb.Modules.Main.Menu_entrada;
 import java.text.ParseException;
+import javax.swing.ImageIcon;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,6 +15,9 @@ import java.text.ParseException;
  * @author ASUSG50V
  */
 public class ppal {
+    
+    public static ImageIcon mal= new ImageIcon("/Appweb/Modules/Users/Img/Imagen_no_ok_Delete_16x16.png");
+   
      public static void main(String args[]) throws ParseException {
        
       

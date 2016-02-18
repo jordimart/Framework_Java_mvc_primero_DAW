@@ -45,7 +45,7 @@ public class Lang extends Properties {
 		case "english":
 			getProperties("english.properties");
 			break;
-		case "espa�ol":
+		case "español":
 			getProperties("espanol.properties");
 			break;
 		case "valencia":
@@ -67,7 +67,7 @@ public class Lang extends Properties {
 		case "english":
 			getProperties("english.properties");
 			break;
-		case "espa�ol":
+		case "español":
 			getProperties("espanol.properties");
 			break;
 		case "valencia":

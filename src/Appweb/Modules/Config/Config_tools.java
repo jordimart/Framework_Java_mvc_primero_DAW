@@ -41,6 +41,7 @@ import static Appweb.Modules.Config.menu_Settings.chk_three_d;
 import static Appweb.Modules.Config.menu_Settings.chk_two_d;
 import static Appweb.Modules.Config.menu_Settings.chk_year_bar;
 import static Appweb.Modules.Config.menu_Settings.chk_year_bar2;
+import static Appweb.Modules.Config.menu_Settings.group_language;
 import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
 
 public class Config_tools {
@@ -443,17 +444,15 @@ public class Config_tools {
      */
     public static void radio_button_language() {
 
-        if (chk_lang_en.getSelectedIcon() == null) {
-        } else {
-            Classconfig.getInstance().setLanguage(chk_lang_en.getSelectedIcon().toString());
+        if (chk_lang_en.isSelected()) {
+            Classconfig.getInstance().setLanguage(chk_lang_en.getText());
         }
-        if (chk_lang_es.getSelectedIcon() == null) {
-        } else {
-            Classconfig.getInstance().setLanguage(chk_lang_es.getSelectedIcon().toString());
+
+        if (chk_lang_es.isSelected()) {
+            Classconfig.getInstance().setLanguage(chk_lang_es.getText());
         }
-        if (chk_lang_val.getSelectedIcon() == null) {
-        } else {
-            Classconfig.getInstance().setLanguage(chk_lang_val.getSelectedIcon().toString());
+        if (chk_lang_val.isSelected()) {
+            Classconfig.getInstance().setLanguage(chk_lang_val.getText());
         }
 
     }
@@ -463,24 +462,22 @@ public class Config_tools {
      *
      */
     public static void radio_button_datef() {
-
-        if (chk_day_bar.getSelectedIcon() == null) {
-        } else {
-            Classconfig.getInstance().setdatef(chk_day_bar.getSelectedIcon().toString());
-        }
-        if (chk_day_bar2.getSelectedIcon() == null) {
-        } else {
-            Classconfig.getInstance().setdatef(chk_day_bar2.getSelectedIcon().toString());
-        }
-        if (chk_year_bar.getSelectedIcon() == null) {
-        } else {
-            Classconfig.getInstance().setdatef(chk_year_bar.getSelectedIcon().toString());
-        }
-        if (chk_year_bar2.getSelectedIcon() == null) {
-        } else {
-            Classconfig.getInstance().setdatef(chk_year_bar2.getSelectedIcon().toString());
+        
+        
+         if (chk_day_bar.isSelected()) {
+            Classconfig.getInstance().setdatef(chk_day_bar.getText());
         }
 
+        if (chk_day_bar2.isSelected()) {
+            Classconfig.getInstance().setdatef(chk_day_bar2.getText());
+        }
+        if (chk_year_bar.isSelected()) {
+            Classconfig.getInstance().setdatef(chk_year_bar.getText());
+        }
+        if (chk_year_bar2.isSelected()) {
+            Classconfig.getInstance().setdatef(chk_year_bar2.getText());
+        }
+        
     }
 
     /**
@@ -489,39 +486,35 @@ public class Config_tools {
      */
     public static void radio_button_decimal() {
 
-        if (chk_one_d.getSelectedIcon() == null) {
-        } else {
-            Classconfig.getInstance().setnum_dec(chk_one_d.getSelectedIcon().toString());
+        
+        if (chk_one_d.isSelected()) {
+            Classconfig.getInstance().setnum_dec(chk_one_d.getText());
         }
-        if (chk_two_d.getSelectedIcon() == null) {
-        } else {
-            Classconfig.getInstance().setnum_dec(chk_two_d.getSelectedIcon().toString());
+
+        if (chk_two_d.isSelected()) {
+            Classconfig.getInstance().setnum_dec(chk_two_d.getText());
         }
-        if (chk_three_d.getSelectedIcon() == null) {
-        } else {
-            Classconfig.getInstance().setnum_dec(chk_three_d.getSelectedIcon().toString());
+        if (chk_three_d.isSelected()) {
+            Classconfig.getInstance().setnum_dec(chk_three_d.getText());
         }
+        
 
     }
+    
+     public static void radio_button_currency() {
 
-    /**
-     * Main combox for select currency
-     *
-     */
-    public static void radio_button_currency() {
+        
+        if (chk_curr_euro.isSelected()) {
+            Classconfig.getInstance().setCurrency(chk_curr_euro.getText());
+        }
 
-        if (chk_curr_dollar.getSelectedIcon() == null) {
-        } else {
-            Classconfig.getInstance().setCurrency(chk_curr_dollar.getSelectedIcon().toString());
+        if (chk_curr_dollar.isSelected()) {
+            Classconfig.getInstance().setCurrency(chk_curr_dollar.getText());
         }
-        if (chk_curr_euro.getSelectedIcon() == null) {
-        } else {
-            Classconfig.getInstance().setCurrency(chk_curr_euro.getSelectedIcon().toString());
+        if (chk_curr_pound.isSelected()) {
+            Classconfig.getInstance().setCurrency(chk_curr_pound.getText());
         }
-        if (chk_curr_pound.getSelectedIcon() == null) {
-        } else {
-            Classconfig.getInstance().setCurrency(chk_curr_pound.getSelectedIcon().toString());
-        }
+        
 
     }
 

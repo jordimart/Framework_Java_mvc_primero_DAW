@@ -10,6 +10,7 @@ import static Appweb.Modules.Config.Config_tools.Menu_theme;
 import Appweb.Modules.Users.View.task_Admin;
 import static Appweb.Modules.Config.Config_tools.auto_save_config_json;
 import static Appweb.Modules.Config.Config_tools.save_json_config;
+import javax.swing.JOptionPane;
 
 
 
@@ -167,13 +168,13 @@ public class menu_Settings extends javax.swing.JFrame {
         );
 
         group_language.add(chk_lang_en);
-        chk_lang_en.setText("English");
+        chk_lang_en.setText("english");
 
         group_language.add(chk_lang_es);
-        chk_lang_es.setText("Spanish");
+        chk_lang_es.setText("español");
 
         group_language.add(chk_lang_val);
-        chk_lang_val.setText("Valencian");
+        chk_lang_val.setText("valencia");
 
         labelHeader4.setText("Lenguage");
 
@@ -231,13 +232,13 @@ public class menu_Settings extends javax.swing.JFrame {
         );
 
         group_currency.add(chk_curr_euro);
-        chk_curr_euro.setText("Euro");
+        chk_curr_euro.setText("euro");
 
         group_currency.add(chk_curr_dollar);
-        chk_curr_dollar.setText("Dollar");
+        chk_curr_dollar.setText("dolar");
 
         group_currency.add(chk_curr_pound);
-        chk_curr_pound.setText("Pound");
+        chk_curr_pound.setText("pound");
 
         labelHeader3.setText("Moneda");
 
@@ -277,6 +278,11 @@ public class menu_Settings extends javax.swing.JFrame {
         });
 
         btn_Load_Settings.setText("Cargar");
+        btn_Load_Settings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Load_SettingsActionPerformed(evt);
+            }
+        });
 
         btn_Return_Settings.setText("Volver");
         btn_Return_Settings.addActionListener(new java.awt.event.ActionListener() {
@@ -307,7 +313,7 @@ public class menu_Settings extends javax.swing.JFrame {
                     .addComponent(btn_Load_Settings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Return_Settings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonAction1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         panelRectTranslucido1Layout.setVerticalGroup(
             panelRectTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -382,6 +388,12 @@ public class menu_Settings extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_Accept_SettingsActionPerformed
 
+    private void btn_Load_SettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Load_SettingsActionPerformed
+       
+       
+        JOptionPane.showMessageDialog(null, Classconfig.getInstance().tostring() );
+    }//GEN-LAST:event_btn_Load_SettingsActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -403,10 +415,10 @@ public class menu_Settings extends javax.swing.JFrame {
     public static javax.swing.JRadioButton chk_two_d;
     public static javax.swing.JRadioButton chk_year_bar;
     public static javax.swing.JRadioButton chk_year_bar2;
-    private javax.swing.ButtonGroup group_currency;
-    private javax.swing.ButtonGroup group_date;
-    private javax.swing.ButtonGroup group_dec;
-    private javax.swing.ButtonGroup group_language;
+    public static javax.swing.ButtonGroup group_currency;
+    public static javax.swing.ButtonGroup group_date;
+    public static javax.swing.ButtonGroup group_dec;
+    public static javax.swing.ButtonGroup group_language;
     private org.edisoncor.gui.label.LabelHeader labelHeader1;
     private org.edisoncor.gui.label.LabelHeader labelHeader2;
     private org.edisoncor.gui.label.LabelHeader labelHeader3;

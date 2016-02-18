@@ -9,7 +9,7 @@ import Appweb.Modules.Users.model.Classes.Admin;
 import Appweb.Modules.Users.model.Classes.Client;
 import Appweb.Modules.Users.model.Classes.User_reg;
 import Appweb.Modules.Users.model.Classes.singleton;
-import Appweb.Modules.Users.model.DAO.Funciones_Users;
+import Appweb.Modules.Users.model.DAO.Dao_users;
 import Appweb.Tools.Menu;
 
 /**
@@ -17,7 +17,7 @@ import Appweb.Tools.Menu;
  * @author Jorge Martinez Frias
  *
  */
-public class Crud_users {
+public class BLL_users {
 
 	/**
 	 * This function asks admin data and enters them into an array
@@ -27,7 +27,7 @@ public class Crud_users {
 
 		Admin a = null;
 
-		a = Funciones_Users.Adminrequest();
+		a = Dao_users.Adminrequest();
 
 		singleton.Admin_array.add(a);
 	}
@@ -40,7 +40,7 @@ public class Crud_users {
 
 		Client c = null;
 
-		c = Funciones_Users.Clientrequest();
+		c = Dao_users.Clientrequest();
 
 		singleton.Client_array.add(c);
 	}
@@ -53,7 +53,7 @@ public class Crud_users {
 
 		User_reg u = null;
 
-		u = Funciones_Users.User_regrequest();
+		u = Dao_users.User_regrequest();
 
 		singleton.User_reg_array.add(u);
 	}
@@ -458,7 +458,7 @@ public class Crud_users {
 
 			pos = Look_for_dni.Look_for_dni_admin(dni);
 
-			Funciones_Users.Adminset(pos);
+			Dao_users.Adminset(pos);
 		} else {
 
 			JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("There_are_elements_of_administrator_type"));
@@ -493,7 +493,7 @@ public class Crud_users {
 
 			pos = Look_for_dni.Look_for_dni_client(dni);
 
-			Funciones_Users.Clientset(pos);
+			Dao_users.Clientset(pos);
 		} else {
 
 			JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("There_are_elements_of_client_type"));
@@ -527,7 +527,7 @@ public class Crud_users {
 
 			pos = Look_for_dni.Look_for_dni_user_reg(dni);
 
-			Funciones_Users.User_regset(pos);
+			Dao_users.User_regset(pos);
 
 		} else {
 

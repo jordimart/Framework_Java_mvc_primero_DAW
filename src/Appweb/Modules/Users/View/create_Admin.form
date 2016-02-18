@@ -325,11 +325,20 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Introduzca Apellido"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtLast_name_create_adminMouseClicked"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtLast_name_create_adminKeyTyped"/>
+              </Events>
             </Component>
             <Component class="org.edisoncor.gui.textField.TextField" name="txtMobile_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Introduzca numero"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtMobile_create_adminMouseClicked"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtMobile_create_adminKeyReleased"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtMobile_create_adminKeyTyped"/>
+              </Events>
             </Component>
             <Component class="org.edisoncor.gui.textField.TextField" name="txtEmail_create_admin">
               <Properties>
@@ -371,11 +380,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labDni_create_admin">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Appweb/Modules/Users/Img/Imagen_ok_16x16.png"/>
-                </Property>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labName_create_admin">
               <Properties>

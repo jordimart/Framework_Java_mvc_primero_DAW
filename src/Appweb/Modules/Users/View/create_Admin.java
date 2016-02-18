@@ -1,10 +1,13 @@
+package Appweb.Modules.Users.View;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Appweb.Modules.Users.View;
 
+
+import Appweb.Modules.Users.model.DAO.Dao_users;
 import Appweb.Modules.Users.model.Users_tools.Core_users;
 
 /**
@@ -22,7 +25,7 @@ public class create_Admin extends javax.swing.JFrame {
 	this.setLocationRelativeTo(null);
 	this.setSize(1000,1200);//ancho x alto
 	this.setResizable(false);
-        labDni_create_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Users/Img/Warning_16x16.png")));
+        
     }
 
     /**
@@ -139,8 +142,31 @@ public class create_Admin extends javax.swing.JFrame {
         });
 
         txtLast_name_create_admin.setText("Introduzca Apellido");
+        txtLast_name_create_admin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtLast_name_create_adminMouseClicked(evt);
+            }
+        });
+        txtLast_name_create_admin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtLast_name_create_adminKeyTyped(evt);
+            }
+        });
 
         txtMobile_create_admin.setText("Introduzca numero");
+        txtMobile_create_admin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtMobile_create_adminMouseClicked(evt);
+            }
+        });
+        txtMobile_create_admin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtMobile_create_adminKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMobile_create_adminKeyTyped(evt);
+            }
+        });
 
         txtEmail_create_admin.setText("Introduzca Email");
 
@@ -155,8 +181,6 @@ public class create_Admin extends javax.swing.JFrame {
         txtPassword_create_admin.setText("passwordField1");
 
         labAvatar_create_admin.setText("Seleccion imagen");
-
-        labDni_create_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Users/Img/Imagen_ok_16x16.png"))); // NOI18N
 
         labName_create_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Users/Img/Imagen_ok_16x16.png"))); // NOI18N
 
@@ -414,7 +438,7 @@ public class create_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDni_create_adminMouseClicked
 
     private void txtDni_create_adminKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDni_create_adminKeyTyped
-         Core_users.Enterdnia();
+         Dao_users.Enterdnia();
     }//GEN-LAST:event_txtDni_create_adminKeyTyped
 
     private void txtName_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtName_create_adminMouseClicked
@@ -423,8 +447,30 @@ public class create_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtName_create_adminMouseClicked
 
     private void txtName_create_adminKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtName_create_adminKeyTyped
-        Core_users.Enterword();
+        Dao_users.Entername();
     }//GEN-LAST:event_txtName_create_adminKeyTyped
+
+    private void txtMobile_create_adminKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMobile_create_adminKeyTyped
+
+        
+    }//GEN-LAST:event_txtMobile_create_adminKeyTyped
+
+    private void txtMobile_create_adminKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMobile_create_adminKeyReleased
+         Dao_users.Entermobile();
+    }//GEN-LAST:event_txtMobile_create_adminKeyReleased
+
+    private void txtLast_name_create_adminKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLast_name_create_adminKeyTyped
+        Dao_users.Enterlast_name();
+    }//GEN-LAST:event_txtLast_name_create_adminKeyTyped
+
+    private void txtLast_name_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLast_name_create_adminMouseClicked
+      txtLast_name_create_admin.setText("");
+    }//GEN-LAST:event_txtLast_name_create_adminMouseClicked
+
+    private void txtMobile_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMobile_create_adminMouseClicked
+        
+        txtMobile_create_admin.setText("");
+    }//GEN-LAST:event_txtMobile_create_adminMouseClicked
 
    
 

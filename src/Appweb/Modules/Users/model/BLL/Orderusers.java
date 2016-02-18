@@ -46,34 +46,34 @@ public class Orderusers {
 			case "Dni":
 
 				Collections.sort(singleton.Admin_array);
-				Crud_users.Print_Array_admin();
+				BLL_users.Print_Array_admin();
 
 				break;
 			case "Name":
 
 				Collections.sort(singleton.Admin_array, new Ordername());
-				Crud_users.Print_Array_admin();
+				BLL_users.Print_Array_admin();
 
 				break;
 
 			case "Last_name":
 
 				Collections.sort(singleton.Admin_array, new Orderlast_name());
-				Crud_users.Print_Array_admin();
+				BLL_users.Print_Array_admin();
 
 				break;
 
 			case "Date_birth":
 
 				Collections.sort(singleton.Admin_array, new Orderdate_birth());
-				Crud_users.Print_Array_admin();
+				BLL_users.Print_Array_admin();
 
 				break;
 
 			case "Benefits":
 
 				Collections.sort(singleton.Admin_array, new OrderBenefits());
-				Crud_users.Print_Array_admin();
+				BLL_users.Print_Array_admin();
 
 				break;
 
@@ -110,34 +110,34 @@ public class Orderusers {
 			case "Dni":
 
 				Collections.sort(singleton.Client_array);
-				Crud_users.Print_Array_client();
+				BLL_users.Print_Array_client();
 
 				break;
 			case "Name":
 
 				Collections.sort(singleton.Client_array, new Ordername());
-				Crud_users.Print_Array_client();
+				BLL_users.Print_Array_client();
 
 				break;
 
 			case "Last_name":
 
 				Collections.sort(singleton.Client_array, new Orderlast_name());
-				Crud_users.Print_Array_client();
+				BLL_users.Print_Array_client();
 
 				break;
 
 			case "Date_birth":
 
 				Collections.sort(singleton.Client_array, new Orderdate_birth());
-				Crud_users.Print_Array_client();
+				BLL_users.Print_Array_client();
 
 				break;
 
 			case "Benefits":
 
 				Collections.sort(singleton.Client_array, new OrderBenefits());
-				Crud_users.Print_Array_client();
+				BLL_users.Print_Array_client();
 
 				break;
 
@@ -174,34 +174,34 @@ public class Orderusers {
 			case "Dni":
 
 				Collections.sort(singleton.User_reg_array);
-				Crud_users.Print_Array_user_reg();
+				BLL_users.Print_Array_user_reg();
 
 				break;
 			case "Name":
 
 				Collections.sort(singleton.User_reg_array, new Ordername());
-				Crud_users.Print_Array_user_reg();
+				BLL_users.Print_Array_user_reg();
 
 				break;
 
 			case "Last_name":
 
 				Collections.sort(singleton.User_reg_array, new Orderlast_name());
-				Crud_users.Print_Array_user_reg();
+				BLL_users.Print_Array_user_reg();
 
 				break;
 
 			case "Date_birth":
 
 				Collections.sort(singleton.User_reg_array, new Orderdate_birth());
-				Crud_users.Print_Array_user_reg();
+				BLL_users.Print_Array_user_reg();
 
 				break;
 
 			case "Benefits":
 
 				Collections.sort(singleton.User_reg_array, new OrderBenefits());
-				Crud_users.Print_Array_user_reg();
+				BLL_users.Print_Array_user_reg();
 
 				break;
 

@@ -3,12 +3,24 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="group_date">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.ButtonGroup" name="group_dec">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.ButtonGroup" name="group_currency">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.ButtonGroup" name="group_language">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
     </Component>
   </NonVisualComponents>
   <Properties>
@@ -107,7 +119,7 @@
                           <Component id="btn_Return_Settings" min="-2" max="-2" attributes="0"/>
                           <Component id="buttonAction1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="32" max="32767" attributes="0"/>
+                      <EmptySpace pref="40" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -352,7 +364,7 @@
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="group_language"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="English"/>
+                    <Property name="text" type="java.lang.String" value="english"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -363,7 +375,7 @@
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="group_language"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Spanish"/>
+                    <Property name="text" type="java.lang.String" value="espa&#xf1;ol"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -374,7 +386,7 @@
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="group_language"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Valencian"/>
+                    <Property name="text" type="java.lang.String" value="valencia"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -481,7 +493,7 @@
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="group_currency"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Euro"/>
+                    <Property name="text" type="java.lang.String" value="euro"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -492,7 +504,7 @@
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="group_currency"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Dollar"/>
+                    <Property name="text" type="java.lang.String" value="dolar"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -503,7 +515,7 @@
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="group_currency"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Pound"/>
+                    <Property name="text" type="java.lang.String" value="pound"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -528,6 +540,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cargar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_Load_SettingsActionPerformed"/>
+              </Events>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_Return_Settings">
               <Properties>

@@ -6,6 +6,7 @@
 package Appweb.Modules.Main;
 
 import Appweb.Classes.Language.Lang;
+import Appweb.Modules.Config.Classconfig;
 import static Appweb.Modules.Config.Config_tools.auto_open_config_json;
 import Appweb.Modules.Users.View.task_Admin;
 import javax.swing.JOptionPane;
@@ -118,10 +119,26 @@ public class Menu_entrada extends javax.swing.JFrame {
         );
 
         btn_valencian_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Main/img/BanderaValencia.png"))); // NOI18N
+        btn_valencian_main.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_valencian_mainActionPerformed(evt);
+            }
+        });
 
-        btn_spain_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Main/img/Spain-Flag-icon40x30.jpg"))); // NOI18N
+        btn_spain_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Main/img/Spain48x48.png"))); // NOI18N
+        btn_spain_main.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_spain_mainActionPerformed(evt);
+            }
+        });
 
-        btn_Ingles_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Main/img/United-Kingdom-flag-icon40x30.jpg"))); // NOI18N
+        btn_Ingles_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Main/img/United Kingdom48x48.png"))); // NOI18N
+        btn_Ingles_main.setPreferredSize(new java.awt.Dimension(48, 48));
+        btn_Ingles_main.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Ingles_mainActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
         panelImage1.setLayout(panelImage1Layout);
@@ -146,8 +163,8 @@ public class Menu_entrada extends javax.swing.JFrame {
                 .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btn_valencian_main, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_spain_main)
-                        .addComponent(btn_Ingles_main))
+                        .addComponent(btn_spain_main, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Ingles_main, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(panelNice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 339, Short.MAX_VALUE)
                 .addComponent(panelCurves1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -184,6 +201,21 @@ public class Menu_entrada extends javax.swing.JFrame {
 
         exit();
     }//GEN-LAST:event_btn_ExitActionPerformed
+
+    private void btn_Ingles_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Ingles_mainActionPerformed
+        
+        Classconfig.getInstance().setLanguage("english");
+    }//GEN-LAST:event_btn_Ingles_mainActionPerformed
+
+    private void btn_spain_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_spain_mainActionPerformed
+        
+        Classconfig.getInstance().setLanguage("español");
+    }//GEN-LAST:event_btn_spain_mainActionPerformed
+
+    private void btn_valencian_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_valencian_mainActionPerformed
+        
+        Classconfig.getInstance().setLanguage("valencia");
+    }//GEN-LAST:event_btn_valencian_mainActionPerformed
 
   
 

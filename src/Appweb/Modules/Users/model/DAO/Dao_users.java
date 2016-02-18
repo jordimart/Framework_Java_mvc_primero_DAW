@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 
 import Appweb.Classes.Date.ClassDate;
 import Appweb.Classes.Language.Lang;
+import Appweb.Modules.Users.View.create_Admin;
 import static Appweb.Modules.Users.View.create_Admin.labAvatar_create_admin;
 import static Appweb.Modules.Users.View.create_Admin.pick_date_birth_create_admin;
 import static Appweb.Modules.Users.View.create_Admin.txtActivity_create_admin;
@@ -27,6 +28,7 @@ import static Appweb.Modules.Users.View.create_Admin.txtPassword_create_admin;
 import static Appweb.Modules.Users.View.create_Admin.txtSalary_create_admin;
 import static Appweb.Modules.Users.View.create_Admin.txtStatus_create_admin;
 import static Appweb.Modules.Users.View.create_Admin.txtUser_create_admin;
+import Appweb.Modules.Users.model.BLL.Look_for_dni;
 import Appweb.Modules.Users.model.Classes.Admin;
 import Appweb.Modules.Users.model.Classes.Client;
 import Appweb.Modules.Users.model.Classes.User_reg;
@@ -35,13 +37,22 @@ import Appweb.Modules.Users.model.Users_tools.Core_users;
 import Appweb.Tools.Date_tools;
 import Appweb.Tools.Menu;
 import Appweb.Tools.Request_variable;
+import Appweb.Tools.Validate;
+import static com.alee.managers.notification.NotificationIcon.image;
+import java.awt.Color;
+import javax.swing.ImageIcon;
+import ppal;
+import static ppal.mal;
+import static ppal.mal;
+import static ppal.mal;
+
 
 /**
  * 
  * @author Jorge Martinez Frias
  *
  */
-public class Funciones_Users {
+public class Dao_users {
 
 	/**
 	 * Admin request claim Admins attributes and Users.
@@ -586,4 +597,110 @@ public class Funciones_Users {
 
 	}
 
+         /**
+     * Fucion que valida que el dni pueda existir.Pero ademas comprueba que no
+     * este repetido en los Admin.Implementada en grafica para validar etiqueta
+     * de color.
+     *
+     * @return boolean ok.
+     */
+    public static boolean Enterdnia() {
+        
+        
+
+        String dni = "";
+        boolean ok = false;
+        int pos = -1;
+
+        dni = create_Admin.txtDni_create_admin.getText().toString();
+        dni = dni.toUpperCase();
+        ok = Validate.okdni(dni);
+
+        if (ok == false) {
+            //create_Admin.labDni_create_admin.setIcon(ppal.mal);
+            create_Admin.txtDni_create_admin.setBackground(Color.red);
+            //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
+            //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+        } else {
+
+            pos = Look_for_dni.Look_for_dni_admin(dni);
+            if (pos != -1) {
+
+                ok = false;
+                create_Admin.txtDni_create_admin.setBackground(Color.RED);
+                JOptionPane.showMessageDialog(null,
+                        Lang.getInstance().getProperty("You_can_not_repeat_dni"));
+            } else {
+
+                ok = true;
+                create_Admin.txtDni_create_admin.setBackground(Color.GREEN);
+
+            }
+
+        }
+        return ok;
+    }
+    
+    public static boolean Entername() {
+
+        boolean ok = false;
+        String name = create_Admin.txtName_create_admin.getText().toString();
+        ok = Validate.okword(name);
+        if (ok == false) {
+            create_Admin.txtName_create_admin.setBackground(Color.red);
+            //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
+                   // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+        } else {
+           create_Admin. txtName_create_admin.setBackground(Color.GREEN);
+
+        }
+
+        return ok;
+    }
+    
+    public static boolean Enterlast_name() {
+
+        boolean ok = false;
+        String name = create_Admin.txtName_create_admin.getText().toString();
+        ok = Validate.okword(name);
+        if (ok == false) {
+            create_Admin.txtLast_name_create_admin.setBackground(Color.red);
+            //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
+                   // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+        } else {
+           create_Admin. txtLast_name_create_admin.setBackground(Color.GREEN);
+
+        }
+
+        return ok;
+    }
+    
+     /**
+     * Menu que pise un numero de telefono movil con nueve digitos.
+     *
+     * @param message
+     * @param title
+     * @return string movil
+     */
+    public static boolean Entermobile() {
+
+       String s="";
+        boolean ok = false;
+
+        
+
+            s = create_Admin.txtMobile_create_admin.getText();
+            ok = Validate.okmobile(s);
+            if (ok == false) {
+                
+                create_Admin.txtMobile_create_admin.setBackground(Color.red);
+               // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
+                       // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                create_Admin.txtMobile_create_admin.setBackground(Color.GREEN);
+            }
+       
+
+        return ok;
+    }
 }

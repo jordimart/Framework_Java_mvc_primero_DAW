@@ -3,13 +3,10 @@ package Appweb.Modules.Users.model.Users_tools;
 import javax.swing.JOptionPane;
 
 import Appweb.Classes.Language.Lang;
-import static Appweb.Modules.Users.View.create_Admin.labDni_create_admin;
 import Appweb.Modules.Users.model.BLL.Look_for_dni;
 import Appweb.Tools.Request_variable;
 import Appweb.Tools.Validate;
-import static Appweb.Modules.Users.View.create_Admin.txtDni_create_admin;
-import static Appweb.Modules.Users.View.create_Admin.txtName_create_admin;
-import Appweb.Modules.Users.model.Classes.Admin;
+import Appweb.Modules.Users.View.create_Admin;
 import java.awt.Color;
 
 /**
@@ -71,47 +68,7 @@ public class Core_users {
         return dni;
     }
 
-    /**
-     * Fucion que valida que el dni pueda existir.Pero ademas comprueba que no
-     * este repetido en los Admin.Implementada en grafica para validar etiqueta
-     * de color.
-     *
-     * @return boolean ok.
-     */
-    public static boolean Enterdnia() {
-
-        String dni = "";
-        boolean ok = false;
-        int pos = -1;
-
-        dni = txtDni_create_admin.getText().toString();
-        dni = dni.toUpperCase();
-        ok = Validate.okdni(dni);
-
-        if (ok == false) {
-            //labDni_create_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Users/Img/Imagen_no_ok_Delete_16x16.png")));
-            txtDni_create_admin.setBackground(Color.red);
-            //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
-            //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
-        } else {
-
-            pos = Look_for_dni.Look_for_dni_admin(dni);
-            if (pos != -1) {
-
-                ok = false;
-                txtDni_create_admin.setBackground(Color.RED);
-                JOptionPane.showMessageDialog(null,
-                        Lang.getInstance().getProperty("You_can_not_repeat_dni"));
-            } else {
-
-                ok = true;
-                txtDni_create_admin.setBackground(Color.GREEN);
-
-            }
-
-        }
-        return ok;
-    }
+   
 
     /**
      * Funcion de prueba que no funciona para el validador.
@@ -286,6 +243,7 @@ public class Core_users {
         return dni;
     }
 
+    
     /**
      * Menu que pise una palabra como un nombre o nombre compuesto.Solo letras.
      *
@@ -310,55 +268,9 @@ public class Core_users {
         return ok;
     }
 
-    /**
-     * Menu que pise un numero de telefono movil con nueve digitos.
-     *
-     * @param message
-     * @param title
-     * @return string movil
-     */
-    public static String Entermobile(String message, String title) {
+   
 
-        String s = "";
-        boolean ok = false;
-
-        do {
-
-            s = Request_variable.damestring(message, title);
-            ok = Validate.okmobile(s);
-            if (ok == false) {
-                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
-                        Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
-            }
-        } while (ok == false);
-
-        return s;
-    }
-
-    /**
-     * Menu que pide una edad de dos digitos maximo.
-     *
-     * @param message
-     * @param title
-     * @return
-     */
-    public static String Enterage(String message, String title) {
-
-        String num = "";
-        boolean ok = false;
-
-        do {
-
-            num = Request_variable.damestring(message, title);
-            ok = Validate.okage(num);
-            if (ok == false) {
-                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
-                        Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
-            }
-        } while (ok == false);
-
-        return num;
-    }
+   
 
     /**
      * Menu que pide un email y valida su formato.
