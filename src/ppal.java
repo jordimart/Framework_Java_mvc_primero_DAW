@@ -1,6 +1,7 @@
 
 import Appweb.Modules.Config.Classconfig;
 import Appweb.Modules.Main.Menu_entrada;
+import Appweb.provadata;
 import java.text.ParseException;
 import javax.swing.ImageIcon;
 
@@ -28,7 +29,7 @@ public class ppal {
                 Classconfig.getInstance();
                
                 new Menu_entrada().setVisible(true);
-                 
+                 //new provadata().setVisible(true);
 
                
             }

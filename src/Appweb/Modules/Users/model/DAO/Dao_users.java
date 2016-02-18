@@ -33,10 +33,14 @@ import Appweb.Modules.Users.model.Classes.singleton;
 import Appweb.Modules.Users.model.Users_tools.Core_users;
 import static Appweb.Modules.Users.model.Users_tools.Core_users.real_dni;
 import Appweb.Tools.Date_tools;
+import static Appweb.Tools.Date_tools.Date_min_max_condition;
+import static Appweb.Tools.Date_tools.Date_min_max_condition_boolean;
+import static Appweb.Tools.Date_tools.Date_registered_boolean;
 import Appweb.Tools.Menu;
 import Appweb.Tools.Request_variable;
 import Appweb.Tools.Validate;
 import java.awt.Color;
+import java.util.Calendar;
 
 /**
  *
@@ -806,6 +810,79 @@ public class Dao_users {
 
             create_Admin.labActivity_create_admin.setText("wrong data");
             create_Admin.txtActivity_create_admin.setBackground(Color.red);
+        }
+
+        return ok;
+    }
+
+    public static boolean Enterdate_birth_admin() {
+
+        String s = "";
+        int act = 0;
+        boolean ok = false;
+        Calendar date_birth;
+        int dia = 0, mes = 0, anio = 0;
+
+        date_birth = create_Admin.pick_date_birth_create_admin.getCalendar();
+
+        dia = date_birth.get(Calendar.DATE);
+        mes = date_birth.get(Calendar.MONTH) + 1;
+        anio = date_birth.get(Calendar.YEAR);
+
+        ClassDate c = new ClassDate(dia,mes,anio);
+        
+        s = c.todate();
+       ok= Date_min_max_condition_boolean(s, 16, 65);
+
+        if(ok==false){
+            create_Admin.pick_date_birth_create_admin.setBackground(Color.red);
+            create_Admin.labDate_birth_create_admin.setText("wrong data");
+            
+        }else{
+            create_Admin.pick_date_birth_create_admin.setBackground(Color.GREEN);
+            create_Admin.labDate_birth_create_admin.setText("ok");
+        }
+
+        return ok;
+    }
+    
+    public static boolean Enterdate_contr_admin() {
+
+        String s = "";
+        int act = 0;
+        boolean ok = false;
+        Calendar date_birth;
+        Calendar date_contr;
+        int dia = 0, mes = 0, anio = 0;
+        int diac = 0, mesc = 0, anioc = 0;
+
+        date_birth = create_Admin.pick_date_birth_create_admin.getCalendar();
+
+        dia = date_birth.get(Calendar.DATE);
+        mes = date_birth.get(Calendar.MONTH) + 1;
+        anio = date_birth.get(Calendar.YEAR);
+
+        ClassDate birth = new ClassDate(dia,mes,anio);
+        s = birth.todate();
+        
+         date_contr = create_Admin.pick_date_contr_create_admin.getCalendar();
+
+        diac = date_contr.get(Calendar.DATE);
+        mesc = date_contr.get(Calendar.MONTH) + 1;
+        anioc = date_contr.get(Calendar.YEAR);
+
+        ClassDate contr = new ClassDate(diac,mesc,anioc);
+        //s = contr.todate();
+        
+       ok= Date_registered_boolean(contr,s, 16);
+
+        if(ok==false){
+            create_Admin.pick_date_contr_create_admin.setBackground(Color.red);
+            create_Admin.labDate_contr_create_admin.setText("wrong data");
+            
+        }else{
+            create_Admin.pick_date_contr_create_admin.setBackground(Color.GREEN);
+            create_Admin.labDate_contr_create_admin.setText("ok");
         }
 
         return ok;

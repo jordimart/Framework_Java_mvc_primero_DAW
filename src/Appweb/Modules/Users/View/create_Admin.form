@@ -121,7 +121,7 @@
                           <Component id="txtSalary_create_admin" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtActivity_create_admin" alignment="0" max="32767" attributes="0"/>
                           <Component id="pick_date_birth_create_admin" alignment="0" max="32767" attributes="0"/>
-                          <Component id="pick_Date_contr_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="pick_date_contr_create_admin" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtPassword_create_admin" alignment="0" pref="162" max="32767" attributes="0"/>
                           <Component id="buttonAero1" max="32767" attributes="0"/>
                       </Group>
@@ -207,7 +207,7 @@
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="labelHeader10" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="pick_Date_contr_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="pick_date_contr_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="labDate_contr_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
@@ -382,7 +382,7 @@
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="pick_date_birth_create_admin">
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="pick_Date_contr_create_admin">
+            <Component class="com.toedter.calendar.JDateChooser" name="pick_date_contr_create_admin">
             </Component>
             <Component class="org.edisoncor.gui.passwordField.PasswordField" name="txtPassword_create_admin">
               <Properties>

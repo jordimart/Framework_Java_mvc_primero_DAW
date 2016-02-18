@@ -363,7 +363,7 @@ public class ClassDate implements Serializable {
 		diferencia = date2milis - date1milis;
 		
 	
-		// pasamos el resultado a a�os casteando a int
+		// pasamos el resultado a años casteando a int
 		years = (int) (diferencia / (24 * 60 * 60 * 1000)) / 365;
 
 		return years;

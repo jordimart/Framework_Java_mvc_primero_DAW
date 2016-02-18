@@ -62,7 +62,7 @@ public class create_Admin extends javax.swing.JFrame {
         txtSalary_create_admin = new org.edisoncor.gui.textField.TextField();
         txtActivity_create_admin = new org.edisoncor.gui.textField.TextField();
         pick_date_birth_create_admin = new com.toedter.calendar.JDateChooser();
-        pick_Date_contr_create_admin = new com.toedter.calendar.JDateChooser();
+        pick_date_contr_create_admin = new com.toedter.calendar.JDateChooser();
         txtPassword_create_admin = new org.edisoncor.gui.passwordField.PasswordField();
         labAvatar_create_admin = new javax.swing.JLabel();
         labDni_create_admin = new javax.swing.JLabel();
@@ -290,7 +290,7 @@ public class create_Admin extends javax.swing.JFrame {
                     .addComponent(txtSalary_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtActivity_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pick_date_birth_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pick_Date_contr_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pick_date_contr_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtPassword_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
                     .addComponent(buttonAero1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
@@ -362,7 +362,7 @@ public class create_Admin extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelHeader10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pick_Date_contr_create_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pick_date_contr_create_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labDate_contr_create_admin))
                 .addGap(44, 44, 44)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -513,6 +513,7 @@ public class create_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMobile_create_adminMouseClicked
 
     private void txtEmail_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEmail_create_adminMouseClicked
+       Dao_users.Enterdate_birth_admin();
         txtEmail_create_admin.setText("");
     }//GEN-LAST:event_txtEmail_create_adminMouseClicked
 
@@ -533,6 +534,7 @@ public class create_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPassword_create_adminKeyTyped
 
     private void txtSalary_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSalary_create_adminMouseClicked
+        Dao_users.Enterdate_contr_admin();
         txtSalary_create_admin.setText("");
     }//GEN-LAST:event_txtSalary_create_adminMouseClicked
 
@@ -594,8 +596,8 @@ public class create_Admin extends javax.swing.JFrame {
     public static org.edisoncor.gui.panel.PanelImage panelImage1;
     public static org.edisoncor.gui.panel.PanelRect panelRect1;
     public static org.edisoncor.gui.panel.PanelRect panelRect2;
-    public static com.toedter.calendar.JDateChooser pick_Date_contr_create_admin;
     public static com.toedter.calendar.JDateChooser pick_date_birth_create_admin;
+    public static com.toedter.calendar.JDateChooser pick_date_contr_create_admin;
     public static org.edisoncor.gui.textField.TextField txtActivity_create_admin;
     public static org.edisoncor.gui.textField.TextField txtDni_create_admin;
     public static org.edisoncor.gui.textField.TextField txtEmail_create_admin;
