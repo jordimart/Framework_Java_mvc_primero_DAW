@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Appweb.Modules.Users.View;
+package Appweb.Modules.Users.Admin.View;
 
 /**
  *
@@ -385,7 +385,7 @@ public class edit_Admin extends javax.swing.JFrame {
     private void btn_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarActionPerformed
         
          this.dispose();
-        table_Users menu = new table_Users();
+        table_Admin menu = new table_Admin();
         menu.setLocationRelativeTo(null);
         menu.setVisible(true);
     }//GEN-LAST:event_btn_CancelarActionPerformed

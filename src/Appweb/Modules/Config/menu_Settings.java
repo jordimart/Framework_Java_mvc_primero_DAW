@@ -7,7 +7,7 @@ package Appweb.Modules.Config;
 
 import static Appweb.Modules.Config.Config_tools.Configuration_accept;
 import static Appweb.Modules.Config.Config_tools.Menu_theme;
-import Appweb.Modules.Users.View.task_Admin;
+import Appweb.Modules.Users.Admin.View.task_Admin;
 import static Appweb.Modules.Config.Config_tools.auto_save_config_json;
 import static Appweb.Modules.Config.Config_tools.save_json_config;
 import javax.swing.JOptionPane;

@@ -5,8 +5,8 @@ import javax.swing.JOptionPane;
 import Appweb.Modules.Config.Classconfig;
 import Appweb.Classes.Date.ClassDate;
 import Appweb.Classes.Language.Lang;
-import static Appweb.Modules.Users.View.create_Admin.pick_date_birth_create_admin;
-import static Appweb.Modules.Users.View.create_Admin.pick_date_contr_create_admin;
+import static Appweb.Modules.Users.Admin.View.create_Admin.pick_date_birth_create_admin;
+import static Appweb.Modules.Users.Admin.View.create_Admin.pick_date_contr_create_admin;
 
 /**
  *
@@ -327,10 +327,9 @@ public class Date_tools {
 
         return val1;
     }
-    
-    public static boolean Date_registered_boolean(ClassDate d,String date, int min) {
 
-        
+    public static boolean Date_registered_boolean(ClassDate d, String date, int min) {
+
         boolean val1 = false;
         boolean valok = true;
         boolean valcomps = true;
@@ -338,75 +337,65 @@ public class Date_tools {
         boolean valadult = true;
         int age = 0;
 
-        
+        // validamos el formato con forma regular.
+        val1 = Validate.okdate(date);
 
-           
-			// validamos el formato con forma regular.
-			val1 = Validate.okdate(date);
+        if (val1 == true) {
 
-			if (val1 == true) {
+            ClassDate c = new ClassDate(date);
 
-				ClassDate c = new ClassDate(date);
+            // aplicamos los metodos de validar la fecha,comparar que no sea
+            // posterior a la del sistema y compara que no sea anterior a la
+            // fecha de nacimiento
+            if (c.okdate() == false) {
 
-				// aplicamos los metodos de validar la fecha,comparar que no sea
-				// posterior a la del sistema y compara que no sea anterior a la
-				// fecha de nacimiento
+                valok = false;
+                // calculamos la edad
 
-				if (c.okdate() == false) {
+                //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("This_date_does_not_exist_in_the_calendar"),
+                //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+            } else {
 
-					valok = false;
-					// calculamos la edad
+                age = d.Diference_two_dates(c);
 
-					JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("This_date_does_not_exist_in_the_calendar"),
-							Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
-				} else {
+            }
 
-                                    JOptionPane.showMessageDialog(null,"fecha c: "+ c.todate());
-                                    JOptionPane.showMessageDialog(null,"fecha d: "+ d.todate());
-					age = d.Diference_two_dates(c);
-                                        JOptionPane.showMessageDialog(null,"edad: "+age);
-				}
+            if (c.Date_compare_system_date() == 2) {
 
-				if (c.Date_compare_system_date() == 2) {
+                valcomps = false;
+                //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("The_date_may_not_be_later_than_the_system"),
+                //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+            }
+            if (d.Date_compare_two_dates(c) == 0) {
 
-					valcomps = false;
-					JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("The_date_may_not_be_later_than_the_system"),
-							Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
-				}
-				if (d.Date_compare_two_dates(c) == 0) {
+                valcomp = false;
+                //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("The_record_date_may_not_be_earlier_wing_of_birth"),
+                //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+            }
+            if (age < min) {
 
-					valcomp = false;
-					JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("The_record_date_may_not_be_earlier_wing_of_birth"),
-							Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
-				}
-				if (age < min) {
+                valadult = false;
 
-					valadult = false;
+                //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("On_this_date_you_were_not_of_legal_age"),
+                //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+            }
 
-					JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("On_this_date_you_were_not_of_legal_age"),
-							Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+            if ((valok == true) && (valcomps == true) && (valcomp == true) && (valadult) == true) {
 
-				}
+                val1 = true;
 
-				if ((valok == true) && (valcomps == true) && (valcomp == true) && (valadult) == true) {
+            } else {
+                val1 = false;
+            }
 
-					val1 = true;
+        } // fin del if 1
+        else {
 
-				} else {
-					val1 = false;
-				}
+            val1 = false;
 
-			} // fin del if 1
-
-			else {
-
-				val1 = false;
-
-				JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_format_data_correctly"),
-						Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
-			}
-
-        
+            //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_format_data_correctly"),
+            //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+        }
 
         return val1;
     }

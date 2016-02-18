@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Appweb.Modules.Users.View;
+package Appweb.Modules.Users.Admin.View;
 
 import Appweb.Modules.Config.menu_Settings;
 import Appweb.Classes.Language.Lang;
 import Appweb.Modules.Config.Classconfig;
 import Appweb.Modules.Main.Menu_entrada;
-import Appweb.Modules.Users.View.table_Users;
 import javax.swing.JOptionPane;
 
 /**
@@ -177,7 +176,7 @@ public class task_Admin extends javax.swing.JFrame {
     private void btn_ges_usersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ges_usersActionPerformed
 
         this.dispose();
-        table_Users menu = new table_Users();
+        table_Admin menu = new table_Admin();
         menu.setLocationRelativeTo(null);
         menu.setVisible(true);
 

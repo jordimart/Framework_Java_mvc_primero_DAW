@@ -8,7 +8,7 @@ package Appweb.Modules.Main;
 import Appweb.Classes.Language.Lang;
 import Appweb.Modules.Config.Classconfig;
 import static Appweb.Modules.Config.Config_tools.auto_open_config_json;
-import Appweb.Modules.Users.View.task_Admin;
+import Appweb.Modules.Users.Admin.View.task_Admin;
 import javax.swing.JOptionPane;
 
 /**

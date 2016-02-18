@@ -1,4 +1,4 @@
-package Appweb.Modules.Users.View;
+package Appweb.Modules.Users.Admin.View;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -9,6 +9,9 @@ package Appweb.Modules.Users.View;
 
 import Appweb.Modules.Users.model.DAO.Dao_users;
 import Appweb.Modules.Users.model.Users_tools.Core_users;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -27,6 +30,29 @@ public class create_Admin extends javax.swing.JFrame {
 	this.setResizable(false);
         
     }
+    
+    public static void Avatar_admin(){
+        
+        JFileChooser dlg = new JFileChooser();
+        int option = dlg.showOpenDialog(null);
+        if(option==JFileChooser.APPROVE_OPTION) {
+            //Obtiene nombre del archivo seleccionado
+            String file = dlg.getSelectedFile().getPath();
+            labAvatar_create_admin.setIcon(new ImageIcon(file));
+            //Modificando la imagen
+            ImageIcon icon = new ImageIcon(file);
+            //Se extrae la imagen del icono
+            Image img = icon.getImage();
+            //Se modifica su tamaño
+            Image newimg = img.getScaledInstance(140,170,java.awt.Image.SCALE_SMOOTH);
+            //SE GENERA EL IMAGE ICON CON LA NUEVA IMAGEN
+            ImageIcon newIcon = new ImageIcon(newimg);
+            //Se coloca el nuevo icono modificado
+            labAvatar_create_admin.setIcon(newIcon);
+            //Se cambia el tamaño de la etiqueta
+            labAvatar_create_admin.setSize(470,290);
+        }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,7 +84,6 @@ public class create_Admin extends javax.swing.JFrame {
         txtMobile_create_admin = new org.edisoncor.gui.textField.TextField();
         txtEmail_create_admin = new org.edisoncor.gui.textField.TextField();
         txtUser_create_admin = new org.edisoncor.gui.textField.TextField();
-        txtStatus_create_admin = new org.edisoncor.gui.textField.TextField();
         txtSalary_create_admin = new org.edisoncor.gui.textField.TextField();
         txtActivity_create_admin = new org.edisoncor.gui.textField.TextField();
         pick_date_birth_create_admin = new com.toedter.calendar.JDateChooser();
@@ -79,6 +104,7 @@ public class create_Admin extends javax.swing.JFrame {
         labActivity_create_admin = new javax.swing.JLabel();
         laberrorAvatar_create_admin = new javax.swing.JLabel();
         buttonAero1 = new org.edisoncor.gui.button.ButtonAero();
+        comboStatus_create_admin = new org.edisoncor.gui.comboBox.ComboBoxRect();
         panelRect2 = new org.edisoncor.gui.panel.PanelRect();
         btn_Borrar = new org.edisoncor.gui.button.ButtonAeroRight();
         btn_cancelar = new org.edisoncor.gui.button.ButtonAeroRight();
@@ -189,8 +215,6 @@ public class create_Admin extends javax.swing.JFrame {
             }
         });
 
-        txtStatus_create_admin.setText("Introduzca Status");
-
         txtSalary_create_admin.setText("Introduzca Salario");
         txtSalary_create_admin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -227,8 +251,6 @@ public class create_Admin extends javax.swing.JFrame {
             }
         });
 
-        labAvatar_create_admin.setText("Seleccion imagen");
-
         labDni_create_admin.setText("Label1");
 
         labName_create_admin.setText("Label3");
@@ -256,6 +278,13 @@ public class create_Admin extends javax.swing.JFrame {
         laberrorAvatar_create_admin.setText("jLabel14");
 
         buttonAero1.setText("Añadir Avatar");
+        buttonAero1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAero1ActionPerformed(evt);
+            }
+        });
+
+        comboStatus_create_admin.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Conected", "Disconected" }));
 
         javax.swing.GroupLayout panelRect1Layout = new javax.swing.GroupLayout(panelRect1);
         panelRect1.setLayout(panelRect1Layout);
@@ -286,13 +315,13 @@ public class create_Admin extends javax.swing.JFrame {
                     .addComponent(txtMobile_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtEmail_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtUser_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtStatus_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtSalary_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtActivity_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pick_date_birth_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pick_date_contr_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtPassword_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                    .addComponent(buttonAero1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonAero1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboStatus_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labStatus_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
@@ -308,7 +337,7 @@ public class create_Admin extends javax.swing.JFrame {
                     .addComponent(labEmail_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labUser_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labPassword_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(63, 63, 63))
+                .addGap(57, 57, 57))
         );
         panelRect1Layout.setVerticalGroup(
             panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -357,9 +386,9 @@ public class create_Admin extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHeader9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtStatus_create_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labStatus_create_admin))
-                .addGap(28, 28, 28)
+                    .addComponent(labStatus_create_admin)
+                    .addComponent(comboStatus_create_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelHeader10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pick_date_contr_create_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -438,7 +467,7 @@ public class create_Admin extends javax.swing.JFrame {
                 .addComponent(panelRect1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
                 .addComponent(panelRect2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(129, Short.MAX_VALUE))
             .addComponent(panelCurves2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelImage1Layout.setVerticalGroup(
@@ -450,18 +479,22 @@ public class create_Admin extends javax.swing.JFrame {
                 .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelRect2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelRect1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelImage1, javax.swing.GroupLayout.DEFAULT_SIZE, 909, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelImage1, javax.swing.GroupLayout.DEFAULT_SIZE, 909, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(panelImage1, javax.swing.GroupLayout.DEFAULT_SIZE, 1123, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -476,7 +509,7 @@ public class create_Admin extends javax.swing.JFrame {
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
        
          this.dispose();
-        table_Users menu = new table_Users();
+        table_Admin menu = new table_Admin();
         menu.setLocationRelativeTo(null);
         menu.setVisible(true);
     }//GEN-LAST:event_btn_cancelarActionPerformed
@@ -558,6 +591,10 @@ public class create_Admin extends javax.swing.JFrame {
         Dao_users.Enteruser_admin();
     }//GEN-LAST:event_txtUser_create_adminKeyReleased
 
+    private void buttonAero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAero1ActionPerformed
+        Avatar_admin();
+    }//GEN-LAST:event_buttonAero1ActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -565,6 +602,7 @@ public class create_Admin extends javax.swing.JFrame {
     public static org.edisoncor.gui.button.ButtonAeroRight btn_Borrar;
     public static org.edisoncor.gui.button.ButtonAeroRight btn_cancelar;
     public static org.edisoncor.gui.button.ButtonAero buttonAero1;
+    public static org.edisoncor.gui.comboBox.ComboBoxRect comboStatus_create_admin;
     public static javax.swing.JLabel labActivity_create_admin;
     public static javax.swing.JLabel labAvatar_create_admin;
     public static javax.swing.JLabel labDate_birth_create_admin;
@@ -606,7 +644,6 @@ public class create_Admin extends javax.swing.JFrame {
     public static org.edisoncor.gui.textField.TextField txtName_create_admin;
     public static org.edisoncor.gui.passwordField.PasswordField txtPassword_create_admin;
     public static org.edisoncor.gui.textField.TextField txtSalary_create_admin;
-    public static org.edisoncor.gui.textField.TextField txtStatus_create_admin;
     public static org.edisoncor.gui.textField.TextField txtUser_create_admin;
     // End of variables declaration//GEN-END:variables
 }

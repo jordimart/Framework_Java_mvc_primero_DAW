@@ -3,20 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Appweb.Modules.Users.View;
+package Appweb.Modules.Users.Admin.View;
 
+import Appweb.Modules.Users.Admin.View.task_Admin;
+import Appweb.Modules.Users.Admin.View.edit_Admin;
+import Appweb.Modules.Users.Admin.View.create_Admin;
 import Appweb.Modules.Main.Menu_entrada;
 
 /**
  *
  * @author ASUSG50V
  */
-public class table_Users extends javax.swing.JFrame {
+public class table_Admin extends javax.swing.JFrame {
 
     /**
      * Creates new form table_Users
      */
-    public table_Users() {
+    public table_Admin() {
         initComponents();
         
         this.setTitle("Menu Login");
