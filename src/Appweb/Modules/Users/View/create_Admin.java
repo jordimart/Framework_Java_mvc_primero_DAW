@@ -67,11 +67,11 @@ public class create_Admin extends javax.swing.JFrame {
         labAvatar_create_admin = new javax.swing.JLabel();
         labDni_create_admin = new javax.swing.JLabel();
         labName_create_admin = new javax.swing.JLabel();
-        lab_last_n_create_admin = new javax.swing.JLabel();
+        labLast_name_create_admin = new javax.swing.JLabel();
         labMobile_create_admin = new javax.swing.JLabel();
         labDate_birth_create_admin = new javax.swing.JLabel();
         labEmail_create_admin = new javax.swing.JLabel();
-        lab_User_create_admin = new javax.swing.JLabel();
+        labUser_create_admin = new javax.swing.JLabel();
         labPassword_create_admin = new javax.swing.JLabel();
         labStatus_create_admin = new javax.swing.JLabel();
         labDate_contr_create_admin = new javax.swing.JLabel();
@@ -124,8 +124,8 @@ public class create_Admin extends javax.swing.JFrame {
             }
         });
         txtDni_create_admin.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtDni_create_adminKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDni_create_adminKeyReleased(evt);
             }
         });
 
@@ -163,28 +163,77 @@ public class create_Admin extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtMobile_create_adminKeyReleased(evt);
             }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtMobile_create_adminKeyTyped(evt);
-            }
         });
 
         txtEmail_create_admin.setText("Introduzca Email");
+        txtEmail_create_admin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtEmail_create_adminMouseClicked(evt);
+            }
+        });
+        txtEmail_create_admin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEmail_create_adminKeyTyped(evt);
+            }
+        });
 
         txtUser_create_admin.setText("Introduzca Usuario");
+        txtUser_create_admin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtUser_create_adminMouseClicked(evt);
+            }
+        });
+        txtUser_create_admin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUser_create_adminKeyReleased(evt);
+            }
+        });
 
         txtStatus_create_admin.setText("Introduzca Status");
 
         txtSalary_create_admin.setText("Introduzca Salario");
+        txtSalary_create_admin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtSalary_create_adminMouseClicked(evt);
+            }
+        });
+        txtSalary_create_admin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSalary_create_adminKeyReleased(evt);
+            }
+        });
 
         txtActivity_create_admin.setText("Introduzca Actividad");
+        txtActivity_create_admin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtActivity_create_adminMouseClicked(evt);
+            }
+        });
+        txtActivity_create_admin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtActivity_create_adminKeyReleased(evt);
+            }
+        });
 
         txtPassword_create_admin.setText("passwordField1");
+        txtPassword_create_admin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtPassword_create_adminMouseClicked(evt);
+            }
+        });
+        txtPassword_create_admin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPassword_create_adminKeyTyped(evt);
+            }
+        });
 
         labAvatar_create_admin.setText("Seleccion imagen");
 
-        labName_create_admin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Users/Img/Imagen_ok_16x16.png"))); // NOI18N
+        labDni_create_admin.setText("Label1");
 
-        lab_last_n_create_admin.setText("jLabel4");
+        labName_create_admin.setText("Label3");
+
+        labLast_name_create_admin.setText("jLabel4");
 
         labMobile_create_admin.setText("jLabel5");
 
@@ -192,7 +241,7 @@ public class create_Admin extends javax.swing.JFrame {
 
         labEmail_create_admin.setText("jLabel7");
 
-        lab_User_create_admin.setText("jLabel8");
+        labUser_create_admin.setText("jLabel8");
 
         labPassword_create_admin.setText("jLabel9");
 
@@ -245,21 +294,21 @@ public class create_Admin extends javax.swing.JFrame {
                     .addComponent(txtPassword_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
                     .addComponent(buttonAero1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labDni_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(labName_create_admin)
-                    .addComponent(lab_last_n_create_admin)
-                    .addComponent(labMobile_create_admin)
-                    .addComponent(labDate_birth_create_admin)
-                    .addComponent(labEmail_create_admin)
-                    .addComponent(lab_User_create_admin)
-                    .addComponent(labPassword_create_admin)
-                    .addComponent(labStatus_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labStatus_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
                     .addComponent(labDate_contr_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labSalary_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labActivity_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(laberrorAvatar_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(43, Short.MAX_VALUE))
+                    .addComponent(laberrorAvatar_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labDni_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labLast_name_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labName_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labMobile_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labDate_birth_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labEmail_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labUser_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labPassword_create_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(63, 63, 63))
         );
         panelRect1Layout.setVerticalGroup(
             panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,12 +323,12 @@ public class create_Admin extends javax.swing.JFrame {
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHeader2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtName_create_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labName_create_admin))
+                    .addComponent(labName_create_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHeader3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtLast_name_create_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lab_last_n_create_admin))
+                    .addComponent(labLast_name_create_admin))
                 .addGap(18, 18, 18)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHeader4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -299,7 +348,7 @@ public class create_Admin extends javax.swing.JFrame {
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHeader7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtUser_create_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lab_User_create_admin))
+                    .addComponent(labUser_create_admin))
                 .addGap(23, 23, 23)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHeader8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -389,7 +438,7 @@ public class create_Admin extends javax.swing.JFrame {
                 .addComponent(panelRect1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
                 .addComponent(panelRect2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
             .addComponent(panelCurves2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelImage1Layout.setVerticalGroup(
@@ -401,7 +450,7 @@ public class create_Admin extends javax.swing.JFrame {
                 .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelRect2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelRect1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -437,30 +486,21 @@ public class create_Admin extends javax.swing.JFrame {
         txtDni_create_admin.setText("");
     }//GEN-LAST:event_txtDni_create_adminMouseClicked
 
-    private void txtDni_create_adminKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDni_create_adminKeyTyped
-         Dao_users.Enterdnia();
-    }//GEN-LAST:event_txtDni_create_adminKeyTyped
-
     private void txtName_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtName_create_adminMouseClicked
         
         txtName_create_admin.setText("");
     }//GEN-LAST:event_txtName_create_adminMouseClicked
 
     private void txtName_create_adminKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtName_create_adminKeyTyped
-        Dao_users.Entername();
+        Dao_users.Entername_admin();
     }//GEN-LAST:event_txtName_create_adminKeyTyped
 
-    private void txtMobile_create_adminKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMobile_create_adminKeyTyped
-
-        
-    }//GEN-LAST:event_txtMobile_create_adminKeyTyped
-
     private void txtMobile_create_adminKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMobile_create_adminKeyReleased
-         Dao_users.Entermobile();
+         Dao_users.Entermobile_admin();
     }//GEN-LAST:event_txtMobile_create_adminKeyReleased
 
     private void txtLast_name_create_adminKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLast_name_create_adminKeyTyped
-        Dao_users.Enterlast_name();
+        Dao_users.Enterlast_name_admin();
     }//GEN-LAST:event_txtLast_name_create_adminKeyTyped
 
     private void txtLast_name_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLast_name_create_adminMouseClicked
@@ -471,6 +511,50 @@ public class create_Admin extends javax.swing.JFrame {
         
         txtMobile_create_admin.setText("");
     }//GEN-LAST:event_txtMobile_create_adminMouseClicked
+
+    private void txtEmail_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEmail_create_adminMouseClicked
+        txtEmail_create_admin.setText("");
+    }//GEN-LAST:event_txtEmail_create_adminMouseClicked
+
+    private void txtEmail_create_adminKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmail_create_adminKeyTyped
+        Dao_users.Entermail_admin();
+    }//GEN-LAST:event_txtEmail_create_adminKeyTyped
+
+    private void txtUser_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUser_create_adminMouseClicked
+         txtUser_create_admin.setText("");
+    }//GEN-LAST:event_txtUser_create_adminMouseClicked
+
+    private void txtPassword_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPassword_create_adminMouseClicked
+        txtPassword_create_admin.setText("");
+    }//GEN-LAST:event_txtPassword_create_adminMouseClicked
+
+    private void txtPassword_create_adminKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassword_create_adminKeyTyped
+        Dao_users.Enterpassword_admin();
+    }//GEN-LAST:event_txtPassword_create_adminKeyTyped
+
+    private void txtSalary_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSalary_create_adminMouseClicked
+        txtSalary_create_admin.setText("");
+    }//GEN-LAST:event_txtSalary_create_adminMouseClicked
+
+    private void txtActivity_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtActivity_create_adminMouseClicked
+        txtActivity_create_admin.setText("");
+    }//GEN-LAST:event_txtActivity_create_adminMouseClicked
+
+    private void txtSalary_create_adminKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSalary_create_adminKeyReleased
+        Dao_users.Entersalary_admin();
+    }//GEN-LAST:event_txtSalary_create_adminKeyReleased
+
+    private void txtActivity_create_adminKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtActivity_create_adminKeyReleased
+        Dao_users.Enteractivity_admin();
+    }//GEN-LAST:event_txtActivity_create_adminKeyReleased
+
+    private void txtDni_create_adminKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDni_create_adminKeyReleased
+        Dao_users.Enterdnia();
+    }//GEN-LAST:event_txtDni_create_adminKeyReleased
+
+    private void txtUser_create_adminKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUser_create_adminKeyReleased
+        Dao_users.Enteruser_admin();
+    }//GEN-LAST:event_txtUser_create_adminKeyReleased
 
    
 
@@ -485,13 +569,13 @@ public class create_Admin extends javax.swing.JFrame {
     public static javax.swing.JLabel labDate_contr_create_admin;
     public static javax.swing.JLabel labDni_create_admin;
     public static javax.swing.JLabel labEmail_create_admin;
+    public static javax.swing.JLabel labLast_name_create_admin;
     public static javax.swing.JLabel labMobile_create_admin;
     public static javax.swing.JLabel labName_create_admin;
     public static javax.swing.JLabel labPassword_create_admin;
     public static javax.swing.JLabel labSalary_create_admin;
     public static javax.swing.JLabel labStatus_create_admin;
-    public static javax.swing.JLabel lab_User_create_admin;
-    public static javax.swing.JLabel lab_last_n_create_admin;
+    public static javax.swing.JLabel labUser_create_admin;
     public static org.edisoncor.gui.label.LabelHeader labelHeader1;
     public static org.edisoncor.gui.label.LabelHeader labelHeader10;
     public static org.edisoncor.gui.label.LabelHeader labelHeader11;

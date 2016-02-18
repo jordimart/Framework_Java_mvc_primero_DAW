@@ -68,15 +68,13 @@ public class Core_users {
         return dni;
     }
 
-   
-
     /**
      * Funcion de prueba que no funciona para el validador.
      *
      * @param dni
      * @return
      */
-    public static boolean exist_dni(String dni) {
+    public static boolean real_dni(String dni) {
 
         int num = 0, rest = 0;
         char letter = ' ', pass = ' ';
@@ -87,22 +85,17 @@ public class Core_users {
 
         for (int i = 0; i < 8; i++) {
             aux += dni.charAt(i);
-            JOptionPane.showMessageDialog(null, aux);
+
         }
 
         letter = dni.charAt(8);
-        JOptionPane.showMessageDialog(null, "letter" + letter);
         num = Integer.parseInt(aux);
-        JOptionPane.showMessageDialog(null, "num" + num);
         rest = num % 23;
-        JOptionPane.showMessageDialog(null, "rest" + rest);
         pass = car.charAt(rest);
 
-        JOptionPane.showMessageDialog(null, "primer pass" + pass);
-
         if (pass == letter) {
+            ok = true;
 
-            JOptionPane.showMessageDialog(null, pass);
         }
 
         return ok;
@@ -241,85 +234,6 @@ public class Core_users {
         } while (ok == false);
 
         return dni;
-    }
-
-    
-    /**
-     * Menu que pise una palabra como un nombre o nombre compuesto.Solo letras.
-     *
-     * @param message
-     * @param title
-     * @return string palabra
-     */
-    public static boolean Enterword() {
-
-        boolean ok = false;
-        String name = txtName_create_admin.getText().toString();
-        ok = Validate.okword(name);
-        if (ok == false) {
-            txtName_create_admin.setBackground(Color.red);
-            //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
-                   // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            txtName_create_admin.setBackground(Color.GREEN);
-
-        }
-
-        return ok;
-    }
-
-   
-
-   
-
-    /**
-     * Menu que pide un email y valida su formato.
-     *
-     * @param message
-     * @param title
-     * @return
-     */
-    public static String Entermail(String message, String title) {
-
-        String cad = "";
-        boolean ok = false;
-
-        do {
-
-            cad = Request_variable.damestring(message, title);
-            ok = Validate.okmail(cad);
-            if (ok == false) {
-                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
-                        Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
-            }
-        } while (ok == false);
-
-        return cad;
-    }
-
-    /**
-     * Menu que pide una palabra que puede tener todo tipo de caracteres.
-     *
-     * @param message
-     * @param title
-     * @return
-     */
-    public static String Enterwordfull(String message, String title) {
-
-        String cad = "";
-        boolean ok = false;
-
-        do {
-
-            cad = Request_variable.damestring(message, title);
-            ok = Validate.okwordfull(cad);
-            if (ok == false) {
-                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
-                        Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
-            }
-        } while (ok == false);
-
-        return cad;
     }
 
 }

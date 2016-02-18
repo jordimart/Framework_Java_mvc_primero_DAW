@@ -65,7 +65,7 @@
                   <Component id="panelRect1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                   <Component id="panelRect2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="85" max="32767" attributes="0"/>
+                  <EmptySpace pref="32" max="32767" attributes="0"/>
               </Group>
               <Component id="panelCurves2" max="32767" attributes="0"/>
           </Group>
@@ -80,7 +80,7 @@
                       <Component id="panelRect2" min="-2" max="-2" attributes="0"/>
                       <Component id="panelRect1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="75" max="32767" attributes="0"/>
+                  <EmptySpace pref="53" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -126,22 +126,22 @@
                           <Component id="buttonAero1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="labDni_create_admin" max="32767" attributes="0"/>
-                          <Component id="labName_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lab_last_n_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="labMobile_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="labDate_birth_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="labEmail_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lab_User_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="labPassword_create_admin" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="labStatus_create_admin" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="labStatus_create_admin" alignment="0" pref="76" max="32767" attributes="0"/>
                           <Component id="labDate_contr_create_admin" alignment="0" max="32767" attributes="0"/>
                           <Component id="labSalary_create_admin" alignment="0" max="32767" attributes="0"/>
                           <Component id="labActivity_create_admin" alignment="0" max="32767" attributes="0"/>
                           <Component id="laberrorAvatar_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labDni_create_admin" max="32767" attributes="0"/>
+                          <Component id="labLast_name_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labName_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labMobile_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labDate_birth_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labEmail_create_admin" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labUser_create_admin" max="32767" attributes="0"/>
+                          <Component id="labPassword_create_admin" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="43" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -160,13 +160,13 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelHeader2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtName_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labName_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labName_create_admin" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelHeader3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtLast_name_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lab_last_n_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labLast_name_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -190,7 +190,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelHeader7" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtUser_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lab_User_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labUser_create_admin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -309,7 +309,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtDni_create_adminMouseClicked"/>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDni_create_adminKeyTyped"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDni_create_adminKeyReleased"/>
               </Events>
             </Component>
             <Component class="org.edisoncor.gui.textField.TextField" name="txtName_create_admin">
@@ -337,18 +337,25 @@
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtMobile_create_adminMouseClicked"/>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtMobile_create_adminKeyReleased"/>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtMobile_create_adminKeyTyped"/>
               </Events>
             </Component>
             <Component class="org.edisoncor.gui.textField.TextField" name="txtEmail_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Introduzca Email"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtEmail_create_adminMouseClicked"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtEmail_create_adminKeyTyped"/>
+              </Events>
             </Component>
             <Component class="org.edisoncor.gui.textField.TextField" name="txtUser_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Introduzca Usuario"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtUser_create_adminMouseClicked"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtUser_create_adminKeyReleased"/>
+              </Events>
             </Component>
             <Component class="org.edisoncor.gui.textField.TextField" name="txtStatus_create_admin">
               <Properties>
@@ -359,11 +366,19 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Introduzca Salario"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtSalary_create_adminMouseClicked"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSalary_create_adminKeyReleased"/>
+              </Events>
             </Component>
             <Component class="org.edisoncor.gui.textField.TextField" name="txtActivity_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Introduzca Actividad"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtActivity_create_adminMouseClicked"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtActivity_create_adminKeyReleased"/>
+              </Events>
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="pick_date_birth_create_admin">
             </Component>
@@ -373,6 +388,10 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="passwordField1"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtPassword_create_adminMouseClicked"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPassword_create_adminKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labAvatar_create_admin">
               <Properties>
@@ -380,15 +399,16 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labDni_create_admin">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Label1"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labName_create_admin">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Appweb/Modules/Users/Img/Imagen_ok_16x16.png"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="Label3"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lab_last_n_create_admin">
+            <Component class="javax.swing.JLabel" name="labLast_name_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel4"/>
               </Properties>
@@ -408,7 +428,7 @@
                 <Property name="text" type="java.lang.String" value="jLabel7"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lab_User_create_admin">
+            <Component class="javax.swing.JLabel" name="labUser_create_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel8"/>
               </Properties>
