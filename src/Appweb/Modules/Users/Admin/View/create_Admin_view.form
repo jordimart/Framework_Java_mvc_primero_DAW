@@ -323,7 +323,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtName_create_adminMouseClicked"/>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtName_create_adminKeyTyped"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtName_create_adminKeyReleased"/>
               </Events>
             </Component>
             <Component class="org.edisoncor.gui.textField.TextField" name="txtLast_name_create_admin">
@@ -332,7 +332,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtLast_name_create_adminMouseClicked"/>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtLast_name_create_adminKeyTyped"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtLast_name_create_adminKeyReleased"/>
               </Events>
             </Component>
             <Component class="org.edisoncor.gui.textField.TextField" name="txtMobile_create_admin">
@@ -350,7 +350,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtEmail_create_adminMouseClicked"/>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtEmail_create_adminKeyTyped"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtEmail_create_adminKeyReleased"/>
               </Events>
             </Component>
             <Component class="org.edisoncor.gui.textField.TextField" name="txtUser_create_admin">
@@ -390,75 +390,36 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtPassword_create_adminMouseClicked"/>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPassword_create_adminKeyTyped"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPassword_create_adminKeyReleased"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labAvatar_create_admin">
             </Component>
             <Component class="javax.swing.JLabel" name="labDni_create_admin">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Label1"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labName_create_admin">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Label3"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labLast_name_create_admin">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel4"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labMobile_create_admin">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel5"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labDate_birth_create_admin">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel6"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labEmail_create_admin">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel7"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labUser_create_admin">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel8"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labPassword_create_admin">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel9"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labStatus_create_admin">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel10"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labDate_contr_create_admin">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel11"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labSalary_create_admin">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel12"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labActivity_create_admin">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel13"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="laberrorAvatar_create_admin">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel14"/>
-              </Properties>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonAero" name="buttonAero1">
               <Properties>
@@ -538,6 +499,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Aceptar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_AceptarActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

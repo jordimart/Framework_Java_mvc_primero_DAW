@@ -1,7 +1,7 @@
 
 import Appweb.Modules.Config.Classconfig;
+import static Appweb.Modules.Config.Config_tools.auto_open_config_json;
 import Appweb.Modules.Main.Menu_entrada;
-import Appweb.provadata;
 import java.text.ParseException;
 import javax.swing.ImageIcon;
 
@@ -17,7 +17,7 @@ import javax.swing.ImageIcon;
  */
 public class ppal {
     
-    public static ImageIcon mal= new ImageIcon("/Appweb/Modules/Users/Img/Imagen_no_ok_Delete_16x16.png");
+   
    
      public static void main(String args[]) throws ParseException {
        
@@ -27,9 +27,10 @@ public class ppal {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Classconfig.getInstance();
+                 auto_open_config_json();
                
                 new Menu_entrada().setVisible(true);
-                 //new provadata().setVisible(true);
+                 
 
                
             }

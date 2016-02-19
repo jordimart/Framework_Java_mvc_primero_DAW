@@ -5,6 +5,9 @@
  */
 package Appweb.Modules.Users.Admin.View;
 
+import Appweb.Modules.Users.model.Classes.Admin;
+import Appweb.Modules.Users.model.Classes.singleton;
+
 /**
  *
  * @author ASUSG50V
@@ -14,13 +17,32 @@ public class edit_Admin extends javax.swing.JFrame {
     /**
      * Creates new form edit_Admin
      */
-    public edit_Admin() {
+    public edit_Admin(int i) {
         initComponents();
-        
+
         this.setTitle("Menu Login");
-	this.setLocationRelativeTo(null);
-	this.setSize(1000,1200);//ancho x alto
-	this.setResizable(false);
+        this.setLocationRelativeTo(null);
+        this.setSize(1000, 1200);//ancho x alto
+        this.setResizable(false);
+        
+        Admin a = singleton.Admin_array.get(i);
+        
+        Float sal=a.getSalary();
+        int act=a.getActivity();
+        
+
+        txtDni_edit_admin.setText(a.getDni());
+        txtName_edit_admin.setText(a.getName());
+        txtLast_name_edit_admin.setText(a.getLast_name());
+        txtMobile_edit_admin.setText(a.getMobile());
+        pickDate_birth_edit_admin.setToolTipText(a.getDate_birth().todate());
+        txtEmail_edit_admin.setText(a.getEmail());
+        txtUser_edit_admin.setText(a.getUser());
+        txtPassword_edit_admin.setText(a.getPassword());
+        pickDate_contr_edit_admin.setToolTipText(a.getDate_cont().todate());
+        txtSalary_edit_admin.setText(""+sal);
+        txtActivity_edit_admin.setText(""+act);
+
     }
 
     /**
@@ -47,20 +69,18 @@ public class edit_Admin extends javax.swing.JFrame {
         labelHeader11 = new org.edisoncor.gui.label.LabelHeader();
         labelHeader12 = new org.edisoncor.gui.label.LabelHeader();
         labelHeader13 = new org.edisoncor.gui.label.LabelHeader();
-        textField1 = new org.edisoncor.gui.textField.TextField();
-        textField2 = new org.edisoncor.gui.textField.TextField();
-        textField3 = new org.edisoncor.gui.textField.TextField();
-        textField4 = new org.edisoncor.gui.textField.TextField();
-        textField5 = new org.edisoncor.gui.textField.TextField();
-        textField6 = new org.edisoncor.gui.textField.TextField();
-        textField8 = new org.edisoncor.gui.textField.TextField();
-        textField9 = new org.edisoncor.gui.textField.TextField();
-        textField10 = new org.edisoncor.gui.textField.TextField();
-        textField11 = new org.edisoncor.gui.textField.TextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        passwordField1 = new org.edisoncor.gui.passwordField.PasswordField();
-        jLabel1 = new javax.swing.JLabel();
+        txtDni_edit_admin = new org.edisoncor.gui.textField.TextField();
+        txtName_edit_admin = new org.edisoncor.gui.textField.TextField();
+        txtLast_name_edit_admin = new org.edisoncor.gui.textField.TextField();
+        txtMobile_edit_admin = new org.edisoncor.gui.textField.TextField();
+        txtEmail_edit_admin = new org.edisoncor.gui.textField.TextField();
+        txtUser_edit_admin = new org.edisoncor.gui.textField.TextField();
+        txtSalary_edit_admin = new org.edisoncor.gui.textField.TextField();
+        txtActivity_edit_admin = new org.edisoncor.gui.textField.TextField();
+        pickDate_birth_edit_admin = new com.toedter.calendar.JDateChooser();
+        pickDate_contr_edit_admin = new com.toedter.calendar.JDateChooser();
+        txtPassword_edit_admin = new org.edisoncor.gui.passwordField.PasswordField();
+        labAvatar_edit_admin = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -74,6 +94,8 @@ public class edit_Admin extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        comboStatus_edit_admin = new javax.swing.JComboBox<>();
+        buttonAero1 = new org.edisoncor.gui.button.ButtonAero();
         panelRect2 = new org.edisoncor.gui.panel.PanelRect();
         buttonAeroRight2 = new org.edisoncor.gui.button.ButtonAeroRight();
         btn_Cancelar = new org.edisoncor.gui.button.ButtonAeroRight();
@@ -114,30 +136,6 @@ public class edit_Admin extends javax.swing.JFrame {
 
         labelHeader13.setText("Avatar:");
 
-        textField1.setText("Introduzca Dni");
-
-        textField2.setText("Introduzca Nombre");
-
-        textField3.setText("Introduzca Apellido");
-
-        textField4.setText("Introduzca numero");
-
-        textField5.setText("Introduzca Email");
-
-        textField6.setText("Introduzca Usuario");
-
-        textField8.setText("Introduzca Status");
-
-        textField9.setText("Introduzca Salario");
-
-        textField10.setText("Introduzca Actividad");
-
-        textField11.setText("Introduzca Avatar");
-
-        passwordField1.setText("passwordField1");
-
-        jLabel1.setText("Selecion imagen");
-
         jLabel2.setText("jLabel2");
 
         jLabel3.setText("jLabel3");
@@ -164,6 +162,10 @@ public class edit_Admin extends javax.swing.JFrame {
 
         jLabel14.setText("jLabel14");
 
+        comboStatus_edit_admin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Conected", "Disconected" }));
+
+        buttonAero1.setText("Añadir Avatar");
+
         javax.swing.GroupLayout panelRect1Layout = new javax.swing.GroupLayout(panelRect1);
         panelRect1.setLayout(panelRect1Layout);
         panelRect1Layout.setHorizontalGroup(
@@ -186,20 +188,20 @@ public class edit_Admin extends javax.swing.JFrame {
                     .addComponent(labelHeader13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textField2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textField3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textField4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textField5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textField6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textField8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textField9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textField10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(textField11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(passwordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE))
+                    .addComponent(labAvatar_edit_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtDni_edit_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtName_edit_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtLast_name_edit_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtMobile_edit_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtEmail_edit_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtUser_edit_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtSalary_edit_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtActivity_edit_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pickDate_birth_edit_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pickDate_contr_edit_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtPassword_edit_admin, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                    .addComponent(comboStatus_edit_admin, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonAero1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
@@ -223,71 +225,72 @@ public class edit_Admin extends javax.swing.JFrame {
                 .addGap(62, 62, 62)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDni_edit_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHeader2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtName_edit_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHeader3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtLast_name_edit_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHeader4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMobile_edit_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelHeader5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pickDate_birth_edit_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(53, 53, 53)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHeader6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEmail_edit_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(23, 23, 23)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHeader7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUser_edit_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addGap(23, 23, 23)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHeader8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPassword_edit_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addGap(29, 29, 29)
+                .addGap(28, 28, 28)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHeader9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
+                    .addComponent(jLabel10)
+                    .addComponent(comboStatus_edit_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelHeader10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pickDate_contr_edit_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addGap(44, 44, 44)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHeader11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSalary_edit_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
                 .addGap(18, 18, 18)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHeader12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtActivity_edit_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
                 .addGap(18, 18, 18)
-                .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelHeader13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
+                .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelHeader13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel14))
+                    .addComponent(buttonAero1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addComponent(labAvatar_edit_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(187, Short.MAX_VALUE))
         );
 
         buttonAeroRight2.setText("Borrar todo");
@@ -383,48 +386,39 @@ public class edit_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAeroRight2ActionPerformed
 
     private void btn_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarActionPerformed
-        
-         this.dispose();
+
+        this.dispose();
         table_Admin menu = new table_Admin();
         menu.setLocationRelativeTo(null);
         menu.setVisible(true);
     }//GEN-LAST:event_btn_CancelarActionPerformed
 
     /**
-    public static void main(String args[]) {
-        
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(edit_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(edit_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(edit_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(edit_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-       /** 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new edit_Admin().setVisible(true);
-            }
-        });
-    }
-*/
+     * public static void main(String args[]) {
+     *
+     * try { for (javax.swing.UIManager.LookAndFeelInfo info :
+     * javax.swing.UIManager.getInstalledLookAndFeels()) { if
+     * ("Nimbus".equals(info.getName())) {
+     * javax.swing.UIManager.setLookAndFeel(info.getClassName()); break; } } }
+     * catch (ClassNotFoundException ex) {
+     * java.util.logging.Logger.getLogger(edit_Admin.class.getName()).log(java.util.logging.Level.SEVERE,
+     * null, ex); } catch (InstantiationException ex) {
+     * java.util.logging.Logger.getLogger(edit_Admin.class.getName()).log(java.util.logging.Level.SEVERE,
+     * null, ex); } catch (IllegalAccessException ex) {
+     * java.util.logging.Logger.getLogger(edit_Admin.class.getName()).log(java.util.logging.Level.SEVERE,
+     * null, ex); } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+     * java.util.logging.Logger.getLogger(edit_Admin.class.getName()).log(java.util.logging.Level.SEVERE,
+     * null, ex); } //</editor-fold>
+     * /**
+     * java.awt.EventQueue.invokeLater(new Runnable() { public void run() { new
+     * edit_Admin().setVisible(true); } }); }
+     */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.button.ButtonAeroRight btn_Aceptar;
     private org.edisoncor.gui.button.ButtonAeroRight btn_Cancelar;
+    private org.edisoncor.gui.button.ButtonAero buttonAero1;
     private org.edisoncor.gui.button.ButtonAeroRight buttonAeroRight2;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> comboStatus_edit_admin;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -438,6 +432,7 @@ public class edit_Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel labAvatar_edit_admin;
     private org.edisoncor.gui.label.LabelHeader labelHeader1;
     private org.edisoncor.gui.label.LabelHeader labelHeader10;
     private org.edisoncor.gui.label.LabelHeader labelHeader11;
@@ -455,16 +450,16 @@ public class edit_Admin extends javax.swing.JFrame {
     private org.edisoncor.gui.panel.PanelImage panelImage1;
     private org.edisoncor.gui.panel.PanelRect panelRect1;
     private org.edisoncor.gui.panel.PanelRect panelRect2;
-    private org.edisoncor.gui.passwordField.PasswordField passwordField1;
-    private org.edisoncor.gui.textField.TextField textField1;
-    private org.edisoncor.gui.textField.TextField textField10;
-    private org.edisoncor.gui.textField.TextField textField11;
-    private org.edisoncor.gui.textField.TextField textField2;
-    private org.edisoncor.gui.textField.TextField textField3;
-    private org.edisoncor.gui.textField.TextField textField4;
-    private org.edisoncor.gui.textField.TextField textField5;
-    private org.edisoncor.gui.textField.TextField textField6;
-    private org.edisoncor.gui.textField.TextField textField8;
-    private org.edisoncor.gui.textField.TextField textField9;
+    private com.toedter.calendar.JDateChooser pickDate_birth_edit_admin;
+    private com.toedter.calendar.JDateChooser pickDate_contr_edit_admin;
+    private org.edisoncor.gui.textField.TextField txtActivity_edit_admin;
+    private org.edisoncor.gui.textField.TextField txtDni_edit_admin;
+    private org.edisoncor.gui.textField.TextField txtEmail_edit_admin;
+    private org.edisoncor.gui.textField.TextField txtLast_name_edit_admin;
+    private org.edisoncor.gui.textField.TextField txtMobile_edit_admin;
+    private org.edisoncor.gui.textField.TextField txtName_edit_admin;
+    private org.edisoncor.gui.passwordField.PasswordField txtPassword_edit_admin;
+    private org.edisoncor.gui.textField.TextField txtSalary_edit_admin;
+    private org.edisoncor.gui.textField.TextField txtUser_edit_admin;
     // End of variables declaration//GEN-END:variables
 }

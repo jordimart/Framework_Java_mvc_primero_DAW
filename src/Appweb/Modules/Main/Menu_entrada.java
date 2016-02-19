@@ -8,7 +8,9 @@ package Appweb.Modules.Main;
 import Appweb.Classes.Language.Lang;
 import Appweb.Modules.Config.Classconfig;
 import static Appweb.Modules.Config.Config_tools.auto_open_config_json;
+import static Appweb.Modules.Config.Config_tools.auto_save_config_json;
 import Appweb.Modules.Users.Admin.View.task_Admin;
+import Appweb.Modules.Users.model.BLL.Dummy_array_add_users;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,7 +31,7 @@ public class Menu_entrada extends javax.swing.JFrame {
 	this.setResizable(false);
 	
        
-         auto_open_config_json();
+        
     }
 
     /**
@@ -37,6 +39,7 @@ public class Menu_entrada extends javax.swing.JFrame {
      */
     private void exit() {
 
+        auto_save_config_json();
         JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
                 JOptionPane.INFORMATION_MESSAGE);
         dispose();
@@ -87,6 +90,11 @@ public class Menu_entrada extends javax.swing.JFrame {
         });
 
         btn_Test.setText("Entrada Test");
+        btn_Test.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_TestActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelNice1Layout = new javax.swing.GroupLayout(panelNice1);
         panelNice1.setLayout(panelNice1Layout);
@@ -216,6 +224,10 @@ public class Menu_entrada extends javax.swing.JFrame {
         
         Classconfig.getInstance().setLanguage("valencia");
     }//GEN-LAST:event_btn_valencian_mainActionPerformed
+
+    private void btn_TestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TestActionPerformed
+        Dummy_array_add_users.Dummyrequest();
+    }//GEN-LAST:event_btn_TestActionPerformed
 
   
 

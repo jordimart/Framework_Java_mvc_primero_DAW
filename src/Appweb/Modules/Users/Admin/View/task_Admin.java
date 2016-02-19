@@ -54,7 +54,6 @@ public class task_Admin extends javax.swing.JFrame {
         btn_ges_users = new org.edisoncor.gui.button.ButtonAction();
         btn_ges_inst = new org.edisoncor.gui.button.ButtonAction();
         btn_ges_averias = new org.edisoncor.gui.button.ButtonAction();
-        btn_Exit = new org.edisoncor.gui.button.ButtonAction();
         btn_Config = new org.edisoncor.gui.button.ButtonAction();
         btn_Volver = new org.edisoncor.gui.button.ButtonAction();
 
@@ -76,13 +75,6 @@ public class task_Admin extends javax.swing.JFrame {
         btn_ges_inst.setText("GESTION INSTALACIONES");
 
         btn_ges_averias.setText("GESTION AVERIAS");
-
-        btn_Exit.setText("SALIR");
-        btn_Exit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ExitActionPerformed(evt);
-            }
-        });
 
         btn_Config.setText("CONFIGURACION");
         btn_Config.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +100,6 @@ public class task_Admin extends javax.swing.JFrame {
                     .addComponent(btn_ges_inst, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
                     .addComponent(btn_ges_users, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_ges_averias, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_Config, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_Volver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(38, Short.MAX_VALUE))
@@ -126,9 +117,7 @@ public class task_Admin extends javax.swing.JFrame {
                 .addComponent(btn_Config, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_Volver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_Exit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
@@ -168,16 +157,11 @@ public class task_Admin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ExitActionPerformed
-
-        exit();
-    }//GEN-LAST:event_btn_ExitActionPerformed
-
     private void btn_ges_usersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ges_usersActionPerformed
 
         this.dispose();
         table_Admin menu = new table_Admin();
-        menu.setLocationRelativeTo(null);
+       
         menu.setVisible(true);
 
     }//GEN-LAST:event_btn_ges_usersActionPerformed
@@ -186,7 +170,7 @@ public class task_Admin extends javax.swing.JFrame {
 
         this.dispose();
         Menu_entrada menu = new Menu_entrada();
-        menu.setLocationRelativeTo(null);
+       
         menu.setVisible(true);
     }//GEN-LAST:event_btn_VolverActionPerformed
 
@@ -194,7 +178,7 @@ public class task_Admin extends javax.swing.JFrame {
 
         this.dispose();
         menu_Settings menu = new menu_Settings();
-        menu.setLocationRelativeTo(null);
+       
         menu.setVisible(true);
 
     }//GEN-LAST:event_btn_ConfigActionPerformed
@@ -202,7 +186,6 @@ public class task_Admin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.button.ButtonAction btn_Config;
-    private org.edisoncor.gui.button.ButtonAction btn_Exit;
     private org.edisoncor.gui.button.ButtonAction btn_Volver;
     private org.edisoncor.gui.button.ButtonAction btn_ges_averias;
     private org.edisoncor.gui.button.ButtonAction btn_ges_inst;

@@ -8,6 +8,7 @@ import Appweb.Modules.Config.Classconfig;
 import Appweb.Classes.Date.ClassDate;
 import Appweb.Classes.Language.Lang;
 import Appweb.Tools.Format_tools;
+import javax.swing.Icon;
 
 /**
  * 
@@ -43,7 +44,7 @@ public abstract class User implements Comparable<User>, Serializable {
 	@XStreamAlias("Password")
 	private String Password;
 	@XStreamAlias("Avatar")
-	private String Avatar;
+	private Icon Avatar;
 	@XStreamAlias("Status")
 	private String Status;
 	@XStreamAlias("Benefits")
@@ -54,7 +55,7 @@ public abstract class User implements Comparable<User>, Serializable {
 	/** constructor one */
 	/** constructor de datos, no devuelve nada, recoge todos los datos */
 	public User(String Dni, String Name, String Last_name, String Mobile, ClassDate Date_birth, String Email, String User, String Password,
-			String Avatar, String Status) {
+			Icon Avatar, String Status) {
 
 		this.Dni = Dni;
 		this.Name = Name;
@@ -86,7 +87,7 @@ public abstract class User implements Comparable<User>, Serializable {
 
 	// constructor 4
 	// constructor para un atributo pero el que le pidamos
-	public User(int i, String s, int Age, float f, ClassDate c) {
+	public User(int i, String s, int Age, float f, ClassDate c,Icon icono) {
 
 		switch (i) {
 
@@ -118,7 +119,7 @@ public abstract class User implements Comparable<User>, Serializable {
 			this.Password = s;
 			break;
 		case 9:
-			this.Avatar = s;
+			this.Avatar = icono;
 			break;
 		case 10:
 			this.Status = s;
@@ -202,11 +203,11 @@ public abstract class User implements Comparable<User>, Serializable {
 		this.Password = Password;
 	}
 
-	public String getAvatar() {
+	public Icon getAvatar() {
 		return Avatar;
 	}
 
-	public void setAvatar(String Avatar) {
+	public void setAvatar(Icon Avatar) {
 		this.Avatar = Avatar;
 	}
 
@@ -263,7 +264,7 @@ public abstract class User implements Comparable<User>, Serializable {
 		buffer.append("Email: " + this.getEmail() + "\n");
 		buffer.append(Lang.getInstance().getProperty("User") + ": " + this.getUser() + "\n");
 		buffer.append(Lang.getInstance().getProperty("Password") + ": " + this.getPassword() + "\n");
-		buffer.append("Avatar: " + this.getAvatar() + "\n");
+		buffer.append("Avatar: " + this.getAvatar().toString() + "\n");
 		buffer.append("Status: " + this.getStatus() + "\n");
 		buffer.append(this.toBenefits() + "\n");
 
@@ -280,7 +281,7 @@ public abstract class User implements Comparable<User>, Serializable {
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.0") ) {
 
-				money = money + Lang.getInstance().getProperty("Benefits") + ": " + Format_tools.F_1dec(getBenefits()) + " � \n";
+				money = money + Lang.getInstance().getProperty("Benefits") + ": " + Format_tools.F_1dec(getBenefits()) + " E \n";
 
 			}
 
@@ -292,7 +293,7 @@ public abstract class User implements Comparable<User>, Serializable {
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.000")) {
 
-				money = money + Lang.getInstance().getProperty("Benefits") + ": " + Format_tools.F_3dec(getBenefits()) + " � \n";
+				money = money + Lang.getInstance().getProperty("Benefits") + ": " + Format_tools.F_3dec(getBenefits()) + " E \n";
 
 			}
 
@@ -331,7 +332,7 @@ public abstract class User implements Comparable<User>, Serializable {
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.0")) {
 
-				money = money + Lang.getInstance().getProperty("Benefits") + ": �" + Format_tools.F_1dec(calp) + "   \n";
+				money = money + Lang.getInstance().getProperty("Benefits") + ": pound " + Format_tools.F_1dec(calp) + "   \n";
 			}
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.00")) {
@@ -342,7 +343,7 @@ public abstract class User implements Comparable<User>, Serializable {
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.000")) {
 
-				money = money + Lang.getInstance().getProperty("Benefits") + ": �" + Format_tools.F_3dec(calp) + "   \n";
+				money = money + Lang.getInstance().getProperty("Benefits") + ": pound " + Format_tools.F_3dec(calp) + "   \n";
 			}
 
 			break;

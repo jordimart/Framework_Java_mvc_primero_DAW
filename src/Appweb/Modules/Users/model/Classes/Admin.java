@@ -8,6 +8,7 @@ import Appweb.Modules.Config.Classconfig;
 import Appweb.Classes.Date.ClassDate;
 import Appweb.Classes.Language.Lang;
 import Appweb.Tools.Format_tools;
+import javax.swing.Icon;
 
 /**
  * 
@@ -31,7 +32,7 @@ public class Admin extends User implements Serializable {
 
 	// Constructor type one all Attributes
 	public Admin(String Dni, String Name, String Last_name, String Mobile, ClassDate Date_birth, String Email, String User, String Password,
-			String Avatar, String Status, ClassDate date_cont, float salary, int activity) {
+			Icon Avatar, String Status, ClassDate date_cont, float salary, int activity) {
 
 		super(Dni, Name, Last_name, Mobile, Date_birth, Email, User, Password, Avatar, Status);
 		this.date_cont = date_cont;
@@ -55,7 +56,7 @@ public class Admin extends User implements Serializable {
 	}
 
 	// constructor four // constructor users request
-	public Admin(int i, String s, int n, float f, ClassDate c) {
+	public Admin(int i, String s, int n, float f, ClassDate c,Icon icono) {
 
 		switch (i) {
 
@@ -106,7 +107,7 @@ public class Admin extends User implements Serializable {
 			break;
 		case 9:
 
-			super.setAvatar(s);
+			super.setAvatar(icono);
 
 			break;
 		case 10:

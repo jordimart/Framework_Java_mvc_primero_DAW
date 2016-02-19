@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Appweb.Modules.Users.Admin.View;
 
 import Appweb.Modules.Users.Admin.View.task_Admin;
 import Appweb.Modules.Users.Admin.View.edit_Admin;
-import Appweb.Modules.Users.Admin.View.create_Admin;
+import Appweb.Modules.Users.Admin.View.create_Admin_view;
 import Appweb.Modules.Main.Menu_entrada;
+import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 
 /**
  *
@@ -21,11 +17,11 @@ public class table_Admin extends javax.swing.JFrame {
      */
     public table_Admin() {
         initComponents();
-        
+
         this.setTitle("Menu Login");
-	this.setLocationRelativeTo(null);
-	this.setSize(1000,650);//ancho x alto
-	this.setResizable(false);
+        this.setLocationRelativeTo(null);
+        this.setSize(1000, 650);//ancho x alto
+        this.setResizable(false);
     }
 
     /**
@@ -55,10 +51,10 @@ public class table_Admin extends javax.swing.JFrame {
         panelTranslucido1 = new org.edisoncor.gui.panel.PanelTranslucido();
         comboBoxRound1 = new org.edisoncor.gui.comboBox.ComboBoxRound();
         labelRect1 = new org.edisoncor.gui.label.LabelRect();
-        buttonAction1 = new org.edisoncor.gui.button.ButtonAction();
-        buttonAction2 = new org.edisoncor.gui.button.ButtonAction();
-        buttonAction3 = new org.edisoncor.gui.button.ButtonAction();
-        buttonAction4 = new org.edisoncor.gui.button.ButtonAction();
+        btnAñadir_admin = new org.edisoncor.gui.button.ButtonAction();
+        btnEditar_admin = new org.edisoncor.gui.button.ButtonAction();
+        btnBorrar_admin = new org.edisoncor.gui.button.ButtonAction();
+        btnMostar_admin = new org.edisoncor.gui.button.ButtonAction();
         btn_Volver = new org.edisoncor.gui.button.ButtonAction();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -127,23 +123,28 @@ public class table_Admin extends javax.swing.JFrame {
 
         labelRect1.setText("Selecciona user:");
 
-        buttonAction1.setText("Añadir");
-        buttonAction1.addActionListener(new java.awt.event.ActionListener() {
+        btnAñadir_admin.setText("Añadir");
+        btnAñadir_admin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAction1ActionPerformed(evt);
+                btnAñadir_adminActionPerformed(evt);
             }
         });
 
-        buttonAction2.setText("Editar");
-        buttonAction2.addActionListener(new java.awt.event.ActionListener() {
+        btnEditar_admin.setText("Editar");
+        btnEditar_admin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAction2ActionPerformed(evt);
+                btnEditar_adminActionPerformed(evt);
             }
         });
 
-        buttonAction3.setText("Borrar");
+        btnBorrar_admin.setText("Borrar");
 
-        buttonAction4.setText("Mostrar");
+        btnMostar_admin.setText("Mostrar");
+        btnMostar_admin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostar_adminActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelTranslucido1Layout = new javax.swing.GroupLayout(panelTranslucido1);
         panelTranslucido1.setLayout(panelTranslucido1Layout);
@@ -154,13 +155,13 @@ public class table_Admin extends javax.swing.JFrame {
                     .addComponent(labelRect1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboBoxRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(buttonAction1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAñadir_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonAction2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEditar_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonAction3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBorrar_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonAction4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnMostar_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(80, Short.MAX_VALUE))
         );
         panelTranslucido1Layout.setVerticalGroup(
@@ -175,10 +176,10 @@ public class table_Admin extends javax.swing.JFrame {
                     .addGroup(panelTranslucido1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(panelTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(buttonAction1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonAction2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonAction3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonAction4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(btnAñadir_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEditar_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBorrar_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnMostar_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
 
         btn_Volver.setText("Volver");
@@ -262,57 +263,58 @@ public class table_Admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ANTERIORActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANTERIORActionPerformed
-       
+
     }//GEN-LAST:event_ANTERIORActionPerformed
 
     private void SIGUIENTEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SIGUIENTEActionPerformed
-       
+
     }//GEN-LAST:event_SIGUIENTEActionPerformed
 
     private void primeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_primeroActionPerformed
-        
+
     }//GEN-LAST:event_primeroActionPerformed
 
     private void ultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultimoActionPerformed
-        
+
     }//GEN-LAST:event_ultimoActionPerformed
 
-    private void buttonAction1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction1ActionPerformed
-      
-         this.dispose();
-        create_Admin menu = new create_Admin();
-        menu.setLocationRelativeTo(null);
-        menu.setVisible(true);
-    }//GEN-LAST:event_buttonAction1ActionPerformed
+    private void btnAñadir_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadir_adminActionPerformed
 
-    private void buttonAction2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction2ActionPerformed
-        
-         this.dispose();
-        edit_Admin menu = new edit_Admin();
-        menu.setLocationRelativeTo(null);
+        this.dispose();
+        create_Admin_view menu = new create_Admin_view();
         menu.setVisible(true);
-    }//GEN-LAST:event_buttonAction2ActionPerformed
+    }//GEN-LAST:event_btnAñadir_adminActionPerformed
+
+    private void btnEditar_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditar_adminActionPerformed
+
+        BLL_Admin.Modify_select_admin();
+        this.dispose();
+
+
+    }//GEN-LAST:event_btnEditar_adminActionPerformed
 
     private void btn_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VolverActionPerformed
-       
-         this.dispose();
+
+        this.dispose();
         task_Admin menu = new task_Admin();
-        menu.setLocationRelativeTo(null);
         menu.setVisible(true);
     }//GEN-LAST:event_btn_VolverActionPerformed
 
-    
+    private void btnMostar_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostar_adminActionPerformed
+        BLL_Admin.Print_select_admin();
+    }//GEN-LAST:event_btnMostar_adminActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton ANTERIOR;
     public static javax.swing.JTextField CAJA;
     public static javax.swing.JButton SIGUIENTE;
     public static javax.swing.JTable Table;
+    private org.edisoncor.gui.button.ButtonAction btnAñadir_admin;
+    private org.edisoncor.gui.button.ButtonAction btnBorrar_admin;
+    private org.edisoncor.gui.button.ButtonAction btnEditar_admin;
+    private org.edisoncor.gui.button.ButtonAction btnMostar_admin;
     private org.edisoncor.gui.button.ButtonAction btn_Volver;
-    private org.edisoncor.gui.button.ButtonAction buttonAction1;
-    private org.edisoncor.gui.button.ButtonAction buttonAction2;
-    private org.edisoncor.gui.button.ButtonAction buttonAction3;
-    private org.edisoncor.gui.button.ButtonAction buttonAction4;
     private org.edisoncor.gui.comboBox.ComboBoxRound comboBoxRound1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;

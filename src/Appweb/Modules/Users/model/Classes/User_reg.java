@@ -5,6 +5,7 @@ import java.io.Serializable;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 import Appweb.Classes.Date.ClassDate;
+import javax.swing.Icon;
 
 /**
  * 
@@ -26,7 +27,7 @@ public class User_reg extends User implements Serializable {
 
 	// Constructor type one all Attributes
 	public User_reg(String Dni, String Name, String Last_name, String Mobile, ClassDate Date_birth, String Email, String User, String Password,
-			String Avatar, String Status, int activity_u) {
+			Icon Avatar, String Status, int activity_u) {
 		super(Dni, Name, Last_name, Mobile, Date_birth, Email, User, Password, Avatar, Status);
 
 		this.activity_u = activity_u;
@@ -49,7 +50,7 @@ public class User_reg extends User implements Serializable {
 	}
 
 	// constructor four // constructor users request
-	public User_reg(int i, String s, int n, float f, ClassDate c) {
+	public User_reg(int i, String s, int n, float f, ClassDate c,Icon icono) {
 
 		switch (i) {
 
@@ -100,7 +101,7 @@ public class User_reg extends User implements Serializable {
 			break;
 		case 9:
 
-			super.setAvatar(s);
+			super.setAvatar(icono);
 
 			break;
 		case 10:

@@ -6,7 +6,7 @@ import Appweb.Classes.Language.Lang;
 import Appweb.Modules.Users.model.BLL.Look_for_dni;
 import Appweb.Tools.Request_variable;
 import Appweb.Tools.Validate;
-import Appweb.Modules.Users.Admin.View.create_Admin;
+import Appweb.Modules.Users.Admin.View.create_Admin_view;
 import java.awt.Color;
 
 /**
@@ -68,38 +68,7 @@ public class Core_users {
         return dni;
     }
 
-    /**
-     * Funcion de prueba que no funciona para el validador.
-     *
-     * @param dni
-     * @return
-     */
-    public static boolean real_dni(String dni) {
-
-        int num = 0, rest = 0;
-        char letter = ' ', pass = ' ';
-        String aux = "", car = "TRWAGMYFPDXBNJZSQVHLCKET";
-        boolean ok = false;
-
-        aux = "";
-
-        for (int i = 0; i < 8; i++) {
-            aux += dni.charAt(i);
-
-        }
-
-        letter = dni.charAt(8);
-        num = Integer.parseInt(aux);
-        rest = num % 23;
-        pass = car.charAt(rest);
-
-        if (pass == letter) {
-            ok = true;
-
-        }
-
-        return ok;
-    }
+    
 
     /**
      * Fucion que valida que el dni pueda existir.Pero ademas comprueba que no

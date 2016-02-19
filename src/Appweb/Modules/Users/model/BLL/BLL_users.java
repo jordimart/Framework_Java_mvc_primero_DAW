@@ -19,18 +19,7 @@ import Appweb.Tools.Menu;
  */
 public class BLL_users {
 
-	/**
-	 * This function asks admin data and enters them into an array
-	 * 
-	 */
-	public static void Create_admin_and_add_array() {
-
-		Admin a = null;
-
-		a = Dao_users.Adminrequest();
-
-		singleton.Admin_array.add(a);
-	}
+	
 
 	/**
 	 * This function asks client data and enters them into an array
@@ -324,41 +313,7 @@ public class BLL_users {
 
 	}
 
-	/**
-	 * Imprime un usuario seleccionado admin
-	 */
-	public static void Print_select_admin() {
-
-		Admin a;
-		String s = " ";
-		String dni = "";
-		int pos = 0;
-		int n = singleton.Admin_array.size();
-		String cli[] = new String[n];
-
-		
-		if (singleton.Admin_array.size() != 0) {
-		for (int i = 0; i < n; i++) {
-			a = (Admin) singleton.Admin_array.get(i);
-			s = a.getDni() + " - " + a.getName() + " " + a.getLast_name();
-			cli[i] = s;
-		}
-		String se = Menu.Menu_carga_array(cli, Lang.getInstance().getProperty("Select_user"));
-
-		for (int j = 0; j < 9; j++) {
-
-			dni += se.charAt(j);
-		}
-
-		pos = Look_for_dni.Look_for_dni_admin(dni);
-
-		JOptionPane.showMessageDialog(null, singleton.Admin_array.get(pos));
-
-		} else {
-
-			JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("There_are_elements_of_administrator_type"));
-		}
-	}
+	
 
 	/**
 	 * Imprime un usuario seleccionado client
@@ -432,39 +387,7 @@ public class BLL_users {
 		}
 	}
 
-	/**
-	 * Modifica un usuario seleccionado admin
-	 */
-	public static void Modify_select_admin() {
-
-		Admin a;
-		String s = " ";
-		String dni = "";
-		int pos = 0;
-		int n = singleton.Admin_array.size();
-		String cli[] = new String[n];
-		if (singleton.Admin_array.size() != 0) {
-			for (int i = 0; i < n; i++) {
-				a = (Admin) singleton.Admin_array.get(i);
-				s = a.getDni() + " - " + a.getName() + " " + a.getLast_name();
-				cli[i] = s;
-			}
-			String se = Menu.Menu_carga_array(cli, Lang.getInstance().getProperty("Select_user"));
-
-			for (int j = 0; j < 9; j++) {
-
-				dni += se.charAt(j);
-			}
-
-			pos = Look_for_dni.Look_for_dni_admin(dni);
-
-			Dao_users.Adminset(pos);
-		} else {
-
-			JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("There_are_elements_of_administrator_type"));
-		}
-
-	}
+	
 
 	/**
 	 * Modifica un usuario seleccionado client

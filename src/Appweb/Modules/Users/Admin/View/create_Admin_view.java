@@ -5,54 +5,35 @@ package Appweb.Modules.Users.Admin.View;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
+import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
+import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin;
 import Appweb.Modules.Users.model.DAO.Dao_users;
 import Appweb.Modules.Users.model.Users_tools.Core_users;
+import static com.alee.managers.style.SupportedComponent.fileChooser;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
  * @author ASUSG50V
  */
-public class create_Admin extends javax.swing.JFrame {
+public class create_Admin_view extends javax.swing.JFrame {
 
     /**
      * Creates new form create_Admin
      */
-    public create_Admin() {
+    public create_Admin_view() {
         initComponents();
         this.setTitle("Create Admin");
-	this.setLocationRelativeTo(null);
-	this.setSize(1000,1200);//ancho x alto
-	this.setResizable(false);
-        
+        this.setLocationRelativeTo(null);
+        this.setSize(1000, 1200);//ancho x alto
+        this.setResizable(false);
+
     }
-    
-    public static void Avatar_admin(){
-        
-        JFileChooser dlg = new JFileChooser();
-        int option = dlg.showOpenDialog(null);
-        if(option==JFileChooser.APPROVE_OPTION) {
-            //Obtiene nombre del archivo seleccionado
-            String file = dlg.getSelectedFile().getPath();
-            labAvatar_create_admin.setIcon(new ImageIcon(file));
-            //Modificando la imagen
-            ImageIcon icon = new ImageIcon(file);
-            //Se extrae la imagen del icono
-            Image img = icon.getImage();
-            //Se modifica su tamaño
-            Image newimg = img.getScaledInstance(140,170,java.awt.Image.SCALE_SMOOTH);
-            //SE GENERA EL IMAGE ICON CON LA NUEVA IMAGEN
-            ImageIcon newIcon = new ImageIcon(newimg);
-            //Se coloca el nuevo icono modificado
-            labAvatar_create_admin.setIcon(newIcon);
-            //Se cambia el tamaño de la etiqueta
-            labAvatar_create_admin.setSize(470,290);
-        }
-}
+
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -162,8 +143,8 @@ public class create_Admin extends javax.swing.JFrame {
             }
         });
         txtName_create_admin.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtName_create_adminKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtName_create_adminKeyReleased(evt);
             }
         });
 
@@ -174,8 +155,8 @@ public class create_Admin extends javax.swing.JFrame {
             }
         });
         txtLast_name_create_admin.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtLast_name_create_adminKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtLast_name_create_adminKeyReleased(evt);
             }
         });
 
@@ -198,8 +179,8 @@ public class create_Admin extends javax.swing.JFrame {
             }
         });
         txtEmail_create_admin.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtEmail_create_adminKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtEmail_create_adminKeyReleased(evt);
             }
         });
 
@@ -246,36 +227,10 @@ public class create_Admin extends javax.swing.JFrame {
             }
         });
         txtPassword_create_admin.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtPassword_create_adminKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPassword_create_adminKeyReleased(evt);
             }
         });
-
-        labDni_create_admin.setText("Label1");
-
-        labName_create_admin.setText("Label3");
-
-        labLast_name_create_admin.setText("jLabel4");
-
-        labMobile_create_admin.setText("jLabel5");
-
-        labDate_birth_create_admin.setText("jLabel6");
-
-        labEmail_create_admin.setText("jLabel7");
-
-        labUser_create_admin.setText("jLabel8");
-
-        labPassword_create_admin.setText("jLabel9");
-
-        labStatus_create_admin.setText("jLabel10");
-
-        labDate_contr_create_admin.setText("jLabel11");
-
-        labSalary_create_admin.setText("jLabel12");
-
-        labActivity_create_admin.setText("jLabel13");
-
-        laberrorAvatar_create_admin.setText("jLabel14");
 
         buttonAero1.setText("Añadir Avatar");
         buttonAero1.addActionListener(new java.awt.event.ActionListener() {
@@ -429,6 +384,11 @@ public class create_Admin extends javax.swing.JFrame {
         });
 
         btn_Aceptar.setText("Aceptar");
+        btn_Aceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AceptarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelRect2Layout = new javax.swing.GroupLayout(panelRect2);
         panelRect2.setLayout(panelRect2Layout);
@@ -507,67 +467,46 @@ public class create_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_BorrarActionPerformed
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
-       
-         this.dispose();
+
+        this.dispose();
         table_Admin menu = new table_Admin();
-        menu.setLocationRelativeTo(null);
         menu.setVisible(true);
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
     private void txtDni_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDni_create_adminMouseClicked
-        
+
         txtDni_create_admin.setText("");
     }//GEN-LAST:event_txtDni_create_adminMouseClicked
 
     private void txtName_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtName_create_adminMouseClicked
-        
+
         txtName_create_admin.setText("");
     }//GEN-LAST:event_txtName_create_adminMouseClicked
 
-    private void txtName_create_adminKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtName_create_adminKeyTyped
-        Dao_users.Entername_admin();
-    }//GEN-LAST:event_txtName_create_adminKeyTyped
-
-    private void txtMobile_create_adminKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMobile_create_adminKeyReleased
-         Dao_users.Entermobile_admin();
-    }//GEN-LAST:event_txtMobile_create_adminKeyReleased
-
-    private void txtLast_name_create_adminKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLast_name_create_adminKeyTyped
-        Dao_users.Enterlast_name_admin();
-    }//GEN-LAST:event_txtLast_name_create_adminKeyTyped
-
     private void txtLast_name_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLast_name_create_adminMouseClicked
-      txtLast_name_create_admin.setText("");
+        txtLast_name_create_admin.setText("");
     }//GEN-LAST:event_txtLast_name_create_adminMouseClicked
 
     private void txtMobile_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMobile_create_adminMouseClicked
-        
+
         txtMobile_create_admin.setText("");
     }//GEN-LAST:event_txtMobile_create_adminMouseClicked
 
     private void txtEmail_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEmail_create_adminMouseClicked
-       Dao_users.Enterdate_birth_admin();
+        BLL_Admin.Enterdate_birth_admin();
         txtEmail_create_admin.setText("");
     }//GEN-LAST:event_txtEmail_create_adminMouseClicked
 
-    private void txtEmail_create_adminKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmail_create_adminKeyTyped
-        Dao_users.Entermail_admin();
-    }//GEN-LAST:event_txtEmail_create_adminKeyTyped
-
     private void txtUser_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUser_create_adminMouseClicked
-         txtUser_create_admin.setText("");
+        txtUser_create_admin.setText("");
     }//GEN-LAST:event_txtUser_create_adminMouseClicked
 
     private void txtPassword_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPassword_create_adminMouseClicked
         txtPassword_create_admin.setText("");
     }//GEN-LAST:event_txtPassword_create_adminMouseClicked
 
-    private void txtPassword_create_adminKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassword_create_adminKeyTyped
-        Dao_users.Enterpassword_admin();
-    }//GEN-LAST:event_txtPassword_create_adminKeyTyped
-
     private void txtSalary_create_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSalary_create_adminMouseClicked
-        Dao_users.Enterdate_contr_admin();
+        BLL_Admin.Enterdate_contr_admin();
         txtSalary_create_admin.setText("");
     }//GEN-LAST:event_txtSalary_create_adminMouseClicked
 
@@ -575,27 +514,56 @@ public class create_Admin extends javax.swing.JFrame {
         txtActivity_create_admin.setText("");
     }//GEN-LAST:event_txtActivity_create_adminMouseClicked
 
+    private void buttonAero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAero1ActionPerformed
+     DAO_Admin.EnterAvatar_admin();
+    }//GEN-LAST:event_buttonAero1ActionPerformed
+
+    private void txtDni_create_adminKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDni_create_adminKeyReleased
+        BLL_Admin.Enterdni_admin();
+    }//GEN-LAST:event_txtDni_create_adminKeyReleased
+
+    private void txtName_create_adminKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtName_create_adminKeyReleased
+        BLL_Admin.Entername_admin();
+    }//GEN-LAST:event_txtName_create_adminKeyReleased
+
+    private void txtLast_name_create_adminKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLast_name_create_adminKeyReleased
+        BLL_Admin.Enterlast_name_admin();
+    }//GEN-LAST:event_txtLast_name_create_adminKeyReleased
+
+    private void txtMobile_create_adminKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMobile_create_adminKeyReleased
+        BLL_Admin.Entermobile_admin();
+    }//GEN-LAST:event_txtMobile_create_adminKeyReleased
+
+    private void txtEmail_create_adminKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmail_create_adminKeyReleased
+        BLL_Admin.Entermail_admin();
+    }//GEN-LAST:event_txtEmail_create_adminKeyReleased
+
+    private void txtUser_create_adminKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUser_create_adminKeyReleased
+        BLL_Admin.Enteruser_admin();
+    }//GEN-LAST:event_txtUser_create_adminKeyReleased
+
+    private void txtPassword_create_adminKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassword_create_adminKeyReleased
+        BLL_Admin.Enterpassword_admin();
+    }//GEN-LAST:event_txtPassword_create_adminKeyReleased
+
     private void txtSalary_create_adminKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSalary_create_adminKeyReleased
-        Dao_users.Entersalary_admin();
+        BLL_Admin.Entersalary_admin();
     }//GEN-LAST:event_txtSalary_create_adminKeyReleased
 
     private void txtActivity_create_adminKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtActivity_create_adminKeyReleased
-        Dao_users.Enteractivity_admin();
+        BLL_Admin.Enteractivity_admin();
     }//GEN-LAST:event_txtActivity_create_adminKeyReleased
 
-    private void txtDni_create_adminKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDni_create_adminKeyReleased
-        Dao_users.Enterdnia();
-    }//GEN-LAST:event_txtDni_create_adminKeyReleased
+    private void btn_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AceptarActionPerformed
 
-    private void txtUser_create_adminKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUser_create_adminKeyReleased
-        Dao_users.Enteruser_admin();
-    }//GEN-LAST:event_txtUser_create_adminKeyReleased
+        boolean ok = BLL_Admin.Enter_new_admin();
+        if (ok == true) {
+            this.dispose();
+            table_Admin menu = new table_Admin();
+            menu.setVisible(true);
+        }
 
-    private void buttonAero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAero1ActionPerformed
-        Avatar_admin();
-    }//GEN-LAST:event_buttonAero1ActionPerformed
-
-   
+    }//GEN-LAST:event_btn_AceptarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static org.edisoncor.gui.button.ButtonAeroRight btn_Aceptar;

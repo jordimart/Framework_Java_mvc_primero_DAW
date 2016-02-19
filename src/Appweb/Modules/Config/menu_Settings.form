@@ -117,6 +117,7 @@
                           <Component id="btn_Accept_Settings" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_Load_Settings" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_Return_Settings" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnsave_setting" min="-2" max="-2" attributes="0"/>
                           <Component id="buttonAction1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="40" max="32767" attributes="0"/>
@@ -138,8 +139,10 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btn_Load_Settings" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="buttonAction1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnsave_setting" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="buttonAction1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Component id="btn_Return_Settings" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -530,7 +533,7 @@
             </Container>
             <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_Accept_Settings">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Aceptar"/>
+                <Property name="text" type="java.lang.String" value="Aplicar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_Accept_SettingsActionPerformed"/>
@@ -552,10 +555,21 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_Return_SettingsActionPerformed"/>
               </Events>
             </Component>
-            <Component class="org.edisoncor.gui.button.ButtonAction" name="buttonAction1">
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="btnsave_setting">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Guardar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnsave_settingActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="buttonAction1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mostrar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAction1ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

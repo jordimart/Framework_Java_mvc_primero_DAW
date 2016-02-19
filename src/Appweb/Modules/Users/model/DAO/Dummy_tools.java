@@ -1,10 +1,13 @@
 package Appweb.Modules.Users.model.DAO;
 
 import Appweb.Classes.Date.ClassDate;
+import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 import Appweb.Modules.Users.model.BLL.Look_for_dni;
 import Appweb.Modules.Users.model.Classes.Admin;
 import Appweb.Modules.Users.model.Classes.Client;
 import Appweb.Modules.Users.model.Classes.User_reg;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 public class Dummy_tools {
 
@@ -45,7 +48,7 @@ public class Dummy_tools {
 			pass = car.charAt(rest);
 			s = s + pass;
 
-			posa = Look_for_dni.Look_for_dni_admin(aux);
+			posa = BLL_Admin.Look_for_dni_admin(aux);
 			posc = Look_for_dni.Look_for_dni_client(aux);
 			posu = Look_for_dni.Look_for_dni_user_reg(aux);
 
@@ -117,7 +120,7 @@ public class Dummy_tools {
 	}
 
 	/**
-	 * Funcion que devuelve una fecha que debe cumplir que los años sean igual o
+	 * Funcion que devuelve una fecha que debe cumplir que los aï¿½os sean igual o
 	 * mayores al parametro min.
 	 * 
 	 * @param min
@@ -137,7 +140,7 @@ public class Dummy_tools {
 
 			date = new ClassDate(day, month, year);
 			years = date.Diference_system_date();
-			// JOptionPane.showMessageDialog(null, "Años: " + years);
+			// JOptionPane.showMessageDialog(null, "Aï¿½os: " + years);
 		} while (years < min);
 
 		return date;
@@ -179,7 +182,7 @@ public class Dummy_tools {
 
 	/**
 	 * Funcion que devuelve una fecha que debe estar comprendida entre un minimo
-	 * y un maximo de años.
+	 * y un maximo de aï¿½os.
 	 * 
 	 * @param min
 	 * @param max
@@ -305,12 +308,13 @@ public class Dummy_tools {
 	 */
 	public static Admin Dummyadmin() {
 
-		String Dni = " ", Name = " ", Last_name = "", Mobile = "", Email = "", User = "", Password = "", Avatar = "";
+		String Dni = " ", Name = " ", Last_name = "", Mobile = "", Email = "", User = "", Password = "";
 		ClassDate date_cont = null;
 		String Status = "";
 		int activity = 0;
 		float salary = 0.000f;
 		ClassDate Date_birth = null;
+                Icon Avatar=null;
 
 		Dni = Dummy_tools.Dummydni();
 		Name = Dummy_tools.Dummyname();
@@ -320,7 +324,7 @@ public class Dummy_tools {
 		Email = Dummy_tools.Dummyemail(Name, Last_name);
 		User = Dummy_tools.Dummyuser(Name);
 		Password = "Contrasena";
-		Avatar = "imagen";
+		Avatar = new ImageIcon("/Appweb/Modules/Users/Img/Imagen_no_ok_Delete_16x16.png");
 		Status = "Conected";
 
 		// Enter Admin attributes
@@ -336,12 +340,13 @@ public class Dummy_tools {
 	 */
 	public static Client DummyClient() {
 
-		String Dni = "", Name = "", Last_name = "", Mobile = "", Email = "", User = "", Password = "", Avatar = "", client_type = "";
+		String Dni = "", Name = "", Last_name = "", Mobile = "", Email = "", User = "", Password = "", client_type = "";
 		ClassDate entry_date = null;
 		String premium = "";
 		String Status = "";
 		float purchase = 0.000f;
 		ClassDate Date_birth = null;
+                Icon Avatar=null;
 
 		Dni = Dummy_tools.Dummydni();
 		;
@@ -353,7 +358,7 @@ public class Dummy_tools {
 		Email = Dummy_tools.Dummyemail(Name, Last_name);
 		User = Dummy_tools.Dummyuser(Name);
 		Password = "Rox150902";
-		Avatar = "imagen";
+		Avatar = new ImageIcon("/Appweb/Modules/Users/Img/Imagen_no_ok_Delete_16x16.png");
 		Status = "Conected";
 
 		// Enter Admin attributes
@@ -372,10 +377,11 @@ public class Dummy_tools {
 	 */
 	public static User_reg DummyUser_reg() {
 
-		String Dni = "", Name = "", Last_name = "", Mobile = "", Email = "", User = "", Password = "", Avatar = "";
+		String Dni = "", Name = "", Last_name = "", Mobile = "", Email = "", User = "", Password = "";
 		String Status = "";
 		int activity_u;
 		ClassDate Date_birth = null;
+                Icon Avatar=null;
 
 		Dni = Dummy_tools.Dummydni();
 		;
@@ -387,7 +393,7 @@ public class Dummy_tools {
 		Email = Dummy_tools.Dummyemail(Name, Last_name);
 		User = Dummy_tools.Dummyuser(Name);
 		Password = "Juanpa";
-		Avatar = "imagen";
+		Avatar = new ImageIcon("/Appweb/Modules/Users/Img/Imagen_no_ok_Delete_16x16.png");
 		Status = "Conected";
 
 		// Enter Admin attributes

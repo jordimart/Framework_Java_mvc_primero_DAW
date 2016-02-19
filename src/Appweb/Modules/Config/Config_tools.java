@@ -305,7 +305,7 @@ public class Config_tools {
         String PATH = " ";
 
         try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Config/Files_config/appconfig.json";
+            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Config/Files_config/appconfig";
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -416,12 +416,11 @@ public class Config_tools {
                 case "Synthetica":
 
                     try {
-                        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                            if ("Nimbus".equals(info.getName())) {
+                        
                                 UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
-                                break;
-                            }
-                        }
+                                
+                            
+                        
                     } catch (javax.swing.UnsupportedLookAndFeelException ex) {
 
                     }

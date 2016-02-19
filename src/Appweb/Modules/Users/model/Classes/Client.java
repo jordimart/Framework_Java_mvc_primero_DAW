@@ -7,6 +7,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import Appweb.Modules.Config.Classconfig;
 import Appweb.Classes.Date.ClassDate;
 import Appweb.Tools.Format_tools;
+import javax.swing.Icon;
 
 /**
  * 
@@ -32,7 +33,7 @@ public class Client extends User implements Serializable {
 
 	// Constructor type one all Attributes
 	public Client(String Dni, String Name, String Last_name, String Mobile, ClassDate Date_birth, String Email, String User, String Password,
-			String Avatar, String Status, ClassDate entry_date, float purchase, String premium, String client_type) {
+			Icon Avatar, String Status, ClassDate entry_date, float purchase, String premium, String client_type) {
 		super(Dni, Name, Last_name, Mobile, Date_birth, Email, User, Password, Avatar, Status);
 
 		this.entry_date = entry_date;
@@ -57,7 +58,7 @@ public class Client extends User implements Serializable {
 	}
 
 	// constructor four // constructor users request
-	public Client(int i, String s, int n, float f, ClassDate c) {
+	public Client(int i, String s, int n, float f, ClassDate c,Icon icono) {
 
 		switch (i) {
 
@@ -108,7 +109,7 @@ public class Client extends User implements Serializable {
 			break;
 		case 9:
 
-			super.setAvatar(s);
+			super.setAvatar(icono);
 
 			break;
 		case 10:

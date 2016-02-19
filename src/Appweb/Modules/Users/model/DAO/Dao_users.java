@@ -13,17 +13,17 @@ import javax.swing.JOptionPane;
 
 import Appweb.Classes.Date.ClassDate;
 import Appweb.Classes.Language.Lang;
-import Appweb.Modules.Users.Admin.View.create_Admin;
-import static Appweb.Modules.Users.Admin.View.create_Admin.labAvatar_create_admin;
-import static Appweb.Modules.Users.Admin.View.create_Admin.txtActivity_create_admin;
-import static Appweb.Modules.Users.Admin.View.create_Admin.txtDni_create_admin;
-import static Appweb.Modules.Users.Admin.View.create_Admin.txtEmail_create_admin;
-import static Appweb.Modules.Users.Admin.View.create_Admin.txtLast_name_create_admin;
-import static Appweb.Modules.Users.Admin.View.create_Admin.txtMobile_create_admin;
-import static Appweb.Modules.Users.Admin.View.create_Admin.txtName_create_admin;
-import static Appweb.Modules.Users.Admin.View.create_Admin.txtPassword_create_admin;
-import static Appweb.Modules.Users.Admin.View.create_Admin.txtSalary_create_admin;
-import static Appweb.Modules.Users.Admin.View.create_Admin.txtUser_create_admin;
+import Appweb.Modules.Users.Admin.View.create_Admin_view;
+import static Appweb.Modules.Users.Admin.View.create_Admin_view.labAvatar_create_admin;
+import static Appweb.Modules.Users.Admin.View.create_Admin_view.txtActivity_create_admin;
+import static Appweb.Modules.Users.Admin.View.create_Admin_view.txtDni_create_admin;
+import static Appweb.Modules.Users.Admin.View.create_Admin_view.txtEmail_create_admin;
+import static Appweb.Modules.Users.Admin.View.create_Admin_view.txtLast_name_create_admin;
+import static Appweb.Modules.Users.Admin.View.create_Admin_view.txtMobile_create_admin;
+import static Appweb.Modules.Users.Admin.View.create_Admin_view.txtName_create_admin;
+import static Appweb.Modules.Users.Admin.View.create_Admin_view.txtPassword_create_admin;
+import static Appweb.Modules.Users.Admin.View.create_Admin_view.txtSalary_create_admin;
+import static Appweb.Modules.Users.Admin.View.create_Admin_view.txtUser_create_admin;
 import Appweb.Modules.Users.model.BLL.Look_for_dni;
 import Appweb.Modules.Users.model.Classes.Admin;
 import Appweb.Modules.Users.model.Classes.Client;
@@ -179,6 +179,7 @@ public class Dao_users {
                 Dni = txtDni_create_admin.getText().toString();
 
                 singleton.Admin_array.get(i).setDni(Dni);
+                
 
                 JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("The_attribute_has_been_modified"));
 

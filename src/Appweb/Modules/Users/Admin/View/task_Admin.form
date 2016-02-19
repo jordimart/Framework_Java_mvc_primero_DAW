@@ -90,7 +90,6 @@
                           <Component id="btn_ges_inst" alignment="0" pref="235" max="32767" attributes="0"/>
                           <Component id="btn_ges_users" alignment="0" max="32767" attributes="0"/>
                           <Component id="btn_ges_averias" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btn_Exit" max="32767" attributes="0"/>
                           <Component id="btn_Config" max="32767" attributes="0"/>
                           <Component id="btn_Volver" max="32767" attributes="0"/>
                       </Group>
@@ -111,9 +110,7 @@
                       <Component id="btn_Config" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btn_Volver" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btn_Exit" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="53" max="32767" attributes="0"/>
+                      <EmptySpace pref="111" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -136,14 +133,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="GESTION AVERIAS"/>
               </Properties>
-            </Component>
-            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_Exit">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="SALIR"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_ExitActionPerformed"/>
-              </Events>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_Config">
               <Properties>
