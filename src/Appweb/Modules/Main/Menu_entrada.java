@@ -9,8 +9,8 @@ import Appweb.Classes.Language.Lang;
 import Appweb.Modules.Config.Classconfig;
 import static Appweb.Modules.Config.Config_tools.auto_open_config_json;
 import static Appweb.Modules.Config.Config_tools.auto_save_config_json;
-import Appweb.Modules.Users.Admin.View.task_Admin;
-import Appweb.Modules.Users.model.BLL.Dummy_array_add_users;
+import Appweb.Modules.Users.Admin.View.task_Admin_view;
+import Appweb.Modules.Dummies.Model.Dummy_array_add_users;
 import javax.swing.JOptionPane;
 
 /**
@@ -69,7 +69,7 @@ public class Menu_entrada extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Main/img/Fondo_claro_1.jpg"))); // NOI18N
+        panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/General_tools/Img/Fondo_claro_1.jpg"))); // NOI18N
 
         Login_Admin.setText("Entrada Administrador");
         Login_Admin.addActionListener(new java.awt.event.ActionListener() {
@@ -199,7 +199,7 @@ public class Menu_entrada extends javax.swing.JFrame {
     private void Login_AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login_AdminActionPerformed
         
         this.dispose();
-        task_Admin menu = new task_Admin();
+        task_Admin_view menu = new task_Admin_view();
         menu.setVisible(true);
        
 

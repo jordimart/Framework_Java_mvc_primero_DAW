@@ -7,7 +7,7 @@ package Appweb.Modules.Config;
 
 import static Appweb.Modules.Config.Config_tools.Configuration_accept;
 import static Appweb.Modules.Config.Config_tools.Menu_theme;
-import Appweb.Modules.Users.Admin.View.task_Admin;
+import Appweb.Modules.Users.Admin.View.task_Admin_view;
 import static Appweb.Modules.Config.Config_tools.auto_save_config_json;
 import static Appweb.Modules.Config.Config_tools.open_json_config;
 import static Appweb.Modules.Config.Config_tools.save_json_config;
@@ -82,7 +82,7 @@ public class menu_Settings extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Main/img/Fondo_claro_1.jpg"))); // NOI18N
+        panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/General_tools/Img/Fondo_claro_1.jpg"))); // NOI18N
 
         panelRectTranslucido1.setBorder(javax.swing.BorderFactory.createTitledBorder("Menu Configuracion"));
 
@@ -381,7 +381,7 @@ public class menu_Settings extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelImage1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelImage1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -394,7 +394,7 @@ public class menu_Settings extends javax.swing.JFrame {
     private void btn_Return_SettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Return_SettingsActionPerformed
 
         this.dispose();
-        task_Admin menu = new task_Admin();
+        task_Admin_view menu = new task_Admin_view();
 
         menu.setVisible(true);
     }//GEN-LAST:event_btn_Return_SettingsActionPerformed
@@ -402,6 +402,7 @@ public class menu_Settings extends javax.swing.JFrame {
     private void btn_Accept_SettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Accept_SettingsActionPerformed
 
         Configuration_accept();
+        Config_tools.auto_save_config_json();
     }//GEN-LAST:event_btn_Accept_SettingsActionPerformed
 
     private void btn_Load_SettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Load_SettingsActionPerformed

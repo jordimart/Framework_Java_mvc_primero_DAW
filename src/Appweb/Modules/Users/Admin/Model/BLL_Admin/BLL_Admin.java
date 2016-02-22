@@ -1,119 +1,182 @@
-
 package Appweb.Modules.Users.Admin.Model.BLL_Admin;
 
 import Appweb.Classes.Language.Lang;
 import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin;
-import Appweb.Modules.Users.Admin.View.create_Admin_view;
-import Appweb.Modules.Users.Admin.View.edit_Admin;
-import Appweb.Modules.Users.Admin.View.table_Admin;
-import Appweb.Modules.Users.model.BLL.Look_for_dni;
-import Appweb.Modules.Users.model.Classes.Admin;
-import Appweb.Modules.Users.model.Classes.singleton;
-import Appweb.Modules.Users.model.DAO.Dao_users;
-import Appweb.Tools.Menu;
+import Appweb.Modules.Users.Admin.View.edit_Admin_view;
+import Appweb.Modules.Users.Admin.View.table_Admin_view;
+import Appweb.Modules.Users.Classes.Admin;
+import Appweb.Modules.Users.Classes.singleton;
+import Appweb.General_tools.Menu;
+import Appweb.Modules.Users.Admin.View.show_Admin_view;
 import javax.swing.JOptionPane;
-import javax.swing.WindowConstants;
 
 /**
  *
  * @author ASUSG50V
  */
 public class BLL_Admin {
-    
+
+    //////////BLLs del formulario create Admin view///////
     public static void Enterdni_admin() {
         DAO_Admin.booleanEnterdnia();
     }
-    
+
     public static void Entername_admin() {
         DAO_Admin.booleanEntername_admin();
     }
-    
+
     public static void Enterlast_name_admin() {
         DAO_Admin.booleanEnterlast_name_admin();
     }
-    
+
     public static void Entermobile_admin() {
         DAO_Admin.booleanEntermobile_admin();
     }
-    
+
     public static void Entermail_admin() {
         DAO_Admin.booleanEntermail_admin();
     }
-    
+
     public static void Enteruser_admin() {
         DAO_Admin.booleanEnteruser_admin();
     }
-    
+
     public static void Enterpassword_admin() {
         DAO_Admin.booleanEnterpassword_admin();
     }
-    
+
     public static void Entersalary_admin() {
         DAO_Admin.booleanEntersalary_admin();
     }
-    
+
     public static void Enteractivity_admin() {
         DAO_Admin.booleanEnteractivity_admin();
-        
+
     }
-    
+
     public static void Enterdate_birth_admin() {
         DAO_Admin.booleanEnterdate_birth_admin();
     }
-    
+
     public static void Enterdate_contr_admin() {
         DAO_Admin.booleanEnterdate_contr_admin();
     }
-    
+
+    public static void EnterAvatar_admin() {
+        DAO_Admin.EnterAvatar_admin();
+    }
+
     public static boolean Enter_new_admin() {
-        
-        
+
         boolean ok = false;
+
+        Admin a = DAO_Admin.add_create_Admin();
         
-       Admin a = DAO_Admin.create_Admin();
-        //JOptionPane.showMessageDialog(null, a.toString());
         if (a != null) {
             singleton.Admin_array.add(a);
             JOptionPane.showMessageDialog(null, "Usuario añadidio");
             ok = true;
         } else {
-            
+
             JOptionPane.showMessageDialog(null, "Revise los datos, no puede guardar si hay algun dato incorrecto");
         }
         return ok;
     }
 
+    //////////BLLs del formulario edit Admin view///////
+    public static void Editdni_admin() {
+
+    }
+
+    public static void Editname_admin() {
+        DAO_Admin.booleanEditname_admin();
+
+    }
+
+    public static void Editlast_name_admin() {
+        DAO_Admin.booleanEditlast_name_admin();
+    }
+
+    public static void Editmobile_admin() {
+        DAO_Admin.booleanEditmobile_admin();
+    }
+
+    public static void Editmail_admin() {
+        DAO_Admin.booleanEditmail_admin();
+    }
+
+    public static void Edituser_admin() {
+        DAO_Admin.booleanEdituser_admin();
+    }
+
+    public static void Editpassword_admin() {
+        DAO_Admin.booleanEditpassword_admin();
+    }
+
+    public static void Editsalary_admin() {
+        DAO_Admin.booleanEditsalary_admin();
+    }
+
+    public static void Editactivity_admin() {
+        DAO_Admin.booleanEditactivity_admin();
+
+    }
+
+    public static void Editdate_birth_admin() {
+        DAO_Admin.booleanEditdate_birth_admin();
+    }
+
+    public static void Editdate_contr_admin() {
+        DAO_Admin.booleanEditdate_contr_admin();
+    }
+
+    public static void EditAvatar_admin() {
+        DAO_Admin.EditAvatar_admin();
+    }
+
+    public static boolean Enter_edited_admin() {
+
+        boolean ok = false;
+
+        ok = DAO_Admin.modify_edit_Admin();
+
+        return ok;
+    }
+
+    //////////BLLs de la parte del table///////////
+    
     /**
      * Imprime un usuario seleccionado admin
      */
     public static void Print_select_admin() {
-        
+
         Admin a;
         String s = " ";
         String dni = "";
         int pos = 0;
         int n = singleton.Admin_array.size();
         String cli[] = new String[n];
-        
-        if (singleton.Admin_array.size() != 0) {
+
+        if (0 != singleton.Admin_array.size()) {
             for (int i = 0; i < n; i++) {
                 a = (Admin) singleton.Admin_array.get(i);
                 s = a.getDni() + " - " + a.getName() + " " + a.getLast_name();
                 cli[i] = s;
             }
             String se = Menu.Menu_carga_array(cli, Lang.getInstance().getProperty("Select_user"));
-            
+
             for (int j = 0; j < 9; j++) {
-                
+
                 dni += se.charAt(j);
             }
-            
+
             pos = Look_for_dni_admin(dni);
-            
-            JOptionPane.showMessageDialog(null, singleton.Admin_array.get(pos));
-            
+            show_Admin_view menu = new show_Admin_view();
+            menu.setVisible(true);
+            DAO_Admin.Load_show_admin();
+
         } else {
-            
+
             JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("There_are_elements_of_administrator_type"));
         }
     }
@@ -126,30 +189,31 @@ public class BLL_Admin {
      * @return pos (int posicion en el array)
      */
     public static int Look_for_dni_admin(String dni) {
-        
+
         int pos = -1;
-        
+
         for (int i = 0; i < singleton.Admin_array.size(); i++) {
-            
+
             if (singleton.Admin_array.get(i).getDni().equals(dni)) {
                 pos = i;
             }
-            
+
         }
-        
+
         return pos;
-        
+
     }
 
     /**
-     * Modifica un usuario seleccionado admin
+     * Carga los datos del usuario admin selecionado en el formulario modify
+     * admin.
      */
     public static void Modify_select_admin() {
-        
+
         Admin a;
         String s = " ";
         String dni = "";
-        int pos = 0;
+        //int pos = 0;
         int n = singleton.Admin_array.size();
         String cli[] = new String[n];
         if (singleton.Admin_array.size() != 0) {
@@ -159,21 +223,58 @@ public class BLL_Admin {
                 cli[i] = s;
             }
             String se = Menu.Menu_carga_array(cli, Lang.getInstance().getProperty("Select_user"));
-            
+
             for (int j = 0; j < 9; j++) {
-                
+
                 dni += se.charAt(j);
             }
-            
-            pos = Look_for_dni_admin(dni);
-            
-            new edit_Admin(pos).setVisible(true);
-            
+
+            singleton.pos = Look_for_dni_admin(dni);
+
+            new edit_Admin_view().setVisible(true);
+            DAO_Admin.Load_edit_admin();
+
         } else {
-            
+
             JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("There_are_elements_of_administrator_type"));
-            new table_Admin().setVisible(true);
+            new table_Admin_view().setVisible(true);
         }
-        
+
+    }
+
+    /**
+     * Borra el usuario seleccionado admin.
+     */
+    public static void Delete_select_admin() {
+
+        Admin a;
+        String s = " ";
+        String dni = "";
+        int pos = 0;
+        int n = singleton.Admin_array.size();
+        String cli[] = new String[n];
+
+        if (singleton.Admin_array.size() != 0) {
+            for (int i = 0; i < n; i++) {
+                a = (Admin) singleton.Admin_array.get(i);
+                s = a.getDni() + " - " + a.getName() + " " + a.getLast_name();
+                cli[i] = s;
+            }
+            String se = Menu.Menu_carga_array(cli, Lang.getInstance().getProperty("Select_user"));
+
+            for (int j = 0; j < 9; j++) {
+
+                dni += se.charAt(j);
+
+            }
+
+            singleton.pos = Look_for_dni_admin(dni);
+
+            singleton.Admin_array.remove(pos);
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("There_are_elements_of_administrator_type"));
+        }
     }
 }

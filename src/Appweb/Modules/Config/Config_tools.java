@@ -25,7 +25,6 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.Annotations;
 import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
 
-import Appweb.Modules.Config.Classconfig;
 import Appweb.Classes.Language.Lang;
 import static Appweb.Modules.Config.menu_Settings.Combo_Theme;
 import static Appweb.Modules.Config.menu_Settings.chk_curr_dollar;
@@ -41,7 +40,6 @@ import static Appweb.Modules.Config.menu_Settings.chk_three_d;
 import static Appweb.Modules.Config.menu_Settings.chk_two_d;
 import static Appweb.Modules.Config.menu_Settings.chk_year_bar;
 import static Appweb.Modules.Config.menu_Settings.chk_year_bar2;
-import static Appweb.Modules.Config.menu_Settings.group_language;
 import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
 
 public class Config_tools {

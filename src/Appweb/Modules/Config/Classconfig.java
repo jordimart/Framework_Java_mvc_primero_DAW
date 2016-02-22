@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 import Appweb.Classes.Language.Lang;
-import Appweb.Modules.Users.model.Classes.Admin;
-import Appweb.Modules.Users.model.Classes.Client;
-import Appweb.Modules.Users.model.Classes.User_reg;
-import Appweb.Modules.Users.model.Classes.singleton;
+import Appweb.Modules.Users.Classes.Admin;
+import Appweb.Modules.Users.Classes.Client;
+import Appweb.Modules.Users.Classes.User_reg;
+import Appweb.Modules.Users.Classes.singleton;
 
 /**
  * @author Jorge Martines Frias
