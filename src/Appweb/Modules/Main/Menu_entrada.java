@@ -9,8 +9,10 @@ import Appweb.Classes.Language.Lang;
 import Appweb.Modules.Config.Classconfig;
 import static Appweb.Modules.Config.Config_tools.auto_open_config_json;
 import static Appweb.Modules.Config.Config_tools.auto_save_config_json;
+import Appweb.Modules.Dummies.Model.BLL_Dummy.BLL_Dummies;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
 import Appweb.Modules.Dummies.Model.Dummy_array_add_users;
+import Appweb.Modules.Dummies.View.task_Dummy_view;
 import javax.swing.JOptionPane;
 
 /**
@@ -226,7 +228,9 @@ public class Menu_entrada extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_valencian_mainActionPerformed
 
     private void btn_TestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TestActionPerformed
-        Dummy_array_add_users.Dummyrequest();
+        this.dispose();
+        task_Dummy_view menu = new task_Dummy_view();
+        menu.setVisible(true);
     }//GEN-LAST:event_btn_TestActionPerformed
 
   

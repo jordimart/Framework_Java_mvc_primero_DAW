@@ -458,25 +458,7 @@ public class BLL_users {
 		}
 	}
 
-	/**
-	 * Borra todos los usuarios admin
-	 */
-	public static void Delete_all_admin() {
-
-		if (singleton.Admin_array.size() == 0) {
-
-			JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_can_not_erase_because_no_elements"),
-					Lang.getInstance().getProperty("Information"), JOptionPane.ERROR_MESSAGE);
-		} else {
-
-			// delete all objects to the
-			// arraylist
-			singleton.Admin_array.clear();
-			JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("All_elements_have_been_deleted") + "\n"
-					+ Lang.getInstance().getProperty("Remaining_number_of_elements") + singleton.Admin_array.size());
-		}
-
-	}
+	
 
 	/**
 	 * Borra todos los usuarios client
