@@ -284,7 +284,7 @@ public class json {
 		String PATH = " ";
 
 		try {
-			PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/model/Files/Admin_files/adminusers";
+			PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/Admin/Model/Admin_files/adminusers";
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -311,7 +311,7 @@ public class json {
 		} catch (Exception e) {
 			System.out.print(Lang.getInstance().getProperty("Failed_to_save_user") + " Admin json"+" \n");
 		}
-
+/**
 		try {
 			PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/model/Files/Client_files/clientusers";
 		} catch (IOException e) {
@@ -369,7 +369,7 @@ public class json {
 		} catch (Exception e) {
 			System.out.print(Lang.getInstance().getProperty("Failed_to_save_user") + " user_reg json \n");
 		}
-
+*/
 	}
 
 	public static void auto_open_json_file() {
@@ -380,7 +380,7 @@ public class json {
 		User_reg u = new User_reg("");
 
 		try {
-			PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/model/Files/Admin_files/adminusers.json";
+			PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/Admin/Model/Admin_files/adminusers.json";
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -412,7 +412,7 @@ public class json {
                     e.printStackTrace();
 			System.out.print(Lang.getInstance().getProperty("Error_loading_user_file")+ " json"+" \n");
 		}
-
+/**
 		try {
 			PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/model/Files/Client_files/clientusers.json";
 		} catch (IOException e) {
@@ -478,7 +478,7 @@ public class json {
 		} catch (Exception e) {
 			System.out.print(Lang.getInstance().getProperty("Error_loading_user_file")+ " json"+" \n");
 		}
-
+*/
 	}
 
 	public static void auto_save_json_file_dummy_admin() {

@@ -2,6 +2,7 @@
 package Appweb.Modules.Dummies.View;
 
 import Appweb.Modules.Dummies.Model.BLL_Dummy.BLL_Dummies;
+import Appweb.Modules.Dummies.Model.Dummy_array_add_users;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
 
 /**
@@ -61,7 +62,7 @@ public class task_Dummy_view extends javax.swing.JFrame {
             }
         });
 
-        comboDummy_admin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Upload files", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        comboDummy_admin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cargar", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
@@ -185,6 +186,7 @@ public class task_Dummy_view extends javax.swing.JFrame {
 
     private void btnCreate_dummis_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreate_dummis_adminActionPerformed
         BLL_Dummies.create_Dummy_admin();
+      
     }//GEN-LAST:event_btnCreate_dummis_adminActionPerformed
 
     private void btnEntry_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntry_adminActionPerformed

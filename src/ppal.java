@@ -2,6 +2,7 @@
 import Appweb.Modules.Config.Classconfig;
 import static Appweb.Modules.Config.Config_tools.auto_open_config_json;
 import Appweb.Modules.Main.Menu_entrada;
+import Appweb.Modules.Users.Users_tools.User_files.json;
 import java.text.ParseException;
 
 
@@ -22,6 +23,7 @@ public class ppal {
         java.awt.EventQueue.invokeLater(() -> {
             Classconfig.getInstance();
             auto_open_config_json();
+             json.auto_open_json_file();
             
             new Menu_entrada().setVisible(true);
         });

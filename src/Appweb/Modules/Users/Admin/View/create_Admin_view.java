@@ -4,6 +4,7 @@ package Appweb.Modules.Users.Admin.View;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin;
 import java.awt.AWTKeyStroke;
+import java.awt.Color;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
 import java.util.HashSet;
@@ -96,7 +97,6 @@ public class create_Admin_view extends javax.swing.JFrame {
         btnAvatar = new org.edisoncor.gui.button.ButtonAero();
         comboStatus = new org.edisoncor.gui.comboBox.ComboBoxRect();
         panelRect2 = new org.edisoncor.gui.panel.PanelRect();
-        btn_Borrar = new org.edisoncor.gui.button.ButtonAeroRight();
         btn_cancelar = new org.edisoncor.gui.button.ButtonAeroRight();
         btn_Aceptar = new org.edisoncor.gui.button.ButtonAeroRight();
         panelCurves2 = new org.edisoncor.gui.panel.PanelCurves();
@@ -133,113 +133,61 @@ public class create_Admin_view extends javax.swing.JFrame {
 
         labelHeader13.setText("Avatar:");
 
-        txtDni.setText("Introduzca Dni");
-        txtDni.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtDniMouseClicked(evt);
-            }
-        });
+        txtDni.setToolTipText("");
         txtDni.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtDniKeyReleased(evt);
             }
         });
 
-        txtName.setText("Introduzca Nombre");
-        txtName.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtNameFocusGained(evt);
-            }
-        });
-        txtName.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtNameMouseClicked(evt);
-            }
-        });
+        txtName.setToolTipText("");
         txtName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNameKeyReleased(evt);
             }
         });
 
-        txtLast_name.setText("Introduzca Apellido");
-        txtLast_name.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtLast_nameMouseClicked(evt);
-            }
-        });
         txtLast_name.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtLast_nameKeyReleased(evt);
             }
         });
 
-        txtMobile.setText("Introduzca numero");
-        txtMobile.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtMobileMouseClicked(evt);
-            }
-        });
         txtMobile.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtMobileKeyReleased(evt);
             }
         });
 
-        txtEmail.setText("Introduzca Email");
-        txtEmail.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtEmailMouseClicked(evt);
-            }
-        });
         txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtEmailKeyReleased(evt);
             }
         });
 
-        txtUser.setText("Introduzca Usuario");
-        txtUser.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtUserMouseClicked(evt);
-            }
-        });
         txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtUserKeyReleased(evt);
             }
         });
 
-        txtSalary.setText("Introduzca Salario");
-        txtSalary.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtSalaryMouseClicked(evt);
-            }
-        });
         txtSalary.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSalaryKeyReleased(evt);
             }
         });
 
-        txtActivity.setText("Introduzca Actividad");
-        txtActivity.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtActivityMouseClicked(evt);
-            }
-        });
         txtActivity.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtActivityKeyReleased(evt);
             }
         });
 
+        pick_date_birth.setDateFormatString("dd/MM/yyyy");
+
+        pick_date_contr.setDateFormatString("dd/mm/yyyy");
+
         txtPassword.setText("passwordField1");
-        txtPassword.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtPasswordMouseClicked(evt);
-            }
-        });
         txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtPasswordKeyReleased(evt);
@@ -311,7 +259,7 @@ public class create_Admin_view extends javax.swing.JFrame {
         panrect1Layout.setVerticalGroup(
             panrect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panrect1Layout.createSequentialGroup()
-                .addGap(124, 124, 124)
+                .addGap(108, 108, 108)
                 .addGroup(panrect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labDni, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panrect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -384,13 +332,6 @@ public class create_Admin_view extends javax.swing.JFrame {
                 .addGap(89, 89, 89))
         );
 
-        btn_Borrar.setText("Borrar todo");
-        btn_Borrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_BorrarActionPerformed(evt);
-            }
-        });
-
         btn_cancelar.setText("Cancelar");
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -410,15 +351,13 @@ public class create_Admin_view extends javax.swing.JFrame {
         panelRect2Layout.setHorizontalGroup(
             panelRect2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRect2Layout.createSequentialGroup()
-                .addGroup(panelRect2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btn_Aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelRect2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(panelRect2Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(btn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelRect2Layout.createSequentialGroup()
-                            .addGap(32, 32, 32)
-                            .addComponent(btn_Borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(panelRect2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRect2Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(btn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRect2Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(btn_Aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         panelRect2Layout.setVerticalGroup(
@@ -428,9 +367,7 @@ public class create_Admin_view extends javax.swing.JFrame {
                 .addComponent(btn_Aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_Borrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
@@ -442,7 +379,7 @@ public class create_Admin_view extends javax.swing.JFrame {
                 .addComponent(panrect1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
                 .addComponent(panelRect2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
             .addComponent(panelCurves2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelImage1Layout.setVerticalGroup(
@@ -452,9 +389,9 @@ public class create_Admin_view extends javax.swing.JFrame {
                 .addComponent(panelCurves2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
                 .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelRect2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panrect1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(150, Short.MAX_VALUE))
+                    .addComponent(panrect1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelRect2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -477,57 +414,12 @@ public class create_Admin_view extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_BorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BorrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_BorrarActionPerformed
-
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
 
         this.dispose();
         table_Admin_view menu = new table_Admin_view();
         menu.setVisible(true);
     }//GEN-LAST:event_btn_cancelarActionPerformed
-
-    private void txtDniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDniMouseClicked
-
-        //txtDni.setText("");
-    }//GEN-LAST:event_txtDniMouseClicked
-
-    private void txtNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNameMouseClicked
-
-       // txtName.setText("");
-    }//GEN-LAST:event_txtNameMouseClicked
-
-    private void txtLast_nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLast_nameMouseClicked
-       // txtLast_name.setText("");
-    }//GEN-LAST:event_txtLast_nameMouseClicked
-
-    private void txtMobileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMobileMouseClicked
-
-       // txtMobile.setText("");
-    }//GEN-LAST:event_txtMobileMouseClicked
-
-    private void txtEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEmailMouseClicked
-       // BLL_Admin.Enterdate_birth_admin();
-       // txtEmail.setText("");
-    }//GEN-LAST:event_txtEmailMouseClicked
-
-    private void txtUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUserMouseClicked
-       // txtUser.setText("");
-    }//GEN-LAST:event_txtUserMouseClicked
-
-    private void txtPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPasswordMouseClicked
-        //txtPassword.setText("");
-    }//GEN-LAST:event_txtPasswordMouseClicked
-
-    private void txtSalaryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSalaryMouseClicked
-       // BLL_Admin.Enterdate_contr_admin();
-       // txtSalary.setText("");
-    }//GEN-LAST:event_txtSalaryMouseClicked
-
-    private void txtActivityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtActivityMouseClicked
-        //txtActivity.setText("");
-    }//GEN-LAST:event_txtActivityMouseClicked
 
     private void btnAvatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvatarActionPerformed
     BLL_Admin.EnterAvatar_admin();
@@ -580,14 +472,9 @@ public class create_Admin_view extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btn_AceptarActionPerformed
 
-    private void txtNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameFocusGained
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static org.edisoncor.gui.button.ButtonAero btnAvatar;
     public static org.edisoncor.gui.button.ButtonAeroRight btn_Aceptar;
-    public static org.edisoncor.gui.button.ButtonAeroRight btn_Borrar;
     public static org.edisoncor.gui.button.ButtonAeroRight btn_cancelar;
     public static org.edisoncor.gui.comboBox.ComboBoxRect comboStatus;
     public static javax.swing.JLabel labActivity;

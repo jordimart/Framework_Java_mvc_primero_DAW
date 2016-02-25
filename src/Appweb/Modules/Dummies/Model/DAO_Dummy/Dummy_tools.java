@@ -173,7 +173,7 @@ public class Dummy_tools {
 
 		String user = "";
 
-		user = user + name + "_user";
+		user = user + name + "user";
 
 		return user;
 	}
@@ -322,7 +322,7 @@ public class Dummy_tools {
 		Date_birth = Dummy_tools.Dummydate_int_min_max(16, 65);
 		Email = Dummy_tools.Dummyemail(Name, Last_name);
 		User = Dummy_tools.Dummyuser(Name);
-		Password = "Contrasena";
+		Password = "Jorge150902";
 		Avatar = "src/Appweb/Modules/Users/Img/Avatares/images.jpg";
 		Status = "Conected";
 

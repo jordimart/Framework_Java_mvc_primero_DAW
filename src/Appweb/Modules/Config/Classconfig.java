@@ -10,6 +10,7 @@ import Appweb.Modules.Users.Classes.Admin;
 import Appweb.Modules.Users.Classes.Client;
 import Appweb.Modules.Users.Classes.User_reg;
 import Appweb.Modules.Users.Classes.singleton;
+import Appweb.Modules.Users.Users_tools.User_files.json;
 
 /**
  * @author Jorge Martines Frias
@@ -92,6 +93,7 @@ public class Classconfig implements Serializable {
 		singleton.User_reg_array = new ArrayList<User_reg>();
 		singleton.Object_array = new ArrayList<Object>();
 
+               
 	}
 
 	

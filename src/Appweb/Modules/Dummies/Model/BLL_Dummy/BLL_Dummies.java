@@ -12,7 +12,6 @@ import Appweb.Modules.Users.Classes.Admin;
 import Appweb.Modules.Users.Classes.singleton;
 import Appweb.Modules.Users.Users_tools.User_files.json;
 import java.awt.Color;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,14 +22,16 @@ public class BLL_Dummies {
     public static void create_Dummy_admin() {
         Admin a = null;
         String combo = "";
+        boolean pass = false;
 
         combo = task_Dummy_view.comboDummy_admin.getSelectedItem().toString();
-JOptionPane.showMessageDialog(null, "valor combo"+combo);
-        if (combo.equals(Lang.getInstance().getProperty("Upload_files"))) {
-JOptionPane.showMessageDialog(null, "Entro a upload");
+
+        if (combo.equals("cargar")) {
+
             json.auto_open_json_file_dummy();
 
         } else {
+
             singleton.num = Integer.parseInt(combo);
 
             for (int j = 0; j < singleton.num; j++) {
@@ -44,7 +45,7 @@ JOptionPane.showMessageDialog(null, "Entro a upload");
 
                         task_Dummy_view.labStatus_dummie_admin.setBackground(Color.GREEN);
                         task_Dummy_view.labStatus_dummie_admin.setText(Lang.getInstance().getProperty("Dummies_loaded_successfully"));
-                        
+
                     }
 
                 } catch (Exception e) {
@@ -52,9 +53,13 @@ JOptionPane.showMessageDialog(null, "Entro a upload");
                     task_Dummy_view.labStatus_dummie_admin.setText(Lang.getInstance().getProperty("Error_loading_dummies"));
                     //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Error_loading_dummies"), "Error", JOptionPane.ERROR_MESSAGE);
                 }
+                pass = true;
             }
+            if (pass == true) {
 
-            json.auto_save_json_file_dummy_admin();
+                json.auto_save_json_file_dummy_admin();
+
+            }
 
         }
     }

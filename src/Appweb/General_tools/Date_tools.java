@@ -1,9 +1,6 @@
 package Appweb.General_tools;
 
-
 import Appweb.Classes.Date.ClassDate;
-import Appweb.Classes.Language.Lang;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,7 +10,6 @@ import javax.swing.JOptionPane;
  */
 public class Date_tools {
 
-    
     public static boolean Date_min_condition_boolean(String date, int min) {
 
         boolean val1 = false;
@@ -36,9 +32,9 @@ public class Date_tools {
             } else {
 
                 val1 = false;
-
+                singletonapp.passdate = 1;
                 //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("This_date_does_not_exist_in_the_calendar"),
-                       // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+                // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
             }
 
             if (age >= min) {
@@ -47,18 +43,18 @@ public class Date_tools {
 
             } else {
                 val1 = false;
-
-               // JOptionPane.showMessageDialog(null,
-                       // Lang.getInstance().getProperty("You_can_not_register,_you_must_be") + min + Lang.getInstance().getProperty("years"),
-                       // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+                singletonapp.passdate = 2;
+                // JOptionPane.showMessageDialog(null,
+                // Lang.getInstance().getProperty("You_can_not_register,_you_must_be") + min + Lang.getInstance().getProperty("years"),
+                // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
             }
         } // end first if
         else {
 
             val1 = false;
-
+            singletonapp.passdate = 0;
             //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_format_data_correctly"),
-                   // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+            // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         }
 
         return val1;
@@ -87,8 +83,8 @@ public class Date_tools {
 
                 val1 = false;
 
-               // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("This_date_does_not_exist_in_the_calendar"),
-               // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+                // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("This_date_does_not_exist_in_the_calendar"),
+                // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
             }
             // Controlamos que la edad este entre 16 y 18 a�os
             if ((age >= min) && (age <= max)) {
@@ -99,8 +95,8 @@ public class Date_tools {
 
                 val1 = false;
                 //JOptionPane.showMessageDialog(null,
-               // Lang.getInstance().getProperty("The_working_age_must_be_between") + min + Lang.getInstance().getProperty("and") + max
-               // + Lang.getInstance().getProperty("years"),
+                // Lang.getInstance().getProperty("The_working_age_must_be_between") + min + Lang.getInstance().getProperty("and") + max
+                // + Lang.getInstance().getProperty("years"),
                 //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
 
             }
@@ -110,8 +106,8 @@ public class Date_tools {
 
             val1 = false;
 
-           // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_format_data_correctly"),
-           // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+            // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_format_data_correctly"),
+            // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         }
 
         return val1;
@@ -133,7 +129,6 @@ public class Date_tools {
 
             ClassDate c = new ClassDate(date);
 
-
             // aplicamos los metodos de validar la fecha,comparar que no sea
             // posterior a la del sistema y compara que no sea anterior a la
             // fecha de nacimiento
@@ -148,7 +143,6 @@ public class Date_tools {
 
                 age = d.Diference_two_dates(c);
 
-                
             }
 
             if (d.Date_compare_system_date() == 2) {

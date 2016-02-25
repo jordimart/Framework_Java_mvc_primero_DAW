@@ -14,7 +14,7 @@ public class Validate {
     private static final String okmobile = "^[0-9]{9}$";
     private static final String okmail = "^[\\w-]+(\\.[\\w-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
     private static final String okpassword = "(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$";
-    private static final String oksalary = "[0-9]{1,4}";
+    private static final String oksalary = "^(\\d|-)?(\\d|,)*\\.?\\d*$";
     private static final String okuser = "[a-zA-Z1-9À-ÖØ-öø-ÿ]{4,15}";
      
 

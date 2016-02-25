@@ -77,11 +77,11 @@
                   <Component id="panelCurves2" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="panelRect1" pref="989" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="panelRect2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="809" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="panelRect1" pref="989" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -144,11 +144,11 @@
                                   <Component id="labLast_name" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
                                   <Component id="labName" min="-2" pref="66" max="-2" attributes="0"/>
                                   <Component id="labMobile" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
-                                  <Component id="labDate_birth" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Component id="labdate_birth" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
                                   <Component id="labEmail" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
                                   <Component id="labUser" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
                                   <Component id="labPassword" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
-                                  <Component id="labDate_cont" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Component id="labdate_cont" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
                                   <Component id="labSalary" min="-2" pref="66" max="-2" attributes="0"/>
                                   <Component id="labActivity" min="-2" pref="66" max="-2" attributes="0"/>
                               </Group>
@@ -191,7 +191,7 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="labDate_birth" max="32767" attributes="0"/>
+                          <Component id="labdate_birth" max="32767" attributes="0"/>
                           <Component id="labelHeader5" min="-2" max="-2" attributes="0"/>
                           <Component id="pick_date_birth" max="32767" attributes="0"/>
                       </Group>
@@ -220,7 +220,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="labDate_cont" max="32767" attributes="0"/>
+                          <Component id="labdate_cont" max="32767" attributes="0"/>
                           <Component id="labelHeader10" min="-2" max="-2" attributes="0"/>
                           <Component id="pick_date_contr" max="32767" attributes="0"/>
                       </Group>
@@ -245,7 +245,7 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="labAvatar" min="-2" pref="136" max="-2" attributes="0"/>
-                      <EmptySpace pref="187" max="32767" attributes="0"/>
+                      <EmptySpace pref="167" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -364,11 +364,17 @@
               </Events>
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="pick_date_birth">
+              <Properties>
+                <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
+              </Properties>
               <Events>
                 <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="pick_date_birthVetoableChange"/>
               </Events>
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="pick_date_contr">
+              <Properties>
+                <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
+              </Properties>
               <Events>
                 <EventHandler event="vetoableChange" listener="java.beans.VetoableChangeListener" parameters="java.beans.PropertyChangeEvent" handler="pick_date_contrVetoableChange"/>
               </Events>
@@ -389,7 +395,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labMobile">
             </Component>
-            <Component class="javax.swing.JLabel" name="labDate_birth">
+            <Component class="javax.swing.JLabel" name="labdate_birth">
             </Component>
             <Component class="javax.swing.JLabel" name="labEmail">
             </Component>
@@ -397,7 +403,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labPassword">
             </Component>
-            <Component class="javax.swing.JLabel" name="labDate_cont">
+            <Component class="javax.swing.JLabel" name="labdate_cont">
             </Component>
             <Component class="javax.swing.JLabel" name="labSalary">
             </Component>
@@ -432,18 +438,10 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btn_Cancelar" alignment="1" min="-2" pref="118" max="-2" attributes="0"/>
                           <Component id="btn_Aceptar" alignment="1" min="-2" pref="118" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btn_Cancelar" min="-2" pref="118" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="btn_Borrar" min="-2" pref="118" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
                       </Group>
                       <EmptySpace pref="32" max="32767" attributes="0"/>
                   </Group>
@@ -456,22 +454,12 @@
                       <Component id="btn_Aceptar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btn_Cancelar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btn_Borrar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="41" max="32767" attributes="0"/>
+                      <EmptySpace pref="36" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="org.edisoncor.gui.button.ButtonAeroRight" name="btn_Borrar">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Borrar todo"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_BorrarActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="org.edisoncor.gui.button.ButtonAeroRight" name="btn_Cancelar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cancelar"/>

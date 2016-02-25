@@ -8,6 +8,7 @@ import Appweb.Modules.Users.Classes.Admin;
 import Appweb.Modules.Users.Classes.singleton;
 import Appweb.General_tools.Menu;
 import Appweb.Modules.Users.Admin.View.show_Admin_view;
+import Appweb.Modules.Users.Users_tools.User_files.json;
 import javax.swing.JOptionPane;
 
 /**
@@ -71,10 +72,12 @@ public class BLL_Admin {
         boolean ok = false;
 
         Admin a = DAO_Admin.add_create_Admin();
-        
+
         if (a != null) {
             singleton.Admin_array.add(a);
+            json.auto_save_json_file();
             JOptionPane.showMessageDialog(null, "Usuario añadidio");
+
             ok = true;
         } else {
 
@@ -144,7 +147,6 @@ public class BLL_Admin {
     }
 
     //////////BLLs de la parte del table///////////
-    
     /**
      * Imprime un usuario seleccionado admin
      */
@@ -277,24 +279,24 @@ public class BLL_Admin {
             JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("There_are_elements_of_administrator_type"));
         }
     }
-    
+
     /**
-	 * Borra todos los usuarios admin
-	 */
-	public static void Delete_all_admin() {
+     * Borra todos los usuarios admin
+     */
+    public static void Delete_all_admin() {
 
-		if (singleton.Admin_array.size() == 0) {
+        if (singleton.Admin_array.size() == 0) {
 
-			//JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_can_not_erase_because_no_elements"),
-					//Lang.getInstance().getProperty("Information"), JOptionPane.ERROR_MESSAGE);
-		} else {
+            //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_can_not_erase_because_no_elements"),
+            //Lang.getInstance().getProperty("Information"), JOptionPane.ERROR_MESSAGE);
+        } else {
 
-			// delete all objects to the
-			// arraylist
-			singleton.Admin_array.clear();
-			//JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("All_elements_have_been_deleted") + "\n"
-					//+ Lang.getInstance().getProperty("Remaining_number_of_elements") + singleton.Admin_array.size());
-		}
+            // delete all objects to the
+            // arraylist
+            singleton.Admin_array.clear();
+            //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("All_elements_have_been_deleted") + "\n"
+            //+ Lang.getInstance().getProperty("Remaining_number_of_elements") + singleton.Admin_array.size());
+        }
 
-	}
+    }
 }

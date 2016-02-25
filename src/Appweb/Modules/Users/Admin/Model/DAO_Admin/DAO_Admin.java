@@ -9,11 +9,13 @@ import Appweb.Classes.Date.ClassDate;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 import Appweb.Modules.Users.Admin.View.create_Admin_view;
 import Appweb.Modules.Users.Classes.Admin;
-import static Appweb.Modules.Users.Classes.singleton.good_data;
-import static Appweb.Modules.Users.Classes.singleton.wrong_data;
 import static Appweb.General_tools.Date_tools.Date_min_max_condition_boolean;
 import static Appweb.General_tools.Date_tools.Date_registered_boolean;
 import Appweb.General_tools.Validate;
+import Appweb.General_tools.singletonapp;
+import static Appweb.General_tools.singletonapp.good_data;
+import static Appweb.General_tools.singletonapp.pos;
+import static Appweb.General_tools.singletonapp.wrong_data;
 import Appweb.Modules.Users.Admin.View.edit_Admin_view;
 import Appweb.Modules.Users.Admin.View.show_Admin_view;
 import Appweb.Modules.Users.Classes.singleton;
@@ -23,7 +25,9 @@ import java.util.Calendar;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import static Appweb.Modules.Users.Classes.singleton.pos;
+import Appweb.Modules.Users.Users_tools.User_files.json;
+import com.toedter.calendar.JTextFieldDateEditor;
+import java.io.File;
 import javax.swing.JOptionPane;
 
 /**
@@ -57,7 +61,7 @@ public class DAO_Admin {
         if (ok == false) {
 
             create_Admin_view.labDni.setIcon(wrong_data);
-
+            create_Admin_view.labDni.setToolTipText("No has introducido los datos correctamente");
             create_Admin_view.txtDni.setBackground(Color.red);
             //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
@@ -84,7 +88,7 @@ public class DAO_Admin {
                     ok = false;
                     create_Admin_view.labDni.setIcon(wrong_data);
                     create_Admin_view.txtDni.setBackground(Color.RED);
-
+                    create_Admin_view.labDni.setToolTipText("Ya existe este Dni en la base de datos");
                     //JOptionPane.showMessageDialog(null,
                     //Lang.getInstance().getProperty("You_can_not_repeat_dni"));
                 } else {
@@ -96,7 +100,7 @@ public class DAO_Admin {
 
             } else {
                 ok = false;
-
+                create_Admin_view.labDni.setToolTipText("El Dni introducido no existe");
                 create_Admin_view.labDni.setIcon(wrong_data);
                 create_Admin_view.txtDni.setBackground(Color.RED);
 
@@ -114,6 +118,7 @@ public class DAO_Admin {
         if (ok == false) {
             create_Admin_view.labName.setIcon(wrong_data);
             create_Admin_view.txtName.setBackground(Color.red);
+            create_Admin_view.labName.setToolTipText("No ha introducido los datos correctamente");
             //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -133,6 +138,7 @@ public class DAO_Admin {
         if (ok == false) {
             create_Admin_view.labLast_name.setIcon(wrong_data);
             create_Admin_view.txtLast_name.setBackground(Color.red);
+            create_Admin_view.labLast_name.setToolTipText("No ha introducido los datos correctamente");
             //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -159,6 +165,7 @@ public class DAO_Admin {
         if (ok == false) {
             create_Admin_view.labMobile.setIcon(wrong_data);
             create_Admin_view.txtMobile.setBackground(Color.red);
+            create_Admin_view.labMobile.setToolTipText("No ha introducido los datos correctamente, solo puede contener 9 numeros");
             // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -184,7 +191,7 @@ public class DAO_Admin {
         if (ok == false) {
             create_Admin_view.labEmail.setIcon(wrong_data);
             create_Admin_view.txtEmail.setBackground(Color.red);
-
+            create_Admin_view.labEmail.setToolTipText("No ha introducido los datos correctamente,Ejemplo: xxxx@xxx.xxx");
             //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -211,6 +218,7 @@ public class DAO_Admin {
         if (ok == false) {
             create_Admin_view.labUser.setIcon(wrong_data);
             create_Admin_view.txtUser.setBackground(Color.red);
+            create_Admin_view.labUser.setToolTipText("No ha introducido los datos correctamente");
             //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -237,6 +245,7 @@ public class DAO_Admin {
         if (ok == false) {
             create_Admin_view.labPassword.setIcon(wrong_data);
             create_Admin_view.txtPassword.setBackground(Color.red);
+            create_Admin_view.labPassword.setToolTipText("No ha introducido los datos correctamente,Debe contener mayusculas,numeros y letras");
             // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -270,17 +279,19 @@ public class DAO_Admin {
                 ok = true;
                 create_Admin_view.labSalary.setIcon(good_data);
                 create_Admin_view.txtSalary.setBackground(Color.GREEN);
+
                 // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
                 //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
             } else {
                 ok = false;
-
+                create_Admin_view.labSalary.setToolTipText("No ha introducido los datos correctamente,Debe estar comprendido entre 800 y 2500");
                 create_Admin_view.labSalary.setIcon(wrong_data);
                 create_Admin_view.txtSalary.setBackground(Color.RED);
             }
         } else {
 
             ok = false;
+            create_Admin_view.labSalary.setToolTipText("No ha introducido los datos correctamente, quizas introdujo letras");
             create_Admin_view.labSalary.setIcon(wrong_data);
             create_Admin_view.txtSalary.setBackground(Color.RED);
         }
@@ -306,10 +317,12 @@ public class DAO_Admin {
                 create_Admin_view.txtActivity.setBackground(Color.GREEN);
             } else {
                 ok = false;
+                create_Admin_view.labActivity.setToolTipText("No ha introducido los datos correctamente,Debe estar comprendido entre 0 y 100");
                 create_Admin_view.labActivity.setIcon(wrong_data);
                 create_Admin_view.txtActivity.setBackground(Color.red);
             }
         } else {
+            create_Admin_view.labActivity.setToolTipText("No ha introducido los datos correctamente, quizas introdujo letras");
             create_Admin_view.labActivity.setIcon(wrong_data);
             create_Admin_view.txtActivity.setBackground(Color.RED);
 
@@ -325,22 +338,14 @@ public class DAO_Admin {
         Calendar date_birth;
         int dia = 0, mes = 0, anio = 0;
 
-        date_birth = create_Admin_view.pick_date_birth.getCalendar();
-
-        dia = date_birth.get(Calendar.DATE);
-        mes = date_birth.get(Calendar.MONTH) + 1;
-        anio = date_birth.get(Calendar.YEAR);
-
-        ClassDate c = new ClassDate(dia, mes, anio);
-
-        s = c.todate();
+        s = ((JTextFieldDateEditor) create_Admin_view.pick_date_birth.getDateEditor()).getText();
 
         ok = Date_min_max_condition_boolean(s, 16, 65);
 
         if (ok == false) {
+
             create_Admin_view.pick_date_birth.setBackground(Color.red);
             create_Admin_view.pick_date_birth.setIcon(wrong_data);
-            
 
         } else {
             create_Admin_view.pick_date_birth.setBackground(Color.GREEN);
@@ -356,26 +361,15 @@ public class DAO_Admin {
         int act = 0;
         boolean ok = false;
         Calendar date_birth;
-        Calendar date_contr;
+        String date_contr;
         int dia = 0, mes = 0, anio = 0;
         int diac = 0, mesc = 0, anioc = 0;
 
-        date_birth = create_Admin_view.pick_date_birth.getCalendar();
+        s = ((JTextFieldDateEditor) create_Admin_view.pick_date_birth.getDateEditor()).getText();
 
-        dia = date_birth.get(Calendar.DATE);
-        mes = date_birth.get(Calendar.MONTH) + 1;
-        anio = date_birth.get(Calendar.YEAR);
+        date_contr = ((JTextFieldDateEditor) create_Admin_view.pick_date_contr.getDateEditor()).getText();
 
-        ClassDate birth = new ClassDate(dia, mes, anio);
-        s = birth.todate();
-
-        date_contr = create_Admin_view.pick_date_contr.getCalendar();
-
-        diac = date_contr.get(Calendar.DATE);
-        mesc = date_contr.get(Calendar.MONTH) + 1;
-        anioc = date_contr.get(Calendar.YEAR);
-
-        ClassDate contr = new ClassDate(diac, mesc, anioc);
+        ClassDate contr = new ClassDate(date_contr);
 
         ok = Date_registered_boolean(contr, s, 16);
 
@@ -403,10 +397,7 @@ public class DAO_Admin {
         mes = date_birth.get(Calendar.MONTH) + 1;
         anio = date_birth.get(Calendar.YEAR);
 
-        ClassDate c = new ClassDate(dia, mes, anio);
-        date = c.todate();
-
-        return new ClassDate(date);
+        return new ClassDate(dia, mes, anio);
     }
 
     public static ClassDate Enter_date_cntr_admin() {
@@ -421,15 +412,13 @@ public class DAO_Admin {
         mes = date_birth.get(Calendar.MONTH) + 1;
         anio = date_birth.get(Calendar.YEAR);
 
-        ClassDate c = new ClassDate(dia, mes, anio);
-        date = c.todate();
-
-        return new ClassDate(date);
+        return new ClassDate(dia, mes, anio);
     }
 
     public static void EnterAvatar_admin() {
 
         JFileChooser dlg = new JFileChooser();
+        dlg.setCurrentDirectory(new File("src/Appweb/Modules/Users/Img/Avatares/"));
         dlg.setAcceptAllFileFilterUsed(false);
         dlg.addChoosableFileFilter(new FileNameExtensionFilter("JPG (*.jpg)", "jpg"));
         int option = dlg.showOpenDialog(null);
@@ -506,7 +495,7 @@ public class DAO_Admin {
     //////////////Daos para la ventana de editar Admin ////////
     public static void Load_edit_admin() {
 
-        Admin a = singleton.Admin_array.get(singleton.pos);
+        Admin a = singleton.Admin_array.get(singletonapp.pos);
 
         Float sal = a.getSalary();
         int act = a.getActivity();
@@ -769,20 +758,21 @@ public class DAO_Admin {
         Calendar date_birth;
         int dia = 0, mes = 0, anio = 0;
 
-        date_birth = edit_Admin_view.pick_date_birth.getCalendar();
+        s = ((JTextFieldDateEditor) create_Admin_view.pick_date_birth.getDateEditor()).getText();
 
-        dia = date_birth.get(Calendar.DATE);
-        mes = date_birth.get(Calendar.MONTH) + 1;
-        anio = date_birth.get(Calendar.YEAR);
-
-        ClassDate c = new ClassDate(dia, mes, anio);
-
-        s = c.todate();
         ok = Date_min_max_condition_boolean(s, 16, 65);
 
         if (ok == false) {
+            if(singletonapp.passdate==0){
+                edit_Admin_view.labdate_birth.setToolTipText("You_haven't_introduced_format_data_correctly");
+                
+            }
+            if(singletonapp.passdate==1){
+                edit_Admin_view.labdate_birth.setToolTipText("No tienes la edad minima permitida o maxima");
+                
+            }
             edit_Admin_view.pick_date_birth.setBackground(Color.red);
-            edit_Admin_view.pick_date_birth.setIcon(wrong_data);
+            edit_Admin_view.labdate_birth.setIcon(wrong_data);
 
         } else {
             edit_Admin_view.pick_date_birth.setBackground(Color.GREEN);
@@ -798,30 +788,20 @@ public class DAO_Admin {
         int act = 0;
         boolean ok = false;
         Calendar date_birth;
-        Calendar date_contr;
+        String date_contr;
         int dia = 0, mes = 0, anio = 0;
         int diac = 0, mesc = 0, anioc = 0;
 
-        date_birth = edit_Admin_view.pick_date_birth.getCalendar();
+        s = ((JTextFieldDateEditor) create_Admin_view.pick_date_birth.getDateEditor()).getText();
 
-        dia = date_birth.get(Calendar.DATE);
-        mes = date_birth.get(Calendar.MONTH) + 1;
-        anio = date_birth.get(Calendar.YEAR);
+        date_contr = ((JTextFieldDateEditor) create_Admin_view.pick_date_contr.getDateEditor()).getText();
 
-        ClassDate birth = new ClassDate(dia, mes, anio);
-        s = birth.todate();
-
-        date_contr = edit_Admin_view.pick_date_contr.getCalendar();
-
-        diac = date_contr.get(Calendar.DATE);
-        mesc = date_contr.get(Calendar.MONTH) + 1;
-        anioc = date_contr.get(Calendar.YEAR);
-
-        ClassDate contr = new ClassDate(diac, mesc, anioc);
+        ClassDate contr = new ClassDate(date_contr);
 
         ok = Date_registered_boolean(contr, s, 16);
 
         if (ok == false) {
+            
             edit_Admin_view.pick_date_contr.setBackground(Color.red);
             edit_Admin_view.pick_date_contr.setIcon(wrong_data);
 
@@ -845,10 +825,7 @@ public class DAO_Admin {
         mes = date_birth.get(Calendar.MONTH) + 1;
         anio = date_birth.get(Calendar.YEAR);
 
-        ClassDate c = new ClassDate(dia, mes, anio);
-        date = c.todate();
-
-        return new ClassDate(date);
+        return new ClassDate(dia, mes, anio);
     }
 
     public static ClassDate Edit_date_cntr_admin() {
@@ -863,15 +840,13 @@ public class DAO_Admin {
         mes = date_birth.get(Calendar.MONTH) + 1;
         anio = date_birth.get(Calendar.YEAR);
 
-        ClassDate c = new ClassDate(dia, mes, anio);
-        date = c.todate();
-
-        return new ClassDate(date);
+        return new ClassDate(dia, mes, anio);
     }
 
     public static void EditAvatar_admin() {
 
         JFileChooser dlg = new JFileChooser();
+        dlg.setCurrentDirectory(new File("src/Appweb/Modules/Users/Img/Avatares/"));
         dlg.setAcceptAllFileFilterUsed(false);
         dlg.addChoosableFileFilter(new FileNameExtensionFilter("JPG (*.jpg)", "jpg"));
         int option = dlg.showOpenDialog(null);
@@ -903,7 +878,7 @@ public class DAO_Admin {
         int activity = 0;
         float salary = 0.000f;
         ClassDate Date_birth = null;
-        char[] password = create_Admin_view.txtPassword.getPassword();
+        char[] password = edit_Admin_view.txtPassword.getPassword();
         Admin a = null;
         String Avatar = null;
         boolean ok = false;
@@ -951,6 +926,7 @@ public class DAO_Admin {
             singleton.Admin_array.get(pos).setActivity(activity);
 
             JOptionPane.showMessageDialog(null, "Usuario modificado");
+            json.auto_save_json_file();
             ok = true;
         } else {
 
@@ -961,7 +937,7 @@ public class DAO_Admin {
 
     public static void Load_show_admin() {
 
-        Admin a = singleton.Admin_array.get(singleton.pos);
+        Admin a = singleton.Admin_array.get(singletonapp.pos);
 
         Float sal = a.getSalary();
         int act = a.getActivity();
