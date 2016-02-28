@@ -1,6 +1,7 @@
 package Appweb.General_tools;
 
 import Appweb.Classes.Date.ClassDate;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,6 +15,8 @@ public class Date_tools {
 
         boolean val1 = false;
         int age = 0;
+        
+        
 
         // validamos el formato con forma regular.
         val1 = Validate.okdate(date);
@@ -82,7 +85,7 @@ public class Date_tools {
             else {
 
                 val1 = false;
-
+                singletonapp.passdate = 2;
                 // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("This_date_does_not_exist_in_the_calendar"),
                 // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
             }
@@ -92,7 +95,7 @@ public class Date_tools {
                 val1 = true;
 
             } else {
-
+                singletonapp.passdate = 1;
                 val1 = false;
                 //JOptionPane.showMessageDialog(null,
                 // Lang.getInstance().getProperty("The_working_age_must_be_between") + min + Lang.getInstance().getProperty("and") + max
@@ -105,7 +108,7 @@ public class Date_tools {
         else {
 
             val1 = false;
-
+            singletonapp.passdate = 0;
             // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_format_data_correctly"),
             // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         }
@@ -120,6 +123,7 @@ public class Date_tools {
         boolean valcomps = true;
         boolean valcomp = true;
         boolean valadult = true;
+        boolean valbirth=true;
         int age = 0;
 
         // validamos el formato con forma regular.
@@ -136,23 +140,29 @@ public class Date_tools {
 
                 valok = false;
                 // calculamos la edad
-
+                singletonapp.passdate = 0;
                 //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("This_date_does_not_exist_in_the_calendar"),
                 //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
             } else {
+                if(d==null){
+                    valbirth=false;
+                    
+                    JOptionPane.showMessageDialog(null,"no hay fecha de nacimiento");
+                    
+                }else{
 
                 age = d.Diference_two_dates(c);
-
+                }
             }
 
             if (d.Date_compare_system_date() == 2) {
-
+                singletonapp.passdate = 1;
                 valcomps = false;
                 //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("The_date_may_not_be_later_than_the_system"),
                 //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
             }
             if (d.Date_compare_two_dates(c) == 0) {
-
+                singletonapp.passdate = 2;
                 valcomp = false;
                 //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("The_record_date_may_not_be_earlier_wing_of_birth"),
                 //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
@@ -160,12 +170,12 @@ public class Date_tools {
             if (age < min) {
 
                 valadult = false;
-
+                singletonapp.passdate = 3;
                 //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("On_this_date_you_were_not_of_legal_age"),
                 //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
             }
 
-            if ((valok == true) && (valcomps == true) && (valcomp == true) && (valadult) == true) {
+            if ((valok == true) && (valcomps == true) && (valcomp == true) && (valadult == true)&&(valbirth==true)) {
 
                 val1 = true;
 
@@ -177,7 +187,7 @@ public class Date_tools {
         else {
 
             val1 = false;
-
+            singletonapp.passdate = 4;
             //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_format_data_correctly"),
             //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         }

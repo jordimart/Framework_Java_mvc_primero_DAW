@@ -6,6 +6,7 @@
 package Appweb.Modules.Users.Admin.Model.DAO_Admin;
 
 import Appweb.Classes.Date.ClassDate;
+import Appweb.Classes.Language.Lang;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 import Appweb.Modules.Users.Admin.View.create_Admin_view;
 import Appweb.Modules.Users.Classes.Admin;
@@ -94,6 +95,7 @@ public class DAO_Admin {
                 } else {
 
                     ok = true;
+                    create_Admin_view.labDni.setToolTipText("");
                     create_Admin_view.labDni.setIcon(good_data);
                     create_Admin_view.txtDni.setBackground(Color.GREEN);
                 }
@@ -122,6 +124,7 @@ public class DAO_Admin {
             //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
+            create_Admin_view.labName.setToolTipText("");
             create_Admin_view.labName.setIcon(good_data);
             create_Admin_view.txtName.setBackground(Color.GREEN);
 
@@ -142,6 +145,7 @@ public class DAO_Admin {
             //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
+            create_Admin_view.labLast_name.setToolTipText("");
             create_Admin_view.labLast_name.setIcon(good_data);
             create_Admin_view.txtLast_name.setBackground(Color.GREEN);
 
@@ -169,6 +173,7 @@ public class DAO_Admin {
             // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
+            create_Admin_view.labMobile.setToolTipText("");
             create_Admin_view.labMobile.setIcon(good_data);
             create_Admin_view.txtMobile.setBackground(Color.GREEN);
         }
@@ -195,6 +200,7 @@ public class DAO_Admin {
             //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
+            create_Admin_view.labEmail.setToolTipText("");
             create_Admin_view.labEmail.setIcon(good_data);
             create_Admin_view.txtEmail.setBackground(Color.GREEN);
 
@@ -222,6 +228,7 @@ public class DAO_Admin {
             //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
+            create_Admin_view.labUser.setToolTipText("");
             create_Admin_view.labUser.setIcon(good_data);
             create_Admin_view.txtUser.setBackground(Color.GREEN);
         }
@@ -250,6 +257,7 @@ public class DAO_Admin {
             //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
             ok = true;
+            create_Admin_view.labPassword.setToolTipText("");
             create_Admin_view.labPassword.setIcon(good_data);
             create_Admin_view.txtPassword.setBackground(Color.GREEN);
         }
@@ -277,6 +285,7 @@ public class DAO_Admin {
 
             if ((sal >= 800) && (sal <= 2500)) {
                 ok = true;
+                create_Admin_view.labSalary.setToolTipText("");
                 create_Admin_view.labSalary.setIcon(good_data);
                 create_Admin_view.txtSalary.setBackground(Color.GREEN);
 
@@ -313,6 +322,7 @@ public class DAO_Admin {
 
             if ((act >= 0) && (act <= 100)) {
                 ok = true;
+                create_Admin_view.labActivity.setToolTipText("");
                 create_Admin_view.labActivity.setIcon(good_data);
                 create_Admin_view.txtActivity.setBackground(Color.GREEN);
             } else {
@@ -344,12 +354,25 @@ public class DAO_Admin {
 
         if (ok == false) {
 
+            if (singletonapp.passdate == 0) {
+                create_Admin_view.labdate_birth.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_format_data_correctly"));
+            }
+            if (singletonapp.passdate == 1) {
+                create_Admin_view.labdate_birth.setToolTipText(Lang.getInstance().getProperty("This_date_does_not_exist_in_the_calendar"));
+
+            }
+            if (singletonapp.passdate == 2) {
+                create_Admin_view.labdate_birth.setToolTipText(Lang.getInstance().getProperty("You_can_not_register,_you_must_be") + 16 + Lang.getInstance().getProperty("years"));
+
+            }
+
             create_Admin_view.pick_date_birth.setBackground(Color.red);
-            create_Admin_view.pick_date_birth.setIcon(wrong_data);
+            create_Admin_view.labdate_birth.setIcon(wrong_data);
 
         } else {
+            create_Admin_view.labdate_birth.setToolTipText("");
             create_Admin_view.pick_date_birth.setBackground(Color.GREEN);
-            create_Admin_view.pick_date_birth.setIcon(good_data);
+            create_Admin_view.labdate_birth.setIcon(good_data);
         }
 
         return ok;
@@ -369,19 +392,43 @@ public class DAO_Admin {
 
         date_contr = ((JTextFieldDateEditor) create_Admin_view.pick_date_contr.getDateEditor()).getText();
 
-        ClassDate contr = new ClassDate(date_contr);
+        if (s.equals("") || date_contr.equals("")) {
 
-        ok = Date_registered_boolean(contr, s, 16);
-
-        if (ok == false) {
+            create_Admin_view.labdate_contr.setToolTipText("Revise las fechas algun capmo esta en blanco");
             create_Admin_view.pick_date_contr.setBackground(Color.red);
-            create_Admin_view.pick_date_contr.setIcon(wrong_data);
+            create_Admin_view.labdate_contr.setIcon(wrong_data);
 
         } else {
-            create_Admin_view.pick_date_contr.setBackground(Color.GREEN);
-            create_Admin_view.pick_date_contr.setIcon(good_data);
-        }
+            ClassDate contr = new ClassDate(date_contr);
 
+            ok = Date_registered_boolean(contr, s, 16);
+
+            if (ok == false) {
+                if (singletonapp.passdate == 4) {
+                    create_Admin_view.labdate_contr.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_format_data_correctly"));
+                }
+                if (singletonapp.passdate == 0) {
+                    create_Admin_view.labdate_contr.setToolTipText(Lang.getInstance().getProperty("This_date_does_not_exist_in_the_calendar"));
+                }
+                if (singletonapp.passdate == 1) {
+                    create_Admin_view.labdate_contr.setToolTipText(Lang.getInstance().getProperty("The_date_may_not_be_later_than_the_system"));
+                }
+                if (singletonapp.passdate == 2) {
+                    create_Admin_view.labdate_contr.setToolTipText(Lang.getInstance().getProperty("The_record_date_may_not_be_earlier_wing_of_birth"));
+                }
+                if (singletonapp.passdate == 3) {
+                    create_Admin_view.labdate_contr.setToolTipText(Lang.getInstance().getProperty("On_this_date_you_were_not_of_legal_age"));
+                }
+
+                create_Admin_view.pick_date_contr.setBackground(Color.red);
+                create_Admin_view.labdate_contr.setIcon(wrong_data);
+
+            } else {
+                create_Admin_view.labdate_contr.setToolTipText(Lang.getInstance().getProperty(""));
+                create_Admin_view.pick_date_contr.setBackground(Color.GREEN);
+                create_Admin_view.labdate_contr.setIcon(good_data);
+            }
+        }
         return ok;
     }
 
@@ -544,10 +591,12 @@ public class DAO_Admin {
 
             edit_Admin_view.labName.setIcon(wrong_data);
             edit_Admin_view.txtName.setBackground(Color.red);
+            edit_Admin_view.labName.setToolTipText("No ha introducido los datos correctamente");
             //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
             ok = true;
+            edit_Admin_view.labName.setToolTipText("");
             edit_Admin_view.labName.setIcon(good_data);
             edit_Admin_view.txtName.setBackground(Color.GREEN);
 
@@ -559,14 +608,16 @@ public class DAO_Admin {
     public static boolean booleanEditlast_name_admin() {
 
         boolean ok = false;
-        String name = edit_Admin_view.txtName.getText();
+        String name = edit_Admin_view.txtLast_name.getText();
         ok = Validate.okword(name);
         if (ok == false) {
             edit_Admin_view.labLast_name.setIcon(wrong_data);
             edit_Admin_view.txtLast_name.setBackground(Color.red);
+            edit_Admin_view.labLast_name.setToolTipText("No ha introducido los datos correctamente");
             //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
+            edit_Admin_view.labLast_name.setToolTipText("");
             edit_Admin_view.labLast_name.setIcon(good_data);
             edit_Admin_view.txtLast_name.setBackground(Color.GREEN);
 
@@ -590,9 +641,11 @@ public class DAO_Admin {
         if (ok == false) {
             edit_Admin_view.labMobile.setIcon(wrong_data);
             edit_Admin_view.txtMobile.setBackground(Color.red);
+            edit_Admin_view.labMobile.setToolTipText("No ha introducido los datos correctamente, solo puede contener 9 numeros");
             // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
+            edit_Admin_view.labMobile.setToolTipText("");
             edit_Admin_view.labMobile.setIcon(good_data);
             edit_Admin_view.txtMobile.setBackground(Color.GREEN);
         }
@@ -615,10 +668,12 @@ public class DAO_Admin {
         if (ok == false) {
             edit_Admin_view.labEmail.setIcon(wrong_data);
             edit_Admin_view.txtEmail.setBackground(Color.red);
+            edit_Admin_view.labEmail.setToolTipText("No ha introducido los datos correctamente,Ejemplo: xxxx@xxx.xxx");
 
             //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
+            edit_Admin_view.labEmail.setToolTipText("");
             edit_Admin_view.labEmail.setIcon(good_data);
             edit_Admin_view.txtEmail.setBackground(Color.GREEN);
 
@@ -642,10 +697,12 @@ public class DAO_Admin {
         if (ok == false) {
             edit_Admin_view.labUser.setIcon(wrong_data);
             edit_Admin_view.txtUser.setBackground(Color.red);
+            edit_Admin_view.labUser.setToolTipText("No ha introducido los datos correctamente");
             // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
             ok = true;
+            edit_Admin_view.labUser.setToolTipText("");
             edit_Admin_view.labUser.setIcon(good_data);
             edit_Admin_view.txtUser.setBackground(Color.GREEN);
         }
@@ -670,10 +727,12 @@ public class DAO_Admin {
         if (ok == false) {
             edit_Admin_view.labPassword.setIcon(wrong_data);
             edit_Admin_view.txtPassword.setBackground(Color.red);
+            edit_Admin_view.labPassword.setToolTipText("No ha introducido los datos correctamente,Debe contener mayusculas,numeros y letras");
             // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
             ok = true;
+            edit_Admin_view.labPassword.setToolTipText("");
             edit_Admin_view.labPassword.setIcon(good_data);
             edit_Admin_view.txtPassword.setBackground(Color.GREEN);
         }
@@ -697,23 +756,31 @@ public class DAO_Admin {
         // ok = ;
 
         if (Validate.oksalary(s) == true) {
+            
+              try{
             sal = Float.parseFloat(s);
+              }catch(Exception e) {
+              e.printStackTrace();
+              }
+                      
             ok = true;
 
             if ((sal >= 800) && (sal <= 2500)) {
                 ok = true;
+                edit_Admin_view.labSalary.setToolTipText("");
                 edit_Admin_view.labSalary.setIcon(good_data);
                 edit_Admin_view.txtSalary.setBackground(Color.GREEN);
                 // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
                 //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
             } else {
                 ok = false;
-
+                edit_Admin_view.labSalary.setToolTipText("No ha introducido los datos correctamente,Debe estar comprendido entre 800 y 2500");
                 edit_Admin_view.labSalary.setIcon(wrong_data);
                 edit_Admin_view.txtSalary.setBackground(Color.RED);
             }
         } else {
             ok = false;
+            edit_Admin_view.labSalary.setToolTipText("No ha introducido los datos correctamente, quizas introdujo letras");
             edit_Admin_view.labSalary.setIcon(wrong_data);
             edit_Admin_view.txtSalary.setBackground(Color.RED);
         }
@@ -735,14 +802,17 @@ public class DAO_Admin {
 
             if ((act >= 0) && (act <= 100)) {
                 ok = true;
+                edit_Admin_view.labActivity.setToolTipText("");
                 edit_Admin_view.labActivity.setIcon(good_data);
                 edit_Admin_view.txtActivity.setBackground(Color.GREEN);
             } else {
+                edit_Admin_view.labActivity.setToolTipText("No ha introducido los datos correctamente,Debe estar comprendido entre 0 y 100");
                 ok = false;
                 edit_Admin_view.labActivity.setIcon(wrong_data);
                 edit_Admin_view.txtActivity.setBackground(Color.red);
             }
         } else {
+            edit_Admin_view.labActivity.setToolTipText("No ha introducido los datos correctamente, quizas introdujo letras");
             edit_Admin_view.labActivity.setIcon(wrong_data);
             edit_Admin_view.txtActivity.setBackground(Color.RED);
 
@@ -752,31 +822,37 @@ public class DAO_Admin {
 
     public static boolean booleanEditdate_birth_admin() {
 
-        String s = "";
+         String s = "";
         int act = 0;
         boolean ok = false;
         Calendar date_birth;
         int dia = 0, mes = 0, anio = 0;
 
-        s = ((JTextFieldDateEditor) create_Admin_view.pick_date_birth.getDateEditor()).getText();
+        s = ((JTextFieldDateEditor) edit_Admin_view.pick_date_birth.getDateEditor()).getText();
 
         ok = Date_min_max_condition_boolean(s, 16, 65);
 
         if (ok == false) {
-            if(singletonapp.passdate==0){
-                edit_Admin_view.labdate_birth.setToolTipText("You_haven't_introduced_format_data_correctly");
-                
+
+            if (singletonapp.passdate == 0) {
+                edit_Admin_view.labdate_birth.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_format_data_correctly"));
             }
-            if(singletonapp.passdate==1){
-                edit_Admin_view.labdate_birth.setToolTipText("No tienes la edad minima permitida o maxima");
-                
+            if (singletonapp.passdate == 1) {
+                edit_Admin_view.labdate_birth.setToolTipText(Lang.getInstance().getProperty("This_date_does_not_exist_in_the_calendar"));
+
             }
+            if (singletonapp.passdate == 2) {
+                edit_Admin_view.labdate_birth.setToolTipText(Lang.getInstance().getProperty("You_can_not_register,_you_must_be") + 16 + Lang.getInstance().getProperty("years"));
+
+            }
+
             edit_Admin_view.pick_date_birth.setBackground(Color.red);
             edit_Admin_view.labdate_birth.setIcon(wrong_data);
 
         } else {
+            edit_Admin_view.labdate_birth.setToolTipText("");
             edit_Admin_view.pick_date_birth.setBackground(Color.GREEN);
-            edit_Admin_view.pick_date_birth.setIcon(good_data);
+            edit_Admin_view.labdate_birth.setIcon(good_data);
         }
 
         return ok;
@@ -792,22 +868,48 @@ public class DAO_Admin {
         int dia = 0, mes = 0, anio = 0;
         int diac = 0, mesc = 0, anioc = 0;
 
-        s = ((JTextFieldDateEditor) create_Admin_view.pick_date_birth.getDateEditor()).getText();
+        s = ((JTextFieldDateEditor) edit_Admin_view.pick_date_birth.getDateEditor()).getText();
 
-        date_contr = ((JTextFieldDateEditor) create_Admin_view.pick_date_contr.getDateEditor()).getText();
+        date_contr = ((JTextFieldDateEditor) edit_Admin_view.pick_date_contr.getDateEditor()).getText();
 
-        ClassDate contr = new ClassDate(date_contr);
+        if (s.equals("") || date_contr.equals("")) {
 
-        ok = Date_registered_boolean(contr, s, 16);
-
-        if (ok == false) {
-            
+            edit_Admin_view.labdate_cont.setToolTipText("Revise las fechas algun capmo esta en blanco");
             edit_Admin_view.pick_date_contr.setBackground(Color.red);
-            edit_Admin_view.pick_date_contr.setIcon(wrong_data);
+            edit_Admin_view.labdate_cont.setIcon(wrong_data);
 
         } else {
-            edit_Admin_view.pick_date_contr.setBackground(Color.GREEN);
-            edit_Admin_view.pick_date_contr.setIcon(good_data);
+
+            ClassDate contr = new ClassDate(date_contr);
+
+            ok = Date_registered_boolean(contr, s, 16);
+
+            if (ok == false) {
+
+                if (singletonapp.passdate == 4) {
+                    edit_Admin_view.labdate_cont.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_format_data_correctly"));
+                }
+                if (singletonapp.passdate == 0) {
+                    edit_Admin_view.labdate_cont.setToolTipText(Lang.getInstance().getProperty("This_date_does_not_exist_in_the_calendar"));
+                }
+                if (singletonapp.passdate == 1) {
+                    edit_Admin_view.labdate_cont.setToolTipText(Lang.getInstance().getProperty("The_date_may_not_be_later_than_the_system"));
+                }
+                if (singletonapp.passdate == 2) {
+                    edit_Admin_view.labdate_cont.setToolTipText(Lang.getInstance().getProperty("The_record_date_may_not_be_earlier_wing_of_birth"));
+                }
+                if (singletonapp.passdate == 3) {
+                    edit_Admin_view.labdate_cont.setToolTipText(Lang.getInstance().getProperty("On_this_date_you_were_not_of_legal_age"));
+                }
+
+                edit_Admin_view.pick_date_contr.setBackground(Color.red);
+                edit_Admin_view.labdate_cont.setIcon(wrong_data);
+
+            } else {
+                edit_Admin_view.labdate_cont.setToolTipText(Lang.getInstance().getProperty(""));
+                edit_Admin_view.pick_date_contr.setBackground(Color.GREEN);
+                edit_Admin_view.labdate_cont.setIcon(good_data);
+            }
         }
 
         return ok;
@@ -870,7 +972,7 @@ public class DAO_Admin {
         }
     }
 
-    public static boolean modify_edit_Admin() {
+    public static Admin modify_edit_Admin() {
 
         String Dni = "", Name = "", Last_name = "", Mobile = "", Email = "", User = "", Password = "";
         ClassDate date_cont = null;
@@ -901,38 +1003,26 @@ public class DAO_Admin {
             // Enter User atributtes
             //Dni = edit_Admin_view.txtDni.getText();
 
+            Dni = edit_Admin_view.txtDni.getText();
             Name = edit_Admin_view.txtName.getText();
-            singleton.Admin_array.get(pos).setName(Name);
             Last_name = edit_Admin_view.txtLast_name.getText();
-            singleton.Admin_array.get(pos).setLast_name(Last_name);
             Mobile = edit_Admin_view.txtMobile.getText();
-            singleton.Admin_array.get(pos).setMobile(Mobile);
             Date_birth = Edit_date_birth_admin();
             Email = edit_Admin_view.txtEmail.getText();
-            singleton.Admin_array.get(pos).setEmail(Email);
             User = edit_Admin_view.txtUser.getText();
-            singleton.Admin_array.get(pos).setUser(User);
             Password = new String(password);
-            singleton.Admin_array.get(pos).setPassword(Password);
             Avatar = edit_Admin_view.labAvatar.getToolTipText();
-            singleton.Admin_array.get(pos).setAvatar(Avatar);
             Status = edit_Admin_view.comboStatus.getSelectedItem().toString();
-            singleton.Admin_array.get(pos).setStatus(Status);
             // Enter Admin attributes
             date_cont = Edit_date_cntr_admin();
             salary = Float.parseFloat(edit_Admin_view.txtSalary.getText());
-            singleton.Admin_array.get(pos).setSalary(salary);
             activity = Integer.parseInt(edit_Admin_view.txtActivity.getText());
-            singleton.Admin_array.get(pos).setActivity(activity);
 
-            JOptionPane.showMessageDialog(null, "Usuario modificado");
-            json.auto_save_json_file();
-            ok = true;
+            a = new Admin(Dni, Name, Last_name, Mobile, Date_birth, Email, User, Password, Avatar, Status, date_cont, salary, activity);
         } else {
-
-            JOptionPane.showMessageDialog(null, "Hay algun campo incorrecto por favor reviselos");
+            a = null;
         }
-        return ok;
+        return a;
     }
 
     public static void Load_show_admin() {

@@ -7,6 +7,7 @@ import Appweb.Modules.Users.Admin.View.table_Admin_view;
 import Appweb.Modules.Users.Classes.Admin;
 import Appweb.Modules.Users.Classes.singleton;
 import Appweb.General_tools.Menu;
+import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Users.Admin.View.show_Admin_view;
 import Appweb.Modules.Users.Users_tools.User_files.json;
 import javax.swing.JOptionPane;
@@ -141,8 +142,18 @@ public class BLL_Admin {
 
         boolean ok = false;
 
-        ok = DAO_Admin.modify_edit_Admin();
+        Admin a = DAO_Admin.modify_edit_Admin();
 
+        if (a != null) {
+            singleton.Admin_array.set(singletonapp.pos, a);
+            json.auto_save_json_file();
+            JOptionPane.showMessageDialog(null, "Usuario añadidio");
+
+            ok = true;
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Revise los datos, no puede guardar si hay algun dato incorrecto");
+        }
         return ok;
     }
 
@@ -231,7 +242,7 @@ public class BLL_Admin {
                 dni += se.charAt(j);
             }
 
-            singleton.pos = Look_for_dni_admin(dni);
+            singletonapp.pos = Look_for_dni_admin(dni);
 
             new edit_Admin_view().setVisible(true);
             DAO_Admin.Load_edit_admin();
@@ -270,7 +281,7 @@ public class BLL_Admin {
 
             }
 
-            singleton.pos = Look_for_dni_admin(dni);
+            singletonapp.pos = Look_for_dni_admin(dni);
 
             singleton.Admin_array.remove(pos);
 

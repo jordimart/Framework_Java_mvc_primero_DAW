@@ -6,6 +6,7 @@
 package Appweb.Modules.Dummies.Model.BLL_Dummy;
 
 import Appweb.Classes.Language.Lang;
+import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Dummies.Model.DAO_Dummy.Dummy_tools;
 import Appweb.Modules.Dummies.View.task_Dummy_view;
 import Appweb.Modules.Users.Classes.Admin;
@@ -32,9 +33,9 @@ public class BLL_Dummies {
 
         } else {
 
-            singleton.num = Integer.parseInt(combo);
+            singletonapp.num = Integer.parseInt(combo);
 
-            for (int j = 0; j < singleton.num; j++) {
+            for (int j = 0; j < singletonapp.num; j++) {
 
                 try {
 

@@ -55,7 +55,6 @@ public class ClassDate implements Serializable {
 	 * internamente.
 	 * 
 	 * @param date
-	 * @param datef
 	 */
 	public ClassDate(String date) {
 
@@ -103,6 +102,13 @@ public class ClassDate implements Serializable {
 			this.date = datechoice;
 
 			break;
+                        
+                case "":
+                    
+                    datechoice = 01 + "/" + 01 + "/" + 2020;
+			this.date = datechoice;
+                    
+                    break;
 		}
 	}
 
