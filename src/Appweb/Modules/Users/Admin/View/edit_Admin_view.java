@@ -1,4 +1,3 @@
-
 package Appweb.Modules.Users.Admin.View;
 
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
@@ -26,20 +25,17 @@ public class edit_Admin_view extends javax.swing.JFrame {
         this.setSize(1000, 1200);//ancho x alto
         this.setResizable(false);
         txtDni.setBackground(Color.GRAY);
-        
+
         // Conjunto de teclas que queremos que sirvan para pasar el foco 
         // al siguiente campo de texto: ENTER y TAB
         Set<AWTKeyStroke> teclas = new HashSet<AWTKeyStroke>();
         teclas.add(AWTKeyStroke.getAWTKeyStroke(KeyEvent.VK_ENTER, 0));
         teclas.add(AWTKeyStroke.getAWTKeyStroke(
                 KeyEvent.VK_TAB, 0));
-        
-        
-         
+
         panelRect1.setFocusTraversalKeys(
-                KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, 
+                KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS,
                 teclas);
-       
 
     }
 
@@ -211,16 +207,16 @@ public class edit_Admin_view extends javax.swing.JFrame {
         });
 
         pick_date_birth.setDateFormatString("dd/MM/yyyy");
-        pick_date_birth.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
-            public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
-                pick_date_birthVetoableChange(evt);
+        pick_date_birth.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                pick_date_birthPropertyChange(evt);
             }
         });
 
         pick_date_contr.setDateFormatString("dd/MM/yyyy");
-        pick_date_contr.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
-            public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
-                pick_date_contrVetoableChange(evt);
+        pick_date_contr.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                pick_date_contrPropertyChange(evt);
             }
         });
 
@@ -458,18 +454,18 @@ public class edit_Admin_view extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_CancelarActionPerformed
 
     private void btn_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AceptarActionPerformed
-      
-     boolean ok= BLL_Admin.Enter_edited_admin();
-     if (ok == true) {
+
+        boolean ok = BLL_Admin.Enter_edited_admin();
+        if (ok == true) {
             this.dispose();
-            table_Admin_view menu = new table_Admin_view();
-            menu.setVisible(true);
+            //table_Admin_view menu = new table_Admin_view();
+           // menu.setVisible(true);
         }
-        
+
     }//GEN-LAST:event_btn_AceptarActionPerformed
 
     private void txtNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNameMouseClicked
-       // txtName.setText("");
+        // txtName.setText("");
     }//GEN-LAST:event_txtNameMouseClicked
 
     private void txtLast_nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLast_nameMouseClicked
@@ -477,7 +473,7 @@ public class edit_Admin_view extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLast_nameMouseClicked
 
     private void txtMobileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMobileMouseClicked
-       //txtMobile.setText("");
+        //txtMobile.setText("");
     }//GEN-LAST:event_txtMobileMouseClicked
 
     private void txtEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEmailMouseClicked
@@ -485,15 +481,15 @@ public class edit_Admin_view extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEmailMouseClicked
 
     private void txtUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUserMouseClicked
-       // txtUser.setText("");
+        // txtUser.setText("");
     }//GEN-LAST:event_txtUserMouseClicked
 
     private void txtPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPasswordMouseClicked
-       // txtPassword.setText("");
+        // txtPassword.setText("");
     }//GEN-LAST:event_txtPasswordMouseClicked
 
     private void txtSalaryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSalaryMouseClicked
-       //txtSalary.setText("");
+        //txtSalary.setText("");
     }//GEN-LAST:event_txtSalaryMouseClicked
 
     private void txtActivityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtActivityMouseClicked
@@ -501,7 +497,7 @@ public class edit_Admin_view extends javax.swing.JFrame {
     }//GEN-LAST:event_txtActivityMouseClicked
 
     private void txtNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyReleased
-       BLL_Admin.Editname_admin();
+        BLL_Admin.Editname_admin();
     }//GEN-LAST:event_txtNameKeyReleased
 
     private void txtLast_nameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLast_nameKeyReleased
@@ -532,19 +528,19 @@ public class edit_Admin_view extends javax.swing.JFrame {
         BLL_Admin.Editactivity_admin();
     }//GEN-LAST:event_txtActivityKeyReleased
 
-    private void pick_date_birthVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_pick_date_birthVetoableChange
-        BLL_Admin.Editdate_birth_admin();
-    }//GEN-LAST:event_pick_date_birthVetoableChange
-
-    private void pick_date_contrVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_pick_date_contrVetoableChange
-        BLL_Admin.Editdate_contr_admin();
-    }//GEN-LAST:event_pick_date_contrVetoableChange
-
     private void btnAvatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvatarActionPerformed
         BLL_Admin.EditAvatar_admin();
     }//GEN-LAST:event_btnAvatarActionPerformed
 
-    
+    private void pick_date_birthPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pick_date_birthPropertyChange
+        BLL_Admin.Editdate_birth_admin();
+    }//GEN-LAST:event_pick_date_birthPropertyChange
+
+    private void pick_date_contrPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pick_date_contrPropertyChange
+        BLL_Admin.Editdate_contr_admin();
+    }//GEN-LAST:event_pick_date_contrPropertyChange
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static org.edisoncor.gui.button.ButtonAero btnAvatar;
     public static org.edisoncor.gui.button.ButtonAeroRight btn_Aceptar;

@@ -182,8 +182,18 @@ public class create_Admin_view extends javax.swing.JFrame {
         });
 
         pick_date_birth.setDateFormatString("dd/MM/yyyy");
+        pick_date_birth.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                pick_date_birthPropertyChange(evt);
+            }
+        });
 
         pick_date_contr.setDateFormatString("dd/mm/yyyy");
+        pick_date_contr.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                pick_date_contrPropertyChange(evt);
+            }
+        });
 
         txtPassword.setText("passwordField1");
         txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -415,8 +425,8 @@ public class create_Admin_view extends javax.swing.JFrame {
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
 
         this.dispose();
-        table_Admin_view menu = new table_Admin_view();
-        menu.setVisible(true);
+        //table_Admin_view menu = new table_Admin_view();
+       // menu.setVisible(true);
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
     private void btnAvatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvatarActionPerformed
@@ -464,11 +474,19 @@ public class create_Admin_view extends javax.swing.JFrame {
         boolean ok = BLL_Admin.Enter_new_admin();
         if (ok == true) {
             this.dispose();
-            table_Admin_view menu = new table_Admin_view();
-            menu.setVisible(true);
+           // table_Admin_view menu = new table_Admin_view();
+           // menu.setVisible(true);
         }
 
     }//GEN-LAST:event_btn_AceptarActionPerformed
+
+    private void pick_date_birthPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pick_date_birthPropertyChange
+        BLL_Admin.Enterdate_birth_admin();
+    }//GEN-LAST:event_pick_date_birthPropertyChange
+
+    private void pick_date_contrPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pick_date_contrPropertyChange
+        BLL_Admin.Enterdate_contr_admin();
+    }//GEN-LAST:event_pick_date_contrPropertyChange
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static org.edisoncor.gui.button.ButtonAero btnAvatar;

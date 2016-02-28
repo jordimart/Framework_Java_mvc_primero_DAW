@@ -7,12 +7,11 @@ package Appweb.Modules.Main;
 
 import Appweb.Classes.Language.Lang;
 import Appweb.Modules.Config.Classconfig;
-import static Appweb.Modules.Config.Config_tools.auto_open_config_json;
-import static Appweb.Modules.Config.Config_tools.auto_save_config_json;
-import Appweb.Modules.Dummies.Model.BLL_Dummy.BLL_Dummies;
+import Appweb.Modules.Config.Config_tools;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
-import Appweb.Modules.Dummies.Model.Dummy_array_add_users;
 import Appweb.Modules.Dummies.View.task_Dummy_view;
+import Appweb.Modules.Users.Users_tools.User_files.json;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,7 +29,8 @@ public class Menu_entrada extends javax.swing.JFrame {
         this.setTitle("Menu Login");
 	this.setLocationRelativeTo(null);
 	this.setSize(1000,650);//ancho x alto
-	this.setResizable(false);
+	//this.setResizable(false);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 	
        
         
@@ -41,7 +41,9 @@ public class Menu_entrada extends javax.swing.JFrame {
      */
     private void exit() {
 
-        auto_save_config_json();
+        json.auto_save_json_file();
+        Config_tools.auto_save_config_json();
+       
         JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
                 JOptionPane.INFORMATION_MESSAGE);
         dispose();

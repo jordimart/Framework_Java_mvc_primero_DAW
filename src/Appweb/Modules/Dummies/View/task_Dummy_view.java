@@ -2,8 +2,8 @@
 package Appweb.Modules.Dummies.View;
 
 import Appweb.Modules.Dummies.Model.BLL_Dummy.BLL_Dummies;
-import Appweb.Modules.Dummies.Model.Dummy_array_add_users;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
+import javax.swing.JFrame;
 
 /**
  *
@@ -16,6 +16,12 @@ public class task_Dummy_view extends javax.swing.JFrame {
      */
     public task_Dummy_view() {
         initComponents();
+        
+        this.setTitle("Menu Login");
+	this.setLocationRelativeTo(null);
+	this.setSize(1000,650);//ancho x alto
+	//this.setResizable(false);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
    

@@ -48,7 +48,7 @@ public class DAO_Admin {
 
         String dni = "";
         boolean ok = false;
-        int pos = -1;
+        //int pos = -1;
         int num = 0, rest = 0;
         char letter = ' ', pass = ' ';
         String aux = "", car = "TRWAGMYFPDXBNJZSQVHLCKET";
@@ -83,17 +83,20 @@ public class DAO_Admin {
             if (pass == letter) {
                 ok = true;
 
-                pos = BLL_Admin.Look_for_dni_admin(dni);
+                singletonapp.pos = BLL_Admin.Look_for_dni_admin(dni);
 
-                if (pos != -1) {
+                if (singletonapp.pos != -1) {
+                    
                     ok = false;
+
+                    JOptionPane.showMessageDialog(null, "Ha detectado que existe el dni "+singletonapp.pos);
                     create_Admin_view.labDni.setIcon(wrong_data);
                     create_Admin_view.txtDni.setBackground(Color.RED);
                     create_Admin_view.labDni.setToolTipText("Ya existe este Dni en la base de datos");
                     //JOptionPane.showMessageDialog(null,
                     //Lang.getInstance().getProperty("You_can_not_repeat_dni"));
                 } else {
-
+                    JOptionPane.showMessageDialog(null, "Hemos validado el dni este no esta repetido "+singletonapp.pos);
                     ok = true;
                     create_Admin_view.labDni.setToolTipText("");
                     create_Admin_view.labDni.setIcon(good_data);
@@ -756,13 +759,13 @@ public class DAO_Admin {
         // ok = ;
 
         if (Validate.oksalary(s) == true) {
-            
-              try{
-            sal = Float.parseFloat(s);
-              }catch(Exception e) {
-              e.printStackTrace();
-              }
-                      
+
+            try {
+                sal = Float.parseFloat(s);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
             ok = true;
 
             if ((sal >= 800) && (sal <= 2500)) {
@@ -822,7 +825,7 @@ public class DAO_Admin {
 
     public static boolean booleanEditdate_birth_admin() {
 
-         String s = "";
+        String s = "";
         int act = 0;
         boolean ok = false;
         Calendar date_birth;

@@ -166,7 +166,7 @@ public class BLL_Admin {
         Admin a;
         String s = " ";
         String dni = "";
-        int pos = 0;
+       // int pos = 0;
         int n = singleton.Admin_array.size();
         String cli[] = new String[n];
 
@@ -180,10 +180,15 @@ public class BLL_Admin {
 
             for (int j = 0; j < 9; j++) {
 
-                dni += se.charAt(j);
+                try {
+                    dni += se.charAt(j);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }
 
-            pos = Look_for_dni_admin(dni);
+            singletonapp.pos = Look_for_dni_admin(dni);
             show_Admin_view menu = new show_Admin_view();
             menu.setVisible(true);
             DAO_Admin.Load_show_admin();
@@ -229,7 +234,7 @@ public class BLL_Admin {
         //int pos = 0;
         int n = singleton.Admin_array.size();
         String cli[] = new String[n];
-        if (singleton.Admin_array.size() != 0) {
+        if (!singleton.Admin_array.isEmpty()) {
             for (int i = 0; i < n; i++) {
                 a = (Admin) singleton.Admin_array.get(i);
                 s = a.getDni() + " - " + a.getName() + " " + a.getLast_name();
@@ -263,11 +268,11 @@ public class BLL_Admin {
         Admin a;
         String s = " ";
         String dni = "";
-        int pos = 0;
+        // int pos = 0;
         int n = singleton.Admin_array.size();
         String cli[] = new String[n];
 
-        if (singleton.Admin_array.size() != 0) {
+        if (!singleton.Admin_array.isEmpty()) {
             for (int i = 0; i < n; i++) {
                 a = (Admin) singleton.Admin_array.get(i);
                 s = a.getDni() + " - " + a.getName() + " " + a.getLast_name();
@@ -277,13 +282,18 @@ public class BLL_Admin {
 
             for (int j = 0; j < 9; j++) {
 
-                dni += se.charAt(j);
+                try {
+                    dni += se.charAt(j);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
             }
 
             singletonapp.pos = Look_for_dni_admin(dni);
 
-            singleton.Admin_array.remove(pos);
+            singleton.Admin_array.remove(singletonapp.pos);
+            json.auto_save_json_file();
 
         } else {
 
@@ -296,7 +306,7 @@ public class BLL_Admin {
      */
     public static void Delete_all_admin() {
 
-        if (singleton.Admin_array.size() == 0) {
+        if (singleton.Admin_array.isEmpty()) {
 
             //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_can_not_erase_because_no_elements"),
             //Lang.getInstance().getProperty("Information"), JOptionPane.ERROR_MESSAGE);

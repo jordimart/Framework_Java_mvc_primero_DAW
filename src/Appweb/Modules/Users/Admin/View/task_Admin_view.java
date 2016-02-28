@@ -8,6 +8,7 @@ package Appweb.Modules.Users.Admin.View;
 import Appweb.Modules.Config.menu_Settings;
 import Appweb.Classes.Language.Lang;
 import Appweb.Modules.Main.Menu_entrada;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,7 +26,8 @@ public class task_Admin_view extends javax.swing.JFrame {
         this.setTitle(Lang.getInstance().getProperty("Task Admin"));
         this.setLocationRelativeTo(null);
         this.setSize(1000, 650);//ancho x alto
-        this.setResizable(false);
+       // this.setResizable(false);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
     }
 
