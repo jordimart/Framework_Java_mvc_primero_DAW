@@ -5,11 +5,14 @@
  */
 package Appweb.Modules.Users.Admin.View;
 
-import Appweb.Modules.Config.menu_Settings;
-import Appweb.Classes.Language.Lang;
+import Appweb.Modules.Config.View.menu_Settings;
+import Appweb.Modules.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.Menu_entrada;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 /**
  *
@@ -26,8 +29,19 @@ public class task_Admin_view extends javax.swing.JFrame {
         this.setTitle(Lang.getInstance().getProperty("Task Admin"));
         this.setLocationRelativeTo(null);
         this.setSize(1000, 650);//ancho x alto
-       // this.setResizable(false);
+        // this.setResizable(false);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                dispose();
+                Menu_entrada menu = new Menu_entrada();
+
+                menu.setVisible(true);
+
+            }
+        });
 
     }
 
@@ -162,7 +176,7 @@ public class task_Admin_view extends javax.swing.JFrame {
 
         this.dispose();
         table_Admin_view menu = new table_Admin_view();
-       
+
         menu.setVisible(true);
 
     }//GEN-LAST:event_btn_ges_usersActionPerformed
@@ -171,7 +185,7 @@ public class task_Admin_view extends javax.swing.JFrame {
 
         this.dispose();
         Menu_entrada menu = new Menu_entrada();
-       
+
         menu.setVisible(true);
     }//GEN-LAST:event_btn_VolverActionPerformed
 
@@ -179,7 +193,7 @@ public class task_Admin_view extends javax.swing.JFrame {
 
         this.dispose();
         menu_Settings menu = new menu_Settings();
-       
+
         menu.setVisible(true);
 
     }//GEN-LAST:event_btn_ConfigActionPerformed

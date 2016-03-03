@@ -5,12 +5,14 @@
  */
 package Appweb.Modules.Main;
 
-import Appweb.Classes.Language.Lang;
-import Appweb.Modules.Config.Classconfig;
-import Appweb.Modules.Config.Config_tools;
+import Appweb.Modules.Config.Classes.Language.Lang;
+import Appweb.Modules.Config.Classes.Classconfig;
+import Appweb.Modules.Config.Model.DAO_config.DAO_config;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
 import Appweb.Modules.Dummies.View.task_Dummy_view;
 import Appweb.Modules.Users.Users_tools.User_files.json;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -25,15 +27,20 @@ public class Menu_entrada extends javax.swing.JFrame {
      */
     public Menu_entrada() {
         initComponents();
-        
+
         this.setTitle("Menu Login");
-	this.setLocationRelativeTo(null);
-	this.setSize(1000,650);//ancho x alto
-	//this.setResizable(false);
+        this.setLocationRelativeTo(null);
+        this.setSize(1000, 650);//ancho x alto
+        //this.setResizable(false);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-	
-       
-        
+
+        //
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                exit();
+            }
+        });
     }
 
     /**
@@ -42,8 +49,8 @@ public class Menu_entrada extends javax.swing.JFrame {
     private void exit() {
 
         json.auto_save_json_file();
-        Config_tools.auto_save_config_json();
-       
+        DAO_config.auto_save_config_json();
+
         JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
                 JOptionPane.INFORMATION_MESSAGE);
         dispose();
@@ -201,11 +208,11 @@ public class Menu_entrada extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Login_AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login_AdminActionPerformed
-        
+
         this.dispose();
         task_Admin_view menu = new task_Admin_view();
         menu.setVisible(true);
-       
+
 
     }//GEN-LAST:event_Login_AdminActionPerformed
 
@@ -215,17 +222,17 @@ public class Menu_entrada extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ExitActionPerformed
 
     private void btn_Ingles_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Ingles_mainActionPerformed
-        
+
         Classconfig.getInstance().setLanguage("english");
     }//GEN-LAST:event_btn_Ingles_mainActionPerformed
 
     private void btn_spain_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_spain_mainActionPerformed
-        
+
         Classconfig.getInstance().setLanguage("español");
     }//GEN-LAST:event_btn_spain_mainActionPerformed
 
     private void btn_valencian_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_valencian_mainActionPerformed
-        
+
         Classconfig.getInstance().setLanguage("valencia");
     }//GEN-LAST:event_btn_valencian_mainActionPerformed
 
@@ -235,7 +242,6 @@ public class Menu_entrada extends javax.swing.JFrame {
         menu.setVisible(true);
     }//GEN-LAST:event_btn_TestActionPerformed
 
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Login_Admin;

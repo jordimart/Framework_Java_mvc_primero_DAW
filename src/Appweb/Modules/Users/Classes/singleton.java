@@ -1,7 +1,6 @@
 package Appweb.Modules.Users.Classes;
 
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 
 public class singleton {
 

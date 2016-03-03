@@ -13,7 +13,7 @@ package Appweb.General_tools;
 
 import javax.swing.JOptionPane;
 
-import Appweb.Classes.Language.Lang;
+import Appweb.Modules.Config.Classes.Language.Lang;
 import Appweb.Modules.Users.Classes.singleton;
 
 public class Menu {

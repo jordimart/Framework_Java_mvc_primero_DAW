@@ -85,7 +85,7 @@
                       <Component id="panrect1" min="-2" max="-2" attributes="0"/>
                       <Component id="panelRect2" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="73" max="32767" attributes="0"/>
+                  <EmptySpace pref="75" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -358,6 +358,7 @@
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="pick_date_birth">
               <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Para modificar fecha pulse el boton"/>
                 <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
               </Properties>
               <Events>
@@ -366,6 +367,7 @@
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="pick_date_contr">
               <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Para modificar fecha pulse el boton"/>
                 <Property name="dateFormatString" type="java.lang.String" value="dd/mm/yyyy"/>
               </Properties>
               <Events>

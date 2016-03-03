@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Appweb.Modules.Users.Admin.Model.DAO_Admin;
 
 import Appweb.Classes.Date.ClassDate;
-import Appweb.Classes.Language.Lang;
+import Appweb.Modules.Config.Classes.Language.Lang;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 import Appweb.Modules.Users.Admin.View.create_Admin_view;
 import Appweb.Modules.Users.Classes.Admin;
@@ -15,7 +11,6 @@ import static Appweb.General_tools.Date_tools.Date_registered_boolean;
 import Appweb.General_tools.Validate;
 import Appweb.General_tools.singletonapp;
 import static Appweb.General_tools.singletonapp.good_data;
-import static Appweb.General_tools.singletonapp.pos;
 import static Appweb.General_tools.singletonapp.wrong_data;
 import Appweb.Modules.Users.Admin.View.edit_Admin_view;
 import Appweb.Modules.Users.Admin.View.show_Admin_view;
@@ -26,10 +21,8 @@ import java.util.Calendar;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import Appweb.Modules.Users.Users_tools.User_files.json;
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.io.File;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -80,6 +73,7 @@ public class DAO_Admin {
 
             letter = dni.charAt(8);
 
+            
             if (pass == letter) {
                 ok = true;
 
@@ -89,14 +83,15 @@ public class DAO_Admin {
                     
                     ok = false;
 
-                    JOptionPane.showMessageDialog(null, "Ha detectado que existe el dni "+singletonapp.pos);
+                    
                     create_Admin_view.labDni.setIcon(wrong_data);
                     create_Admin_view.txtDni.setBackground(Color.RED);
                     create_Admin_view.labDni.setToolTipText("Ya existe este Dni en la base de datos");
                     //JOptionPane.showMessageDialog(null,
                     //Lang.getInstance().getProperty("You_can_not_repeat_dni"));
                 } else {
-                    JOptionPane.showMessageDialog(null, "Hemos validado el dni este no esta repetido "+singletonapp.pos);
+                    
+                    
                     ok = true;
                     create_Admin_view.labDni.setToolTipText("");
                     create_Admin_view.labDni.setIcon(good_data);
@@ -520,7 +515,7 @@ public class DAO_Admin {
 
         if (pass == true && pass1 == true && pass2 == true && pass3 == true && pass4 == true && pass5 == true && pass6 == true && pass7 == true && pass8 == true && pass9 == true && pass10 == true) {
             // Enter User atributtes
-            Dni = create_Admin_view.txtDni.getText();
+            Dni = create_Admin_view.txtDni.getText().toUpperCase();
             Name = create_Admin_view.txtName.getText();
             Last_name = create_Admin_view.txtLast_name.getText();
             Mobile = create_Admin_view.txtMobile.getText();
@@ -990,7 +985,7 @@ public class DAO_Admin {
 
         boolean pass, pass1, pass2, pass3, pass4, pass5, pass6, pass7, pass8, pass9, pass10;
 
-        // pass = booleanEditdnia();
+        
         pass1 = booleanEditname_admin();
         pass2 = booleanEditlast_name_admin();
         pass3 = booleanEditmobile_admin();
@@ -1003,8 +998,7 @@ public class DAO_Admin {
         pass10 = booleanEditdate_contr_admin();
 
         if (pass1 == true && pass2 == true && pass3 == true && pass4 == true && pass5 == true && pass6 == true && pass7 == true && pass8 == true && pass9 == true && pass10 == true) {
-            // Enter User atributtes
-            //Dni = edit_Admin_view.txtDni.getText();
+            
 
             Dni = edit_Admin_view.txtDni.getText();
             Name = edit_Admin_view.txtName.getText();

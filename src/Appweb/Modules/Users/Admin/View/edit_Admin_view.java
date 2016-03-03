@@ -5,8 +5,11 @@ import java.awt.AWTKeyStroke;
 import java.awt.Color;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.HashSet;
 import java.util.Set;
+import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 /**
  *
@@ -25,6 +28,8 @@ public class edit_Admin_view extends javax.swing.JFrame {
         this.setSize(1000, 1200);//ancho x alto
         this.setResizable(false);
         txtDni.setBackground(Color.GRAY);
+        pick_date_birth.getDateEditor().setEnabled(false);
+        pick_date_contr.getDateEditor().setEnabled(false);
 
         // Conjunto de teclas que queremos que sirvan para pasar el foco 
         // al siguiente campo de texto: ENTER y TAB
@@ -36,6 +41,13 @@ public class edit_Admin_view extends javax.swing.JFrame {
         panelRect1.setFocusTraversalKeys(
                 KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS,
                 teclas);
+        
+         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                dispose();
+            }
+        });
 
     }
 
@@ -206,6 +218,7 @@ public class edit_Admin_view extends javax.swing.JFrame {
             }
         });
 
+        pick_date_birth.setToolTipText("Para modificar fecha pulse el boton");
         pick_date_birth.setDateFormatString("dd/MM/yyyy");
         pick_date_birth.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -213,6 +226,7 @@ public class edit_Admin_view extends javax.swing.JFrame {
             }
         });
 
+        pick_date_contr.setToolTipText("Para modificar fecha pulse el boton");
         pick_date_contr.setDateFormatString("dd/MM/yyyy");
         pick_date_contr.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -366,7 +380,7 @@ public class edit_Admin_view extends javax.swing.JFrame {
                     .addComponent(btnAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(labAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(167, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
         btn_Cancelar.setText("Cancelar");
@@ -459,7 +473,7 @@ public class edit_Admin_view extends javax.swing.JFrame {
         if (ok == true) {
             this.dispose();
             //table_Admin_view menu = new table_Admin_view();
-           // menu.setVisible(true);
+            // menu.setVisible(true);
         }
 
     }//GEN-LAST:event_btn_AceptarActionPerformed

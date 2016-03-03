@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Appweb.Modules.Config;
+package Appweb.Modules.Config.View;
 
-import static Appweb.Modules.Config.Config_tools.Configuration_accept;
-import static Appweb.Modules.Config.Config_tools.Menu_theme;
+import Appweb.Modules.Config.Classes.Classconfig;
+import Appweb.Modules.Config.Model.BLL_config.BLL_config;
+import Appweb.Modules.Config.Model.DAO_config.DAO_config;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
-import static Appweb.Modules.Config.Config_tools.auto_save_config_json;
-import static Appweb.Modules.Config.Config_tools.open_json_config;
-import static Appweb.Modules.Config.Config_tools.save_json_config;
+import static Appweb.Modules.Config.Model.DAO_config.DAO_config.open_json_config;
+import static Appweb.Modules.Config.Model.DAO_config.DAO_config.save_json_config;
 import javax.swing.JOptionPane;
 
 /**
@@ -32,6 +32,7 @@ public class menu_Settings extends javax.swing.JFrame {
         chk_one_d.setSelected(true);
         chk_curr_euro.setSelected(true);
         chk_lang_en.setSelected(true);
+        ///
     }
 
     /**
@@ -395,23 +396,21 @@ public class menu_Settings extends javax.swing.JFrame {
 
         this.dispose();
         task_Admin_view menu = new task_Admin_view();
-
         menu.setVisible(true);
     }//GEN-LAST:event_btn_Return_SettingsActionPerformed
 
     private void btn_Accept_SettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Accept_SettingsActionPerformed
 
-        Configuration_accept();
-        Config_tools.auto_save_config_json();
+        BLL_config.Configuration_accept();
+        BLL_config.auto_save_config_json();
     }//GEN-LAST:event_btn_Accept_SettingsActionPerformed
 
     private void btn_Load_SettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Load_SettingsActionPerformed
-        open_json_config();
-        
+        BLL_config.open_config_json();
     }//GEN-LAST:event_btn_Load_SettingsActionPerformed
 
     private void btnsave_settingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsave_settingActionPerformed
-        save_json_config();
+        BLL_config.save_config_json();
     }//GEN-LAST:event_btnsave_settingActionPerformed
 
     private void buttonAction1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction1ActionPerformed

@@ -1,5 +1,6 @@
-package Appweb.Modules.Config;
+package Appweb.Modules.Config.Model.DAO_config;
 
+import Appweb.Modules.Config.Classes.Classconfig;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,24 +26,24 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.Annotations;
 import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
 
-import Appweb.Classes.Language.Lang;
-import static Appweb.Modules.Config.menu_Settings.Combo_Theme;
-import static Appweb.Modules.Config.menu_Settings.chk_curr_dollar;
-import static Appweb.Modules.Config.menu_Settings.chk_curr_euro;
-import static Appweb.Modules.Config.menu_Settings.chk_curr_pound;
-import static Appweb.Modules.Config.menu_Settings.chk_day_bar;
-import static Appweb.Modules.Config.menu_Settings.chk_day_bar2;
-import static Appweb.Modules.Config.menu_Settings.chk_lang_en;
-import static Appweb.Modules.Config.menu_Settings.chk_lang_es;
-import static Appweb.Modules.Config.menu_Settings.chk_lang_val;
-import static Appweb.Modules.Config.menu_Settings.chk_one_d;
-import static Appweb.Modules.Config.menu_Settings.chk_three_d;
-import static Appweb.Modules.Config.menu_Settings.chk_two_d;
-import static Appweb.Modules.Config.menu_Settings.chk_year_bar;
-import static Appweb.Modules.Config.menu_Settings.chk_year_bar2;
+import Appweb.Modules.Config.Classes.Language.Lang;
+import static Appweb.Modules.Config.View.menu_Settings.Combo_Theme;
+import static Appweb.Modules.Config.View.menu_Settings.chk_curr_dollar;
+import static Appweb.Modules.Config.View.menu_Settings.chk_curr_euro;
+import static Appweb.Modules.Config.View.menu_Settings.chk_curr_pound;
+import static Appweb.Modules.Config.View.menu_Settings.chk_day_bar;
+import static Appweb.Modules.Config.View.menu_Settings.chk_day_bar2;
+import static Appweb.Modules.Config.View.menu_Settings.chk_lang_en;
+import static Appweb.Modules.Config.View.menu_Settings.chk_lang_es;
+import static Appweb.Modules.Config.View.menu_Settings.chk_lang_val;
+import static Appweb.Modules.Config.View.menu_Settings.chk_one_d;
+import static Appweb.Modules.Config.View.menu_Settings.chk_three_d;
+import static Appweb.Modules.Config.View.menu_Settings.chk_two_d;
+import static Appweb.Modules.Config.View.menu_Settings.chk_year_bar;
+import static Appweb.Modules.Config.View.menu_Settings.chk_year_bar2;
 import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
 
-public class Config_tools {
+public class DAO_config {
 
     private static final String ENCODING = "UTF-8";
 
@@ -294,13 +295,10 @@ public class Config_tools {
 
     }
 
-    /**
-     * Funcion que guarda la configuracion actual en los tres formatos de forma
-     * automatica.Implementada en grafica.
-     */
     public static void auto_save_config_json() {
 
         String PATH = " ";
+        
 
         try {
             PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Config/Files_config/appconfig";
@@ -324,22 +322,21 @@ public class Config_tools {
             fileXml.close();
 
             System.out.print(Lang.getInstance().getProperty("Config_file_saved") + " json\n");
-
+            
         } catch (Exception e) {
             e.printStackTrace();
             System.out.print(Lang.getInstance().getProperty("Failed_to_save_config") + " json\n");
 
         }
+
+        
     }
 
-    /**
-     * Funcion que carga la configuracion actual en los tres formatos de forma
-     * automatica.Implementada en grafica.
-     */
     public static void auto_open_config_json() {
 
         String PATH = " ";
         Classconfig config = null;
+      
 
         try {
             XStream xstream = new XStream(new JettisonMappedXmlDriver());
@@ -372,10 +369,13 @@ public class Config_tools {
             Classconfig.getInstance().setTheme(config.getTheme());
 
             System.out.print(Lang.getInstance().getProperty("Loaded_settings_file") + " json\n");
+            
 
         } catch (Exception e) {
             System.out.print(Lang.getInstance().getProperty("Error_loading_file") + " json\n");
         }
+
+       
     }
 
     /**
@@ -414,11 +414,9 @@ public class Config_tools {
                 case "Synthetica":
 
                     try {
-                        
-                                UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
-                                
-                            
-                        
+
+                        UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
+
                     } catch (javax.swing.UnsupportedLookAndFeelException ex) {
 
                     }
@@ -435,10 +433,6 @@ public class Config_tools {
     }
 
     //// Funciones Configuracion//////
-    /**
-     * Main combox for select language
-     *
-     */
     public static void radio_button_language() {
 
         if (chk_lang_en.isSelected()) {
@@ -454,14 +448,9 @@ public class Config_tools {
 
     }
 
-    /**
-     * Main combox for select format date
-     *
-     */
     public static void radio_button_datef() {
-        
-        
-         if (chk_day_bar.isSelected()) {
+
+        if (chk_day_bar.isSelected()) {
             Classconfig.getInstance().setdatef(chk_day_bar.getText());
         }
 
@@ -474,16 +463,11 @@ public class Config_tools {
         if (chk_year_bar2.isSelected()) {
             Classconfig.getInstance().setdatef(chk_year_bar2.getText());
         }
-        
+
     }
 
-    /**
-     *
-     * Main combox for select number of decimal
-     */
     public static void radio_button_decimal() {
 
-        
         if (chk_one_d.isSelected()) {
             Classconfig.getInstance().setnum_dec(chk_one_d.getText());
         }
@@ -494,13 +478,11 @@ public class Config_tools {
         if (chk_three_d.isSelected()) {
             Classconfig.getInstance().setnum_dec(chk_three_d.getText());
         }
-        
 
     }
-    
-     public static void radio_button_currency() {
 
-        
+    public static void radio_button_currency() {
+
         if (chk_curr_euro.isSelected()) {
             Classconfig.getInstance().setCurrency(chk_curr_euro.getText());
         }
@@ -511,7 +493,6 @@ public class Config_tools {
         if (chk_curr_pound.isSelected()) {
             Classconfig.getInstance().setCurrency(chk_curr_pound.getText());
         }
-        
 
     }
 
@@ -568,27 +549,6 @@ public class Config_tools {
                     JOptionPane.ERROR_MESSAGE);
         }
 
-    }
-
-    /**
-     * Function menu that contains the configuration of basic parameters of the
-     * app. In the menu data such as date format , currency , number of decimals
-     * and language of the application they are configured.
-     *
-     *
-     */
-    public static void Configuration_accept() {
-
-        try {
-            radio_button_language();
-            radio_button_datef();
-            radio_button_decimal();
-            radio_button_currency();
-            Menu_theme();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
 }

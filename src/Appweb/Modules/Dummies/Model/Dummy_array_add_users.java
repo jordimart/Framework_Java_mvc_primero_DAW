@@ -3,8 +3,8 @@ package Appweb.Modules.Dummies.Model;
 import Appweb.Modules.Dummies.Model.DAO_Dummy.Dummy_tools;
 import javax.swing.JOptionPane;
 
-import Appweb.Modules.Config.Classconfig;
-import Appweb.Classes.Language.Lang;
+import Appweb.Modules.Config.Classes.Classconfig;
+import Appweb.Modules.Config.Classes.Language.Lang;
 import Appweb.Modules.Users.Classes.Admin;
 import Appweb.Modules.Users.Classes.Client;
 import Appweb.Modules.Users.Classes.User_reg;

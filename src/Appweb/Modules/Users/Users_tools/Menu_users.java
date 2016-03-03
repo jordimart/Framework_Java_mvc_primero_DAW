@@ -2,7 +2,7 @@ package Appweb.Modules.Users.Users_tools;
 
 import javax.swing.JOptionPane;
 
-import Appweb.Classes.Language.Lang;
+import Appweb.Modules.Config.Classes.Language.Lang;
 import Appweb.Modules.Users.Classes.singleton;
 
 /**

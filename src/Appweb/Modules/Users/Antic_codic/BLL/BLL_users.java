@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 import javax.swing.JOptionPane;
 
-import Appweb.Classes.Language.Lang;
+import Appweb.Modules.Config.Classes.Language.Lang;
 import Appweb.Modules.Users.Classes.Admin;
 import Appweb.Modules.Users.Classes.Client;
 import Appweb.Modules.Users.Classes.User_reg;

@@ -5,8 +5,11 @@ import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.HashSet;
 import java.util.Set;
+import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 /**
  *
@@ -27,6 +30,10 @@ public class create_Admin_view extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setSize(1000, 1200);//ancho x alto
         this.setResizable(false);
+        pick_date_birth.getDateEditor().setEnabled(false);
+        pick_date_contr.getDateEditor().setEnabled(false);
+        
+        
         // Conjunto de teclas que queremos que sirvan para pasar el foco 
         // al siguiente campo de texto: ENTER y TAB
         Set<AWTKeyStroke> teclas = new HashSet<AWTKeyStroke>();
@@ -40,7 +47,12 @@ public class create_Admin_view extends javax.swing.JFrame {
                 KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, 
                 teclas);
 
-       
+       this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                dispose();
+            }
+        });
     }
 
    
@@ -181,6 +193,7 @@ public class create_Admin_view extends javax.swing.JFrame {
             }
         });
 
+        pick_date_birth.setToolTipText("Para modificar fecha pulse el boton");
         pick_date_birth.setDateFormatString("dd/MM/yyyy");
         pick_date_birth.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -188,6 +201,7 @@ public class create_Admin_view extends javax.swing.JFrame {
             }
         });
 
+        pick_date_contr.setToolTipText("Para modificar fecha pulse el boton");
         pick_date_contr.setDateFormatString("dd/mm/yyyy");
         pick_date_contr.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -399,7 +413,7 @@ public class create_Admin_view extends javax.swing.JFrame {
                 .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panrect1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelRect2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -474,8 +488,7 @@ public class create_Admin_view extends javax.swing.JFrame {
         boolean ok = BLL_Admin.Enter_new_admin();
         if (ok == true) {
             this.dispose();
-           // table_Admin_view menu = new table_Admin_view();
-           // menu.setVisible(true);
+           
         }
 
     }//GEN-LAST:event_btn_AceptarActionPerformed

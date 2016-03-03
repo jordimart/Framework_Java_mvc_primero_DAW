@@ -1,6 +1,10 @@
 
 package Appweb.Modules.Users.Admin.View;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
+
 /**
  *
  * @author ASUSG50V
@@ -17,6 +21,13 @@ public class show_Admin_view extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setSize(1000, 650);//ancho x alto
         this.setResizable(false);
+        
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                dispose();
+            }
+        });
     }
 
    

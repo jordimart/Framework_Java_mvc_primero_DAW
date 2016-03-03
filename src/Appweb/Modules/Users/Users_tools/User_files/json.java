@@ -17,7 +17,7 @@ import com.google.gson.stream.JsonReader;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
 
-import Appweb.Classes.Language.Lang;
+import Appweb.Modules.Config.Classes.Language.Lang;
 import Appweb.Modules.Dummies.View.task_Dummy_view;
 import Appweb.Modules.Users.Classes.Admin;
 import Appweb.Modules.Users.Classes.Client;

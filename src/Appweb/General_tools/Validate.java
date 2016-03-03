@@ -1,6 +1,6 @@
 package Appweb.General_tools;
 
-import Appweb.Modules.Config.Classconfig;
+import Appweb.Modules.Config.Classes.Classconfig;
 
 /**
  *

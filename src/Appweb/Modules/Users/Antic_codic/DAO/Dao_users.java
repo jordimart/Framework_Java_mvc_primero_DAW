@@ -11,7 +11,7 @@ package Appweb.Modules.Users.Antic_codic.DAO;
  */
 
 import Appweb.Classes.Date.ClassDate;
-import Appweb.Classes.Language.Lang;
+import Appweb.Modules.Config.Classes.Language.Lang;
 import Appweb.Modules.Users.Classes.Client;
 import Appweb.Modules.Users.Classes.User_reg;
 import Appweb.Modules.Users.Users_tools.Core_users;

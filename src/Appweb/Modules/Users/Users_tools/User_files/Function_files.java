@@ -1,8 +1,8 @@
 package Appweb.Modules.Users.Users_tools.User_files;
 
 
-import Appweb.Modules.Config.Classconfig;
-import Appweb.Classes.Language.Lang;
+import Appweb.Modules.Config.Classes.Classconfig;
+import Appweb.Modules.Config.Classes.Language.Lang;
 import Appweb.General_tools.Menu;
 
 public class Function_files {

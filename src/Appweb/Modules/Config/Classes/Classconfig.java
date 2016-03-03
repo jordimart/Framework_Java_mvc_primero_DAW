@@ -1,11 +1,12 @@
-package Appweb.Modules.Config;
+package Appweb.Modules.Config.Classes;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-import Appweb.Classes.Language.Lang;
+import Appweb.Modules.Config.Classes.Language.Lang;
+import Appweb.Modules.Config.Model.DAO_config.DAO_config;
 import Appweb.Modules.Users.Classes.Admin;
 import Appweb.Modules.Users.Classes.Client;
 import Appweb.Modules.Users.Classes.User_reg;
@@ -152,7 +153,7 @@ public class Classconfig implements Serializable {
 
 	public void setTheme(String theme) {
 		this.theme = theme;
-		Config_tools.Function_theme();
+		DAO_config.Function_theme();
 	}
 
 	public boolean getDummy() {

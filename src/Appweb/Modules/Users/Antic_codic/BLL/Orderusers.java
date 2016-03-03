@@ -4,7 +4,7 @@ import java.util.Collections;
 
 import javax.swing.JOptionPane;
 
-import Appweb.Classes.Language.Lang;
+import Appweb.Modules.Config.Classes.Language.Lang;
 import Appweb.Modules.Users.Classes.singleton;
 import Appweb.Modules.Users.Classes.Order.OrderBenefits;
 import Appweb.Modules.Users.Classes.Order.Orderdate_birth;

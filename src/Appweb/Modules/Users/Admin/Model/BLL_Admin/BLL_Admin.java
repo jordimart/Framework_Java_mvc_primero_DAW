@@ -1,6 +1,6 @@
 package Appweb.Modules.Users.Admin.Model.BLL_Admin;
 
-import Appweb.Classes.Language.Lang;
+import Appweb.Modules.Config.Classes.Language.Lang;
 import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin;
 import Appweb.Modules.Users.Admin.View.edit_Admin_view;
 import Appweb.Modules.Users.Admin.View.table_Admin_view;
@@ -88,9 +88,7 @@ public class BLL_Admin {
     }
 
     //////////BLLs del formulario edit Admin view///////
-    public static void Editdni_admin() {
-
-    }
+    
 
     public static void Editname_admin() {
         DAO_Admin.booleanEditname_admin();
