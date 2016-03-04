@@ -1,16 +1,20 @@
 package Appweb.Modules.Users.Admin.View;
 
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
+import Appweb.Modules.Users.Classes.Table_Admin;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
  * @author ASUSG50V
  */
 public class table_Admin_view extends javax.swing.JFrame {
+    public static TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(new Table_Admin());
 
     /**
      * Creates new form table_Users
@@ -23,6 +27,12 @@ public class table_Admin_view extends javax.swing.JFrame {
         this.setSize(1000, 650);//ancho x alto
         this.setResizable(true);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
+        
+        mini_Table_Admin.setModel( new Table_Admin() );
+        ((Table_Admin)mini_Table_Admin.getModel()).cargar();
+        mini_Table_Admin.setFillsViewportHeight(true);
+        mini_Table_Admin.setRowSorter(sorter);
 
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -63,7 +73,7 @@ public class table_Admin_view extends javax.swing.JFrame {
         btnAñadir_admin = new org.edisoncor.gui.button.ButtonAction();
         btn_Volver = new org.edisoncor.gui.button.ButtonAction();
         jScrollPane2 = new javax.swing.JScrollPane();
-        Table_Admin = new org.jdesktop.swingx.JXTable();
+        mini_Table_Admin = new org.jdesktop.swingx.JXTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -251,7 +261,7 @@ public class table_Admin_view extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        Table_Admin.setModel(new javax.swing.table.DefaultTableModel(
+        mini_Table_Admin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -262,7 +272,7 @@ public class table_Admin_view extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane2.setViewportView(Table_Admin);
+        jScrollPane2.setViewportView(mini_Table_Admin);
 
         javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
         panelImage1.setLayout(panelImage1Layout);
@@ -367,21 +377,21 @@ public class table_Admin_view extends javax.swing.JFrame {
     public static javax.swing.JButton ANTERIOR;
     public static javax.swing.JTextField CAJA;
     public static javax.swing.JButton SIGUIENTE;
-    public static org.jdesktop.swingx.JXTable Table_Admin;
     public static org.edisoncor.gui.button.ButtonAction btnAñadir_admin;
     public static org.edisoncor.gui.button.ButtonAction btnBorrar_admin;
     public static org.edisoncor.gui.button.ButtonAction btnEditar_admin;
     public static org.edisoncor.gui.button.ButtonAction btnMostar_admin;
     public static org.edisoncor.gui.button.ButtonAction btn_Volver;
     public static org.edisoncor.gui.comboBox.ComboBoxRound comboBoxRound1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    public static javax.swing.JComboBox<String> jComboBox1;
+    public static javax.swing.JComboBox<String> jComboBox2;
     public static javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel jLabel2;
     public static javax.swing.JPanel jPanel2;
     public static javax.swing.JScrollPane jScrollPane2;
     public static javax.swing.JTextField jTextField1;
     public static org.edisoncor.gui.label.LabelRect labelRect1;
+    public static org.jdesktop.swingx.JXTable mini_Table_Admin;
     public static org.edisoncor.gui.panel.PanelCurves panelCurves1;
     public static org.edisoncor.gui.panel.PanelImage panelImage1;
     public static org.edisoncor.gui.panel.PanelRect panelRect1;

@@ -8,7 +8,6 @@ import Appweb.Modules.Config.Classes.Classconfig;
 import Appweb.Classes.Date.ClassDate;
 import Appweb.Modules.Config.Classes.Language.Lang;
 import Appweb.General_tools.Format_tools;
-import javax.swing.Icon;
 
 /**
  * 
@@ -196,7 +195,7 @@ public class Admin extends User implements Serializable {
 
 		return ben;
 	}
-
+/**
 	// String type one
 	// to string all attributes mum and son
 	public String toString() {
@@ -212,6 +211,11 @@ public class Admin extends User implements Serializable {
 		return buffer.toString();
 
 	}
+        * */
+        
+         public String toString() {
+        return "admin{" + "Dni=" + super.getDni() + "Last_name=" + super.getLast_name() + "Age=" + super.getAge() + "Antique=" + antique + "Salary=" + salary+ '}';
+    }
 
 	public String toSalary() {
 
@@ -365,5 +369,7 @@ public class Admin extends User implements Serializable {
 		return cad;
 
 	}
+
+    
 
 }
