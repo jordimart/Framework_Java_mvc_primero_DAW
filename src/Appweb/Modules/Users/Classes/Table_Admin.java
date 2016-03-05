@@ -1,7 +1,11 @@
 package Appweb.Modules.Users.Classes;
 
+import Appweb.Classes.Date.ClassDate;
+import Appweb.Modules.Pager.pagina;
 import Appweb.Modules.Users.Admin.View.table_Admin_view;
+import static Appweb.Modules.Users.Admin.View.table_Admin_view.combo;
 import java.util.ArrayList;
+import javax.swing.JComboBox;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -12,7 +16,7 @@ public class Table_Admin extends AbstractTableModel {
 
     public static ArrayList<Admin> datos = new ArrayList<Admin>();
     public static ArrayList<Admin> datosaux = new ArrayList<Admin>();
-    String[] columnas = {"Dni", "Name", "Last name", "Age", "Antique", "Salary"};
+    String[] columnas = {"Dni", "Name", "Last name", "Date_birth", "Antique", "Salary"};
 
     @Override
     public String getColumnName(int col) {
@@ -52,7 +56,7 @@ public class Table_Admin extends AbstractTableModel {
                 break;
 
             case 3:
-                dev = fila.getAge();
+                dev = fila.getDate_birth().todate();
                 break;
 
             case 4:
@@ -93,7 +97,8 @@ public class Table_Admin extends AbstractTableModel {
                 break;
 
             case 3:
-                fila.setAge(Integer.parseInt(value.toString()));
+                
+                fila.setDate_birth(new ClassDate(value.toString()));
                 break;
 
             case 4:
@@ -129,6 +134,56 @@ public class Table_Admin extends AbstractTableModel {
                 System.out.println(e);
             }
         }
+    }
+    
+    public void filtrar() {
+        datos.clear();
+        int cont=0;
+        
+        String nom=(String) ((JComboBox)combo).getSelectedItem();   
+        if(nom!=null){
+            for(int i=0;i<datosaux.size();i++) {
+                //if(datosaux.get(i).getFirst_name().contains(nom)){
+                if(datosaux.get(i).getName().toLowerCase().startsWith(nom.toLowerCase())){
+                    addRow(datosaux.get(i));
+                    cont++;
+                }
+            }
+            table_Admin_view.jLabel3.setText(String.valueOf(cont));
+            System.out.println("word selected: " + nom);
+            pagina.initLinkBox();
+        }
+    }
+
+    public Admin buscar(String u) {
+        datos.clear();
+        cargar();
+
+        String res;
+        for (int i = 0; i < datos.size(); i++) {
+            res = datos.get(i).toString();
+            if (res.contains(u)) {
+                return datos.get(i);
+            }
+        }
+        return null;
+    }
+
+    public int buscaUsuario(Admin u) {
+        datos.clear();
+        cargar();
+
+        for (int i = 0; i < datos.size(); i++) {
+            if (datos.get(i).equals(u)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void removeRow(int fila) {
+        datos.remove(fila);
+        fireTableDataChanged();
     }
 
 }

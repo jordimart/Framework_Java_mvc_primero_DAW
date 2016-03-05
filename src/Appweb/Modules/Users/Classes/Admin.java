@@ -214,7 +214,7 @@ public class Admin extends User implements Serializable {
         * */
         
          public String toString() {
-        return "admin{" + "Dni=" + super.getDni() + "Last_name=" + super.getLast_name() + "Age=" + super.getAge() + "Antique=" + antique + "Salary=" + salary+ '}';
+        return "admin{" + "Dni=" + super.getDni() + "Last_name=" + super.getLast_name() + "Date_birth=" + super.getDate_birth() + "Antique=" + antique + "Salary=" + salary+ '}';
     }
 
 	public String toSalary() {

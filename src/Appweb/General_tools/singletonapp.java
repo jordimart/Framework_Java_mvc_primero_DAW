@@ -18,5 +18,6 @@ public class singletonapp {
     public static int passdate=0;//singleton que pasa los errores de los date tools genericos a las especificas de users,products
     public static ImageIcon wrong_data = new ImageIcon("src/Appweb/General_tools/Img/Imagen_no_ok_Delete_16x16.png");
     public static ImageIcon good_data = new ImageIcon("src/Appweb/General_tools/Img/Imagen_ok_16x16.png");
-    
+    //objeto singleton que contendrá la ventana activa
+    public static String singleton_vtna="";
 }

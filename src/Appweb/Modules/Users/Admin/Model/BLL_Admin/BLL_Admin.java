@@ -179,7 +179,7 @@ public class BLL_Admin {
             for (int j = 0; j < 9; j++) {
 
                 try {
-                    dni += se.charAt(j);
+                    dni += se.charAt(j)-1;
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
