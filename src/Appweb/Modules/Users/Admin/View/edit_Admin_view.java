@@ -1,6 +1,8 @@
 package Appweb.Modules.Users.Admin.View;
 
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
+import static Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin;
+import Appweb.Modules.Users.Classes.Table_Admin;
 import java.awt.AWTKeyStroke;
 import java.awt.Color;
 import java.awt.KeyboardFocusManager;
@@ -41,8 +43,8 @@ public class edit_Admin_view extends javax.swing.JFrame {
         panelRect1.setFocusTraversalKeys(
                 KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS,
                 teclas);
-        
-         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 dispose();
@@ -463,8 +465,8 @@ public class edit_Admin_view extends javax.swing.JFrame {
     private void btn_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarActionPerformed
 
         this.dispose();
-        //table_Admin_view menu = new table_Admin_view();
-        //menu.setVisible(true);
+        table_Admin_view menu = new table_Admin_view();
+        menu.setVisible(true);
     }//GEN-LAST:event_btn_CancelarActionPerformed
 
     private void btn_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AceptarActionPerformed
@@ -472,8 +474,10 @@ public class edit_Admin_view extends javax.swing.JFrame {
         boolean ok = BLL_Admin.Enter_edited_admin();
         if (ok == true) {
             this.dispose();
-            //table_Admin_view menu = new table_Admin_view();
-            // menu.setVisible(true);
+            table_Admin_view menu = new table_Admin_view();
+            menu.setVisible(true);
+            ((Table_Admin) mini_Table_Admin.getModel()).cargar();
+
         }
 
     }//GEN-LAST:event_btn_AceptarActionPerformed

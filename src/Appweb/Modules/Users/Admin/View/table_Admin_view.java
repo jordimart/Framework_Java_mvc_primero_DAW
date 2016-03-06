@@ -37,18 +37,18 @@ public class table_Admin_view extends javax.swing.JFrame {
         this.setSize(1000, 650);//ancho x alto
         this.setResizable(true);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        
-        singletonapp.singleton_vtna="Admin";
+
+        singletonapp.singleton_vtna = "Admin";
 
         mini_Table_Admin.setModel(new Table_Admin());
         ((Table_Admin) mini_Table_Admin.getModel()).cargar();
         mini_Table_Admin.setFillsViewportHeight(true);
         mini_Table_Admin.setRowSorter(sorter);
-        
-         pagina.inicializa();
+
+        pagina.inicializa();
         pagina.initLinkBox();
-        
-         jLabel3.setText(String.valueOf(singleton.Admin_array.size()));
+
+        jLabel3.setText(String.valueOf(singleton.Admin_array.size()));
 
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -60,17 +60,17 @@ public class table_Admin_view extends javax.swing.JFrame {
             }
         });
 
-         List<String> myWords = new ArrayList<String>();
-        for(int i=0;i<=singleton.Admin_array.size()-1;i++) {
+        List<String> myWords = new ArrayList<String>();
+        for (int i = 0; i <= singleton.Admin_array.size() - 1; i++) {
             myWords.add(singleton.Admin_array.get(i).getName());
         }
 
-	StringSearchable searchable = new StringSearchable(myWords);
-	combo = new AutocompleteJComboBox(searchable);
-        //JPanel5 se utiliza solamente para que JPanel3 que contendrá combo, no se redimensione
+        StringSearchable searchable = new StringSearchable(myWords);
+        combo = new AutocompleteJComboBox(searchable);
+
         jPanel3.setLayout(new java.awt.BorderLayout());
         jPanel3.add(combo);
-        
+
         combo.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,12 +78,12 @@ public class table_Admin_view extends javax.swing.JFrame {
             }
         });
     }
-    
-    public static void comboActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        System.out.println("word selected: " + ((JComboBox)combo).getSelectedItem());
+
+    public static void comboActionPerformed(java.awt.event.ActionEvent evt) {
+        System.out.println("word selected: " + ((JComboBox) combo).getSelectedItem());
         pagina.currentPageIndex = 1;
-        ((Table_Admin)mini_Table_Admin.getModel()).filtrar();
-    } 
+        ((Table_Admin) mini_Table_Admin.getModel()).filtrar();
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -467,14 +467,17 @@ public class table_Admin_view extends javax.swing.JFrame {
     }//GEN-LAST:event_ultimoActionPerformed
 
     private void btnAñadir_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadir_adminActionPerformed
-
+        this.dispose();
         create_Admin_view menu = new create_Admin_view();
         menu.setVisible(true);
+
+
     }//GEN-LAST:event_btnAñadir_adminActionPerformed
 
     private void btnEditar_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditar_adminActionPerformed
 
         BLL_Admin.Modify_select_admin();
+        this.dispose();
     }//GEN-LAST:event_btnEditar_adminActionPerformed
 
     private void btn_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VolverActionPerformed
@@ -495,7 +498,7 @@ public class table_Admin_view extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
 
-        pagina.itemsPerPage= Integer.parseInt(jComboBox1.getSelectedItem().toString());
+        pagina.itemsPerPage = Integer.parseInt(jComboBox1.getSelectedItem().toString());
         pagina.currentPageIndex = 1;
         pagina.initLinkBox();
 

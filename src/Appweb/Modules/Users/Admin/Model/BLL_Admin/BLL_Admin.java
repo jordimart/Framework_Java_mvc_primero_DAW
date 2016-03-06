@@ -176,10 +176,10 @@ public class BLL_Admin {
             }
             String se = Menu.Menu_carga_array(cli, Lang.getInstance().getProperty("Select_user"));
 
-            for (int j = 0; j < 9; j++) {
+            for (int j = 0; j < 9-1; j++) {
 
                 try {
-                    dni += se.charAt(j)-1;
+                    dni += se.charAt(j);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -249,6 +249,7 @@ public class BLL_Admin {
 
             new edit_Admin_view().setVisible(true);
             DAO_Admin.Load_edit_admin();
+            
 
         } else {
 
@@ -281,7 +282,7 @@ public class BLL_Admin {
             for (int j = 0; j < 9; j++) {
 
                 try {
-                    dni += se.charAt(j);
+                    dni += se.charAt(j)-1;
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -1,7 +1,8 @@
 package Appweb.Modules.Users.Admin.View;
 
-
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
+import static Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin;
+import Appweb.Modules.Users.Classes.Table_Admin;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
@@ -16,10 +17,6 @@ import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
  * @author ASUSG50V
  */
 public class create_Admin_view extends javax.swing.JFrame {
-    
-     
-        
-       
 
     /**
      * Creates new form create_Admin
@@ -30,32 +27,29 @@ public class create_Admin_view extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setSize(1000, 1200);//ancho x alto
         this.setResizable(false);
+
         pick_date_birth.getDateEditor().setEnabled(false);
         pick_date_contr.getDateEditor().setEnabled(false);
-        
-        
+
         // Conjunto de teclas que queremos que sirvan para pasar el foco 
         // al siguiente campo de texto: ENTER y TAB
         Set<AWTKeyStroke> teclas = new HashSet<AWTKeyStroke>();
         teclas.add(AWTKeyStroke.getAWTKeyStroke(KeyEvent.VK_ENTER, 0));
         teclas.add(AWTKeyStroke.getAWTKeyStroke(
                 KeyEvent.VK_TAB, 0));
-        
-        
-         // Se pasa el conjunto de teclas al panel principal 
+
+        // Se pasa el conjunto de teclas al panel principal 
         panrect1.setFocusTraversalKeys(
-                KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, 
+                KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS,
                 teclas);
 
-       this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 dispose();
             }
         });
     }
-
-   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -439,12 +433,14 @@ public class create_Admin_view extends javax.swing.JFrame {
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
 
         this.dispose();
-        //table_Admin_view menu = new table_Admin_view();
-       // menu.setVisible(true);
+        table_Admin_view menu = new table_Admin_view();
+        menu.setVisible(true);
+        //((Table_Admin) mini_Table_Admin.getModel()).cargar();
+
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
     private void btnAvatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvatarActionPerformed
-    BLL_Admin.EnterAvatar_admin();
+        BLL_Admin.EnterAvatar_admin();
     }//GEN-LAST:event_btnAvatarActionPerformed
 
     private void txtDniKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniKeyReleased
@@ -488,7 +484,10 @@ public class create_Admin_view extends javax.swing.JFrame {
         boolean ok = BLL_Admin.Enter_new_admin();
         if (ok == true) {
             this.dispose();
-           
+            table_Admin_view menu = new table_Admin_view();
+            menu.setVisible(true);
+            ((Table_Admin) mini_Table_Admin.getModel()).cargar();
+
         }
 
     }//GEN-LAST:event_btn_AceptarActionPerformed
