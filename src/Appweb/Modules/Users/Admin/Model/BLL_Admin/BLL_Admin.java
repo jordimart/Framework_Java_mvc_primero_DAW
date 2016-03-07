@@ -8,7 +8,9 @@ import Appweb.Modules.Users.Classes.Admin;
 import Appweb.Modules.Users.Classes.singleton;
 import Appweb.General_tools.Menu;
 import Appweb.General_tools.singletonapp;
+import Appweb.Modules.Users.Admin.View.create_Admin_view;
 import Appweb.Modules.Users.Admin.View.show_Admin_view;
+import Appweb.Modules.Users.Classes.Table_Admin;
 import Appweb.Modules.Users.Users_tools.User_files.json;
 import javax.swing.JOptionPane;
 
@@ -68,7 +70,7 @@ public class BLL_Admin {
         DAO_Admin.EnterAvatar_admin();
     }
 
-    public static boolean Enter_new_admin() {
+    public static boolean Enter_new_admin() throws InterruptedException {
 
         boolean ok = false;
 
@@ -77,19 +79,30 @@ public class BLL_Admin {
         if (a != null) {
             singleton.Admin_array.add(a);
             json.auto_save_json_file();
-            JOptionPane.showMessageDialog(null, "Usuario añadidio");
+
+            create_Admin_view.Information_dialog.setVisible(true);
+            create_Admin_view.lab_information_message.setText("Usuario modificado");
+            create_Admin_view.labinfo_img.setIcon(singletonapp.good_data);
+
+            Thread.sleep(5000);
+            create_Admin_view.Information_dialog.setVisible(false);
+            // JOptionPane.showMessageDialog(null, "Usuario añadidio");
 
             ok = true;
         } else {
 
+            create_Admin_view.Information_dialog.setVisible(true);
+            create_Admin_view.lab_information_message.setText("Revise los datos, no puede guardar si hay algun dato incorrecto");
+            create_Admin_view.labinfo_img.setIcon(singletonapp.wrong_data);
+
+            //Thread.sleep(5000);
+            //create_Admin_view.Information_dialog.setVisible(false);
             JOptionPane.showMessageDialog(null, "Revise los datos, no puede guardar si hay algun dato incorrecto");
         }
         return ok;
     }
 
     //////////BLLs del formulario edit Admin view///////
-    
-
     public static void Editname_admin() {
         DAO_Admin.booleanEditname_admin();
 
@@ -164,7 +177,7 @@ public class BLL_Admin {
         Admin a;
         String s = " ";
         String dni = "";
-       // int pos = 0;
+        // int pos = 0;
         int n = singleton.Admin_array.size();
         String cli[] = new String[n];
 
@@ -176,7 +189,7 @@ public class BLL_Admin {
             }
             String se = Menu.Menu_carga_array(cli, Lang.getInstance().getProperty("Select_user"));
 
-            for (int j = 0; j < 9-1; j++) {
+            for (int j = 0; j < 9 - 1; j++) {
 
                 try {
                     dni += se.charAt(j);
@@ -232,6 +245,7 @@ public class BLL_Admin {
         //int pos = 0;
         int n = singleton.Admin_array.size();
         String cli[] = new String[n];
+
         if (!singleton.Admin_array.isEmpty()) {
             for (int i = 0; i < n; i++) {
                 a = (Admin) singleton.Admin_array.get(i);
@@ -249,7 +263,6 @@ public class BLL_Admin {
 
             new edit_Admin_view().setVisible(true);
             DAO_Admin.Load_edit_admin();
-            
 
         } else {
 
@@ -257,6 +270,38 @@ public class BLL_Admin {
             new table_Admin_view().setVisible(true);
         }
 
+    }
+
+    public static boolean modificar_fila() {
+        String dni = "";
+         boolean ok=false;
+         
+        if (((Table_Admin) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
+            int selec = table_Admin_view.mini_Table_Admin.getSelectedRow();
+            
+            if (selec == -1) {
+                ok = false;
+                JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
+                 //new table_Admin_view().setVisible(true);
+                
+
+            } else {
+
+                dni = (String) table_Admin_view.mini_Table_Admin.getModel().getValueAt(selec, 0);
+
+                singletonapp.pos = Look_for_dni_admin(dni);
+                
+                new edit_Admin_view().setVisible(true);
+                DAO_Admin.Load_edit_admin();
+
+                ok = true;
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "lista vacía", "Error!", 2);
+             //new table_Admin_view().setVisible(true);
+            ok = false;
+        }
+         return ok;
     }
 
     /**
@@ -267,7 +312,7 @@ public class BLL_Admin {
         Admin a;
         String s = " ";
         String dni = "";
-        // int pos = 0;
+
         int n = singleton.Admin_array.size();
         String cli[] = new String[n];
 
@@ -282,7 +327,7 @@ public class BLL_Admin {
             for (int j = 0; j < 9; j++) {
 
                 try {
-                    dni += se.charAt(j)-1;
+                    dni += se.charAt(j);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

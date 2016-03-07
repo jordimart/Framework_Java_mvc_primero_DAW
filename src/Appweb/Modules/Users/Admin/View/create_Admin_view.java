@@ -10,6 +10,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 /**
@@ -27,6 +29,11 @@ public class create_Admin_view extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setSize(1000, 1200);//ancho x alto
         this.setResizable(false);
+        
+        Information_dialog.setLocationRelativeTo(null);
+        Information_dialog.setTitle("Information");
+        Information_dialog.setSize(1000, 200);
+        
 
         pick_date_birth.getDateEditor().setEnabled(false);
         pick_date_contr.getDateEditor().setEnabled(false);
@@ -60,6 +67,10 @@ public class create_Admin_view extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Information_dialog = new javax.swing.JDialog();
+        panelRound1 = new org.edisoncor.gui.panel.PanelRound();
+        labinfo_img = new javax.swing.JLabel();
+        lab_information_message = new javax.swing.JLabel();
         panelImage1 = new org.edisoncor.gui.panel.PanelImage();
         panrect1 = new org.edisoncor.gui.panel.PanelRect();
         labelHeader1 = new org.edisoncor.gui.label.LabelHeader();
@@ -104,6 +115,46 @@ public class create_Admin_view extends javax.swing.JFrame {
         btn_cancelar = new org.edisoncor.gui.button.ButtonAeroRight();
         btn_Aceptar = new org.edisoncor.gui.button.ButtonAeroRight();
         panelCurves2 = new org.edisoncor.gui.panel.PanelCurves();
+
+        Information_dialog.setSize(new java.awt.Dimension(900, 100));
+
+        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
+        panelRound1.setLayout(panelRound1Layout);
+        panelRound1Layout.setHorizontalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(labinfo_img, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(lab_information_message, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
+        panelRound1Layout.setVerticalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(labinfo_img, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lab_information_message, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
+        );
+
+        javax.swing.GroupLayout Information_dialogLayout = new javax.swing.GroupLayout(Information_dialog.getContentPane());
+        Information_dialog.getContentPane().setLayout(Information_dialogLayout);
+        Information_dialogLayout.setHorizontalGroup(
+            Information_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Information_dialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        Information_dialogLayout.setVerticalGroup(
+            Information_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Information_dialogLayout.createSequentialGroup()
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -481,7 +532,12 @@ public class create_Admin_view extends javax.swing.JFrame {
 
     private void btn_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AceptarActionPerformed
 
-        boolean ok = BLL_Admin.Enter_new_admin();
+        boolean ok = false;
+        try {
+            ok = BLL_Admin.Enter_new_admin();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(create_Admin_view.class.getName()).log(Level.SEVERE, null, ex);
+        }
         if (ok == true) {
             this.dispose();
             table_Admin_view menu = new table_Admin_view();
@@ -501,6 +557,7 @@ public class create_Admin_view extends javax.swing.JFrame {
     }//GEN-LAST:event_pick_date_contrPropertyChange
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JDialog Information_dialog;
     public static org.edisoncor.gui.button.ButtonAero btnAvatar;
     public static org.edisoncor.gui.button.ButtonAeroRight btn_Aceptar;
     public static org.edisoncor.gui.button.ButtonAeroRight btn_cancelar;
@@ -515,6 +572,7 @@ public class create_Admin_view extends javax.swing.JFrame {
     public static javax.swing.JLabel labPassword;
     public static javax.swing.JLabel labSalary;
     public static javax.swing.JLabel labUser;
+    public static javax.swing.JLabel lab_information_message;
     public static javax.swing.JLabel labdate_birth;
     public static javax.swing.JLabel labdate_contr;
     public static org.edisoncor.gui.label.LabelHeader labelHeader1;
@@ -530,9 +588,11 @@ public class create_Admin_view extends javax.swing.JFrame {
     public static org.edisoncor.gui.label.LabelHeader labelHeader7;
     public static org.edisoncor.gui.label.LabelHeader labelHeader8;
     public static org.edisoncor.gui.label.LabelHeader labelHeader9;
+    public static javax.swing.JLabel labinfo_img;
     public static org.edisoncor.gui.panel.PanelCurves panelCurves2;
     public static org.edisoncor.gui.panel.PanelImage panelImage1;
     public static org.edisoncor.gui.panel.PanelRect panelRect2;
+    public static org.edisoncor.gui.panel.PanelRound panelRound1;
     public static org.edisoncor.gui.panel.PanelRect panrect1;
     public static com.toedter.calendar.JDateChooser pick_date_birth;
     public static com.toedter.calendar.JDateChooser pick_date_contr;

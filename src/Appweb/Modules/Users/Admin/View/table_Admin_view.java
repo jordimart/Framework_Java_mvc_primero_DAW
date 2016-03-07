@@ -16,6 +16,7 @@ import Appweb.Modules.Users.Classes.singleton;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -476,8 +477,12 @@ public class table_Admin_view extends javax.swing.JFrame {
 
     private void btnEditar_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditar_adminActionPerformed
 
-        BLL_Admin.Modify_select_admin();
-        this.dispose();
+        boolean ok = false;
+        ok = BLL_Admin.modificar_fila();
+        if (true == ok) {
+            
+            this.dispose();
+        }
     }//GEN-LAST:event_btnEditar_adminActionPerformed
 
     private void btn_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VolverActionPerformed
