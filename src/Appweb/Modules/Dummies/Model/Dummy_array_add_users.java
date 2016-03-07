@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 import Appweb.Modules.Config.Classes.Classconfig;
 import Appweb.Modules.Config.Classes.Language.Lang;
-import Appweb.Modules.Users.Classes.Admin;
+import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Modules.Users.Classes.Client;
 import Appweb.Modules.Users.Classes.User_reg;
 import Appweb.Modules.Users.Classes.singleton;

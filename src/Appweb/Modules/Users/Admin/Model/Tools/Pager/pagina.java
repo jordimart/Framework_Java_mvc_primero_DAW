@@ -1,8 +1,8 @@
-package Appweb.Modules.Pager;
+package Appweb.Modules.Users.Admin.Model.Tools.Pager;
 
 import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Users.Admin.View.table_Admin_view;
-import Appweb.Modules.Users.Classes.Table_Admin;
+import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -40,8 +40,8 @@ public class pagina {
         box.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
         switch (singletonapp.singleton_vtna) {
             case "Admin":
-                table_Admin_view.jPanel3.setLayout(new BorderLayout());
-                table_Admin_view.jPanel3.add(pagina.box);
+                table_Admin_view.jPanel4.setLayout(new BorderLayout());
+                table_Admin_view.jPanel4.add(pagina.box);
                 break;
 
         }
@@ -153,6 +153,8 @@ public class pagina {
             box.repaint();
         }
     }
+
+    
 
     public static JRadioButton makeRadioButton(final int target) {
         JRadioButton radio = new JRadioButton(String.valueOf(target)) {

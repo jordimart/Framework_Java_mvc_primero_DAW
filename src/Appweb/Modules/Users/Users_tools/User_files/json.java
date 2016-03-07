@@ -19,7 +19,7 @@ import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
 
 import Appweb.Modules.Config.Classes.Language.Lang;
 import Appweb.Modules.Dummies.View.task_Dummy_view;
-import Appweb.Modules.Users.Classes.Admin;
+import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Modules.Users.Classes.Client;
 import Appweb.Modules.Users.Classes.User_reg;
 import Appweb.Modules.Users.Classes.singleton;
@@ -294,7 +294,8 @@ public class json {
 			xstreamjson.setMode(XStream.NO_REFERENCES);
 			xstreamjson.alias("Admin", Admin.class);
 
-			if (singleton.Admin_array.size() != 0) {
+			//if (singleton.Admin_array.size() != 0) {
+                        //Se anula esta funcion ya que sino no puedo guardar cuando limpio la tabla.
 				File JFC = new File(PATH);
 				PATH = JFC.getAbsolutePath();
 				PATH = PATH + ".json";
@@ -306,7 +307,7 @@ public class json {
 				fileXml.close();
 
 				System.out.print(Lang.getInstance().getProperty("User_file_saved") + " Admin json \n");
-			}
+			//}
 
 		} catch (Exception e) {
 			System.out.print(Lang.getInstance().getProperty("Failed_to_save_user") + " Admin json"+" \n");

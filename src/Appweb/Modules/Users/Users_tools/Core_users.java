@@ -6,7 +6,6 @@ import Appweb.Modules.Config.Classes.Language.Lang;
 import Appweb.Modules.Users.Antic_codic.BLL.Look_for_dni;
 import Appweb.General_tools.Request_variable;
 import Appweb.General_tools.Validate;
-import Appweb.Modules.Users.Admin.View.create_Admin_view;
 import java.awt.Color;
 
 /**

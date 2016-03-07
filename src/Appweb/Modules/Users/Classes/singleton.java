@@ -1,5 +1,6 @@
 package Appweb.Modules.Users.Classes;
 
+import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import java.util.ArrayList;
 
 public class singleton {

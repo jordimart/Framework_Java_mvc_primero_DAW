@@ -3,7 +3,7 @@ package Appweb.Modules.Dummies.Model.DAO_Dummy;
 import Appweb.Classes.Date.ClassDate;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 import Appweb.Modules.Users.Antic_codic.BLL.Look_for_dni;
-import Appweb.Modules.Users.Classes.Admin;
+import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Modules.Users.Classes.Client;
 import Appweb.Modules.Users.Classes.User_reg;
 

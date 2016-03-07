@@ -1,4 +1,4 @@
-package Appweb.Modules.Pager;
+package Appweb.Modules.Users.Admin.Model.Tools.Pager;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
@@ -23,6 +23,9 @@ public class LinkViewRadioButtonUI extends BasicRadioButtonUI {
     @Override public Icon getDefaultIcon() {
         return null;
     }
+    
+      
+
     @Override public synchronized void paint(Graphics g, JComponent c) {
         AbstractButton b = (AbstractButton) c;
         ButtonModel model = b.getModel();

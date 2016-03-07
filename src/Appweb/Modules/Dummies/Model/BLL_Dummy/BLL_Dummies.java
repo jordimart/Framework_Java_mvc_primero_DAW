@@ -9,7 +9,7 @@ import Appweb.Modules.Config.Classes.Language.Lang;
 import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Dummies.Model.DAO_Dummy.Dummy_tools;
 import Appweb.Modules.Dummies.View.task_Dummy_view;
-import Appweb.Modules.Users.Classes.Admin;
+import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Modules.Users.Classes.singleton;
 import Appweb.Modules.Users.Users_tools.User_files.json;
 import java.awt.Color;

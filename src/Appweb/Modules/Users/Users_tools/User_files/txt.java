@@ -12,7 +12,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import Appweb.Modules.Users.Classes.Admin;
+import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Modules.Users.Classes.Client;
 import Appweb.Modules.Users.Classes.User_reg;
 import Appweb.Modules.Users.Classes.singleton;

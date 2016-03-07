@@ -2,7 +2,7 @@ package Appweb.Modules.Users.Admin.View;
 
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 import static Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin;
-import Appweb.Modules.Users.Classes.Table_Admin;
+import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin;
 import java.awt.AWTKeyStroke;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;

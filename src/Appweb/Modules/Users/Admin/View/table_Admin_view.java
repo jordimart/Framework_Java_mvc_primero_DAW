@@ -1,17 +1,17 @@
 package Appweb.Modules.Users.Admin.View;
 
 import Appweb.General_tools.singletonapp;
-import Appweb.Modules.Pager.pagina;
+import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
-import Appweb.Modules.Users.Classes.Table_Admin;
+import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import Appweb.Modules.Users.Admin.autocomplete.AutocompleteJComboBox;
-import Appweb.Modules.Users.Admin.autocomplete.StringSearchable;
+import Appweb.Modules.Users.Admin.Model.Tools.autocomplete.AutocompleteJComboBox;
+import Appweb.Modules.Users.Admin.Model.Tools.autocomplete.StringSearchable;
 import Appweb.Modules.Users.Classes.singleton;
 import java.util.ArrayList;
 import java.util.List;

@@ -7,7 +7,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 import Appweb.Modules.Config.Classes.Language.Lang;
 import Appweb.Modules.Config.Model.DAO_config.DAO_config;
-import Appweb.Modules.Users.Classes.Admin;
+import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Modules.Users.Classes.Client;
 import Appweb.Modules.Users.Classes.User_reg;
 import Appweb.Modules.Users.Classes.singleton;

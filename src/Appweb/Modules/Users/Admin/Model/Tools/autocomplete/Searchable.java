@@ -1,4 +1,4 @@
-package Appweb.Modules.Users.Admin.autocomplete;
+package Appweb.Modules.Users.Admin.Model.Tools.autocomplete;
 import java.util.Collection;
 
 public interface Searchable<E, V>{

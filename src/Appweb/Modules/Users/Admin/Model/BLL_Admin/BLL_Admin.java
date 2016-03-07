@@ -4,14 +4,13 @@ import Appweb.Modules.Config.Classes.Language.Lang;
 import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin;
 import Appweb.Modules.Users.Admin.View.edit_Admin_view;
 import Appweb.Modules.Users.Admin.View.table_Admin_view;
-import Appweb.Modules.Users.Classes.Admin;
+import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Modules.Users.Classes.singleton;
-import Appweb.General_tools.Menu;
 import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Users.Admin.View.create_Admin_view;
 import Appweb.Modules.Users.Admin.View.show_Admin_view;
 import static Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin;
-import Appweb.Modules.Users.Classes.Table_Admin;
+import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin;
 import Appweb.Modules.Users.Users_tools.User_files.json;
 import javax.swing.JOptionPane;
 
@@ -230,6 +229,30 @@ public class BLL_Admin {
         }
         return ok;
     }
+    
+     /**
+     * Borra todos los usuarios admin
+     */
+    public static void Delete_all_admin() {
+
+        if (singleton.Admin_array.isEmpty()) {
+
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_can_not_erase_because_no_elements"),
+                    Lang.getInstance().getProperty("Information"), JOptionPane.ERROR_MESSAGE);
+        } else {
+
+            // delete all objects to the
+            // arraylist
+            
+            singleton.Admin_array.clear();
+            json.auto_save_json_file();
+            ((Table_Admin) mini_Table_Admin.getModel()).cargar();
+
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("All_elements_have_been_deleted") + "\n"
+                    + Lang.getInstance().getProperty("Remaining_number_of_elements") + singleton.Admin_array.size());
+        }
+
+    }
 
     public static boolean show_select_admin() {
         String dni = "";
@@ -285,26 +308,5 @@ public class BLL_Admin {
 
     }
 
-    /**
-     * Borra todos los usuarios admin
-     */
-    public static void Delete_all_admin() {
-
-        if (singleton.Admin_array.isEmpty()) {
-
-            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_can_not_erase_because_no_elements"),
-                    Lang.getInstance().getProperty("Information"), JOptionPane.ERROR_MESSAGE);
-        } else {
-
-            // delete all objects to the
-            // arraylist
-            singleton.Admin_array.clear();
-            json.auto_save_json_file();
-            //((Table_Admin) mini_Table_Admin.getModel()).cargar();
-
-            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("All_elements_have_been_deleted") + "\n"
-                    + Lang.getInstance().getProperty("Remaining_number_of_elements") + singleton.Admin_array.size());
-        }
-
-    }
+   
 }

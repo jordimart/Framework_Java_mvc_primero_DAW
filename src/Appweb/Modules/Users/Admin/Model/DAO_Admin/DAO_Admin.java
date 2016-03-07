@@ -5,7 +5,7 @@ import Appweb.Classes.Date.ClassDate;
 import Appweb.Modules.Config.Classes.Language.Lang;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 import Appweb.Modules.Users.Admin.View.create_Admin_view;
-import Appweb.Modules.Users.Classes.Admin;
+import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import static Appweb.General_tools.Date_tools.Date_min_max_condition_boolean;
 import static Appweb.General_tools.Date_tools.Date_registered_boolean;
 import Appweb.General_tools.Validate;

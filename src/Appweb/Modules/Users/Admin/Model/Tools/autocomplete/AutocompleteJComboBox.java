@@ -1,4 +1,4 @@
-package Appweb.Modules.Users.Admin.autocomplete;
+package Appweb.Modules.Users.Admin.Model.Tools.autocomplete;
 import java.awt.Component;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;

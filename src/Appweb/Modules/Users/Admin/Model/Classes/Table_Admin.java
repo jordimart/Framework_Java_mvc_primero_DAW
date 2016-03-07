@@ -1,8 +1,10 @@
-package Appweb.Modules.Users.Classes;
+package Appweb.Modules.Users.Admin.Model.Classes;
 
+import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Classes.Date.ClassDate;
-import Appweb.Modules.Pager.pagina;
+import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
 import Appweb.Modules.Users.Admin.View.table_Admin_view;
+import Appweb.Modules.Users.Classes.singleton;
 import static Appweb.Modules.Users.Admin.View.table_Admin_view.combo;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
