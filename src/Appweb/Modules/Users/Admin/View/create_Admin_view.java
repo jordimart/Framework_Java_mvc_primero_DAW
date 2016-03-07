@@ -486,7 +486,7 @@ public class create_Admin_view extends javax.swing.JFrame {
         this.dispose();
         table_Admin_view menu = new table_Admin_view();
         menu.setVisible(true);
-        //((Table_Admin) mini_Table_Admin.getModel()).cargar();
+        
 
     }//GEN-LAST:event_btn_cancelarActionPerformed
 

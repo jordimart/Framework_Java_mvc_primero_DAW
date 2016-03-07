@@ -70,7 +70,7 @@ public class task_Dummy_view extends javax.swing.JFrame {
             }
         });
 
-        comboDummy_admin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cargar", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        comboDummy_admin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cargar", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "100", "1000", "2000" }));
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
