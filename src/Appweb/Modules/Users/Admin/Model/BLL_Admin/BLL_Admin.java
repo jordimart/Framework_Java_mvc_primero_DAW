@@ -11,6 +11,7 @@ import Appweb.Modules.Users.Admin.View.create_Admin_view;
 import Appweb.Modules.Users.Admin.View.show_Admin_view;
 import static Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin;
+import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
 import Appweb.Modules.Users.Users_tools.User_files.json;
 import javax.swing.JOptionPane;
 
@@ -172,6 +173,8 @@ public class BLL_Admin {
     public static boolean modifity_select_admin() {
         String dni = "";
         boolean ok = false;
+        int n, selection, inicio, selection1;
+       // n = ((Table_Admin) table_Admin_view.mini_Table_Admin.getModel()).getRowCount();
 
         if (((Table_Admin) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
             int selec = table_Admin_view.mini_Table_Admin.getSelectedRow();
@@ -182,12 +185,18 @@ public class BLL_Admin {
 
             } else {
 
-                dni = (String) table_Admin_view.mini_Table_Admin.getModel().getValueAt(selec, 0);
+                inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage; //nos situamos al inicio de la página en cuestión
+                selection = mini_Table_Admin.getSelectedRow(); //nos situamos en la fila
+                selection1 = inicio + selection; //nos situamos en la fila correspondiente de esa página
 
+                dni = (String) mini_Table_Admin.getModel().getValueAt(selection1, 0);
+
+                //dni = (String) table_Admin_view.mini_Table_Admin.getModel().getValueAt(selec, 0);
                 singletonapp.pos = Look_for_dni_admin(dni);
 
                 new edit_Admin_view().setVisible(true);
                 DAO_Admin.Load_edit_admin();
+                ((Table_Admin) mini_Table_Admin.getModel()).cargar();
 
                 ok = true;
             }
@@ -229,8 +238,8 @@ public class BLL_Admin {
         }
         return ok;
     }
-    
-     /**
+
+    /**
      * Borra todos los usuarios admin
      */
     public static void Delete_all_admin() {
@@ -243,7 +252,6 @@ public class BLL_Admin {
 
             // delete all objects to the
             // arraylist
-            
             singleton.Admin_array.clear();
             json.auto_save_json_file();
             ((Table_Admin) mini_Table_Admin.getModel()).cargar();
@@ -308,5 +316,4 @@ public class BLL_Admin {
 
     }
 
-   
 }

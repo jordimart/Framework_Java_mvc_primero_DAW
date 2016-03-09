@@ -62,7 +62,8 @@ public class table_Admin_view extends javax.swing.JFrame {
 
         List<String> myWords = new ArrayList<String>();
         for (int i = 0; i <= singleton.Admin_array.size() - 1; i++) {
-            myWords.add(singleton.Admin_array.get(i).getName());
+            myWords.add(singleton.Admin_array.get(i).getName().toLowerCase());
+            myWords.add(singleton.Admin_array.get(i).getName().toUpperCase());
         }
 
         StringSearchable searchable = new StringSearchable(myWords);
@@ -83,6 +84,7 @@ public class table_Admin_view extends javax.swing.JFrame {
         System.out.println("word selected: " + ((JComboBox) combo).getSelectedItem());
         pagina.currentPageIndex = 1;
         ((Table_Admin) mini_Table_Admin.getModel()).filtrar();
+        combo.requestFocus();
     }
 
     @SuppressWarnings("unchecked")
