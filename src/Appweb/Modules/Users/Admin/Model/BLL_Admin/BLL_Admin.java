@@ -80,6 +80,7 @@ public class BLL_Admin {
             singleadmin.Admin_array.add(a);
             DAO_Admin.auto_save_json_admin();
 
+            JOptionPane.showMessageDialog(null, "Usuario creado");
             create_Admin_view.lab_information_message.setText("Usuario modificado");
             create_Admin_view.labinfo_img.setIcon(singletonapp.good_data);
 
@@ -150,7 +151,7 @@ public class BLL_Admin {
         if (a != null) {
             singleadmin.Admin_array.set(singletonapp.pos, a);
             DAO_Admin.auto_save_json_admin();
-            JOptionPane.showMessageDialog(null, "Usuario añadidio");
+            JOptionPane.showMessageDialog(null, "Usuario modificado");
 
             ok = true;
         } else {

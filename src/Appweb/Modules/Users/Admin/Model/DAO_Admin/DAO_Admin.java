@@ -31,6 +31,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import com.toedter.calendar.JTextFieldDateEditor;
+import java.awt.HeadlessException;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -40,6 +41,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.nio.file.Files;
 import javax.swing.JOptionPane;
 
 /**
@@ -487,6 +489,7 @@ public class DAO_Admin {
         if (option == JFileChooser.APPROVE_OPTION) {
             //Obtiene nombre del archivo seleccionado
             String file = dlg.getSelectedFile().getPath();
+            String dir = dlg.getSelectedFile().toString();
             create_Admin_view.labAvatar.setIcon(new ImageIcon(file));
             //Modificando la imagen
             ImageIcon icon = new ImageIcon(file);
@@ -500,8 +503,26 @@ public class DAO_Admin {
             create_Admin_view.labAvatar.setIcon(newIcon);
             //Se cambia el tamaño de la etiqueta
             create_Admin_view.labAvatar.setSize(470, 290);
-            create_Admin_view.labAvatar.setToolTipText(file);
+
+            try {
+
+                File source = new File(dir);
+                File dest = new File("src/Appweb/Modules/Users/Img/Avatares/" + source.getName());
+                create_Admin_view.labAvatar.setToolTipText(dest.toString());
+                copyFileUsingJava7Files(source, dest);
+
+            } catch (HeadlessException | IOException e) {
+
+            }
+
         }
+    }
+
+    public static void copyFileUsingJava7Files(File source, File dest)
+            throws IOException {
+
+        Files.copy(source.toPath(), dest.toPath());
+
     }
 
     public static Admin add_create_Admin() {
@@ -970,6 +991,7 @@ public class DAO_Admin {
         if (option == JFileChooser.APPROVE_OPTION) {
             //Obtiene nombre del archivo seleccionado
             String file = dlg.getSelectedFile().getPath();
+            String dir = dlg.getSelectedFile().toString();
             edit_Admin_view.labAvatar.setIcon(new ImageIcon(file));
             //Modificando la imagen
             ImageIcon icon = new ImageIcon(file);
@@ -983,7 +1005,19 @@ public class DAO_Admin {
             edit_Admin_view.labAvatar.setIcon(newIcon);
             //Se cambia el tamaño de la etiqueta
             edit_Admin_view.labAvatar.setSize(470, 290);
-            edit_Admin_view.labAvatar.setToolTipText(file);
+            
+            try {
+
+                File source = new File(dir);
+                File dest = new File("src/Appweb/Modules/Users/Img/Avatares/" + source.getName());
+                edit_Admin_view.labAvatar.setToolTipText(dest.toString());
+                copyFileUsingJava7Files(source, dest);
+
+            } catch (HeadlessException | IOException e) {
+
+            }
+            
+            
         }
     }
 
@@ -1243,46 +1277,46 @@ public class DAO_Admin {
             System.out.print(Lang.getInstance().getProperty("Failed_to_save_user") + " Admin json" + " \n");
         }
     }
-    
+
     public static void auto_open_json_admin() {
 
-		String PATH = " ";
-		Admin a = new Admin("");
-		Client c = new Client("");
-		User_reg u = new User_reg("");
+        String PATH = " ";
+        Admin a = new Admin("");
+        Client c = new Client("");
+        User_reg u = new User_reg("");
 
-		try {
-			PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/Admin/Model/Admin_files/adminusers.json";
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+        try {
+            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/Admin/Model/Admin_files/adminusers.json";
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-		try {
-			XStream xstream = new XStream(new JettisonMappedXmlDriver());
-			xstream.setMode(XStream.NO_REFERENCES);
-			xstream.alias("Admin", Admin.class);
+        try {
+            XStream xstream = new XStream(new JettisonMappedXmlDriver());
+            xstream.setMode(XStream.NO_REFERENCES);
+            xstream.alias("Admin", Admin.class);
 
-			File JFC = new File(PATH);
-			PATH = JFC.getAbsolutePath();
+            File JFC = new File(PATH);
+            PATH = JFC.getAbsolutePath();
 
-			singleadmin.Admin_array.clear();
+            singleadmin.Admin_array.clear();
 
-			JsonReader lector = new JsonReader(new FileReader(PATH));
-			JsonParser parseador = new JsonParser();
-			JsonElement raiz = parseador.parse(lector);
+            JsonReader lector = new JsonReader(new FileReader(PATH));
+            JsonParser parseador = new JsonParser();
+            JsonElement raiz = parseador.parse(lector);
 
-			Gson json = new Gson();
-			JsonArray lista = raiz.getAsJsonArray();
-			for (JsonElement elemento : lista) {
-				a = json.fromJson(elemento, Admin.class);
-				singleadmin.Admin_array.add(a);
+            Gson json = new Gson();
+            JsonArray lista = raiz.getAsJsonArray();
+            for (JsonElement elemento : lista) {
+                a = json.fromJson(elemento, Admin.class);
+                singleadmin.Admin_array.add(a);
 
-			}
-			System.out.print(Lang.getInstance().getProperty("Loaded_user_file") + " Admin json"+" \n");
+            }
+            System.out.print(Lang.getInstance().getProperty("Loaded_user_file") + " Admin json" + " \n");
 
-		} catch (Exception e) {
-                    e.printStackTrace();
-			System.out.print(Lang.getInstance().getProperty("Error_loading_user_file")+ " json"+" \n");
-		}
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.print(Lang.getInstance().getProperty("Error_loading_user_file") + " json" + " \n");
+        }
     }
 }
