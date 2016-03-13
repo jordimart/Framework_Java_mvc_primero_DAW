@@ -10,9 +10,13 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
+import javax.swing.*;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
@@ -29,11 +33,12 @@ public class create_Admin_view extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setSize(1000, 1200);//ancho x alto
         this.setResizable(false);
-        
+
         Information_dialog.setLocationRelativeTo(null);
         Information_dialog.setTitle("Information");
         Information_dialog.setSize(1000, 200);
-        
+        Information_dialog.setModal(true);
+        //Information_dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 
         pick_date_birth.getDateEditor().setEnabled(false);
         pick_date_contr.getDateEditor().setEnabled(false);
@@ -57,6 +62,8 @@ public class create_Admin_view extends javax.swing.JFrame {
             }
         });
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -486,7 +493,7 @@ public class create_Admin_view extends javax.swing.JFrame {
         this.dispose();
         table_Admin_view menu = new table_Admin_view();
         menu.setVisible(true);
-        
+
 
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
@@ -533,13 +540,17 @@ public class create_Admin_view extends javax.swing.JFrame {
     private void btn_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AceptarActionPerformed
 
         boolean ok = false;
+
         try {
             ok = BLL_Admin.Enter_new_admin();
         } catch (InterruptedException ex) {
             Logger.getLogger(create_Admin_view.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         if (ok == true) {
+
             this.dispose();
+
             table_Admin_view menu = new table_Admin_view();
             menu.setVisible(true);
             ((Table_Admin) mini_Table_Admin.getModel()).cargar();
