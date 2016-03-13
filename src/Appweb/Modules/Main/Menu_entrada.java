@@ -1,16 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Appweb.Modules.Main;
 
 import Appweb.Modules.Config.Classes.Language.Lang;
-import Appweb.Modules.Config.Classes.Classconfig;
+import Appweb.Modules.Config.Model.BLL_config.BLL_config;
 import Appweb.Modules.Config.Model.DAO_config.DAO_config;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
 import Appweb.Modules.Dummies.View.task_Dummy_view;
-import Appweb.Modules.Users.Users_tools.User_files.json;
+import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
@@ -31,7 +27,7 @@ public class Menu_entrada extends javax.swing.JFrame {
         this.setTitle("Menu Login");
         this.setLocationRelativeTo(null);
         this.setSize(1000, 650);//ancho x alto
-        //this.setResizable(false);
+        
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         //
@@ -48,7 +44,7 @@ public class Menu_entrada extends javax.swing.JFrame {
      */
     private void exit() {
 
-        json.auto_save_json_file();
+        DAO_Admin.auto_save_json_admin();
         DAO_config.auto_save_config_json();
 
         JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
@@ -223,17 +219,17 @@ public class Menu_entrada extends javax.swing.JFrame {
 
     private void btn_Ingles_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Ingles_mainActionPerformed
 
-        Classconfig.getInstance().setLanguage("english");
+        BLL_config.language_english();
     }//GEN-LAST:event_btn_Ingles_mainActionPerformed
 
     private void btn_spain_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_spain_mainActionPerformed
 
-        Classconfig.getInstance().setLanguage("español");
+        BLL_config.language_spanish();
     }//GEN-LAST:event_btn_spain_mainActionPerformed
 
     private void btn_valencian_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_valencian_mainActionPerformed
 
-        Classconfig.getInstance().setLanguage("valencia");
+        BLL_config.language_valencian();
     }//GEN-LAST:event_btn_valencian_mainActionPerformed
 
     private void btn_TestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TestActionPerformed

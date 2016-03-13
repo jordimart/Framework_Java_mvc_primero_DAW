@@ -10,9 +10,9 @@ import javax.swing.JFrame;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import Appweb.Modules.Users.Admin.Model.Tools.autocomplete.AutocompleteJComboBox;
-import Appweb.Modules.Users.Admin.Model.Tools.autocomplete.StringSearchable;
-import Appweb.Modules.Users.Classes.singleton;
+import Appweb.General_tools.autocomplete.AutocompleteJComboBox;
+import Appweb.General_tools.autocomplete.StringSearchable;
+import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JComboBox;
@@ -48,7 +48,7 @@ public class table_Admin_view extends javax.swing.JFrame {
         pagina.inicializa();
         pagina.initLinkBox();
 
-        jLabel3.setText(String.valueOf(singleton.Admin_array.size()));
+        jLabel3.setText(String.valueOf(singleadmin.Admin_array.size()));
 
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -61,9 +61,9 @@ public class table_Admin_view extends javax.swing.JFrame {
         });
 
         List<String> myWords = new ArrayList<String>();
-        for (int i = 0; i <= singleton.Admin_array.size() - 1; i++) {
-            myWords.add(singleton.Admin_array.get(i).getName().toLowerCase());
-            myWords.add(singleton.Admin_array.get(i).getName().toUpperCase());
+        for (int i = 0; i <= singleadmin.Admin_array.size() - 1; i++) {
+            myWords.add(singleadmin.Admin_array.get(i).getName().toLowerCase());
+            myWords.add(singleadmin.Admin_array.get(i).getName().toUpperCase());
         }
 
         StringSearchable searchable = new StringSearchable(myWords);
@@ -120,6 +120,11 @@ public class table_Admin_view extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menu_save = new javax.swing.JMenu();
+        menu_save_json = new javax.swing.JMenuItem();
+        menu_save_xml = new javax.swing.JMenuItem();
+        menu_save_txt = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -443,6 +448,36 @@ public class table_Admin_view extends javax.swing.JFrame {
                 .addGap(1378, 1378, 1378))
         );
 
+        menu_save.setText("Guardar");
+
+        menu_save_json.setText("Guardar json");
+        menu_save_json.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_save_jsonActionPerformed(evt);
+            }
+        });
+        menu_save.add(menu_save_json);
+
+        menu_save_xml.setText("Guardar xml");
+        menu_save_xml.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_save_xmlActionPerformed(evt);
+            }
+        });
+        menu_save.add(menu_save_xml);
+
+        menu_save_txt.setText("Guardar txt");
+        menu_save_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_save_txtActionPerformed(evt);
+            }
+        });
+        menu_save.add(menu_save_txt);
+
+        jMenuBar1.add(menu_save);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -526,6 +561,18 @@ public class table_Admin_view extends javax.swing.JFrame {
         BLL_Admin.Delete_all_admin();
     }//GEN-LAST:event_buttonAction1ActionPerformed
 
+    private void menu_save_jsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_save_jsonActionPerformed
+        BLL_Admin.save_json_admin();
+    }//GEN-LAST:event_menu_save_jsonActionPerformed
+
+    private void menu_save_xmlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_save_xmlActionPerformed
+        BLL_Admin.save_xml_admin();
+    }//GEN-LAST:event_menu_save_xmlActionPerformed
+
+    private void menu_save_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_save_txtActionPerformed
+        BLL_Admin.save_txt_admin();
+    }//GEN-LAST:event_menu_save_txtActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton ANTERIOR;
@@ -542,6 +589,7 @@ public class table_Admin_view extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel jLabel2;
     public static javax.swing.JLabel jLabel3;
+    public static javax.swing.JMenuBar jMenuBar1;
     public static javax.swing.JPanel jPanel1;
     public static javax.swing.JPanel jPanel2;
     public static javax.swing.JPanel jPanel3;
@@ -549,6 +597,10 @@ public class table_Admin_view extends javax.swing.JFrame {
     public static javax.swing.JPanel jPanel5;
     public static javax.swing.JScrollPane jScrollPane2;
     public static org.edisoncor.gui.label.LabelRect labelRect1;
+    public static javax.swing.JMenu menu_save;
+    public static javax.swing.JMenuItem menu_save_json;
+    public static javax.swing.JMenuItem menu_save_txt;
+    public static javax.swing.JMenuItem menu_save_xml;
     public static org.jdesktop.swingx.JXTable mini_Table_Admin;
     public static org.edisoncor.gui.panel.PanelRect panel2;
     public static org.edisoncor.gui.panel.PanelCurves panelCurves1;

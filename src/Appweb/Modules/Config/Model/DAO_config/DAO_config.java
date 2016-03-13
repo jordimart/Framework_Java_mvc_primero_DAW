@@ -43,6 +43,7 @@ import static Appweb.Modules.Config.View.menu_Settings.chk_year_bar;
 import static Appweb.Modules.Config.View.menu_Settings.chk_year_bar2;
 import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
 
+
 public class DAO_config {
 
     private static final String ENCODING = "UTF-8";
@@ -301,7 +302,7 @@ public class DAO_config {
         
 
         try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Config/Files_config/appconfig";
+            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Config/Model/Files_config/appconfig";
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -344,7 +345,7 @@ public class DAO_config {
             xstream.alias("Config", Classconfig.class);
 
             try {
-                PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Config/Files_config/appconfig.json";
+                PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Config/Model/Files_config/appconfig.json";
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -413,13 +414,6 @@ public class DAO_config {
                     break;
                 case "Synthetica":
 
-                    try {
-
-                        UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
-
-                    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-
-                    }
 
                     break;
 
@@ -551,4 +545,16 @@ public class DAO_config {
 
     }
 
+    public static void language_english(){
+        Classconfig.getInstance().setLanguage("english");
+    
+    }
+    public static void language_spanish(){
+         Classconfig.getInstance().setLanguage("español");
+    
+    }
+    public static void language_valencian(){
+        Classconfig.getInstance().setLanguage("valencia");
+    
+    }
 }

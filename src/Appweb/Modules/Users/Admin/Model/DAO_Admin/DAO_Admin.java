@@ -1,4 +1,3 @@
-
 package Appweb.Modules.Users.Admin.Model.DAO_Admin;
 
 import Appweb.Classes.Date.ClassDate;
@@ -14,7 +13,17 @@ import static Appweb.General_tools.singletonapp.good_data;
 import static Appweb.General_tools.singletonapp.wrong_data;
 import Appweb.Modules.Users.Admin.View.edit_Admin_view;
 import Appweb.Modules.Users.Admin.View.show_Admin_view;
-import Appweb.Modules.Users.Classes.singleton;
+import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
+import Appweb.Modules.Users.Client.Model.Classes.Client;
+import Appweb.Modules.Users.User_reg.Model.Classes.User_reg;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import com.google.gson.stream.JsonReader;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.annotations.Annotations;
+import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
 import java.awt.Color;
 import java.awt.Image;
 import java.util.Calendar;
@@ -22,13 +31,24 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import com.toedter.calendar.JTextFieldDateEditor;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author ASUSG50V
  */
 public class DAO_Admin {
+
+    private static final String ENCODING = "UTF-8";
 
     /**
      * Fucion que valida que el dni pueda existir.Pero ademas comprueba que no
@@ -73,25 +93,22 @@ public class DAO_Admin {
 
             letter = dni.charAt(8);
 
-            
             if (pass == letter) {
                 ok = true;
 
                 singletonapp.pos = BLL_Admin.Look_for_dni_admin(dni);
 
                 if (singletonapp.pos != -1) {
-                    
+
                     ok = false;
 
-                    
                     create_Admin_view.labDni.setIcon(wrong_data);
                     create_Admin_view.txtDni.setBackground(Color.RED);
                     create_Admin_view.labDni.setToolTipText("Ya existe este Dni en la base de datos");
                     //JOptionPane.showMessageDialog(null,
                     //Lang.getInstance().getProperty("You_can_not_repeat_dni"));
                 } else {
-                    
-                    
+
                     ok = true;
                     create_Admin_view.labDni.setToolTipText("");
                     create_Admin_view.labDni.setIcon(good_data);
@@ -540,7 +557,7 @@ public class DAO_Admin {
     //////////////Daos para la ventana de editar Admin ////////
     public static void Load_edit_admin() {
 
-        Admin a = singleton.Admin_array.get(singletonapp.pos);
+        Admin a = singleadmin.Admin_array.get(singletonapp.pos);
 
         Float sal = a.getSalary();
         int act = a.getActivity();
@@ -985,7 +1002,6 @@ public class DAO_Admin {
 
         boolean pass, pass1, pass2, pass3, pass4, pass5, pass6, pass7, pass8, pass9, pass10;
 
-        
         pass1 = booleanEditname_admin();
         pass2 = booleanEditlast_name_admin();
         pass3 = booleanEditmobile_admin();
@@ -998,7 +1014,6 @@ public class DAO_Admin {
         pass10 = booleanEditdate_contr_admin();
 
         if (pass1 == true && pass2 == true && pass3 == true && pass4 == true && pass5 == true && pass6 == true && pass7 == true && pass8 == true && pass9 == true && pass10 == true) {
-            
 
             Dni = edit_Admin_view.txtDni.getText();
             Name = edit_Admin_view.txtName.getText();
@@ -1024,7 +1039,7 @@ public class DAO_Admin {
 
     public static void Load_show_admin() {
 
-        Admin a = singleton.Admin_array.get(singletonapp.pos);
+        Admin a = singleadmin.Admin_array.get(singletonapp.pos);
 
         Float sal = a.getSalary();
         int act = a.getActivity();
@@ -1068,5 +1083,206 @@ public class DAO_Admin {
         show_Admin_view.labAvatar.setSize(470, 290);
         show_Admin_view.labAvatar.setToolTipText(file);
 
+    }
+
+    public static void save_json_admin() {
+
+        if (singleadmin.Admin_array.size() != 0) {
+
+            String PATH = null;
+            try {
+                XStream xstreamjson = new XStream(new JettisonMappedXmlDriver());
+                xstreamjson.setMode(XStream.NO_REFERENCES);
+                xstreamjson.alias("empleafijo", Admin.class);
+
+                JFileChooser fileChooser = new JFileChooser();
+
+                fileChooser.setAcceptAllFileFilterUsed(false);
+                fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("JSON (*.json)", "json"));
+
+                int seleccion = fileChooser.showSaveDialog(null);
+                if (seleccion == JFileChooser.APPROVE_OPTION) {
+                    File JFC = fileChooser.getSelectedFile();
+                    PATH = JFC.getAbsolutePath();
+                    PATH = PATH + ".json";
+
+                    Gson gson = new Gson();
+                    String json = gson.toJson(singleadmin.Admin_array);
+                    FileWriter fileXml = new FileWriter(PATH);
+                    fileXml.write(json.toString());
+                    fileXml.close();
+
+                    JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("User_file_saved") + " Admin json",
+                            Lang.getInstance().getProperty("File") + " json", JOptionPane.INFORMATION_MESSAGE);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Failed_to_save_user") + " Admin json", "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("No_data_to_save"), Lang.getInstance().getProperty("File") + " json",
+                    JOptionPane.INFORMATION_MESSAGE);
+
+        }
+    }
+
+    public static void save_txt_admin() {
+
+        if (singleadmin.Admin_array.size() != 0) {
+
+            String PATH = " ";
+            try {
+                File f;
+                JFileChooser fileChooser = new JFileChooser();
+
+                fileChooser.setAcceptAllFileFilterUsed(false);
+                fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Texto (*.txt)", "txt"));
+
+                int seleccion = fileChooser.showSaveDialog(null);
+                if (seleccion == JFileChooser.APPROVE_OPTION) {
+                    File JFC = fileChooser.getSelectedFile();
+                    PATH = JFC.getAbsolutePath();
+                    PATH = PATH + ".txt";
+                    f = new File(PATH);
+
+                    FileOutputStream fo = new FileOutputStream(f);
+                    ObjectOutputStream o = new ObjectOutputStream(fo);
+                    o.writeObject(singleadmin.Admin_array);
+                    o.close();
+                    JOptionPane.showMessageDialog(null, "Archivo TXT guardado con exito", "Archivo TXT", JOptionPane.INFORMATION_MESSAGE);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error al grabar el TXT", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "No hay datos para guardar", "Archivo XML", JOptionPane.INFORMATION_MESSAGE);
+
+        }
+    }
+
+    public static void save_xml_admin() {
+
+        if (singleadmin.Admin_array.size() != 0) {
+
+            String PATH = " ";
+
+            try {
+                OutputStream os = new ByteArrayOutputStream();
+                OutputStreamWriter osw = new OutputStreamWriter(os);
+                XStream xstream = new XStream();
+                Annotations.configureAliases(xstream, Admin.class);
+
+                String header = "<?xml version=\"1.0\" encoding=\"" + ENCODING + "\"?>\n";
+                xstream.toXML(singleadmin.Admin_array, osw);
+                StringBuffer xml = new StringBuffer();
+                xml.append(header);
+                xml.append(os.toString());
+
+                JFileChooser fileChooser = new JFileChooser();
+
+                fileChooser.setAcceptAllFileFilterUsed(false);
+                fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("XML (*.xml)", "xml"));
+
+                int seleccion = fileChooser.showSaveDialog(null);
+
+                if (seleccion == JFileChooser.APPROVE_OPTION) {
+                    File JFC = fileChooser.getSelectedFile();
+                    PATH = JFC.getAbsolutePath();
+                    PATH = PATH + ".xml";
+
+                    FileWriter fileXml = new FileWriter(PATH);
+                    fileXml.write(xml.toString());
+                    fileXml.close();
+                    osw.close();
+                    os.close();
+                    JOptionPane.showMessageDialog(null, "Archivo XML guardado con exito", "Archivo XML", JOptionPane.INFORMATION_MESSAGE);
+                }
+            } catch (Exception e1) {
+                e1.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Error al grabar el XML", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+
+            JOptionPane.showMessageDialog(null, "No hay datos para guardar", "Archivo XML", JOptionPane.INFORMATION_MESSAGE);
+
+        }
+    }
+
+    public static void auto_save_json_admin() {
+
+        String PATH = " ";
+
+        try {
+            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/Admin/Model/Admin_files/adminusers";
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            XStream xstreamjson = new XStream(new JettisonMappedXmlDriver());
+            xstreamjson.setMode(XStream.NO_REFERENCES);
+            xstreamjson.alias("Admin", Admin.class);
+
+            File JFC = new File(PATH);
+            PATH = JFC.getAbsolutePath();
+            PATH = PATH + ".json";
+
+            Gson gson = new Gson();
+            String json = gson.toJson(singleadmin.Admin_array);
+            FileWriter fileXml = new FileWriter(PATH);
+            fileXml.write(json.toString());
+            fileXml.close();
+
+            System.out.print(Lang.getInstance().getProperty("User_file_saved") + " Admin json \n");
+
+        } catch (Exception e) {
+            System.out.print(Lang.getInstance().getProperty("Failed_to_save_user") + " Admin json" + " \n");
+        }
+    }
+    
+    public static void auto_open_json_admin() {
+
+		String PATH = " ";
+		Admin a = new Admin("");
+		Client c = new Client("");
+		User_reg u = new User_reg("");
+
+		try {
+			PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/Admin/Model/Admin_files/adminusers.json";
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		try {
+			XStream xstream = new XStream(new JettisonMappedXmlDriver());
+			xstream.setMode(XStream.NO_REFERENCES);
+			xstream.alias("Admin", Admin.class);
+
+			File JFC = new File(PATH);
+			PATH = JFC.getAbsolutePath();
+
+			singleadmin.Admin_array.clear();
+
+			JsonReader lector = new JsonReader(new FileReader(PATH));
+			JsonParser parseador = new JsonParser();
+			JsonElement raiz = parseador.parse(lector);
+
+			Gson json = new Gson();
+			JsonArray lista = raiz.getAsJsonArray();
+			for (JsonElement elemento : lista) {
+				a = json.fromJson(elemento, Admin.class);
+				singleadmin.Admin_array.add(a);
+
+			}
+			System.out.print(Lang.getInstance().getProperty("Loaded_user_file") + " Admin json"+" \n");
+
+		} catch (Exception e) {
+                    e.printStackTrace();
+			System.out.print(Lang.getInstance().getProperty("Error_loading_user_file")+ " json"+" \n");
+		}
     }
 }
