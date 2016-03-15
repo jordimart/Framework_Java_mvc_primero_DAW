@@ -188,7 +188,7 @@ public class Admin extends User implements Serializable {
 	}
 
 	// metodo que calcula beneficios de admin dandole 0.5 centimos por actividad
-	// y 10 euros por a�o de antiguedad..
+	// y 10 euros por a?o de antiguedad..
 	public float Cal_benefits() {
 
 		float ben = 0.000f;
@@ -228,7 +228,7 @@ public class Admin extends User implements Serializable {
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.0")) {
 
-				money = money + Lang.getInstance().getProperty("Salary") + ": " + Format_tools.F_1dec(getSalary()) + " � \n";
+				money = money + Lang.getInstance().getProperty("Salary") + ": " + Format_tools.F_1dec(getSalary()) + " ? \n";
 
 			}
 
@@ -240,7 +240,7 @@ public class Admin extends User implements Serializable {
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.000")) {
 
-				money = money + Lang.getInstance().getProperty("Salary") + ": " + Format_tools.F_3dec(getSalary()) + " � \n";
+				money = money + Lang.getInstance().getProperty("Salary") + ": " + Format_tools.F_3dec(getSalary()) + " ? \n";
 
 			}
 
@@ -279,7 +279,7 @@ public class Admin extends User implements Serializable {
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.0")) {
 
-				money = money + Lang.getInstance().getProperty("Salary") + ": �" + Format_tools.F_1dec(calp) + "   \n";
+				money = money + Lang.getInstance().getProperty("Salary") + ": " + Format_tools.F_1dec(calp) + "   \n";
 			}
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.00")) {
@@ -290,7 +290,7 @@ public class Admin extends User implements Serializable {
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.000")) {
 
-				money = money + Lang.getInstance().getProperty("Salary") + ": �" + Format_tools.F_3dec(calp) + "   \n";
+				money = money + Lang.getInstance().getProperty("Salary") + ": ?" + Format_tools.F_3dec(calp) + "   \n";
 			}
 
 			break;

@@ -8,10 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import Appweb.Modules.Config.Classes.Language.Lang;
 import Appweb.Modules.Config.Model.DAO_config.DAO_config;
 import Appweb.Modules.Users.Admin.Model.Classes.Admin;
-import Appweb.Modules.Users.Classes.Client;
-import Appweb.Modules.Users.Classes.User_reg;
-import Appweb.Modules.Users.Classes.singleton;
-import Appweb.Modules.Users.Users_tools.User_files.json;
+import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 
 /**
  * @author Jorge Martines Frias
@@ -89,10 +86,10 @@ public class Classconfig implements Serializable {
 		theme = "Nimbus";
 		dummy = false;
 
-		singleton.Admin_array = new ArrayList<Admin>();
-		singleton.Client_array = new ArrayList<Client>();
-		singleton.User_reg_array = new ArrayList<User_reg>();
-		singleton.Object_array = new ArrayList<Object>();
+		singleadmin.Admin_array = new ArrayList<Admin>();
+		//singleadmin.Client_array = new ArrayList<Client>();
+		//singleadmin.User_reg_array = new ArrayList<User_reg>();
+		//singleadmin.Object_array = new ArrayList<Object>();
 
                
 	}

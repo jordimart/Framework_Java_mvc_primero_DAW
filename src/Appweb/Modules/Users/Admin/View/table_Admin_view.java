@@ -12,7 +12,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import Appweb.Modules.Users.Admin.Model.Tools.autocomplete.AutocompleteJComboBox;
 import Appweb.Modules.Users.Admin.Model.Tools.autocomplete.StringSearchable;
-import Appweb.Modules.Users.Classes.singleton;
+import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JComboBox;
@@ -48,7 +48,7 @@ public class table_Admin_view extends javax.swing.JFrame {
         pagina.inicializa();
         pagina.initLinkBox();
 
-        jLabel3.setText(String.valueOf(singleton.Admin_array.size()));
+        jLabel3.setText(String.valueOf(singleadmin.Admin_array.size()));
 
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -61,8 +61,9 @@ public class table_Admin_view extends javax.swing.JFrame {
         });
 
         List<String> myWords = new ArrayList<String>();
-        for (int i = 0; i <= singleton.Admin_array.size() - 1; i++) {
-            myWords.add(singleton.Admin_array.get(i).getName());
+        for (int i = 0; i <= singleadmin.Admin_array.size() - 1; i++) {
+            myWords.add(singleadmin.Admin_array.get(i).getName().toLowerCase());
+            myWords.add(singleadmin.Admin_array.get(i).getName().toUpperCase());
         }
 
         StringSearchable searchable = new StringSearchable(myWords);
@@ -83,6 +84,7 @@ public class table_Admin_view extends javax.swing.JFrame {
         System.out.println("word selected: " + ((JComboBox) combo).getSelectedItem());
         pagina.currentPageIndex = 1;
         ((Table_Admin) mini_Table_Admin.getModel()).filtrar();
+        combo.requestFocus();
     }
 
     @SuppressWarnings("unchecked")
@@ -98,7 +100,7 @@ public class table_Admin_view extends javax.swing.JFrame {
         btnEditar_admin = new org.edisoncor.gui.button.ButtonAction();
         btnBorrar_admin = new org.edisoncor.gui.button.ButtonAction();
         btnMostrar_admin = new org.edisoncor.gui.button.ButtonAction();
-        btnAÃ±adir_admin = new org.edisoncor.gui.button.ButtonAction();
+        btnAñadir_admin = new org.edisoncor.gui.button.ButtonAction();
         btn_Volver = new org.edisoncor.gui.button.ButtonAction();
         buttonAction1 = new org.edisoncor.gui.button.ButtonAction();
         panel2 = new org.edisoncor.gui.panel.PanelRect();
@@ -118,6 +120,11 @@ public class table_Admin_view extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menu_save = new javax.swing.JMenu();
+        menu_save_json = new javax.swing.JMenuItem();
+        menu_save_xml = new javax.swing.JMenuItem();
+        menu_save_txt = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -167,10 +174,10 @@ public class table_Admin_view extends javax.swing.JFrame {
             }
         });
 
-        btnAÃ±adir_admin.setText("AÃ±adir");
-        btnAÃ±adir_admin.addActionListener(new java.awt.event.ActionListener() {
+        btnAñadir_admin.setText("Añadir");
+        btnAñadir_admin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAÃ±adir_adminActionPerformed(evt);
+                btnAñadir_adminActionPerformed(evt);
             }
         });
 
@@ -195,7 +202,7 @@ public class table_Admin_view extends javax.swing.JFrame {
             .addGroup(panelRect1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnAÃ±adir_admin, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                    .addComponent(btnAñadir_admin, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
                     .addComponent(btnEditar_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnMostrar_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnBorrar_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -207,7 +214,7 @@ public class table_Admin_view extends javax.swing.JFrame {
             panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRect1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnAÃ±adir_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAñadir_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEditar_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -232,6 +239,11 @@ public class table_Admin_view extends javax.swing.JFrame {
 
             }
         ));
+        mini_Table_Admin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mini_Table_AdminMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(mini_Table_Admin);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -441,6 +453,36 @@ public class table_Admin_view extends javax.swing.JFrame {
                 .addGap(1378, 1378, 1378))
         );
 
+        menu_save.setText("Guardar");
+
+        menu_save_json.setText("Guardar json");
+        menu_save_json.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_save_jsonActionPerformed(evt);
+            }
+        });
+        menu_save.add(menu_save_json);
+
+        menu_save_xml.setText("Guardar xml");
+        menu_save_xml.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_save_xmlActionPerformed(evt);
+            }
+        });
+        menu_save.add(menu_save_xml);
+
+        menu_save_txt.setText("Guardar txt");
+        menu_save_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_save_txtActionPerformed(evt);
+            }
+        });
+        menu_save.add(menu_save_txt);
+
+        jMenuBar1.add(menu_save);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -477,13 +519,13 @@ public class table_Admin_view extends javax.swing.JFrame {
         pagina.initLinkBox();
     }//GEN-LAST:event_ultimoActionPerformed
 
-    private void btnAÃ±adir_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAÃ±adir_adminActionPerformed
+    private void btnAñadir_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadir_adminActionPerformed
         this.dispose();
         create_Admin_view menu = new create_Admin_view();
         menu.setVisible(true);
 
 
-    }//GEN-LAST:event_btnAÃ±adir_adminActionPerformed
+    }//GEN-LAST:event_btnAñadir_adminActionPerformed
 
     private void btnEditar_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditar_adminActionPerformed
 
@@ -524,12 +566,38 @@ public class table_Admin_view extends javax.swing.JFrame {
         BLL_Admin.Delete_all_admin();
     }//GEN-LAST:event_buttonAction1ActionPerformed
 
+    private void menu_save_jsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_save_jsonActionPerformed
+        BLL_Admin.save_json_admin();
+    }//GEN-LAST:event_menu_save_jsonActionPerformed
+
+    private void menu_save_xmlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_save_xmlActionPerformed
+        BLL_Admin.save_xml_admin();
+    }//GEN-LAST:event_menu_save_xmlActionPerformed
+
+    private void menu_save_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_save_txtActionPerformed
+        BLL_Admin.save_txt_admin();
+    }//GEN-LAST:event_menu_save_txtActionPerformed
+
+    private void mini_Table_AdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mini_Table_AdminMouseClicked
+        
+        if (evt.getClickCount() == 2) {
+            boolean modificar;
+
+            modificar = BLL_Admin.modifity_select_admin();
+            if (modificar == false) {
+            } else {
+                this.dispose();
+            }
+
+        }  
+    }//GEN-LAST:event_mini_Table_AdminMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton ANTERIOR;
     public static javax.swing.JTextField CAJA;
     public static javax.swing.JButton SIGUIENTE;
-    public static org.edisoncor.gui.button.ButtonAction btnAÃ±adir_admin;
+    public static org.edisoncor.gui.button.ButtonAction btnAñadir_admin;
     public static org.edisoncor.gui.button.ButtonAction btnBorrar_admin;
     public static org.edisoncor.gui.button.ButtonAction btnEditar_admin;
     public static org.edisoncor.gui.button.ButtonAction btnMostrar_admin;
@@ -540,6 +608,7 @@ public class table_Admin_view extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel jLabel2;
     public static javax.swing.JLabel jLabel3;
+    public static javax.swing.JMenuBar jMenuBar1;
     public static javax.swing.JPanel jPanel1;
     public static javax.swing.JPanel jPanel2;
     public static javax.swing.JPanel jPanel3;
@@ -547,6 +616,10 @@ public class table_Admin_view extends javax.swing.JFrame {
     public static javax.swing.JPanel jPanel5;
     public static javax.swing.JScrollPane jScrollPane2;
     public static org.edisoncor.gui.label.LabelRect labelRect1;
+    public static javax.swing.JMenu menu_save;
+    public static javax.swing.JMenuItem menu_save_json;
+    public static javax.swing.JMenuItem menu_save_txt;
+    public static javax.swing.JMenuItem menu_save_xml;
     public static org.jdesktop.swingx.JXTable mini_Table_Admin;
     public static org.edisoncor.gui.panel.PanelRect panel2;
     public static org.edisoncor.gui.panel.PanelCurves panelCurves1;

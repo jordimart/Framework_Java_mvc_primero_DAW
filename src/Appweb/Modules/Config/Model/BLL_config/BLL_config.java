@@ -46,6 +46,19 @@ public class BLL_config {
 
         DAO_config.open_json_config();
     }
-    
-    
+
+    public static void language_english() {
+        DAO_config.language_english();
+
+    }
+
+    public static void language_spanish() {
+        DAO_config.language_spanish();
+
+    }
+
+    public static void language_valencian() {
+        DAO_config.language_valencian();
+
+    }
 }

@@ -1,10 +1,11 @@
-package Appweb.Modules.Users.Classes;
+package Appweb.Modules.Users.User_reg.Model.Classes;
 
 import java.io.Serializable;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 import Appweb.Classes.Date.ClassDate;
+import Appweb.Modules.Users.Classes.User;
 import javax.swing.Icon;
 
 /**

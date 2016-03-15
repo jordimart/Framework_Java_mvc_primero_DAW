@@ -5,7 +5,6 @@
 
 package de.javasoft.plaf.synthetica;
 
-import de.javasoft.util.IVersion;
 import java.awt.EventQueue;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
