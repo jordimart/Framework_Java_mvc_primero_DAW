@@ -228,7 +228,7 @@ public class BLL_Admin {
                 ok = true;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "lista vacía", "Error!", 2);
+            JOptionPane.showMessageDialog(null, "lista vacia", "Error!", 2);
 
             ok = false;
         }
