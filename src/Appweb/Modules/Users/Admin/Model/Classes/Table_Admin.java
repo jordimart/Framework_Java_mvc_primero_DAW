@@ -98,7 +98,7 @@ public class Table_Admin extends AbstractTableModel {
                 break;
 
             case 3:
-                
+
                 fila.setDate_birth(new ClassDate(value.toString()));
                 break;
 
@@ -136,16 +136,16 @@ public class Table_Admin extends AbstractTableModel {
             }
         }
     }
-    
+
     public void filtrar() {
         datos.clear();
-        int cont=0;
-        
-        String nom=(String) ((JComboBox)combo).getSelectedItem();   
-        if(nom!=null){
-            for(int i=0;i<datosaux.size();i++) {
+        int cont = 0;
+
+        String nom = (String) ((JComboBox) combo).getSelectedItem();
+        if (nom != null) {
+            for (int i = 0; i < datosaux.size(); i++) {
                 //if(datosaux.get(i).getFirst_name().contains(nom)){
-                if(datosaux.get(i).getName().toLowerCase().startsWith(nom.toLowerCase())){
+                if (datosaux.get(i).getName().toLowerCase().startsWith(nom.toLowerCase())) {
                     addRow(datosaux.get(i));
                     cont++;
                 }
@@ -184,7 +184,13 @@ public class Table_Admin extends AbstractTableModel {
 
     public void removeRow(int fila) {
         datos.remove(fila);
+
         fireTableDataChanged();
+        table_Admin_view.jLabel3.setText(String.valueOf(datos.size()));
+
+        pagina.inicializa();
+        pagina.initLinkBox();
+
     }
 
 }

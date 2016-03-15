@@ -10,8 +10,8 @@ import javax.swing.JFrame;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import Appweb.General_tools.autocomplete.AutocompleteJComboBox;
-import Appweb.General_tools.autocomplete.StringSearchable;
+import Appweb.Modules.Users.Admin.Model.Tools.autocomplete.AutocompleteJComboBox;
+import Appweb.Modules.Users.Admin.Model.Tools.autocomplete.StringSearchable;
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 import java.util.ArrayList;
 import java.util.List;
@@ -100,7 +100,7 @@ public class table_Admin_view extends javax.swing.JFrame {
         btnEditar_admin = new org.edisoncor.gui.button.ButtonAction();
         btnBorrar_admin = new org.edisoncor.gui.button.ButtonAction();
         btnMostrar_admin = new org.edisoncor.gui.button.ButtonAction();
-        btnAÃ±adir_admin = new org.edisoncor.gui.button.ButtonAction();
+        btnAñadir_admin = new org.edisoncor.gui.button.ButtonAction();
         btn_Volver = new org.edisoncor.gui.button.ButtonAction();
         buttonAction1 = new org.edisoncor.gui.button.ButtonAction();
         panel2 = new org.edisoncor.gui.panel.PanelRect();
@@ -174,10 +174,10 @@ public class table_Admin_view extends javax.swing.JFrame {
             }
         });
 
-        btnAÃ±adir_admin.setText("AÃ±adir");
-        btnAÃ±adir_admin.addActionListener(new java.awt.event.ActionListener() {
+        btnAñadir_admin.setText("Añadir");
+        btnAñadir_admin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAÃ±adir_adminActionPerformed(evt);
+                btnAñadir_adminActionPerformed(evt);
             }
         });
 
@@ -202,7 +202,7 @@ public class table_Admin_view extends javax.swing.JFrame {
             .addGroup(panelRect1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnAÃ±adir_admin, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                    .addComponent(btnAñadir_admin, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
                     .addComponent(btnEditar_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnMostrar_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnBorrar_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -214,7 +214,7 @@ public class table_Admin_view extends javax.swing.JFrame {
             panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRect1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnAÃ±adir_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAñadir_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEditar_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -239,6 +239,11 @@ public class table_Admin_view extends javax.swing.JFrame {
 
             }
         ));
+        mini_Table_Admin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mini_Table_AdminMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(mini_Table_Admin);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -514,13 +519,13 @@ public class table_Admin_view extends javax.swing.JFrame {
         pagina.initLinkBox();
     }//GEN-LAST:event_ultimoActionPerformed
 
-    private void btnAÃ±adir_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAÃ±adir_adminActionPerformed
+    private void btnAñadir_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadir_adminActionPerformed
         this.dispose();
         create_Admin_view menu = new create_Admin_view();
         menu.setVisible(true);
 
 
-    }//GEN-LAST:event_btnAÃ±adir_adminActionPerformed
+    }//GEN-LAST:event_btnAñadir_adminActionPerformed
 
     private void btnEditar_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditar_adminActionPerformed
 
@@ -573,12 +578,26 @@ public class table_Admin_view extends javax.swing.JFrame {
         BLL_Admin.save_txt_admin();
     }//GEN-LAST:event_menu_save_txtActionPerformed
 
+    private void mini_Table_AdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mini_Table_AdminMouseClicked
+        
+        if (evt.getClickCount() == 2) {
+            boolean modificar;
+
+            modificar = BLL_Admin.modifity_select_admin();
+            if (modificar == false) {
+            } else {
+                this.dispose();
+            }
+
+        }  
+    }//GEN-LAST:event_mini_Table_AdminMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton ANTERIOR;
     public static javax.swing.JTextField CAJA;
     public static javax.swing.JButton SIGUIENTE;
-    public static org.edisoncor.gui.button.ButtonAction btnAÃ±adir_admin;
+    public static org.edisoncor.gui.button.ButtonAction btnAñadir_admin;
     public static org.edisoncor.gui.button.ButtonAction btnBorrar_admin;
     public static org.edisoncor.gui.button.ButtonAction btnEditar_admin;
     public static org.edisoncor.gui.button.ButtonAction btnMostrar_admin;

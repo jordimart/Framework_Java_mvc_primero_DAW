@@ -11,6 +11,7 @@ import Appweb.Modules.Users.Admin.View.create_Admin_view;
 import Appweb.Modules.Users.Admin.View.show_Admin_view;
 import static Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin;
+import static Appweb.Modules.Users.Admin.Model.Classes.Table_Admin.datos;
 import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
 import javax.swing.JOptionPane;
 
@@ -203,7 +204,7 @@ public class BLL_Admin {
     public static boolean delete_select_admin() {
         String dni = "";
         boolean ok = false;
-        int n, selection, inicio, selection1;
+        int selection, inicio, selection1;
 
         if (((Table_Admin) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
             int selec = table_Admin_view.mini_Table_Admin.getSelectedRow();
@@ -220,12 +221,9 @@ public class BLL_Admin {
 
                 dni = (String) mini_Table_Admin.getModel().getValueAt(selection1, 0);
                 singletonapp.pos = Look_for_dni_admin(dni);
-
                 singleadmin.Admin_array.remove(singletonapp.pos);
+                ((Table_Admin) mini_Table_Admin.getModel()).removeRow(selec);
                 DAO_Admin.auto_save_json_admin();
-                ((Table_Admin) mini_Table_Admin.getModel()).cargar();
-                pagina.inicializa();
-                pagina.initLinkBox();
 
                 ok = true;
             }
@@ -253,6 +251,7 @@ public class BLL_Admin {
             singleadmin.Admin_array.clear();
             DAO_Admin.auto_save_json_admin();
             ((Table_Admin) mini_Table_Admin.getModel()).cargar();
+            table_Admin_view.jLabel3.setText(String.valueOf(datos.size()));
             pagina.inicializa();
             pagina.initLinkBox();
 
@@ -265,6 +264,7 @@ public class BLL_Admin {
     public static boolean show_select_admin() {
         String dni = "";
         boolean ok = false;
+        int selection, inicio, selection1;
 
         if (((Table_Admin) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
             int selec = table_Admin_view.mini_Table_Admin.getSelectedRow();
@@ -274,8 +274,11 @@ public class BLL_Admin {
                 JOptionPane.showMessageDialog(null, "No hay una persona seleccionada");
 
             } else {
+                inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage; //nos situamos al inicio de la página en cuestión
+                selection = mini_Table_Admin.getSelectedRow(); //nos situamos en la fila
+                selection1 = inicio + selection; //nos situamos en la fila correspondiente de esa página
 
-                dni = (String) table_Admin_view.mini_Table_Admin.getModel().getValueAt(selec, 0);
+                dni = (String) mini_Table_Admin.getModel().getValueAt(selection1, 0);
 
                 singletonapp.pos = Look_for_dni_admin(dni);
 
@@ -286,7 +289,7 @@ public class BLL_Admin {
                 ok = true;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "lista vacía");
+            JOptionPane.showMessageDialog(null, "lista vacia");
 
             ok = false;
         }
