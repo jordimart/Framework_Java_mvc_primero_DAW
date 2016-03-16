@@ -106,9 +106,8 @@ public class DAO_Admin {
 
                     create_Admin_view.labDni.setIcon(wrong_data);
                     create_Admin_view.txtDni.setBackground(Color.RED);
-                    create_Admin_view.labDni.setToolTipText("Ya existe este Dni en la base de datos");
-                    //JOptionPane.showMessageDialog(null,
-                    //Lang.getInstance().getProperty("You_can_not_repeat_dni"));
+                    create_Admin_view.labDni.setToolTipText(Lang.getInstance().getProperty("You_can_not_repeat_dni"));
+
                 } else {
 
                     ok = true;
@@ -129,6 +128,12 @@ public class DAO_Admin {
         return ok;
     }
 
+    /**
+     * DAO que valida un nombre introducido por el usuario, no contendra numeros
+     * por ejemplo.
+     *
+     * @return boolean
+     */
     public static boolean booleanEntername_admin() {
 
         boolean ok = false;
@@ -137,9 +142,8 @@ public class DAO_Admin {
         if (ok == false) {
             create_Admin_view.labName.setIcon(wrong_data);
             create_Admin_view.txtName.setBackground(Color.red);
-            create_Admin_view.labName.setToolTipText("No ha introducido los datos correctamente");
-            //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
-            // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+            create_Admin_view.labName.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
+
         } else {
             create_Admin_view.labName.setToolTipText("");
             create_Admin_view.labName.setIcon(good_data);
@@ -150,6 +154,12 @@ public class DAO_Admin {
         return ok;
     }
 
+    /**
+     * DAO que valida un apellido introducido por el usuario, no contendra
+     * numeros por ejemplo.
+     *
+     * @return boolean
+     */
     public static boolean booleanEnterlast_name_admin() {
 
         boolean ok = false;
@@ -158,9 +168,8 @@ public class DAO_Admin {
         if (ok == false) {
             create_Admin_view.labLast_name.setIcon(wrong_data);
             create_Admin_view.txtLast_name.setBackground(Color.red);
-            create_Admin_view.labLast_name.setToolTipText("No ha introducido los datos correctamente");
-            //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
-            // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+            create_Admin_view.labLast_name.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
+
         } else {
             create_Admin_view.labLast_name.setToolTipText("");
             create_Admin_view.labLast_name.setIcon(good_data);
@@ -172,9 +181,9 @@ public class DAO_Admin {
     }
 
     /**
-     * Menu que pise un numero de telefono movil con nueve digitos.
+     * DAO que valida un numero de telefono movil con nueve digitos.
      *
-     * @return string movil
+     * @return boolean
      */
     public static boolean booleanEntermobile_admin() {
 
@@ -186,9 +195,8 @@ public class DAO_Admin {
         if (ok == false) {
             create_Admin_view.labMobile.setIcon(wrong_data);
             create_Admin_view.txtMobile.setBackground(Color.red);
-            create_Admin_view.labMobile.setToolTipText("No ha introducido los datos correctamente, solo puede contener 9 numeros");
-            // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
-            // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+            create_Admin_view.labMobile.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
+
         } else {
             create_Admin_view.labMobile.setToolTipText("");
             create_Admin_view.labMobile.setIcon(good_data);
@@ -199,9 +207,10 @@ public class DAO_Admin {
     }
 
     /**
-     * Menu que pide un email y valida su formato.
+     * DAO que valida un correo electronico, debe tener caracteres @caracteres
+     * "." y com
      *
-     * @return
+     * @return boolean
      */
     public static boolean booleanEntermail_admin() {
 
@@ -213,9 +222,8 @@ public class DAO_Admin {
         if (ok == false) {
             create_Admin_view.labEmail.setIcon(wrong_data);
             create_Admin_view.txtEmail.setBackground(Color.red);
-            create_Admin_view.labEmail.setToolTipText("No ha introducido los datos correctamente,Ejemplo: xxxx@xxx.xxx");
-            //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
-            // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+            create_Admin_view.labEmail.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
+
         } else {
             create_Admin_view.labEmail.setToolTipText("");
             create_Admin_view.labEmail.setIcon(good_data);
@@ -227,9 +235,9 @@ public class DAO_Admin {
     }
 
     /**
-     * Menu que pide una palabra que puede tener todo tipo de caracteres.
+     * DAO que valida una palabra con letras y numeros
      *
-     * @return
+     * @return boolean
      */
     public static boolean booleanEnteruser_admin() {
 
@@ -241,9 +249,8 @@ public class DAO_Admin {
         if (ok == false) {
             create_Admin_view.labUser.setIcon(wrong_data);
             create_Admin_view.txtUser.setBackground(Color.red);
-            create_Admin_view.labUser.setToolTipText("No ha introducido los datos correctamente");
-            //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
-            // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+            create_Admin_view.labUser.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
+
         } else {
             create_Admin_view.labUser.setToolTipText("");
             create_Admin_view.labUser.setIcon(good_data);
@@ -254,9 +261,10 @@ public class DAO_Admin {
     }
 
     /**
-     * Menu que pide una palabra que puede tener todo tipo de caracteres.
+     * DAO que valida una introduccion que debe ser mayor a 8 caracteres y
+     * pueden ser letras,numeros o caracteres.
      *
-     * @return
+     * @return boolean
      */
     public static boolean booleanEnterpassword_admin() {
 
@@ -269,9 +277,8 @@ public class DAO_Admin {
         if (ok == false) {
             create_Admin_view.labPassword.setIcon(wrong_data);
             create_Admin_view.txtPassword.setBackground(Color.red);
-            create_Admin_view.labPassword.setToolTipText("No ha introducido los datos correctamente,Debe contener mayusculas,numeros y letras");
-            // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
-            //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
+            create_Admin_view.labPassword.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
+
         } else {
             ok = true;
             create_Admin_view.labPassword.setToolTipText("");
@@ -283,9 +290,9 @@ public class DAO_Admin {
     }
 
     /**
-     * Menu que pide una palabra que puede tener todo tipo de caracteres.
+     * DAO que valida una entrada de salario float, debe estar entre 800 y 2500.
      *
-     * @return
+     * @return boolean
      */
     public static boolean booleanEntersalary_admin() {
 
@@ -310,14 +317,14 @@ public class DAO_Admin {
                 //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
             } else {
                 ok = false;
-                create_Admin_view.labSalary.setToolTipText("No ha introducido los datos correctamente,Debe estar comprendido entre 800 y 2500");
+                create_Admin_view.labSalary.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + ",debe estar comprendido entre 800 y 2500");
                 create_Admin_view.labSalary.setIcon(wrong_data);
                 create_Admin_view.txtSalary.setBackground(Color.RED);
             }
         } else {
 
             ok = false;
-            create_Admin_view.labSalary.setToolTipText("No ha introducido los datos correctamente, quizas introdujo letras");
+            create_Admin_view.labSalary.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + ", quizas introdujo letras");
             create_Admin_view.labSalary.setIcon(wrong_data);
             create_Admin_view.txtSalary.setBackground(Color.RED);
         }
@@ -325,6 +332,12 @@ public class DAO_Admin {
         return ok;
     }
 
+    /**
+     * DAO que valida un entrada de actividad que debe estar comprendida entre 0
+     * y 100
+     *
+     * @return boolean
+     */
     public static boolean booleanEnteractivity_admin() {
 
         String s = "";
@@ -344,12 +357,12 @@ public class DAO_Admin {
                 create_Admin_view.txtActivity.setBackground(Color.GREEN);
             } else {
                 ok = false;
-                create_Admin_view.labActivity.setToolTipText("No ha introducido los datos correctamente,Debe estar comprendido entre 0 y 100");
+                create_Admin_view.labActivity.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + ",Debe estar comprendido entre 0 y 100");
                 create_Admin_view.labActivity.setIcon(wrong_data);
                 create_Admin_view.txtActivity.setBackground(Color.red);
             }
         } else {
-            create_Admin_view.labActivity.setToolTipText("No ha introducido los datos correctamente, quizas introdujo letras");
+            create_Admin_view.labActivity.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + ", quizas introdujo letras");
             create_Admin_view.labActivity.setIcon(wrong_data);
             create_Admin_view.txtActivity.setBackground(Color.RED);
 
@@ -357,6 +370,11 @@ public class DAO_Admin {
         return ok;
     }
 
+    /**
+     * DAO que valida una fecha de nac imiento que deb estar entre 16 y 65 años
+     *
+     * @return
+     */
     public static boolean booleanEnterdate_birth_admin() {
 
         String s = "";
@@ -395,15 +413,19 @@ public class DAO_Admin {
         return ok;
     }
 
+    /**
+     * DAO que valida una fecha de contratacion que debe validarse dependiendo
+     * de la de nacimiento
+     *
+     * @return
+     */
     public static boolean booleanEnterdate_contr_admin() {
 
         String s = "";
         int act = 0;
         boolean ok = false;
-        Calendar date_birth;
+
         String date_contr;
-        int dia = 0, mes = 0, anio = 0;
-        int diac = 0, mesc = 0, anioc = 0;
 
         s = ((JTextFieldDateEditor) create_Admin_view.pick_date_birth.getDateEditor()).getText();
 
@@ -449,9 +471,14 @@ public class DAO_Admin {
         return ok;
     }
 
+    /**
+     * Esta funcion se utiliza para entrarle el dato de fecha de nacimiento al
+     * DAO de crear y en formato de calendar a mi clase fecha.
+     *
+     * @return CLassDate
+     */
     public static ClassDate Enter_date_birth_admin() {
 
-        String date = "";
         Calendar date_birth;
         int dia = 0, mes = 0, anio = 0;
 
@@ -464,6 +491,12 @@ public class DAO_Admin {
         return new ClassDate(dia, mes, anio);
     }
 
+    /**
+     * Esta funcion se utiliza para entrarle el dato de fecha de contratacion al
+     * DAO de crear y en formato de calendar a mi clase fecha.
+     *
+     * @return CLassDate
+     */
     public static ClassDate Enter_date_cntr_admin() {
 
         String date = "";
@@ -479,6 +512,11 @@ public class DAO_Admin {
         return new ClassDate(dia, mes, anio);
     }
 
+    /**
+     * Esta funcion se utiliza para que el usuario mediante un filechocer de jpg
+     * busque una imagen d eavatar.La imagen si es externa se guarda en la
+     * carpeta avatares.
+     */
     public static void EnterAvatar_admin() {
 
         JFileChooser dlg = new JFileChooser();
@@ -1005,7 +1043,7 @@ public class DAO_Admin {
             edit_Admin_view.labAvatar.setIcon(newIcon);
             //Se cambia el tamaño de la etiqueta
             edit_Admin_view.labAvatar.setSize(470, 290);
-            
+
             try {
 
                 File source = new File(dir);
@@ -1016,8 +1054,7 @@ public class DAO_Admin {
             } catch (HeadlessException | IOException e) {
 
             }
-            
-            
+
         }
     }
 

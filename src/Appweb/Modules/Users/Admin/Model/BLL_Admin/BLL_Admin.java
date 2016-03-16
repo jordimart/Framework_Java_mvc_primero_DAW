@@ -71,7 +71,7 @@ public class BLL_Admin {
         DAO_Admin.EnterAvatar_admin();
     }
 
-    public static boolean Enter_new_admin() throws InterruptedException {
+    public static boolean Enter_new_admin() {
 
         boolean ok = false;
 
@@ -82,7 +82,7 @@ public class BLL_Admin {
             DAO_Admin.auto_save_json_admin();
 
             JOptionPane.showMessageDialog(null, "Usuario creado");
-            create_Admin_view.lab_information_message.setText("Usuario modificado");
+            create_Admin_view.lab_information_message.setText("Usuario creado");
             create_Admin_view.labinfo_img.setIcon(singletonapp.good_data);
 
             ok = true;
@@ -166,7 +166,7 @@ public class BLL_Admin {
     public static boolean modifity_select_admin() {
         String dni = "";
         boolean ok = false;
-        int n, selection, inicio, selection1;
+        int  selection, inicio, selection1;
 
         if (((Table_Admin) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
             int selec = table_Admin_view.mini_Table_Admin.getSelectedRow();
@@ -177,9 +177,9 @@ public class BLL_Admin {
 
             } else {
 
-                inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage; //nos situamos al inicio de la página en cuestión
+                inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage; //nos situamos al inicio de la pÃ¡gina en cuestiÃ³n
                 selection = mini_Table_Admin.getSelectedRow(); //nos situamos en la fila
-                selection1 = inicio + selection; //nos situamos en la fila correspondiente de esa página
+                selection1 = inicio + selection; //nos situamos en la fila correspondiente de esa pÃ¡gina
 
                 dni = (String) mini_Table_Admin.getModel().getValueAt(selection1, 0);
 
@@ -194,7 +194,7 @@ public class BLL_Admin {
                 ok = true;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "lista vacía", "Error!", 2);
+            JOptionPane.showMessageDialog(null, "lista vacia", "Error!", 2);
 
             ok = false;
         }
@@ -207,22 +207,29 @@ public class BLL_Admin {
         int selection, inicio, selection1;
 
         if (((Table_Admin) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
-            int selec = table_Admin_view.mini_Table_Admin.getSelectedRow();
+            //int selec = table_Admin_view.mini_Table_Admin.getSelectedRow();
+            
+            inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage; //nos situamos al inicio de la pÃ¡gina en cuestiÃ³n
+                selection = mini_Table_Admin.getSelectedRow(); //nos situamos en la fila
+                selection1 = inicio + selection; //nos situamos en la fila correspondiente de esa pÃ¡gina
+            
+            JOptionPane.showMessageDialog(null, "primer selec "+selection1);
 
-            if (selec == -1) {
+            if (selection1 == -1) {
                 ok = false;
                 JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
 
             } else {
 
-                inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage; //nos situamos al inicio de la página en cuestión
-                selection = mini_Table_Admin.getSelectedRow(); //nos situamos en la fila
-                selection1 = inicio + selection; //nos situamos en la fila correspondiente de esa página
+                
+                 JOptionPane.showMessageDialog(null, "primer selec "+selection1);
 
                 dni = (String) mini_Table_Admin.getModel().getValueAt(selection1, 0);
                 singletonapp.pos = Look_for_dni_admin(dni);
+                
+
+                ((Table_Admin) mini_Table_Admin.getModel()).removeRow(selection1);
                 singleadmin.Admin_array.remove(singletonapp.pos);
-                ((Table_Admin) mini_Table_Admin.getModel()).removeRow(selec);
                 DAO_Admin.auto_save_json_admin();
 
                 ok = true;
@@ -274,9 +281,9 @@ public class BLL_Admin {
                 JOptionPane.showMessageDialog(null, "No hay una persona seleccionada");
 
             } else {
-                inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage; //nos situamos al inicio de la página en cuestión
+                inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage; //nos situamos al inicio de la pagina en cuestiÃ³n
                 selection = mini_Table_Admin.getSelectedRow(); //nos situamos en la fila
-                selection1 = inicio + selection; //nos situamos en la fila correspondiente de esa página
+                selection1 = inicio + selection; //nos situamos en la fila correspondiente de esa pagina
 
                 dni = (String) mini_Table_Admin.getModel().getValueAt(selection1, 0);
 

@@ -44,8 +44,7 @@ public class Menu_entrada extends javax.swing.JFrame {
      */
     private void exit() {
 
-        DAO_Admin.auto_save_json_admin();
-        DAO_config.auto_save_config_json();
+        
 
         JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
                 JOptionPane.INFORMATION_MESSAGE);
