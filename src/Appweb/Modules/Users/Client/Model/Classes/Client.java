@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-import Appweb.Modules.Config.Classes.Classconfig;
+import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Classes.Date.ClassDate;
 import Appweb.General_tools.Format_tools;
 import Appweb.Modules.Users.Classes.User;

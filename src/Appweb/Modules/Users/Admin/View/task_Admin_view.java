@@ -5,9 +5,9 @@
  */
 package Appweb.Modules.Users.Admin.View;
 
-import Appweb.Modules.Config.View.menu_Settings;
-import Appweb.Modules.Config.Classes.Language.Lang;
-import Appweb.Modules.Main.Menu_entrada;
+import Appweb.Modules.Main.Model.Config.View.menu_Settings;
+import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
+import Appweb.Modules.Main.View.Menu_entrada;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;

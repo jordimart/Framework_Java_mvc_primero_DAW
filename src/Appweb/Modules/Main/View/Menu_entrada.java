@@ -1,11 +1,12 @@
 
-package Appweb.Modules.Main;
+package Appweb.Modules.Main.View;
 
-import Appweb.Modules.Config.Classes.Language.Lang;
-import Appweb.Modules.Config.Model.BLL_config.BLL_config;
-import Appweb.Modules.Config.Model.DAO_config.DAO_config;
+import Appweb.Modules.Main.Model.Dummies.View.task_Dummy_view;
+import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
+import Appweb.Modules.Main.Model.Config.Model.BLL_config.BLL_config;
+import Appweb.Modules.Main.Model.Config.Model.DAO_config.DAO_config;
+import Appweb.Modules.Main.Model.Config.View.menu_Settings;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
-import Appweb.Modules.Dummies.View.task_Dummy_view;
 import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -72,6 +73,7 @@ public class Menu_entrada extends javax.swing.JFrame {
         btn_valencian_main = new javax.swing.JButton();
         btn_spain_main = new javax.swing.JButton();
         btn_Ingles_main = new javax.swing.JButton();
+        btnSettings = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -154,12 +156,21 @@ public class Menu_entrada extends javax.swing.JFrame {
             }
         });
 
+        btnSettings.setText("Configuracion");
+        btnSettings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSettingsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
         panelImage1.setLayout(panelImage1Layout);
         panelImage1Layout.setHorizontalGroup(
             panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage1Layout.createSequentialGroup()
-                .addContainerGap(640, Short.MAX_VALUE)
+                .addContainerGap(538, Short.MAX_VALUE)
+                .addComponent(btnSettings)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_Ingles_main, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_spain_main, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,13 +184,18 @@ public class Menu_entrada extends javax.swing.JFrame {
         panelImage1Layout.setVerticalGroup(
             panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelImage1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btn_valencian_main, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_spain_main, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_Ingles_main, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(panelNice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelImage1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btn_valencian_main, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_spain_main, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_Ingles_main, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(panelNice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelImage1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(btnSettings)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 339, Short.MAX_VALUE)
                 .addComponent(panelCurves1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -237,18 +253,26 @@ public class Menu_entrada extends javax.swing.JFrame {
         menu.setVisible(true);
     }//GEN-LAST:event_btn_TestActionPerformed
 
+    private void btnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingsActionPerformed
+        this.dispose();
+        menu_Settings menu = new menu_Settings();
+
+        menu.setVisible(true);
+    }//GEN-LAST:event_btnSettingsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Login_Admin;
-    private javax.swing.JButton Login_Client;
-    private javax.swing.JButton Login_Tecnic;
-    private javax.swing.JButton btn_Exit;
-    private javax.swing.JButton btn_Ingles_main;
-    private javax.swing.JButton btn_Test;
-    private javax.swing.JButton btn_spain_main;
-    private javax.swing.JButton btn_valencian_main;
-    private org.edisoncor.gui.panel.PanelCurves panelCurves1;
-    private org.edisoncor.gui.panel.PanelImage panelImage1;
-    private org.edisoncor.gui.panel.PanelNice panelNice1;
+    public static javax.swing.JButton Login_Admin;
+    public static javax.swing.JButton Login_Client;
+    public static javax.swing.JButton Login_Tecnic;
+    public static javax.swing.JButton btnSettings;
+    public static javax.swing.JButton btn_Exit;
+    public static javax.swing.JButton btn_Ingles_main;
+    public static javax.swing.JButton btn_Test;
+    public static javax.swing.JButton btn_spain_main;
+    public static javax.swing.JButton btn_valencian_main;
+    public static org.edisoncor.gui.panel.PanelCurves panelCurves1;
+    public static org.edisoncor.gui.panel.PanelImage panelImage1;
+    public static org.edisoncor.gui.panel.PanelNice panelNice1;
     // End of variables declaration//GEN-END:variables
 }

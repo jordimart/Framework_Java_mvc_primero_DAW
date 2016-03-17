@@ -1,9 +1,9 @@
-package Appweb.Modules.Config.Classes.Language;
+package Appweb.Modules.Main.Model.Config.Classes.Language;
 
 import java.io.IOException;
 import java.util.Properties;
 
-import Appweb.Modules.Config.Classes.Classconfig;
+import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 
 /**
  * 

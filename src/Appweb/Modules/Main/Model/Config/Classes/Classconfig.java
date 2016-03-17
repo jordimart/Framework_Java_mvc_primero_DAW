@@ -1,12 +1,12 @@
-package Appweb.Modules.Config.Classes;
+package Appweb.Modules.Main.Model.Config.Classes;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-import Appweb.Modules.Config.Classes.Language.Lang;
-import Appweb.Modules.Config.Model.DAO_config.DAO_config;
+import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
+import Appweb.Modules.Main.Model.Config.Model.DAO_config.DAO_config;
 import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 

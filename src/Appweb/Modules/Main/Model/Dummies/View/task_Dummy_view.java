@@ -1,7 +1,7 @@
 
-package Appweb.Modules.Dummies.View;
+package Appweb.Modules.Main.Model.Dummies.View;
 
-import Appweb.Modules.Dummies.Model.BLL_Dummy.BLL_Dummies;
+import Appweb.Modules.Main.Model.Dummies.Model.BLL_Dummy.BLL_Dummies;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
 import javax.swing.JFrame;
 

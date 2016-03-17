@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-import Appweb.Modules.Config.Classes.Classconfig;
+import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Classes.Date.ClassDate;
-import Appweb.Modules.Config.Classes.Language.Lang;
+import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.General_tools.Format_tools;
 import javax.swing.Icon;
 

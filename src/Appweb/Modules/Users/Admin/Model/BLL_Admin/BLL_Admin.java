@@ -1,6 +1,6 @@
 package Appweb.Modules.Users.Admin.Model.BLL_Admin;
 
-import Appweb.Modules.Config.Classes.Language.Lang;
+import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin;
 import Appweb.Modules.Users.Admin.View.edit_Admin_view;
 import Appweb.Modules.Users.Admin.View.table_Admin_view;

@@ -1,7 +1,7 @@
 
-import Appweb.Modules.Config.Classes.Classconfig;
-import static Appweb.Modules.Config.Model.DAO_config.DAO_config.auto_open_config_json;
-import Appweb.Modules.Main.Menu_entrada;
+import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
+import static Appweb.Modules.Main.Model.Config.Model.DAO_config.DAO_config.auto_open_config_json;
+import Appweb.Modules.Main.View.Menu_entrada;
 import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin;
 
 import java.text.ParseException;

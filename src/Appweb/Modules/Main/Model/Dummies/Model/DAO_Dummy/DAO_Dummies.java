@@ -1,9 +1,9 @@
-package Appweb.Modules.Dummies.Model.DAO_Dummy;
+package Appweb.Modules.Main.Model.Dummies.Model.DAO_Dummy;
 
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 import Appweb.Classes.Date.ClassDate;
-import Appweb.Modules.Config.Classes.Language.Lang;
-import Appweb.Modules.Dummies.View.task_Dummy_view;
+import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
+import Appweb.Modules.Main.Model.Dummies.View.task_Dummy_view;
 import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 import Appweb.Modules.Users.Client.Model.Classes.Client;
@@ -426,7 +426,7 @@ public class DAO_Dummies {
         String PATH = " ";
 
         try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Dummies/files/Admin_files/dummyadminusers";
+            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/files/Admin_files/dummyadminusers";
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -463,7 +463,7 @@ public class DAO_Dummies {
         User_reg u = null;
 
         try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Dummies/files/Admin_files/dummyadminusers.json";
+            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/files/Admin_files/dummyadminusers.json";
         } catch (IOException e) {
             e.printStackTrace();
         }

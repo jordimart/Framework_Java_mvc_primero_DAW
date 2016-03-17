@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import Appweb.Modules.Config.Classes.Classconfig;
+import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 
 /**
  * 

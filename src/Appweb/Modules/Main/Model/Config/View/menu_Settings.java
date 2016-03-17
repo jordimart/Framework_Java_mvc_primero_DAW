@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Appweb.Modules.Config.View;
+package Appweb.Modules.Main.Model.Config.View;
 
-import Appweb.Modules.Config.Classes.Classconfig;
-import Appweb.Modules.Config.Model.BLL_config.BLL_config;
-import Appweb.Modules.Config.Model.DAO_config.DAO_config;
+import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
+import Appweb.Modules.Main.Model.Config.Model.BLL_config.BLL_config;
+import Appweb.Modules.Main.Model.Config.Model.DAO_config.DAO_config;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
-import static Appweb.Modules.Config.Model.DAO_config.DAO_config.open_json_config;
-import static Appweb.Modules.Config.Model.DAO_config.DAO_config.save_json_config;
+import static Appweb.Modules.Main.Model.Config.Model.DAO_config.DAO_config.open_json_config;
+import static Appweb.Modules.Main.Model.Config.Model.DAO_config.DAO_config.save_json_config;
 import javax.swing.JOptionPane;
 
 /**

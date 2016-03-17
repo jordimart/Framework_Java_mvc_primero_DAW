@@ -1,7 +1,7 @@
 package Appweb.Modules.Users.Admin.Model.DAO_Admin;
 
 import Appweb.Classes.Date.ClassDate;
-import Appweb.Modules.Config.Classes.Language.Lang;
+import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 import Appweb.Modules.Users.Admin.View.create_Admin_view;
 import Appweb.Modules.Users.Admin.Model.Classes.Admin;

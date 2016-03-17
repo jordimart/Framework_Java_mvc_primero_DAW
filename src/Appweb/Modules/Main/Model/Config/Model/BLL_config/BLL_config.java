@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Appweb.Modules.Config.Model.BLL_config;
+package Appweb.Modules.Main.Model.Config.Model.BLL_config;
 
-import Appweb.Modules.Config.Model.DAO_config.DAO_config;
+import Appweb.Modules.Main.Model.Config.Model.DAO_config.DAO_config;
 
 /**
  *

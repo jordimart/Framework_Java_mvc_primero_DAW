@@ -1,9 +1,9 @@
-package Appweb.Modules.Dummies.Model.BLL_Dummy;
+package Appweb.Modules.Main.Model.Dummies.Model.BLL_Dummy;
 
 import Appweb.General_tools.singletonapp;
-import Appweb.Modules.Config.Classes.Language.Lang;
-import Appweb.Modules.Dummies.Model.DAO_Dummy.DAO_Dummies;
-import Appweb.Modules.Dummies.View.task_Dummy_view;
+import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
+import Appweb.Modules.Main.Model.Dummies.Model.DAO_Dummy.DAO_Dummies;
+import Appweb.Modules.Main.Model.Dummies.View.task_Dummy_view;
 import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 import java.awt.Color;

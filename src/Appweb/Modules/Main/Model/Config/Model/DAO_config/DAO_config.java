@@ -1,6 +1,6 @@
-package Appweb.Modules.Config.Model.DAO_config;
+package Appweb.Modules.Main.Model.Config.Model.DAO_config;
 
-import Appweb.Modules.Config.Classes.Classconfig;
+import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,21 +26,21 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.Annotations;
 import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
 
-import Appweb.Modules.Config.Classes.Language.Lang;
-import static Appweb.Modules.Config.View.menu_Settings.Combo_Theme;
-import static Appweb.Modules.Config.View.menu_Settings.chk_curr_dollar;
-import static Appweb.Modules.Config.View.menu_Settings.chk_curr_euro;
-import static Appweb.Modules.Config.View.menu_Settings.chk_curr_pound;
-import static Appweb.Modules.Config.View.menu_Settings.chk_day_bar;
-import static Appweb.Modules.Config.View.menu_Settings.chk_day_bar2;
-import static Appweb.Modules.Config.View.menu_Settings.chk_lang_en;
-import static Appweb.Modules.Config.View.menu_Settings.chk_lang_es;
-import static Appweb.Modules.Config.View.menu_Settings.chk_lang_val;
-import static Appweb.Modules.Config.View.menu_Settings.chk_one_d;
-import static Appweb.Modules.Config.View.menu_Settings.chk_three_d;
-import static Appweb.Modules.Config.View.menu_Settings.chk_two_d;
-import static Appweb.Modules.Config.View.menu_Settings.chk_year_bar;
-import static Appweb.Modules.Config.View.menu_Settings.chk_year_bar2;
+import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
+import static Appweb.Modules.Main.Model.Config.View.menu_Settings.Combo_Theme;
+import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_curr_dollar;
+import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_curr_euro;
+import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_curr_pound;
+import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_day_bar;
+import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_day_bar2;
+import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_lang_en;
+import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_lang_es;
+import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_lang_val;
+import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_one_d;
+import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_three_d;
+import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_two_d;
+import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_year_bar;
+import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_year_bar2;
 import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
 
 
@@ -302,7 +302,7 @@ public class DAO_config {
         
 
         try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Config/Model/Files_config/appconfig";
+            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Config/Model/Files_config/appconfig";
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -345,7 +345,7 @@ public class DAO_config {
             xstream.alias("Config", Classconfig.class);
 
             try {
-                PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Config/Model/Files_config/appconfig.json";
+                PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Config/Model/Files_config/appconfig.json";
             } catch (IOException e) {
                 e.printStackTrace();
             }
