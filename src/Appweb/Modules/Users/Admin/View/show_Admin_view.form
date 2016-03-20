@@ -129,7 +129,7 @@
                               <Component id="txtActivity" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtBenefits" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="buttonAero1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAcept" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -216,7 +216,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Component id="buttonAero1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAcept" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="53" max="32767" attributes="0"/>
                   </Group>
@@ -426,12 +426,12 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labAvatar">
             </Component>
-            <Component class="org.edisoncor.gui.button.ButtonAero" name="buttonAero1">
+            <Component class="org.edisoncor.gui.button.ButtonAero" name="btnAcept">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Aceptar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAero1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAceptActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

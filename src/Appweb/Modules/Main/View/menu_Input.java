@@ -22,7 +22,7 @@ public class menu_Input extends javax.swing.JFrame {
      */
     public menu_Input() {
         initComponents();
-
+/**
         this.setTitle("Menu Login");
         this.setLocationRelativeTo(null);
         this.setSize(1000, 650);//ancho x alto
@@ -36,20 +36,21 @@ public class menu_Input extends javax.swing.JFrame {
                 exit();
             }
         });
+        * */
     }
 
     /**
      * eixir de l'aplicació
      */
-    private void exit() {
+   // private void exit() {
 
         
 
-        JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
-                JOptionPane.INFORMATION_MESSAGE);
-        dispose();
-        System.exit(0);
-    }
+       // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
+               // JOptionPane.INFORMATION_MESSAGE);
+        //dispose();
+        //System.exit(0);
+   // }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -218,44 +219,44 @@ public class menu_Input extends javax.swing.JFrame {
 
     private void Login_AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login_AdminActionPerformed
 
-        this.dispose();
-        task_Admin_view menu = new task_Admin_view();
-        menu.setVisible(true);
+        //this.dispose();
+        //task_Admin_view menu = new task_Admin_view();
+       // menu.setVisible(true);
 
 
     }//GEN-LAST:event_Login_AdminActionPerformed
 
     private void btn_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ExitActionPerformed
 
-        exit();
+        //exit();
     }//GEN-LAST:event_btn_ExitActionPerformed
 
     private void btn_English_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_English_mainActionPerformed
 
-        BLL_config.language_english();
+       // BLL_config.language_english();
     }//GEN-LAST:event_btn_English_mainActionPerformed
 
     private void btn_spain_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_spain_mainActionPerformed
 
-        BLL_config.language_spanish();
+        //BLL_config.language_spanish();
     }//GEN-LAST:event_btn_spain_mainActionPerformed
 
     private void btn_valencian_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_valencian_mainActionPerformed
 
-        BLL_config.language_valencian();
+       // BLL_config.language_valencian();
     }//GEN-LAST:event_btn_valencian_mainActionPerformed
 
     private void btn_TestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TestActionPerformed
-        this.dispose();
-        task_Dummy_view menu = new task_Dummy_view();
-        menu.setVisible(true);
+       // this.dispose();
+       // task_Dummy_view menu = new task_Dummy_view();
+       // menu.setVisible(true);
     }//GEN-LAST:event_btn_TestActionPerformed
 
     private void btnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingsActionPerformed
-        this.dispose();
-        menu_Settings menu = new menu_Settings();
+        //this.dispose();
+        //menu_Settings menu = new menu_Settings();
 
-        menu.setVisible(true);
+       // menu.setVisible(true);
     }//GEN-LAST:event_btnSettingsActionPerformed
 
 

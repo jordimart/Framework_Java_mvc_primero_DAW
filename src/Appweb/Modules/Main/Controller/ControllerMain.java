@@ -3,6 +3,7 @@ package Appweb.Modules.Main.Controller;
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.Model.Config.Model.BLL_config.BLL_config;
+import static Appweb.Modules.Main.Model.Config.Model.DAO_config.DAO_config.auto_open_config_json;
 import Appweb.Modules.Main.Model.Config.View.menu_Settings;
 import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_curr_euro;
 import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_day_bar;
@@ -11,6 +12,8 @@ import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_one_d;
 import Appweb.Modules.Main.Model.Dummies.Model.BLL_Dummy.BLL_Dummies;
 import Appweb.Modules.Main.Model.Dummies.View.task_Dummy_view;
 import Appweb.Modules.Main.View.menu_Input;
+import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
+import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
 import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
 import java.awt.event.ActionEvent;
@@ -73,6 +76,9 @@ public class ControllerMain implements ActionListener {
     public void Start(int i) {
         if (i == 0) {
 
+            auto_open_config_json();
+            DAO_Admin.auto_open_json_admin();
+            Login.setVisible(true);
             Login.setTitle("Menu Login");
             Login.setLocationRelativeTo(null);
             Login.setSize(1000, 650);//ancho x alto
@@ -111,14 +117,15 @@ public class ControllerMain implements ActionListener {
         }
         if (i == 1) {
 
+            Settings.setVisible(true);
             Settings.setTitle("Menu Settings");
             Settings.setLocationRelativeTo(null);
             Settings.setSize(980, 800);//ancho x alto
             Settings.setResizable(false);
-            chk_day_bar.setSelected(true);
-            chk_one_d.setSelected(true);
-            chk_curr_euro.setSelected(true);
-            chk_lang_en.setSelected(true);
+            Settings.chk_day_bar.setSelected(true);
+            Settings.chk_one_d.setSelected(true);
+            Settings.chk_curr_euro.setSelected(true);
+            Settings.chk_lang_en.setSelected(true);
 
             Settings.btn_Accept_Settings.setActionCommand("btn_Accept_Settings");
             Settings.btn_Accept_Settings.addActionListener(this);
@@ -149,7 +156,8 @@ public class ControllerMain implements ActionListener {
 
         if (i == 2) {
 
-            Dummies.setTitle("Menu Login");
+            Dummies.setVisible(true);
+            Dummies.setTitle("Menu Test");
             Dummies.setLocationRelativeTo(null);
             Dummies.setSize(1000, 650);//ancho x alto
             //this.setResizable(false);
@@ -186,22 +194,27 @@ public class ControllerMain implements ActionListener {
         switch (Action_menu.valueOf(ae.getActionCommand())) {
 
             case btnAdminlogin:
+                Login.dispose();
+                new ControllerAdmin(new task_Admin_view(), 0).Start(0);
 
                 break;
             case btnUser_reglogin:
 
                 break;
             case btnTestlogin:
+                Login.dispose();
+                new ControllerMain(new task_Dummy_view(), 2).Start(2);
 
                 break;
             case btnSettings:
-
-                new ControllerMain(new menu_Settings(), 1).Start(1);
-
                 Login.dispose();
+                new ControllerMain(new menu_Settings(), 1).Start(1);
 
                 break;
             case btnExit:
+                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
+                        JOptionPane.INFORMATION_MESSAGE);
+
                 System.exit(0);
                 break;
             case btn_Accept_Settings:
@@ -214,8 +227,8 @@ public class ControllerMain implements ActionListener {
                 BLL_config.open_config_json();
                 break;
             case btn_Return_Settings:
-                new ControllerMain(new menu_Input(), 0).Start(0);//abrimos ventana 
 
+                new ControllerMain(new menu_Input(), 0).Start(0);
                 Settings.dispose();
                 break;
             case btn_Save_setting:
@@ -232,8 +245,8 @@ public class ControllerMain implements ActionListener {
                 break;
             case btnEntry_admin:
                 Dummies.dispose();
-                task_Admin_view menu = new task_Admin_view();
-                menu.setVisible(true);
+
+                new ControllerAdmin(new task_Admin_view(), 0).Start(0);
 
                 break;
             case btnEntry_client:

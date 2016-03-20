@@ -70,7 +70,7 @@ public class show_Admin_view extends javax.swing.JFrame {
         txtStatus = new org.edisoncor.gui.textField.TextField();
         txtPassword = new org.edisoncor.gui.textField.TextField();
         labAvatar = new javax.swing.JLabel();
-        buttonAero1 = new org.edisoncor.gui.button.ButtonAero();
+        btnAcept = new org.edisoncor.gui.button.ButtonAero();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1000, 650));
@@ -155,10 +155,10 @@ public class show_Admin_view extends javax.swing.JFrame {
         txtPassword.setEditable(false);
         txtPassword.setPreferredSize(new java.awt.Dimension(65, 22));
 
-        buttonAero1.setText("Aceptar");
-        buttonAero1.addActionListener(new java.awt.event.ActionListener() {
+        btnAcept.setText("Aceptar");
+        btnAcept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAero1ActionPerformed(evt);
+                btnAceptActionPerformed(evt);
             }
         });
 
@@ -208,7 +208,7 @@ public class show_Admin_view extends javax.swing.JFrame {
                         .addComponent(txtSalary, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtActivity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtBenefits, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(buttonAero1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAcept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelRect1Layout.setVerticalGroup(
@@ -275,7 +275,7 @@ public class show_Admin_view extends javax.swing.JFrame {
                             .addGroup(panelRect1Layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addComponent(labAvatar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addComponent(buttonAero1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAcept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
 
@@ -314,17 +314,16 @@ public class show_Admin_view extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonAero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAero1ActionPerformed
+    private void btnAceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptActionPerformed
         this.dispose();
-       // table_Admin_view menu = new table_Admin_view();
-        //menu.setVisible(true);
+       
         
-    }//GEN-LAST:event_buttonAero1ActionPerformed
+    }//GEN-LAST:event_btnAceptActionPerformed
 
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static org.edisoncor.gui.button.ButtonAero buttonAero1;
+    public static org.edisoncor.gui.button.ButtonAero btnAcept;
     public static javax.swing.JLabel labAvatar;
     public static org.edisoncor.gui.label.LabelHeader labelHeader1;
     public static org.edisoncor.gui.label.LabelHeader labelHeader10;

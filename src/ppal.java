@@ -1,4 +1,5 @@
 
+import Appweb.Modules.Main.Controller.ControllerMain;
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import static Appweb.Modules.Main.Model.Config.Model.DAO_config.DAO_config.auto_open_config_json;
 import Appweb.Modules.Main.View.menu_Input;
@@ -17,10 +18,10 @@ public class ppal {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             Classconfig.getInstance();
-            auto_open_config_json();
-            DAO_Admin.auto_open_json_admin();
+            
 
-            new menu_Input().setVisible(true);
+            new ControllerMain(new menu_Input(),0).Start(0);
+           // new menu_Input().setVisible(true);
         });
     }
 }

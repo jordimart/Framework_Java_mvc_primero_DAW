@@ -6,7 +6,6 @@
 package Appweb.Modules.Main.Model.Config.View;
 
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
-import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.Model.Config.Model.BLL_config.BLL_config;
 import Appweb.Modules.Main.View.menu_Input;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
@@ -26,6 +25,8 @@ public class menu_Settings extends javax.swing.JFrame {
      */
     public menu_Settings() {
         initComponents();
+        
+        /**
         this.setTitle("Menu Settings");
         this.setLocationRelativeTo(null);
         this.setSize(980, 800);//ancho x alto
@@ -46,6 +47,8 @@ public class menu_Settings extends javax.swing.JFrame {
 
             }
         });
+        * 
+        * */
     }
     
     
@@ -410,27 +413,27 @@ public class menu_Settings extends javax.swing.JFrame {
 
     private void btn_Return_SettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Return_SettingsActionPerformed
 
-        this.dispose();
-        task_Admin_view menu = new task_Admin_view();
-        menu.setVisible(true);
+       // this.dispose();
+       // task_Admin_view menu = new task_Admin_view();
+       // menu.setVisible(true);
     }//GEN-LAST:event_btn_Return_SettingsActionPerformed
 
     private void btn_Accept_SettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Accept_SettingsActionPerformed
 
-        BLL_config.Configuration_accept();
-        BLL_config.auto_save_config_json();
+       // BLL_config.Configuration_accept();
+       // BLL_config.auto_save_config_json();
     }//GEN-LAST:event_btn_Accept_SettingsActionPerformed
 
     private void btn_Load_SettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Load_SettingsActionPerformed
-        BLL_config.open_config_json();
+       // BLL_config.open_config_json();
     }//GEN-LAST:event_btn_Load_SettingsActionPerformed
 
     private void btn_Save_settingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Save_settingActionPerformed
-        BLL_config.save_config_json();
+       // BLL_config.save_config_json();
     }//GEN-LAST:event_btn_Save_settingActionPerformed
 
     private void btn_ShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ShowActionPerformed
-        JOptionPane.showMessageDialog(null, Classconfig.getInstance().tostring());
+        //JOptionPane.showMessageDialog(null, Classconfig.getInstance().tostring());
     }//GEN-LAST:event_btn_ShowActionPerformed
 
 

@@ -16,14 +16,14 @@ public class task_Dummy_view extends javax.swing.JFrame {
      */
     public task_Dummy_view() {
         initComponents();
-        
+       /** 
         this.setTitle("Menu Login");
 	this.setLocationRelativeTo(null);
 	this.setSize(1000,650);//ancho x alto
 	//this.setResizable(false);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         
-        ///
+        */
     }
 
    
