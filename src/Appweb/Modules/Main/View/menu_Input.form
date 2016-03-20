@@ -53,7 +53,7 @@
                   <EmptySpace pref="538" max="32767" attributes="0"/>
                   <Component id="btnSettings" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btn_Ingles_main" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="btn_English_main" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btn_spain_main" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -75,7 +75,7 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btn_valencian_main" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                                   <Component id="btn_spain_main" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                                  <Component id="btn_Ingles_main" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="btn_English_main" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                               </Group>
                               <Component id="panelNice1" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -101,7 +101,7 @@
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="Login_Admin" alignment="0" pref="146" max="32767" attributes="0"/>
-                          <Component id="Login_Tecnic" alignment="0" max="32767" attributes="0"/>
+                          <Component id="Login_User_reg" alignment="0" max="32767" attributes="0"/>
                           <Component id="Login_Client" alignment="0" max="32767" attributes="0"/>
                           <Component id="btn_Exit" max="32767" attributes="0"/>
                           <Component id="btn_Test" max="32767" attributes="0"/>
@@ -116,7 +116,7 @@
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="Login_Admin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="Login_Tecnic" min="-2" max="-2" attributes="0"/>
+                      <Component id="Login_User_reg" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="Login_Client" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -137,9 +137,9 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Login_AdminActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="Login_Tecnic">
+            <Component class="javax.swing.JButton" name="Login_User_reg">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Entrada Tecnico"/>
+                <Property name="text" type="java.lang.String" value="Entrada User_reg"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="Login_Client">
@@ -189,7 +189,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_spain_mainActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_Ingles_main">
+        <Component class="javax.swing.JButton" name="btn_English_main">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Appweb/Modules/Main/img/United Kingdom48x48.png"/>
@@ -199,7 +199,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_Ingles_mainActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_English_mainActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnSettings">

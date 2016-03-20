@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Appweb.Modules.Users.Admin.View;
 
 import Appweb.Modules.Main.Model.Config.View.menu_Settings;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
-import Appweb.Modules.Main.View.Menu_entrada;
+import Appweb.Modules.Main.View.menu_Input;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
@@ -36,7 +32,7 @@ public class task_Admin_view extends javax.swing.JFrame {
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 dispose();
-                Menu_entrada menu = new Menu_entrada();
+                menu_Input menu = new menu_Input();
 
                 menu.setVisible(true);
 
@@ -45,13 +41,7 @@ public class task_Admin_view extends javax.swing.JFrame {
 
     }
 
-    private void exit() {
-
-        JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
-                JOptionPane.INFORMATION_MESSAGE);
-        dispose();
-        System.exit(0);
-    }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -184,7 +174,7 @@ public class task_Admin_view extends javax.swing.JFrame {
     private void btn_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VolverActionPerformed
 
         this.dispose();
-        Menu_entrada menu = new Menu_entrada();
+        menu_Input menu = new menu_Input();
 
         menu.setVisible(true);
     }//GEN-LAST:event_btn_VolverActionPerformed
@@ -200,14 +190,14 @@ public class task_Admin_view extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.edisoncor.gui.button.ButtonAction btn_Config;
-    private org.edisoncor.gui.button.ButtonAction btn_Volver;
-    private org.edisoncor.gui.button.ButtonAction btn_ges_averias;
-    private org.edisoncor.gui.button.ButtonAction btn_ges_inst;
-    private org.edisoncor.gui.button.ButtonAction btn_ges_users;
-    private org.edisoncor.gui.label.LabelHeader lab_Admin_menu;
-    private org.edisoncor.gui.panel.PanelCurves panelCurves1;
-    private org.edisoncor.gui.panel.PanelImage panelImage1;
-    private org.edisoncor.gui.panel.PanelRect panelRect1;
+    public static org.edisoncor.gui.button.ButtonAction btn_Config;
+    public static org.edisoncor.gui.button.ButtonAction btn_Volver;
+    public static org.edisoncor.gui.button.ButtonAction btn_ges_averias;
+    public static org.edisoncor.gui.button.ButtonAction btn_ges_inst;
+    public static org.edisoncor.gui.button.ButtonAction btn_ges_users;
+    public static org.edisoncor.gui.label.LabelHeader lab_Admin_menu;
+    public static org.edisoncor.gui.panel.PanelCurves panelCurves1;
+    public static org.edisoncor.gui.panel.PanelImage panelImage1;
+    public static org.edisoncor.gui.panel.PanelRect panelRect1;
     // End of variables declaration//GEN-END:variables
 }

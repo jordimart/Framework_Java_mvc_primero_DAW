@@ -43,8 +43,8 @@ public class task_Dummy_view extends javax.swing.JFrame {
         comboDummy_admin = new javax.swing.JComboBox<>();
         panelRound2 = new org.edisoncor.gui.panel.PanelRound();
         btnEntry_admin = new org.edisoncor.gui.button.ButtonRound();
-        buttonRound4 = new org.edisoncor.gui.button.ButtonRound();
-        buttonRound5 = new org.edisoncor.gui.button.ButtonRound();
+        btnEntry_client = new org.edisoncor.gui.button.ButtonRound();
+        btnEntry_user_reg = new org.edisoncor.gui.button.ButtonRound();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -123,9 +123,9 @@ public class task_Dummy_view extends javax.swing.JFrame {
             }
         });
 
-        buttonRound4.setText("Entrada Cliente");
+        btnEntry_client.setText("Entrada Cliente");
 
-        buttonRound5.setText("Entrada Usuario registrado");
+        btnEntry_user_reg.setText("Entrada Usuario registrado");
 
         javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
         panelRound2.setLayout(panelRound2Layout);
@@ -135,9 +135,9 @@ public class task_Dummy_view extends javax.swing.JFrame {
                 .addGap(160, 160, 160)
                 .addComponent(btnEntry_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(76, 76, 76)
-                .addComponent(buttonRound4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEntry_client, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(81, 81, 81)
-                .addComponent(buttonRound5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEntry_user_reg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(168, Short.MAX_VALUE))
         );
         panelRound2Layout.setVerticalGroup(
@@ -146,8 +146,8 @@ public class task_Dummy_view extends javax.swing.JFrame {
                 .addContainerGap(39, Short.MAX_VALUE)
                 .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEntry_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonRound4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonRound5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnEntry_client, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEntry_user_reg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37))
         );
 
@@ -213,8 +213,8 @@ public class task_Dummy_view extends javax.swing.JFrame {
     public static org.edisoncor.gui.button.ButtonRound btnCreate_dummis_admin;
     public static org.edisoncor.gui.button.ButtonRound btnDelete_all_admin;
     public static org.edisoncor.gui.button.ButtonRound btnEntry_admin;
-    public static org.edisoncor.gui.button.ButtonRound buttonRound4;
-    public static org.edisoncor.gui.button.ButtonRound buttonRound5;
+    public static org.edisoncor.gui.button.ButtonRound btnEntry_client;
+    public static org.edisoncor.gui.button.ButtonRound btnEntry_user_reg;
     public static javax.swing.JComboBox<String> comboDummy_admin;
     public static javax.swing.JLabel labStatus_dummie_admin;
     public static org.edisoncor.gui.label.LabelRound labelRound1;

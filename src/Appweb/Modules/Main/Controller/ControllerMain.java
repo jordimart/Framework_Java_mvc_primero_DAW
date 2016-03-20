@@ -1,14 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Appweb.Modules.Main.Controller;
 
+import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
+import Appweb.Modules.Main.Model.Config.Model.BLL_config.BLL_config;
 import Appweb.Modules.Main.Model.Config.View.menu_Settings;
+import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_curr_euro;
+import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_day_bar;
+import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_lang_en;
+import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_one_d;
+import Appweb.Modules.Main.Model.Dummies.Model.BLL_Dummy.BLL_Dummies;
 import Appweb.Modules.Main.Model.Dummies.View.task_Dummy_view;
-import Appweb.Modules.Main.View.Menu_entrada;
+import Appweb.Modules.Main.View.menu_Input;
+import Appweb.Modules.Users.Admin.View.task_Admin_view;
 import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,14 +27,14 @@ import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
  */
 public class ControllerMain implements ActionListener {
 
-    public static Menu_entrada Login = new Menu_entrada();
+    public static menu_Input Login = new menu_Input();
     public static menu_Settings Settings = new menu_Settings();
     public static task_Dummy_view Dummies = new task_Dummy_view();
 
     public ControllerMain(JFrame start, int i) {
 
         if (i == 0) {
-            Login = (Menu_entrada) start;
+            Login = (menu_Input) start;
         }
         if (i == 1) {
             Settings = (menu_Settings) start;
@@ -41,17 +44,33 @@ public class ControllerMain implements ActionListener {
         }
     }
 
-    public enum Action {
+    public enum Action_menu {
 
-        //botones de cambio de vista//
+        //botones de cambio de menu//
         btnAdminlogin,
-        // btnClientlogin,
-        // btnUser_reglogin,
+        btnClientlogin,
+        btnUser_reglogin,
         btnTestlogin,
-        btnSettings
+        btnSettings,
+        btnExit,
+        //botones de menu config//
+
+        btn_Accept_Settings,
+        btn_Load_Settings,
+        btn_Return_Settings,
+        btn_Save_setting,
+        btn_Show,
+        //botones de menu Dummies//
+
+        btnCreate_dummis_admin,
+        btnDelete_all_admin,
+        btnEntry_admin,
+        btnEntry_client,
+        btnEntry_user_reg
+
     }
 
-    public void start(int i) {
+    public void Start(int i) {
         if (i == 0) {
 
             Login.setTitle("Menu Login");
@@ -61,15 +80,25 @@ public class ControllerMain implements ActionListener {
 
             Login.Login_Admin.setActionCommand("btnAdminlogin");
             Login.Login_Admin.addActionListener(this);
-            
+
             Login.btnSettings.setActionCommand("btnSettings");
             Login.btnSettings.addActionListener(this);
-            
+
             Login.btn_Test.setActionCommand("btnTestlogin");
             Login.btn_Test.addActionListener(this);
-            
-            
-            
+
+            Login.Login_Client.setActionCommand("btnClientlogin");
+            Login.Login_Client.addActionListener(this);
+
+            Login.Login_User_reg.setActionCommand("btnUser_reglogin");
+            Login.Login_User_reg.addActionListener(this);
+
+            Login.btn_Exit.setActionCommand("btnExit");
+            Login.btn_Exit.addActionListener(this);
+
+            Login.btn_English_main.setActionCommand("btnLanguage_English");
+            Login.btn_English_main.addActionListener(this);
+
             Login.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
@@ -80,12 +109,140 @@ public class ControllerMain implements ActionListener {
                 }
             });
         }
+        if (i == 1) {
 
+            Settings.setTitle("Menu Settings");
+            Settings.setLocationRelativeTo(null);
+            Settings.setSize(980, 800);//ancho x alto
+            Settings.setResizable(false);
+            chk_day_bar.setSelected(true);
+            chk_one_d.setSelected(true);
+            chk_curr_euro.setSelected(true);
+            chk_lang_en.setSelected(true);
+
+            Settings.btn_Accept_Settings.setActionCommand("btn_Accept_Settings");
+            Settings.btn_Accept_Settings.addActionListener(this);
+
+            Settings.btn_Load_Settings.setActionCommand("btn_Load_Settings");
+            Settings.btn_Load_Settings.addActionListener(this);
+
+            Settings.btn_Return_Settings.setActionCommand("btn_Return_Settings");
+            Settings.btn_Return_Settings.addActionListener(this);
+
+            Settings.btn_Save_setting.setActionCommand("btn_Save_setting");
+            Settings.btn_Save_setting.addActionListener(this);
+
+            Settings.btn_Show.setActionCommand("btn_Show");
+            Settings.btn_Show.addActionListener(this);
+
+            Settings.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e) {
+
+                    new ControllerMain(new menu_Input(), 0).Start(0);
+
+                    Settings.dispose();
+
+                }
+            });
+        }
+
+        if (i == 2) {
+
+            Dummies.setTitle("Menu Login");
+            Dummies.setLocationRelativeTo(null);
+            Dummies.setSize(1000, 650);//ancho x alto
+            //this.setResizable(false);
+            Dummies.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+            Dummies.btnCreate_dummis_admin.setActionCommand("btnCreate_dummis_admin");
+            Dummies.btnCreate_dummis_admin.addActionListener(this);
+
+            Dummies.btnDelete_all_admin.setActionCommand("btnDelete_all_admin");
+            Dummies.btnDelete_all_admin.addActionListener(this);
+
+            Dummies.btnEntry_admin.setActionCommand("btnEntry_admin");
+            Dummies.btnEntry_admin.addActionListener(this);
+
+            Dummies.btnEntry_client.setActionCommand("btnEntry_client");
+            Dummies.btnEntry_client.addActionListener(this);
+
+            Dummies.btnEntry_user_reg.setActionCommand("btnEntry_user_reg");
+            Dummies.btnEntry_user_reg.addActionListener(this);
+
+            Dummies.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e) {
+                    new ControllerMain(new menu_Input(), 0).Start(0);
+
+                    Dummies.dispose();
+
+                }
+            });
+        }
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void actionPerformed(ActionEvent ae) {
+        switch (Action_menu.valueOf(ae.getActionCommand())) {
 
+            case btnAdminlogin:
+
+                break;
+            case btnUser_reglogin:
+
+                break;
+            case btnTestlogin:
+
+                break;
+            case btnSettings:
+
+                new ControllerMain(new menu_Settings(), 1).Start(1);
+
+                Login.dispose();
+
+                break;
+            case btnExit:
+                System.exit(0);
+                break;
+            case btn_Accept_Settings:
+
+                BLL_config.Configuration_accept();
+                BLL_config.auto_save_config_json();
+
+                break;
+            case btn_Load_Settings:
+                BLL_config.open_config_json();
+                break;
+            case btn_Return_Settings:
+                new ControllerMain(new menu_Input(), 0).Start(0);//abrimos ventana 
+
+                Settings.dispose();
+                break;
+            case btn_Save_setting:
+                BLL_config.save_config_json();
+                break;
+            case btn_Show:
+                JOptionPane.showMessageDialog(null, Classconfig.getInstance().tostring());
+                break;
+            case btnCreate_dummis_admin:
+                BLL_Dummies.create_Dummy_admin();
+                break;
+            case btnDelete_all_admin:
+                BLL_Dummies.Delete_all_admin_dummies();
+                break;
+            case btnEntry_admin:
+                Dummies.dispose();
+                task_Admin_view menu = new task_Admin_view();
+                menu.setVisible(true);
+
+                break;
+            case btnEntry_client:
+
+                break;
+            case btnEntry_user_reg:
+
+                break;
+        }
+
+    }
 }

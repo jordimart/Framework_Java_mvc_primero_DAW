@@ -6,12 +6,14 @@
 package Appweb.Modules.Main.Model.Config.View;
 
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
+import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.Model.Config.Model.BLL_config.BLL_config;
-import Appweb.Modules.Main.Model.Config.Model.DAO_config.DAO_config;
+import Appweb.Modules.Main.View.menu_Input;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
-import static Appweb.Modules.Main.Model.Config.Model.DAO_config.DAO_config.open_json_config;
-import static Appweb.Modules.Main.Model.Config.Model.DAO_config.DAO_config.save_json_config;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 /**
  *
@@ -33,7 +35,21 @@ public class menu_Settings extends javax.swing.JFrame {
         chk_curr_euro.setSelected(true);
         chk_lang_en.setSelected(true);
         ///
+        
+         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                dispose();
+                menu_Input menu = new menu_Input();
+
+                menu.setVisible(true);
+
+            }
+        });
     }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -78,8 +94,8 @@ public class menu_Settings extends javax.swing.JFrame {
         btn_Accept_Settings = new org.edisoncor.gui.button.ButtonAction();
         btn_Load_Settings = new org.edisoncor.gui.button.ButtonAction();
         btn_Return_Settings = new org.edisoncor.gui.button.ButtonAction();
-        btnsave_setting = new org.edisoncor.gui.button.ButtonAction();
-        buttonAction1 = new org.edisoncor.gui.button.ButtonAction();
+        btn_Save_setting = new org.edisoncor.gui.button.ButtonAction();
+        btn_Show = new org.edisoncor.gui.button.ButtonAction();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -296,17 +312,17 @@ public class menu_Settings extends javax.swing.JFrame {
             }
         });
 
-        btnsave_setting.setText("Guardar");
-        btnsave_setting.addActionListener(new java.awt.event.ActionListener() {
+        btn_Save_setting.setText("Guardar");
+        btn_Save_setting.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnsave_settingActionPerformed(evt);
+                btn_Save_settingActionPerformed(evt);
             }
         });
 
-        buttonAction1.setText("Mostrar");
-        buttonAction1.addActionListener(new java.awt.event.ActionListener() {
+        btn_Show.setText("Mostrar");
+        btn_Show.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAction1ActionPerformed(evt);
+                btn_ShowActionPerformed(evt);
             }
         });
 
@@ -329,8 +345,8 @@ public class menu_Settings extends javax.swing.JFrame {
                     .addComponent(btn_Accept_Settings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Load_Settings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Return_Settings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnsave_setting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAction1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_Save_setting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Show, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         panelRectTranslucido1Layout.setVerticalGroup(
@@ -347,9 +363,9 @@ public class menu_Settings extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btn_Load_Settings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnsave_setting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Save_setting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(buttonAction1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Show, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
                         .addComponent(btn_Return_Settings, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
@@ -409,22 +425,22 @@ public class menu_Settings extends javax.swing.JFrame {
         BLL_config.open_config_json();
     }//GEN-LAST:event_btn_Load_SettingsActionPerformed
 
-    private void btnsave_settingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsave_settingActionPerformed
+    private void btn_Save_settingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Save_settingActionPerformed
         BLL_config.save_config_json();
-    }//GEN-LAST:event_btnsave_settingActionPerformed
+    }//GEN-LAST:event_btn_Save_settingActionPerformed
 
-    private void buttonAction1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction1ActionPerformed
+    private void btn_ShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ShowActionPerformed
         JOptionPane.showMessageDialog(null, Classconfig.getInstance().tostring());
-    }//GEN-LAST:event_buttonAction1ActionPerformed
+    }//GEN-LAST:event_btn_ShowActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JComboBox<String> Combo_Theme;
-    private org.edisoncor.gui.button.ButtonAction btn_Accept_Settings;
-    private org.edisoncor.gui.button.ButtonAction btn_Load_Settings;
-    private org.edisoncor.gui.button.ButtonAction btn_Return_Settings;
-    private org.edisoncor.gui.button.ButtonAction btnsave_setting;
-    private org.edisoncor.gui.button.ButtonAction buttonAction1;
+    public static org.edisoncor.gui.button.ButtonAction btn_Accept_Settings;
+    public static org.edisoncor.gui.button.ButtonAction btn_Load_Settings;
+    public static org.edisoncor.gui.button.ButtonAction btn_Return_Settings;
+    public static org.edisoncor.gui.button.ButtonAction btn_Save_setting;
+    public static org.edisoncor.gui.button.ButtonAction btn_Show;
     public static javax.swing.JRadioButton chk_curr_dollar;
     public static javax.swing.JRadioButton chk_curr_euro;
     public static javax.swing.JRadioButton chk_curr_pound;
@@ -442,18 +458,18 @@ public class menu_Settings extends javax.swing.JFrame {
     public static javax.swing.ButtonGroup group_date;
     public static javax.swing.ButtonGroup group_dec;
     public static javax.swing.ButtonGroup group_language;
-    private org.edisoncor.gui.label.LabelHeader labelHeader1;
-    private org.edisoncor.gui.label.LabelHeader labelHeader2;
-    private org.edisoncor.gui.label.LabelHeader labelHeader3;
-    private org.edisoncor.gui.label.LabelHeader labelHeader4;
-    private org.edisoncor.gui.label.LabelHeader labelHeader5;
-    private org.edisoncor.gui.panel.PanelCurves panelCurves1;
-    private org.edisoncor.gui.panel.PanelImage panelImage1;
-    private org.edisoncor.gui.panel.PanelRectTranslucido panelRectTranslucido1;
-    private org.edisoncor.gui.panel.PanelRound panelRound1;
-    private org.edisoncor.gui.panel.PanelRound panelRound2;
-    private org.edisoncor.gui.panel.PanelRound panelRound3;
-    private org.edisoncor.gui.panel.PanelRound panelRound4;
-    private org.edisoncor.gui.panel.PanelRound panelRound5;
+    public static org.edisoncor.gui.label.LabelHeader labelHeader1;
+    public static org.edisoncor.gui.label.LabelHeader labelHeader2;
+    public static org.edisoncor.gui.label.LabelHeader labelHeader3;
+    public static org.edisoncor.gui.label.LabelHeader labelHeader4;
+    public static org.edisoncor.gui.label.LabelHeader labelHeader5;
+    public static org.edisoncor.gui.panel.PanelCurves panelCurves1;
+    public static org.edisoncor.gui.panel.PanelImage panelImage1;
+    public static org.edisoncor.gui.panel.PanelRectTranslucido panelRectTranslucido1;
+    public static org.edisoncor.gui.panel.PanelRound panelRound1;
+    public static org.edisoncor.gui.panel.PanelRound panelRound2;
+    public static org.edisoncor.gui.panel.PanelRound panelRound3;
+    public static org.edisoncor.gui.panel.PanelRound panelRound4;
+    public static org.edisoncor.gui.panel.PanelRound panelRound5;
     // End of variables declaration//GEN-END:variables
 }

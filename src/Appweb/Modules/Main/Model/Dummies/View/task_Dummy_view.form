@@ -202,9 +202,9 @@
                       <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
                       <Component id="btnEntry_admin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                      <Component id="buttonRound4" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnEntry_client" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                      <Component id="buttonRound5" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnEntry_user_reg" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="168" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -215,8 +215,8 @@
                       <EmptySpace pref="39" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnEntry_admin" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonRound4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonRound5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnEntry_client" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnEntry_user_reg" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   </Group>
@@ -232,12 +232,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEntry_adminActionPerformed"/>
               </Events>
             </Component>
-            <Component class="org.edisoncor.gui.button.ButtonRound" name="buttonRound4">
+            <Component class="org.edisoncor.gui.button.ButtonRound" name="btnEntry_client">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Entrada Cliente"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.button.ButtonRound" name="buttonRound5">
+            <Component class="org.edisoncor.gui.button.ButtonRound" name="btnEntry_user_reg">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Entrada Usuario registrado"/>
               </Properties>

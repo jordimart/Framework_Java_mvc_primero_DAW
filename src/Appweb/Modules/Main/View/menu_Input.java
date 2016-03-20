@@ -4,10 +4,8 @@ package Appweb.Modules.Main.View;
 import Appweb.Modules.Main.Model.Dummies.View.task_Dummy_view;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.Model.Config.Model.BLL_config.BLL_config;
-import Appweb.Modules.Main.Model.Config.Model.DAO_config.DAO_config;
 import Appweb.Modules.Main.Model.Config.View.menu_Settings;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
-import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
@@ -17,12 +15,12 @@ import javax.swing.JOptionPane;
  *
  * @author ASUSG50V
  */
-public class Menu_entrada extends javax.swing.JFrame {
+public class menu_Input extends javax.swing.JFrame {
 
     /**
      * Creates new form Menu_entrada
      */
-    public Menu_entrada() {
+    public menu_Input() {
         initComponents();
 
         this.setTitle("Menu Login");
@@ -65,14 +63,14 @@ public class Menu_entrada extends javax.swing.JFrame {
         panelImage1 = new org.edisoncor.gui.panel.PanelImage();
         panelNice1 = new org.edisoncor.gui.panel.PanelNice();
         Login_Admin = new javax.swing.JButton();
-        Login_Tecnic = new javax.swing.JButton();
+        Login_User_reg = new javax.swing.JButton();
         Login_Client = new javax.swing.JButton();
         btn_Exit = new javax.swing.JButton();
         btn_Test = new javax.swing.JButton();
         panelCurves1 = new org.edisoncor.gui.panel.PanelCurves();
         btn_valencian_main = new javax.swing.JButton();
         btn_spain_main = new javax.swing.JButton();
-        btn_Ingles_main = new javax.swing.JButton();
+        btn_English_main = new javax.swing.JButton();
         btnSettings = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,7 +84,7 @@ public class Menu_entrada extends javax.swing.JFrame {
             }
         });
 
-        Login_Tecnic.setText("Entrada Tecnico");
+        Login_User_reg.setText("Entrada User_reg");
 
         Login_Client.setText("Entrada Cliente");
 
@@ -111,8 +109,8 @@ public class Menu_entrada extends javax.swing.JFrame {
             .addGroup(panelNice1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Login_Admin, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                    .addComponent(Login_Tecnic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Login_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 146, Short.MAX_VALUE)
+                    .addComponent(Login_User_reg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Login_Client, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_Test, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -124,7 +122,7 @@ public class Menu_entrada extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(Login_Admin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Login_Tecnic)
+                .addComponent(Login_User_reg)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Login_Client)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -148,11 +146,11 @@ public class Menu_entrada extends javax.swing.JFrame {
             }
         });
 
-        btn_Ingles_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Main/img/United Kingdom48x48.png"))); // NOI18N
-        btn_Ingles_main.setPreferredSize(new java.awt.Dimension(48, 48));
-        btn_Ingles_main.addActionListener(new java.awt.event.ActionListener() {
+        btn_English_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Main/img/United Kingdom48x48.png"))); // NOI18N
+        btn_English_main.setPreferredSize(new java.awt.Dimension(48, 48));
+        btn_English_main.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_Ingles_mainActionPerformed(evt);
+                btn_English_mainActionPerformed(evt);
             }
         });
 
@@ -171,7 +169,7 @@ public class Menu_entrada extends javax.swing.JFrame {
                 .addContainerGap(538, Short.MAX_VALUE)
                 .addComponent(btnSettings)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_Ingles_main, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_English_main, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_spain_main, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -191,7 +189,7 @@ public class Menu_entrada extends javax.swing.JFrame {
                             .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(btn_valencian_main, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(btn_spain_main, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btn_Ingles_main, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btn_English_main, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(panelNice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelImage1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
@@ -232,10 +230,10 @@ public class Menu_entrada extends javax.swing.JFrame {
         exit();
     }//GEN-LAST:event_btn_ExitActionPerformed
 
-    private void btn_Ingles_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Ingles_mainActionPerformed
+    private void btn_English_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_English_mainActionPerformed
 
         BLL_config.language_english();
-    }//GEN-LAST:event_btn_Ingles_mainActionPerformed
+    }//GEN-LAST:event_btn_English_mainActionPerformed
 
     private void btn_spain_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_spain_mainActionPerformed
 
@@ -264,10 +262,10 @@ public class Menu_entrada extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton Login_Admin;
     public static javax.swing.JButton Login_Client;
-    public static javax.swing.JButton Login_Tecnic;
+    public static javax.swing.JButton Login_User_reg;
     public static javax.swing.JButton btnSettings;
+    public static javax.swing.JButton btn_English_main;
     public static javax.swing.JButton btn_Exit;
-    public static javax.swing.JButton btn_Ingles_main;
     public static javax.swing.JButton btn_Test;
     public static javax.swing.JButton btn_spain_main;
     public static javax.swing.JButton btn_valencian_main;

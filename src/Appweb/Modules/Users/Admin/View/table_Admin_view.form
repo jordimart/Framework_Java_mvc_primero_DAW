@@ -170,12 +170,12 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnAñadir_admin" pref="201" max="32767" attributes="0"/>
+                          <Component id="btnAdd_admin" pref="201" max="32767" attributes="0"/>
                           <Component id="btnEditar_admin" alignment="0" max="32767" attributes="0"/>
                           <Component id="btnMostrar_admin" alignment="0" max="32767" attributes="0"/>
                           <Component id="btnBorrar_admin" alignment="0" max="32767" attributes="0"/>
                           <Component id="btn_Volver" alignment="0" max="32767" attributes="0"/>
-                          <Component id="buttonAction1" max="32767" attributes="0"/>
+                          <Component id="btn_delete_all" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="25" max="32767" attributes="0"/>
                   </Group>
@@ -185,7 +185,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnAñadir_admin" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="btnAdd_admin" min="-2" pref="52" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnEditar_admin" min="-2" pref="54" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -193,7 +193,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnBorrar_admin" min="-2" pref="57" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="buttonAction1" min="-2" pref="61" max="-2" attributes="0"/>
+                      <Component id="btn_delete_all" min="-2" pref="61" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btn_Volver" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
@@ -226,12 +226,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrar_adminActionPerformed"/>
               </Events>
             </Component>
-            <Component class="org.edisoncor.gui.button.ButtonAction" name="btnA&#xf1;adir_admin">
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="btnAdd_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnA&#xf1;adir_adminActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdd_adminActionPerformed"/>
               </Events>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_Volver">
@@ -242,12 +242,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_VolverActionPerformed"/>
               </Events>
             </Component>
-            <Component class="org.edisoncor.gui.button.ButtonAction" name="buttonAction1">
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_delete_all">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Borrar todos"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAction1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_delete_allActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
