@@ -537,11 +537,7 @@ public class create_Admin_view extends javax.swing.JFrame {
 
         boolean ok = false;
 
-        try {
-            ok = BLL_Admin.Enter_new_admin();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(create_Admin_view.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        ok = BLL_Admin.Enter_new_admin();
 
         if (ok == true) {
 
