@@ -7,6 +7,9 @@ import Appweb.Modules.Users.Admin.View.table_Admin_view;
 import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 import Appweb.General_tools.singletonapp;
+import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
+import static Appweb.Modules.Users.Admin.Controller.ControllerAdmin.Show_Admin;
+import static Appweb.Modules.Users.Admin.Controller.ControllerAdmin.Table_Admin;
 import Appweb.Modules.Users.Admin.View.create_Admin_view;
 import Appweb.Modules.Users.Admin.View.show_Admin_view;
 import static Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin;
@@ -185,7 +188,7 @@ public class BLL_Admin {
 
                 singletonapp.pos = Look_for_dni_admin(dni);
 
-                new edit_Admin_view().setVisible(true);
+                new ControllerAdmin(new edit_Admin_view(), 3).Start(3);
                 DAO_Admin.Load_edit_admin();
                 ((Table_Admin) mini_Table_Admin.getModel()).cargar();
                 pagina.inicializa();
@@ -289,8 +292,11 @@ public class BLL_Admin {
 
                 singletonapp.pos = Look_for_dni_admin(dni);
 
-                show_Admin_view menu = new show_Admin_view();
-                menu.setVisible(true);
+               
+                
+                Table_Admin.dispose();
+                new ControllerAdmin(new show_Admin_view(), 4).Start(4);
+               
                 DAO_Admin.Load_show_admin();
 
                 ok = true;

@@ -25,6 +25,7 @@ public class edit_Admin_view extends javax.swing.JFrame {
     public edit_Admin_view() {
         initComponents();
 
+        /**
         this.setTitle("Edit Admin");
         this.setLocationRelativeTo(null);
         this.setSize(1000, 1200);//ancho x alto
@@ -50,7 +51,7 @@ public class edit_Admin_view extends javax.swing.JFrame {
                 dispose();
             }
         });
-
+*/
     }
 
     /**
@@ -464,13 +465,14 @@ public class edit_Admin_view extends javax.swing.JFrame {
 
     private void btn_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarActionPerformed
 
-        this.dispose();
-        table_Admin_view menu = new table_Admin_view();
-        menu.setVisible(true);
+       // this.dispose();
+       // table_Admin_view menu = new table_Admin_view();
+       // menu.setVisible(true);
     }//GEN-LAST:event_btn_CancelarActionPerformed
 
     private void btn_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AceptarActionPerformed
 
+        /**
         boolean ok = BLL_Admin.Enter_edited_admin();
         if (ok == true) {
             this.dispose();
@@ -479,7 +481,7 @@ public class edit_Admin_view extends javax.swing.JFrame {
             ((Table_Admin) mini_Table_Admin.getModel()).cargar();
 
         }
-
+*/
     }//GEN-LAST:event_btn_AceptarActionPerformed
 
     private void txtNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNameMouseClicked
@@ -515,47 +517,47 @@ public class edit_Admin_view extends javax.swing.JFrame {
     }//GEN-LAST:event_txtActivityMouseClicked
 
     private void txtNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyReleased
-        BLL_Admin.Editname_admin();
+       // BLL_Admin.Editname_admin();
     }//GEN-LAST:event_txtNameKeyReleased
 
     private void txtLast_nameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLast_nameKeyReleased
-        BLL_Admin.Editlast_name_admin();
+      //  BLL_Admin.Editlast_name_admin();
     }//GEN-LAST:event_txtLast_nameKeyReleased
 
     private void txtMobileKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMobileKeyReleased
-        BLL_Admin.Editmobile_admin();
+       // BLL_Admin.Editmobile_admin();
     }//GEN-LAST:event_txtMobileKeyReleased
 
     private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
-        BLL_Admin.Editmail_admin();
+       // BLL_Admin.Editmail_admin();
     }//GEN-LAST:event_txtEmailKeyReleased
 
     private void txtUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyReleased
-        BLL_Admin.Edituser_admin();
+        //BLL_Admin.Edituser_admin();
     }//GEN-LAST:event_txtUserKeyReleased
 
     private void txtPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyReleased
-        BLL_Admin.Editpassword_admin();
+       // BLL_Admin.Editpassword_admin();
     }//GEN-LAST:event_txtPasswordKeyReleased
 
     private void txtSalaryKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSalaryKeyReleased
-        BLL_Admin.Editsalary_admin();
+       // BLL_Admin.Editsalary_admin();
     }//GEN-LAST:event_txtSalaryKeyReleased
 
     private void txtActivityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtActivityKeyReleased
-        BLL_Admin.Editactivity_admin();
+       // BLL_Admin.Editactivity_admin();
     }//GEN-LAST:event_txtActivityKeyReleased
 
     private void btnAvatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvatarActionPerformed
-        BLL_Admin.EditAvatar_admin();
+       // BLL_Admin.EditAvatar_admin();
     }//GEN-LAST:event_btnAvatarActionPerformed
 
     private void pick_date_birthPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pick_date_birthPropertyChange
-        BLL_Admin.Editdate_birth_admin();
+       // BLL_Admin.Editdate_birth_admin();
     }//GEN-LAST:event_pick_date_birthPropertyChange
 
     private void pick_date_contrPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pick_date_contrPropertyChange
-        BLL_Admin.Editdate_contr_admin();
+       // BLL_Admin.Editdate_contr_admin();
     }//GEN-LAST:event_pick_date_contrPropertyChange
 
 

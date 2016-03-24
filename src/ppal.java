@@ -1,5 +1,6 @@
 
 import Appweb.Modules.Main.Controller.ControllerMain;
+import static Appweb.Modules.Main.Controller.ControllerMain.Login;
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Modules.Main.View.menu_Input;
 
@@ -19,6 +20,7 @@ public class ppal {
             
 
             new ControllerMain(new menu_Input(),0).Start(0);
+            Login.setVisible(true);
            // new menu_Input().setVisible(true);
         });
     }

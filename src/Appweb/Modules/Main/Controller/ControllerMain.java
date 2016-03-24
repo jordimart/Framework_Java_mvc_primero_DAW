@@ -5,14 +5,11 @@ import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.Model.Config.Model.BLL_config.BLL_config;
 import static Appweb.Modules.Main.Model.Config.Model.DAO_config.DAO_config.auto_open_config_json;
 import Appweb.Modules.Main.Model.Config.View.menu_Settings;
-import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_curr_euro;
-import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_day_bar;
-import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_lang_en;
-import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_one_d;
 import Appweb.Modules.Main.Model.Dummies.Model.BLL_Dummy.BLL_Dummies;
 import Appweb.Modules.Main.Model.Dummies.View.task_Dummy_view;
 import Appweb.Modules.Main.View.menu_Input;
 import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
+import static Appweb.Modules.Users.Admin.Controller.ControllerAdmin.Task_Admin;
 import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
 import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
@@ -30,9 +27,9 @@ import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
  */
 public class ControllerMain implements ActionListener {
 
-    public static menu_Input Login = new menu_Input();
-    public static menu_Settings Settings = new menu_Settings();
-    public static task_Dummy_view Dummies = new task_Dummy_view();
+    public static menu_Input Login;
+    public static menu_Settings Settings;
+    public static task_Dummy_view Dummies;
 
     public ControllerMain(JFrame start, int i) {
 
@@ -78,8 +75,9 @@ public class ControllerMain implements ActionListener {
 
             auto_open_config_json();
             DAO_Admin.auto_open_json_admin();
+
             Login.setVisible(true);
-            Login.setTitle("Menu Login");
+            Login.setTitle("Menu Login ");
             Login.setLocationRelativeTo(null);
             Login.setSize(1000, 650);//ancho x alto
             Login.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -194,24 +192,31 @@ public class ControllerMain implements ActionListener {
         switch (Action_menu.valueOf(ae.getActionCommand())) {
 
             case btnAdminlogin:
+
                 Login.dispose();
                 new ControllerAdmin(new task_Admin_view(), 0).Start(0);
+                // Task_Admin.setVisible(true);
 
                 break;
             case btnUser_reglogin:
 
                 break;
             case btnTestlogin:
+
                 Login.dispose();
                 new ControllerMain(new task_Dummy_view(), 2).Start(2);
+                //Dummies.setVisible(true);
 
                 break;
             case btnSettings:
+
                 Login.dispose();
                 new ControllerMain(new menu_Settings(), 1).Start(1);
+                //Settings.setVisible(true);
 
                 break;
             case btnExit:
+
                 JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
                         JOptionPane.INFORMATION_MESSAGE);
 
@@ -224,12 +229,15 @@ public class ControllerMain implements ActionListener {
 
                 break;
             case btn_Load_Settings:
+
                 BLL_config.open_config_json();
                 break;
             case btn_Return_Settings:
 
-                new ControllerMain(new menu_Input(), 0).Start(0);
                 Settings.dispose();
+                new ControllerMain(new menu_Input(), 0).Start(0);
+                //Login.setVisible(true);
+
                 break;
             case btn_Save_setting:
                 BLL_config.save_config_json();
@@ -244,8 +252,8 @@ public class ControllerMain implements ActionListener {
                 BLL_Dummies.Delete_all_admin_dummies();
                 break;
             case btnEntry_admin:
-                Dummies.dispose();
 
+                Dummies.dispose();
                 new ControllerAdmin(new task_Admin_view(), 0).Start(0);
 
                 break;

@@ -2,13 +2,7 @@
 package Appweb.Modules.Users.Admin.View;
 
 import Appweb.Modules.Main.Model.Config.View.menu_Settings;
-import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.View.menu_Input;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 /**
  *
@@ -21,7 +15,7 @@ public class task_Admin_view extends javax.swing.JFrame {
      */
     public task_Admin_view() {
         initComponents();
-
+/**
         this.setTitle(Lang.getInstance().getProperty("Task Admin"));
         this.setLocationRelativeTo(null);
         this.setSize(1000, 650);//ancho x alto
@@ -38,7 +32,7 @@ public class task_Admin_view extends javax.swing.JFrame {
 
             }
         });
-
+*/
     }
 
    
@@ -164,27 +158,27 @@ public class task_Admin_view extends javax.swing.JFrame {
 
     private void btn_ges_usersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ges_usersActionPerformed
 
-        this.dispose();
-        table_Admin_view menu = new table_Admin_view();
+       // this.dispose();
+       // table_Admin_view menu = new table_Admin_view();
 
-        menu.setVisible(true);
+       // menu.setVisible(true);
 
     }//GEN-LAST:event_btn_ges_usersActionPerformed
 
     private void btn_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VolverActionPerformed
 
-        this.dispose();
-        menu_Input menu = new menu_Input();
+       // this.dispose();
+       // menu_Input menu = new menu_Input();
 
-        menu.setVisible(true);
+       // menu.setVisible(true);
     }//GEN-LAST:event_btn_VolverActionPerformed
 
     private void btn_ConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ConfigActionPerformed
 
-        this.dispose();
-        menu_Settings menu = new menu_Settings();
+       // this.dispose();
+       // menu_Settings menu = new menu_Settings();
 
-        menu.setVisible(true);
+       // menu.setVisible(true);
 
     }//GEN-LAST:event_btn_ConfigActionPerformed
 

@@ -17,6 +17,7 @@ public class show_Admin_view extends javax.swing.JFrame {
     public show_Admin_view() {
         initComponents();
         
+        /**
          this.setTitle("Admin data");
         this.setLocationRelativeTo(null);
         this.setSize(1000, 650);//ancho x alto
@@ -28,6 +29,7 @@ public class show_Admin_view extends javax.swing.JFrame {
                 dispose();
             }
         });
+        * */
     }
 
    
@@ -315,7 +317,7 @@ public class show_Admin_view extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptActionPerformed
-        this.dispose();
+        //this.dispose();
        
         
     }//GEN-LAST:event_btnAceptActionPerformed

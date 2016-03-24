@@ -1,10 +1,6 @@
 
 package Appweb.Modules.Main.Model.Dummies.View;
 
-import Appweb.Modules.Main.Model.Dummies.Model.BLL_Dummy.BLL_Dummies;
-import Appweb.Modules.Users.Admin.View.task_Admin_view;
-import javax.swing.JFrame;
-
 /**
  *
  * @author ASUSG50V
@@ -193,18 +189,18 @@ public class task_Dummy_view extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreate_dummis_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreate_dummis_adminActionPerformed
-        BLL_Dummies.create_Dummy_admin();
+       // BLL_Dummies.create_Dummy_admin();
       
     }//GEN-LAST:event_btnCreate_dummis_adminActionPerformed
 
     private void btnEntry_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntry_adminActionPerformed
-        this.dispose();
-        task_Admin_view menu = new task_Admin_view();
-        menu.setVisible(true);
+        //this.dispose();
+        //task_Admin_view menu = new task_Admin_view();
+        //menu.setVisible(true);
     }//GEN-LAST:event_btnEntry_adminActionPerformed
 
     private void btnDelete_all_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete_all_adminActionPerformed
-        BLL_Dummies.Delete_all_admin_dummies();
+       // BLL_Dummies.Delete_all_admin_dummies();
     }//GEN-LAST:event_btnDelete_all_adminActionPerformed
 
     
