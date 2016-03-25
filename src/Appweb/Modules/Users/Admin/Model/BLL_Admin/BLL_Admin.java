@@ -190,9 +190,9 @@ public class BLL_Admin {
 
                 new ControllerAdmin(new edit_Admin_view(), 3).Start(3);
                 DAO_Admin.Load_edit_admin();
-                ((Table_Admin) mini_Table_Admin.getModel()).cargar();
-                pagina.inicializa();
-                pagina.initLinkBox();
+                //((Table_Admin) mini_Table_Admin.getModel()).cargar();
+                //pagina.inicializa();
+                //pagina.initLinkBox();
 
                 ok = true;
             }

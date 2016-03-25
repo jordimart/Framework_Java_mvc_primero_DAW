@@ -1,10 +1,11 @@
 package Appweb.Modules.Users.Admin.Model.Classes;
 
-import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Classes.Date.ClassDate;
+
 import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
 import Appweb.Modules.Users.Admin.View.table_Admin_view;
 import static Appweb.Modules.Users.Admin.View.table_Admin_view.combo;
+
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.table.AbstractTableModel;
@@ -144,7 +145,7 @@ public class Table_Admin extends AbstractTableModel {
         String nom = (String) ((JComboBox) combo).getSelectedItem();
         if (nom != null) {
             for (int i = 0; i < datosaux.size(); i++) {
-                //if(datosaux.get(i).getFirst_name().contains(nom)){
+                
                 if (datosaux.get(i).getName().toLowerCase().startsWith(nom.toLowerCase())) {
                     addRow(datosaux.get(i));
                     cont++;

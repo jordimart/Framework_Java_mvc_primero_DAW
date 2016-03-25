@@ -1,25 +1,18 @@
 package Appweb.Modules.Users.Admin.Controller;
 
-import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Main.Controller.ControllerMain;
-import static Appweb.Modules.Main.Controller.ControllerMain.Login;
-import static Appweb.Modules.Main.Controller.ControllerMain.Settings;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.Model.Config.View.menu_Settings;
 import Appweb.Modules.Main.View.menu_Input;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin;
-import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
-import Appweb.Modules.Users.Admin.Model.Tools.autocomplete.AutocompleteJComboBox;
-import Appweb.Modules.Users.Admin.Model.Tools.autocomplete.StringSearchable;
 import Appweb.Modules.Users.Admin.View.create_Admin_view;
 import Appweb.Modules.Users.Admin.View.edit_Admin_view;
 import Appweb.Modules.Users.Admin.View.show_Admin_view;
 import Appweb.Modules.Users.Admin.View.table_Admin_view;
+import static Appweb.Modules.Users.Admin.View.table_Admin_view.combo;
 import static Appweb.Modules.Users.Admin.View.table_Admin_view.jComboBox1;
-import static Appweb.Modules.Users.Admin.View.table_Admin_view.jLabel3;
-import static Appweb.Modules.Users.Admin.View.table_Admin_view.jPanel3;
 import static Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
 import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
@@ -36,17 +29,11 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -55,15 +42,14 @@ import javax.swing.table.TableRowSorter;
 public class ControllerAdmin implements ActionListener, MouseListener, PropertyChangeListener, KeyListener {
 
     public static task_Admin_view Task_Admin;
-    public static table_Admin_view Table_Admin;
+    public static table_Admin_view Table_Admin;//=new table_Admin_view();
     public static create_Admin_view Create_Admin;
     public static edit_Admin_view Edit_Admin;
     public static show_Admin_view Show_Admin;
 
-    public static TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(new Table_Admin());
-    public static AutocompleteJComboBox combo = null;
-    public static JTable tabla = null;
-
+    //public static TableRowSorter<TableModel> sorter = new TableRowSorter<>(new Table_Admin());
+    //public static AutocompleteJComboBox combo = null;
+    //public static JTable tabla = null;
     public ControllerAdmin(JFrame start, int i) {
 
         if (i == 0) {
@@ -81,11 +67,6 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
         if (i == 4) {
             Show_Admin = (show_Admin_view) start;
         }
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -110,17 +91,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
 
     @Override
     public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public enum Action_Admin {
@@ -191,8 +162,9 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
 
             Task_Admin.setExtendedState(JFrame.MAXIMIZED_BOTH);
             Task_Admin.setVisible(true);
-            Task_Admin.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-            addWindowListener(new WindowAdapter() {
+
+            this.Task_Admin.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+            this.Task_Admin.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
                     Task_Admin.dispose();
                     new ControllerMain(new menu_Input(), 0).Start(0);
@@ -218,53 +190,51 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
         }
         if (i == 1) {
 
+            Table_Admin.setVisible(true);
+
             Table_Admin.setTitle("Table Admin");
             Table_Admin.setLocationRelativeTo(null);
             Table_Admin.setSize(1000, 650);//ancho x alto
             Table_Admin.setResizable(true);
             Table_Admin.setExtendedState(JFrame.MAXIMIZED_BOTH);
-            Table_Admin.setVisible(true);
-            singletonapp.singleton_vtna = "Admin";
-
-            mini_Table_Admin.setModel(new Table_Admin());
-            ((Table_Admin) mini_Table_Admin.getModel()).cargar();
-            mini_Table_Admin.setFillsViewportHeight(true);
-            mini_Table_Admin.setRowSorter(sorter);
-
-            pagina.inicializa();
-            pagina.initLinkBox();
-
-            jLabel3.setText(String.valueOf(singleadmin.Admin_array.size()));
-
-            Table_Admin.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-            addWindowListener(new WindowAdapter() {
-                public void windowClosing(WindowEvent e) {
-                    Table_Admin.dispose();
-                    new ControllerAdmin(new task_Admin_view(), 0).Start(0);
-
-                }
-            });
-
-            List<String> myWords = new ArrayList<String>();
-            for (int j = 0; j <= singleadmin.Admin_array.size() - 1; j++) {
-                myWords.add(singleadmin.Admin_array.get(j).getName().toLowerCase());
-                myWords.add(singleadmin.Admin_array.get(j).getName().toUpperCase());
-            }
-
-            StringSearchable searchable = new StringSearchable(myWords);
-            combo = new AutocompleteJComboBox(searchable);
-
-            jPanel3.setLayout(new java.awt.BorderLayout());
-            jPanel3.add(combo);
-
-            combo.addActionListener(new java.awt.event.ActionListener() {
-                @Override
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    comboActionPerformed(evt);
-                }
-
-            });
-
+            /**
+             * singletonapp.singleton_vtna = "Admin";
+             *
+             * Table_Admin.mini_Table_Admin.setModel(new Table_Admin());
+             * ((Table_Admin) mini_Table_Admin.getModel()).cargar();
+             * Table_Admin.mini_Table_Admin.setFillsViewportHeight(true);
+             * Table_Admin.mini_Table_Admin.setRowSorter(sorter);
+             *
+             * pagina.inicializa(); pagina.initLinkBox();
+             *
+             * Table_Admin.jLabel3.setText(String.valueOf(singleadmin.Admin_array.size()));
+             *
+             * this.Table_Admin.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+             * this.Table_Admin.addWindowListener(new WindowAdapter() { public
+             * void windowClosing(WindowEvent e) { Table_Admin.dispose(); new
+             * ControllerAdmin(new task_Admin_view(), 0).Start(0);
+             *
+             * }
+             * });
+             *
+             * List<String> myWords = new ArrayList<String>();
+             *
+             * for (int j = 0; j <= singleadmin.Admin_array.size() - 1; j++) {
+             * myWords.add(singleadmin.Admin_array.get(j).getName().toLowerCase());
+             * myWords.add(singleadmin.Admin_array.get(j).getName().toUpperCase());
+             * }
+             *
+             * StringSearchable searchable = new StringSearchable(myWords);
+             * combo = new AutocompleteJComboBox(searchable);
+             * Table_Admin.jPanel3.setLayout(new java.awt.BorderLayout());
+             * Table_Admin.jPanel3.add(combo);
+             *
+             * combo.addActionListener(new java.awt.event.ActionListener() {
+             * @Override public void actionPerformed(java.awt.event.ActionEvent
+             * evt) { comboActionPerformed(evt); }
+             *
+             * });
+             */
             Table_Admin.btnAdd_admin.setActionCommand("btnAdd_admin");
             Table_Admin.btnAdd_admin.addActionListener(this);
 
@@ -298,17 +268,18 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             Table_Admin.jComboBox1.setActionCommand("jComboBox1");
             Table_Admin.jComboBox1.addActionListener(this);
 
-            Table_Admin.mini_Table_Admin.setName("mini_Table_Admin");
-            Table_Admin.mini_Table_Admin.addMouseListener(this);
+            //this.Table_Admin.mini_Table_Admin.setName("mini_Table_Admin");
+            //this.Table_Admin.mini_Table_Admin.addMouseListener(this);
         }
 
         if (i == 2) {
 
+            Create_Admin.setVisible(true);
             Create_Admin.setTitle("Create Admin");
             Create_Admin.setLocationRelativeTo(null);
             Create_Admin.setSize(1000, 1200);//ancho x alto
             Create_Admin.setResizable(false);
-            Create_Admin.setVisible(true);
+
             //Information_dialog.setLocationRelativeTo(null);
             //Information_dialog.setTitle("Information");
             //Information_dialog.setSize(1000, 200);
@@ -539,12 +510,11 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
                 break;
             case btnEditar_admin:
 
-                 
-        ok = BLL_Admin.modifity_select_admin();
-        if (true == ok) {
+                ok = BLL_Admin.modifity_select_admin();
+                if (true == ok) {
 
-            Table_Admin.dispose();
-        }
+                    Table_Admin.dispose();
+                }
 
                 break;
             case btnBorrar_admin:
@@ -647,10 +617,9 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
     }
 
     @Override
-    public void propertyChange(PropertyChangeEvent ch
-    ) {
+    public void propertyChange(PropertyChangeEvent evt) {
 
-        switch (Action_Admin.valueOf(ch.getPropertyName())) {
+        switch (Action_Admin.valueOf(evt.getPropertyName())) {
 
             case pick_date_birth:
                 BLL_Admin.Enterdate_birth_admin();
@@ -670,12 +639,72 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
                 break;
 
         }
+    }
+
+    @Override
+    public void keyPressed(KeyEvent es) {
+
+        switch (Action_Admin.valueOf(es.getComponent().getName())) {
+
+            case txtDni:
+                // BLL_Admin.Enterdni_admin();
+                break;
+            case txtEmail:
+                // BLL_Admin.Entermail_admin();
+                break;
+            case txtLast_name:
+                // BLL_Admin.Enterlast_name_admin();
+                break;
+            case txtMobile:
+                // BLL_Admin.Entermobile_admin();
+                break;
+            case txtName:
+                // BLL_Admin.Entername_admin();
+                break;
+            case txtPassword:
+                //BLL_Admin.Enterpassword_admin();
+                break;
+            case txtSalary:
+                // BLL_Admin.Entersalary_admin();
+                break;
+            case txtUser:
+                // BLL_Admin.Enteruser_admin();
+                break;
+            case txtActivity:
+                // BLL_Admin.Enteractivity_admin();
+                break;
+            case txtActivity_e:
+                // BLL_Admin.Editactivity_admin();
+                break;
+            case txtEmail_e:
+                // BLL_Admin.Editmail_admin();
+                break;
+            case txtLast_name_e:
+                // BLL_Admin.Editlast_name_admin();
+                break;
+            case txtMobile_e:
+                // BLL_Admin.Editmobile_admin();
+                break;
+            case txtName_e:
+                //BLL_Admin.Editname_admin();
+                break;
+            case txtPassword_e:
+                // BLL_Admin.Editpassword_admin();
+                break;
+            case txtSalary_e:
+                // BLL_Admin.Editsalary_admin();
+                break;
+            case txtUser_e:
+                // BLL_Admin.Edituser_admin();
+                break;
+        }
 
     }
 
-    public void KeyReleased(KeyEvent et) {
+    @Override
+    public void keyReleased(KeyEvent e) {
 
-        switch (Action_Admin.valueOf(et.getComponent().getName())) {
+        switch (Action_Admin.valueOf(e.getComponent().getName())) {
 
             case txtDni:
                 BLL_Admin.Enterdni_admin();
@@ -732,23 +761,16 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
 
     }
 
-    public void KeyReleased(MouseEvent m) {
+    @Override
+    public void mouseClicked(MouseEvent e) {
 
-        switch (Action_Admin.valueOf(m.getComponent().getName())) {
+        switch (Action_Admin.valueOf(e.getComponent().getName())) {
 
             case mini_Table_Admin:
-                
-                if (m.getClickCount() == 2) {
-            boolean modificar;
 
-            modificar = BLL_Admin.modifity_select_admin();
-            if (modificar == false) {
-            } else {
-               Table_Admin.dispose();
-            }
-
-        } 
-
+                if (e.getClickCount() == 2) {
+                    BLL_Admin.modifity_select_admin();
+                }
                 break;
 
         }
@@ -757,7 +779,8 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
     public static void comboActionPerformed(java.awt.event.ActionEvent evt) {
         System.out.println("word selected: " + ((JComboBox) combo).getSelectedItem());
         pagina.currentPageIndex = 1;
+        pagina.initLinkBox();
         ((Table_Admin) mini_Table_Admin.getModel()).filtrar();
-        combo.requestFocus();
+        //Table_Admin.combo.requestFocus();
     }
 }

@@ -9,10 +9,8 @@ import Appweb.Modules.Main.Model.Dummies.Model.BLL_Dummy.BLL_Dummies;
 import Appweb.Modules.Main.Model.Dummies.View.task_Dummy_view;
 import Appweb.Modules.Main.View.menu_Input;
 import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
-import static Appweb.Modules.Users.Admin.Controller.ControllerAdmin.Task_Admin;
 import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
-import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -103,8 +101,8 @@ public class ControllerMain implements ActionListener {
             Login.btn_English_main.setActionCommand("btnLanguage_English");
             Login.btn_English_main.addActionListener(this);
 
-            Login.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-            addWindowListener(new WindowAdapter() {
+            // Login.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+            this.Login.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
                     JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
                             JOptionPane.INFORMATION_MESSAGE);
@@ -140,13 +138,12 @@ public class ControllerMain implements ActionListener {
             Settings.btn_Show.setActionCommand("btn_Show");
             Settings.btn_Show.addActionListener(this);
 
-            Settings.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-            addWindowListener(new WindowAdapter() {
+            this.Settings.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+            this.Settings.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
 
-                    new ControllerMain(new menu_Input(), 0).Start(0);
-
                     Settings.dispose();
+                    new ControllerMain(new menu_Input(), 0).Start(0);
 
                 }
             });
@@ -176,12 +173,11 @@ public class ControllerMain implements ActionListener {
             Dummies.btnEntry_user_reg.setActionCommand("btnEntry_user_reg");
             Dummies.btnEntry_user_reg.addActionListener(this);
 
-            Dummies.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-            addWindowListener(new WindowAdapter() {
+            this.Dummies.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+            this.Dummies.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
-                    new ControllerMain(new menu_Input(), 0).Start(0);
-
                     Dummies.dispose();
+                    new ControllerMain(new menu_Input(), 0).Start(0);
 
                 }
             });
@@ -195,7 +191,6 @@ public class ControllerMain implements ActionListener {
 
                 Login.dispose();
                 new ControllerAdmin(new task_Admin_view(), 0).Start(0);
-                // Task_Admin.setVisible(true);
 
                 break;
             case btnUser_reglogin:
@@ -205,14 +200,12 @@ public class ControllerMain implements ActionListener {
 
                 Login.dispose();
                 new ControllerMain(new task_Dummy_view(), 2).Start(2);
-                //Dummies.setVisible(true);
 
                 break;
             case btnSettings:
 
                 Login.dispose();
                 new ControllerMain(new menu_Settings(), 1).Start(1);
-                //Settings.setVisible(true);
 
                 break;
             case btnExit:
@@ -236,7 +229,6 @@ public class ControllerMain implements ActionListener {
 
                 Settings.dispose();
                 new ControllerMain(new menu_Input(), 0).Start(0);
-                //Login.setVisible(true);
 
                 break;
             case btn_Save_setting:

@@ -1,9 +1,23 @@
 package Appweb.Modules.Users.Admin.View;
 
+import Appweb.General_tools.singletonapp;
+import static Appweb.Modules.Users.Admin.Controller.ControllerAdmin.Table_Admin;
+
+import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin;
+import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
+import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
+import Appweb.Modules.Users.Admin.Model.Tools.autocomplete.AutocompleteJComboBox;
+import Appweb.Modules.Users.Admin.Model.Tools.autocomplete.StringSearchable;
+import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import Appweb.Modules.Users.Admin.Model.Tools.autocomplete.AutocompleteJComboBox;
 
 /**
  *
@@ -19,12 +33,12 @@ public class table_Admin_view extends javax.swing.JFrame {
      */
     public table_Admin_view() {
         initComponents();
-/**
-        this.setTitle("Table Admin");
-        this.setLocationRelativeTo(null);
-        this.setSize(1000, 650);//ancho x alto
-        this.setResizable(true);
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+        //this.setTitle("Table Admin");
+        //this.setLocationRelativeTo(null);
+        //this.setSize(1000, 650);//ancho x alto
+        //this.setResizable(true);
+        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         singletonapp.singleton_vtna = "Admin";
 
@@ -65,17 +79,19 @@ public class table_Admin_view extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboActionPerformed(evt);
             }
+
+            
         });
-        * */
+        
     }
-/**
+
     public static void comboActionPerformed(java.awt.event.ActionEvent evt) {
         System.out.println("word selected: " + ((JComboBox) combo).getSelectedItem());
         pagina.currentPageIndex = 1;
         ((Table_Admin) mini_Table_Admin.getModel()).filtrar();
         combo.requestFocus();
     }
-*/
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -494,8 +510,8 @@ public class table_Admin_view extends javax.swing.JFrame {
     }//GEN-LAST:event_ANTERIORActionPerformed
 
     private void SIGUIENTEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SIGUIENTEActionPerformed
-       // pagina.currentPageIndex += 1;
-       // pagina.initLinkBox();
+        //pagina.currentPageIndex += 1;
+        //pagina.initLinkBox();
     }//GEN-LAST:event_SIGUIENTEActionPerformed
 
     private void primeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_primeroActionPerformed
@@ -516,14 +532,14 @@ public class table_Admin_view extends javax.swing.JFrame {
 */
     private void btnEditar_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditar_adminActionPerformed
 
-        /**
+       /** 
         boolean ok = false;
         ok = BLL_Admin.modifity_select_admin();
         if (true == ok) {
 
             this.dispose();
         }
-        * */
+        */
     }//GEN-LAST:event_btnEditar_adminActionPerformed
 
     private void btn_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VolverActionPerformed
@@ -534,38 +550,38 @@ public class table_Admin_view extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_VolverActionPerformed
 
     private void btnMostrar_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrar_adminActionPerformed
-       // BLL_Admin.show_select_admin();
+        //BLL_Admin.show_select_admin();
 
     }//GEN-LAST:event_btnMostrar_adminActionPerformed
 
     private void btnBorrar_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrar_adminActionPerformed
-       // BLL_Admin.delete_select_admin();
+        //BLL_Admin.delete_select_admin();
     }//GEN-LAST:event_btnBorrar_adminActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
 
        
-        //pagina.itemsPerPage = Integer.parseInt(jComboBox1.getSelectedItem().toString());
-       // pagina.currentPageIndex = 1;
-       // pagina.initLinkBox();
+       // pagina.itemsPerPage = Integer.parseInt(jComboBox1.getSelectedItem().toString());
+        //pagina.currentPageIndex = 1;
+        //pagina.initLinkBox();
 
 
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void btn_delete_allActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_delete_allActionPerformed
-       // BLL_Admin.Delete_all_admin();
+        //BLL_Admin.Delete_all_admin();
     }//GEN-LAST:event_btn_delete_allActionPerformed
 
     private void menu_save_jsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_save_jsonActionPerformed
-       // BLL_Admin.save_json_admin();
+        BLL_Admin.save_json_admin();
     }//GEN-LAST:event_menu_save_jsonActionPerformed
 
     private void menu_save_xmlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_save_xmlActionPerformed
-       // BLL_Admin.save_xml_admin();
+        BLL_Admin.save_xml_admin();
     }//GEN-LAST:event_menu_save_xmlActionPerformed
 
     private void menu_save_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_save_txtActionPerformed
-        //BLL_Admin.save_txt_admin();
+        BLL_Admin.save_txt_admin();
     }//GEN-LAST:event_menu_save_txtActionPerformed
 
     private void mini_Table_AdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mini_Table_AdminMouseClicked
@@ -581,7 +597,7 @@ public class table_Admin_view extends javax.swing.JFrame {
             }
 
         } 
-        * */
+        */
     }//GEN-LAST:event_mini_Table_AdminMouseClicked
 
     private void btnAdd_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd_adminActionPerformed
