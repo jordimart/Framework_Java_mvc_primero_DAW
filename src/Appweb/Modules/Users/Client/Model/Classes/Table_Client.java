@@ -1,10 +1,12 @@
-package Appweb.Modules.Users.Admin.Model.Classes;
+package Appweb.Modules.Users.Client.Model.Classes;
 
+import Appweb.Modules.Users.Admin.Model.Classes.*;
 import Appweb.Classes.Date.ClassDate;
 import static Appweb.Modules.Users.Admin.Controller.ControllerAdmin.combo;
 
 import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
 import Appweb.Modules.Users.Admin.View.table_Admin_view;
+import Appweb.Modules.Users.Client.View.table_Client_view;
 
 
 import java.util.ArrayList;
@@ -15,11 +17,11 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author ASUSG50V
  */
-public class Table_Admin extends AbstractTableModel {
+public class Table_Client extends AbstractTableModel {
 
-    public static ArrayList<Admin> datos = new ArrayList<Admin>();
-    public static ArrayList<Admin> datosaux = new ArrayList<Admin>();
-    String[] columnas = {"Dni", "Name", "Last name", "Date_birth", "Antique", "Salary"};
+    public static ArrayList<Client> datos = new ArrayList<Client>();
+    public static ArrayList<Client> datosaux = new ArrayList<Client>();
+    String[] columnas = {"Dni", "Name", "Last name", "Date_birth", "Antique", "Purchase"};
 
     @Override
     public String getColumnName(int col) {
@@ -43,7 +45,7 @@ public class Table_Admin extends AbstractTableModel {
     public Object getValueAt(int row, int col) {
 
         Object dev = null;
-        Admin fila = (Admin) datos.get(row);
+        Client fila = (Client) datos.get(row);
 
         switch (col) {
             case 0:
@@ -63,10 +65,10 @@ public class Table_Admin extends AbstractTableModel {
                 break;
 
             case 4:
-                dev = fila.getAntique();
+                dev = fila.getAntique_c();
                 break;
             case 5:
-                dev = fila.getSalary();
+                dev = fila.getPurchase();
                 break;
 
         }
@@ -82,7 +84,7 @@ public class Table_Admin extends AbstractTableModel {
     //Actualiza un objeto de una fila y columna
     @Override
     public void setValueAt(Object value, int row, int col) {
-        Admin fila = (Admin) datos.get(row);
+        Client fila = (Client) datos.get(row);
 
         switch (col) {
 
@@ -105,31 +107,31 @@ public class Table_Admin extends AbstractTableModel {
                 break;
 
             case 4:
-                fila.setSalary(Float.parseFloat(value.toString()));
+                fila.setPurchase(Float.parseFloat(value.toString()));
                 break;
 
         }
         fireTableCellUpdated(row, col);
     }
 
-    public void addRow(Admin usu) {
+    public void addRow(Client usu) {
         datos.add(usu);
 
-        ((Table_Admin) table_Admin_view.mini_Table_Admin.getModel()).fireTableDataChanged();
+        ((Table_Client) table_Admin_view.mini_Table_Admin.getModel()).fireTableDataChanged();
     }
 
     public void cargar() {
         datos.clear();
         datosaux.clear();
 
-        Admin admin = null;
+        Client client = null;
 
-        for (int i = 0; i <= singleadmin.Admin_array.size() - 1; i++) {
+        for (int i = 0; i <= singleclient.Client_array.size() - 1; i++) {
 
-            admin = singleadmin.Admin_array.get(i);
+            client = singleclient.Client_array.get(i);
 
-            addRow(admin);
-            datosaux.add(admin);
+            addRow(client);
+            datosaux.add(client);
 
             try {
                 Thread.sleep(1); //1 milliseconds
@@ -158,7 +160,7 @@ public class Table_Admin extends AbstractTableModel {
         }
     }
 
-    public Admin buscar(String u) {
+    public Client buscar(String u) {
         datos.clear();
         cargar();
 
@@ -172,7 +174,7 @@ public class Table_Admin extends AbstractTableModel {
         return null;
     }
 
-    public int buscaUsuario(Admin u) {
+    public int buscaUsuario(Client u) {
         datos.clear();
         cargar();
 
@@ -188,7 +190,7 @@ public class Table_Admin extends AbstractTableModel {
         datos.remove(fila);
 
         fireTableDataChanged();
-        table_Admin_view.jLabel3.setText(String.valueOf(datos.size()));
+        table_Client_view.jLabel3.setText(String.valueOf(datos.size()));
 
         pagina.inicializa();
         pagina.initLinkBox();

@@ -1,15 +1,18 @@
-package Appweb.Modules.Users.Admin.View;
+package Appweb.Modules.Users.User_reg.View;
+
+import Appweb.Modules.Users.Client.View.*;
+import Appweb.Modules.Users.Admin.View.*;
 
 /**
  *
  * @author ASUSG50V
  */
-public class create_Admin_view extends javax.swing.JFrame {
+public class create_User_view extends javax.swing.JFrame {
 
     /**
      * Creates new form create_Admin
      */
-    public create_Admin_view() {
+    public create_User_view() {
         initComponents();
         
         /**

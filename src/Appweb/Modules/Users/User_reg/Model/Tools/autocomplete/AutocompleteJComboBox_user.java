@@ -1,4 +1,5 @@
-package Appweb.Modules.Users.Admin.Model.Tools.autocomplete;
+package Appweb.Modules.Users.User_reg.Model.Tools.autocomplete;
+import Appweb.Modules.Users.Client.Model.Tools.autocomplete.*;
 import java.awt.Component;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -13,10 +14,10 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.JTextComponent;
 
-public class AutocompleteJComboBox extends JComboBox{
+public class AutocompleteJComboBox_user extends JComboBox{
     private final Searchable_client<String,String> searchable;
 
-    public AutocompleteJComboBox(Searchable_client<String,String> s){
+    public AutocompleteJComboBox_user(Searchable_client<String,String> s){
 	super();
 	this.searchable = s;
 

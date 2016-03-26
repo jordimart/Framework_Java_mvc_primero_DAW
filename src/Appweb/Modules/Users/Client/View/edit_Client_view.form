@@ -40,7 +40,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Editar datos de un Administrador">
+            <TitledBorder title="Editar datos de un Cliente">
               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder/>
               </Border>
@@ -63,7 +63,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
                   <Component id="panelRect1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="68" max="32767" attributes="0"/>
+                  <EmptySpace pref="72" max="32767" attributes="0"/>
                   <Component id="panelRect2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
               </Group>
@@ -102,6 +102,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="labelHeader14" max="32767" attributes="0"/>
                           <Component id="labelHeader10" max="32767" attributes="0"/>
                           <Component id="labelHeader9" alignment="0" max="32767" attributes="0"/>
                           <Component id="labelHeader8" alignment="0" max="32767" attributes="0"/>
@@ -125,13 +126,14 @@
                           <Component id="txtMobile" max="32767" attributes="0"/>
                           <Component id="txtEmail" max="32767" attributes="0"/>
                           <Component id="txtUser" max="32767" attributes="0"/>
-                          <Component id="txtSalary" max="32767" attributes="0"/>
-                          <Component id="txtActivity" max="32767" attributes="0"/>
+                          <Component id="txtPurchase" max="32767" attributes="0"/>
                           <Component id="pick_date_birth" max="32767" attributes="0"/>
-                          <Component id="pick_date_contr" max="32767" attributes="0"/>
+                          <Component id="pick_date_reg" max="32767" attributes="0"/>
                           <Component id="txtPassword" pref="162" max="32767" attributes="0"/>
                           <Component id="comboStatus" max="32767" attributes="0"/>
                           <Component id="btnAvatar" max="32767" attributes="0"/>
+                          <Component id="combo_premium" alignment="0" max="32767" attributes="0"/>
+                          <Component id="combo_client" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -148,13 +150,13 @@
                                   <Component id="labEmail" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
                                   <Component id="labUser" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
                                   <Component id="labPassword" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
-                                  <Component id="labdate_cont" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
-                                  <Component id="labSalary" min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Component id="labdate_reg" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Component id="labPurchase" min="-2" pref="66" max="-2" attributes="0"/>
                                   <Component id="labActivity" min="-2" pref="66" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="20" max="32767" attributes="0"/>
+                      <EmptySpace pref="31" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -220,32 +222,37 @@
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="labdate_cont" max="32767" attributes="0"/>
+                          <Component id="labdate_reg" max="32767" attributes="0"/>
                           <Component id="labelHeader10" min="-2" max="-2" attributes="0"/>
-                          <Component id="pick_date_contr" pref="20" max="32767" attributes="0"/>
+                          <Component id="pick_date_reg" pref="20" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="labelHeader11" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtSalary" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtPurchase" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="labSalary" max="32767" attributes="0"/>
+                          <Component id="labPurchase" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelHeader12" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtActivity" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labActivity" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
+                          <Component id="combo_premium" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelHeader13" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnAvatar" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labelHeader14" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="combo_client" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labelHeader13" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAvatar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="labAvatar" min="-2" pref="136" max="-2" attributes="0"/>
-                      <EmptySpace pref="171" max="32767" attributes="0"/>
+                      <EmptySpace pref="127" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -298,17 +305,17 @@
             </Component>
             <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader10">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Fecha de contratacion:"/>
+                <Property name="text" type="java.lang.String" value="Fecha de registro:"/>
               </Properties>
             </Component>
             <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader11">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Salario:"/>
+                <Property name="text" type="java.lang.String" value="Compras:"/>
               </Properties>
             </Component>
             <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader12">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Actividad:"/>
+                <Property name="text" type="java.lang.String" value="Premium:"/>
               </Properties>
             </Component>
             <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader13">
@@ -351,16 +358,10 @@
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtUserKeyReleased"/>
               </Events>
             </Component>
-            <Component class="org.edisoncor.gui.textField.TextField" name="txtSalary">
+            <Component class="org.edisoncor.gui.textField.TextField" name="txtPurchase">
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtSalaryMouseClicked"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSalaryKeyReleased"/>
-              </Events>
-            </Component>
-            <Component class="org.edisoncor.gui.textField.TextField" name="txtActivity">
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtActivityMouseClicked"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtActivityKeyReleased"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtPurchaseMouseClicked"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPurchaseKeyReleased"/>
               </Events>
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="pick_date_birth">
@@ -372,13 +373,13 @@
                 <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="pick_date_birthPropertyChange"/>
               </Events>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="pick_date_contr">
+            <Component class="com.toedter.calendar.JDateChooser" name="pick_date_reg">
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="Para modificar fecha pulse el boton"/>
                 <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
               </Properties>
               <Events>
-                <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="pick_date_contrPropertyChange"/>
+                <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="pick_date_regPropertyChange"/>
               </Events>
             </Component>
             <Component class="org.edisoncor.gui.passwordField.PasswordField" name="txtPassword">
@@ -405,9 +406,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labPassword">
             </Component>
-            <Component class="javax.swing.JLabel" name="labdate_cont">
+            <Component class="javax.swing.JLabel" name="labdate_reg">
             </Component>
-            <Component class="javax.swing.JLabel" name="labSalary">
+            <Component class="javax.swing.JLabel" name="labPurchase">
             </Component>
             <Component class="javax.swing.JLabel" name="labActivity">
             </Component>
@@ -431,6 +432,38 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAvatarActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader14">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tipo de cliente:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="combo_premium">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="2">
+                    <StringItem index="0" value="Yes"/>
+                    <StringItem index="1" value="No"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="combo_client">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="Frecuente"/>
+                    <StringItem index="1" value="Normal"/>
+                    <StringItem index="2" value="Infrecuente"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

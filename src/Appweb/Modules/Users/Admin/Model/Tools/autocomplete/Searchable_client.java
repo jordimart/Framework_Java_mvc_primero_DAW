@@ -1,7 +1,7 @@
 package Appweb.Modules.Users.Admin.Model.Tools.autocomplete;
 import java.util.Collection;
 
-public interface Searchable<E, V>{
+public interface Searchable_client<E, V>{
 	/**
 	 * Searches an underlying inventory of items consisting of type E
 	 * @param value A searchable value of type V

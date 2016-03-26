@@ -9,8 +9,11 @@ import Appweb.Modules.Main.Model.Dummies.Model.BLL_Dummy.BLL_Dummies;
 import Appweb.Modules.Main.Model.Dummies.View.task_Dummy_view;
 import Appweb.Modules.Main.View.menu_Input;
 import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
-import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin;
+import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
+import Appweb.Modules.Users.Client.Controller.ControllerClient;
+import Appweb.Modules.Users.Client.Model.BLL_Client.BLL_Client;
+import Appweb.Modules.Users.Client.View.table_Client_view;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -72,7 +75,8 @@ public class ControllerMain implements ActionListener {
         if (i == 0) {
 
             auto_open_config_json();
-            DAO_Admin.auto_open_json_admin();
+            BLL_Admin.auto_open_json_admin();
+            BLL_Client.auto_open_json_client();
 
             Login.setVisible(true);
             Login.setTitle("Menu Login ");
@@ -194,6 +198,14 @@ public class ControllerMain implements ActionListener {
 
                 break;
             case btnUser_reglogin:
+
+                break;
+
+            case btnClientlogin:
+
+                Login.dispose();
+                
+                new ControllerClient(new table_Client_view(), 0).Start(0);
 
                 break;
             case btnTestlogin:

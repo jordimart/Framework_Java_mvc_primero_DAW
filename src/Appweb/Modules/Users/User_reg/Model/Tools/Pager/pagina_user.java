@@ -1,5 +1,6 @@
-package Appweb.Modules.Users.Admin.Model.Tools.Pager;
+package Appweb.Modules.Users.User_reg.Model.Tools.Pager;
 
+import Appweb.Modules.Users.Client.Model.Tools.Pager.*;
 import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Users.Admin.View.table_Admin_view;
 import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin;
@@ -15,9 +16,9 @@ import javax.swing.JRadioButton;
 import javax.swing.RowFilter;
 import javax.swing.table.TableModel;
 
-public class pagina {
+public class pagina_user {
 
-    public static final LinkViewRadioButtonUI ui = new LinkViewRadioButtonUI();
+    public static final LinkViewRadioButtonUI_client ui = new LinkViewRadioButtonUI_client();
     public static int LR_PAGE_SIZE = 5;
     public static Box box = Box.createHorizontalBox();
 
@@ -41,7 +42,7 @@ public class pagina {
         switch (singletonapp.singleton_vtna) {
             case "Admin":
                 table_Admin_view.jPanel4.setLayout(new BorderLayout());
-                table_Admin_view.jPanel4.add(pagina.box);
+                table_Admin_view.jPanel4.add(pagina_user.box);
                 break;
 
         }

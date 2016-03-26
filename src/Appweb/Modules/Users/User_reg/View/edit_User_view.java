@@ -1,29 +1,26 @@
-package Appweb.Modules.Users.Admin.View;
+package Appweb.Modules.Users.User_reg.View;
+
+import Appweb.Modules.Users.Client.View.*;
+import Appweb.Modules.Users.Admin.View.*;
 
 /**
  *
  * @author ASUSG50V
  */
-public class create_Admin_view extends javax.swing.JFrame {
+public class edit_User_view extends javax.swing.JFrame {
 
     /**
-     * Creates new form create_Admin
+     * Creates new form edit_Admin
      */
-    public create_Admin_view() {
+    public edit_User_view() {
         initComponents();
-        
+
         /**
-        this.setTitle("Create Admin");
+        this.setTitle("Edit Admin");
         this.setLocationRelativeTo(null);
         this.setSize(1000, 1200);//ancho x alto
         this.setResizable(false);
-
-        Information_dialog.setLocationRelativeTo(null);
-        Information_dialog.setTitle("Information");
-        Information_dialog.setSize(1000, 200);
-        Information_dialog.setModal(true);
-        //Information_dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-
+        txtDni.setBackground(Color.GRAY);
         pick_date_birth.getDateEditor().setEnabled(false);
         pick_date_contr.getDateEditor().setEnabled(false);
 
@@ -34,8 +31,7 @@ public class create_Admin_view extends javax.swing.JFrame {
         teclas.add(AWTKeyStroke.getAWTKeyStroke(
                 KeyEvent.VK_TAB, 0));
 
-        // Se pasa el conjunto de teclas al panel principal 
-        panrect1.setFocusTraversalKeys(
+        panelRect1.setFocusTraversalKeys(
                 KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS,
                 teclas);
 
@@ -45,10 +41,8 @@ public class create_Admin_view extends javax.swing.JFrame {
                 dispose();
             }
         });
-         */
+*/
     }
-
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,10 +53,6 @@ public class create_Admin_view extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Information_dialog = new javax.swing.JDialog();
-        panelRound1 = new org.edisoncor.gui.panel.PanelRound();
-        labinfo_img = new javax.swing.JLabel();
-        lab_information_message = new javax.swing.JLabel();
         panImage = new org.edisoncor.gui.panel.PanelImage();
         panelRect1 = new org.edisoncor.gui.panel.PanelRect();
         labelHeader1 = new org.edisoncor.gui.label.LabelHeader();
@@ -98,59 +88,19 @@ public class create_Admin_view extends javax.swing.JFrame {
         labEmail = new javax.swing.JLabel();
         labUser = new javax.swing.JLabel();
         labPassword = new javax.swing.JLabel();
-        labdate_contr = new javax.swing.JLabel();
+        labdate_cont = new javax.swing.JLabel();
         labSalary = new javax.swing.JLabel();
         labActivity = new javax.swing.JLabel();
         comboStatus = new javax.swing.JComboBox<>();
         btnAvatar = new org.edisoncor.gui.button.ButtonAero();
         panelRect2 = new org.edisoncor.gui.panel.PanelRect();
-        btn_Cancel = new org.edisoncor.gui.button.ButtonAeroRight();
+        btn_Cancelar = new org.edisoncor.gui.button.ButtonAeroRight();
         btn_Aceptar = new org.edisoncor.gui.button.ButtonAeroRight();
         panelCurves2 = new org.edisoncor.gui.panel.PanelCurves();
 
-        Information_dialog.setSize(new java.awt.Dimension(900, 100));
-
-        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
-        panelRound1.setLayout(panelRound1Layout);
-        panelRound1Layout.setHorizontalGroup(
-            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(labinfo_img, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(lab_information_message, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
-        );
-        panelRound1Layout.setVerticalGroup(
-            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(labinfo_img, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lab_information_message, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
-        );
-
-        javax.swing.GroupLayout Information_dialogLayout = new javax.swing.GroupLayout(Information_dialog.getContentPane());
-        Information_dialog.getContentPane().setLayout(Information_dialogLayout);
-        Information_dialogLayout.setHorizontalGroup(
-            Information_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Information_dialogLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        Information_dialogLayout.setVerticalGroup(
-            Information_dialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Information_dialogLayout.createSequentialGroup()
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panImage.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Añadir datos de un Administrador", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 18), new java.awt.Color(20, 20, 20))); // NOI18N
+        panImage.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Editar datos de un Administrador", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 18), new java.awt.Color(20, 20, 20))); // NOI18N
         panImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/General_tools/Img/Fondo_claro_1.jpg"))); // NOI18N
         panImage.setPreferredSize(new java.awt.Dimension(1000, 1200));
 
@@ -181,6 +131,8 @@ public class create_Admin_view extends javax.swing.JFrame {
         labelHeader12.setText("Actividad:");
 
         labelHeader13.setText("Avatar:");
+
+        txtDni.setEditable(false);
 
         txtName.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -328,9 +280,9 @@ public class create_Admin_view extends javax.swing.JFrame {
                     .addComponent(txtActivity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pick_date_birth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pick_date_contr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
                     .addComponent(comboStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAvatar, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE))
+                    .addComponent(btnAvatar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelRect1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
@@ -345,7 +297,7 @@ public class create_Admin_view extends javax.swing.JFrame {
                             .addComponent(labEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labUser, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labdate_contr, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labdate_cont, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labActivity, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(20, Short.MAX_VALUE))
@@ -401,7 +353,7 @@ public class create_Admin_view extends javax.swing.JFrame {
                     .addComponent(comboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labdate_contr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labdate_cont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labelHeader10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pick_date_contr, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE))
                 .addGap(44, 44, 44)
@@ -421,13 +373,13 @@ public class create_Admin_view extends javax.swing.JFrame {
                     .addComponent(btnAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(labAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
-        btn_Cancel.setText("Cancelar");
-        btn_Cancel.addActionListener(new java.awt.event.ActionListener() {
+        btn_Cancelar.setText("Cancelar");
+        btn_Cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_CancelActionPerformed(evt);
+                btn_CancelarActionPerformed(evt);
             }
         });
 
@@ -445,7 +397,7 @@ public class create_Admin_view extends javax.swing.JFrame {
             .addGroup(panelRect2Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(panelRect2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_Cancel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Cancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Aceptar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
@@ -455,7 +407,7 @@ public class create_Admin_view extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(btn_Aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btn_Cancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_Cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -466,9 +418,9 @@ public class create_Admin_view extends javax.swing.JFrame {
             .addGroup(panImageLayout.createSequentialGroup()
                 .addGap(124, 124, 124)
                 .addComponent(panelRect1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addComponent(panelRect2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addGap(97, 97, 97))
             .addComponent(panelCurves2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panImageLayout.setVerticalGroup(
@@ -478,7 +430,7 @@ public class create_Admin_view extends javax.swing.JFrame {
                 .addComponent(panelCurves2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
                 .addGroup(panImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelRect1, javax.swing.GroupLayout.DEFAULT_SIZE, 1011, Short.MAX_VALUE)
+                    .addComponent(panelRect1, javax.swing.GroupLayout.DEFAULT_SIZE, 979, Short.MAX_VALUE)
                     .addGroup(panImageLayout.createSequentialGroup()
                         .addComponent(panelRect2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -489,104 +441,24 @@ public class create_Admin_view extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panImage, javax.swing.GroupLayout.PREFERRED_SIZE, 954, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 674, Short.MAX_VALUE))
+            .addComponent(panImage, javax.swing.GroupLayout.DEFAULT_SIZE, 941, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(panImage, javax.swing.GroupLayout.DEFAULT_SIZE, 1123, Short.MAX_VALUE)
+                .addComponent(panImage, javax.swing.GroupLayout.DEFAULT_SIZE, 1091, Short.MAX_VALUE)
                 .addContainerGap())
         );
-
-        panImage.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void pick_date_birthPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pick_date_birthPropertyChange
-        // BLL_Admin.Editdate_birth_admin();
-    }//GEN-LAST:event_pick_date_birthPropertyChange
+    private void btn_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarActionPerformed
 
-    private void pick_date_contrPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pick_date_contrPropertyChange
-        // BLL_Admin.Editdate_contr_admin();
-    }//GEN-LAST:event_pick_date_contrPropertyChange
-
-    private void txtNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNameMouseClicked
-        // txtName.setText("");
-    }//GEN-LAST:event_txtNameMouseClicked
-
-    private void txtNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyReleased
-        // BLL_Admin.Editname_admin();
-    }//GEN-LAST:event_txtNameKeyReleased
-
-    private void txtLast_nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLast_nameMouseClicked
-        //txtLast_name.setText("");
-    }//GEN-LAST:event_txtLast_nameMouseClicked
-
-    private void txtLast_nameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLast_nameKeyReleased
-        //  BLL_Admin.Editlast_name_admin();
-    }//GEN-LAST:event_txtLast_nameKeyReleased
-
-    private void txtMobileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMobileMouseClicked
-        //txtMobile.setText("");
-    }//GEN-LAST:event_txtMobileMouseClicked
-
-    private void txtMobileKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMobileKeyReleased
-        // BLL_Admin.Editmobile_admin();
-    }//GEN-LAST:event_txtMobileKeyReleased
-
-    private void txtEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEmailMouseClicked
-        //txtEmail.setText("");
-    }//GEN-LAST:event_txtEmailMouseClicked
-
-    private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
-        // BLL_Admin.Editmail_admin();
-    }//GEN-LAST:event_txtEmailKeyReleased
-
-    private void txtUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUserMouseClicked
-        // txtUser.setText("");
-    }//GEN-LAST:event_txtUserMouseClicked
-
-    private void txtUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyReleased
-        //BLL_Admin.Edituser_admin();
-    }//GEN-LAST:event_txtUserKeyReleased
-
-    private void txtSalaryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSalaryMouseClicked
-        //txtSalary.setText("");
-    }//GEN-LAST:event_txtSalaryMouseClicked
-
-    private void txtSalaryKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSalaryKeyReleased
-        // BLL_Admin.Editsalary_admin();
-    }//GEN-LAST:event_txtSalaryKeyReleased
-
-    private void txtActivityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtActivityMouseClicked
-        //txtActivity.setText("");
-    }//GEN-LAST:event_txtActivityMouseClicked
-
-    private void txtActivityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtActivityKeyReleased
-        // BLL_Admin.Editactivity_admin();
-    }//GEN-LAST:event_txtActivityKeyReleased
-
-    private void txtPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPasswordMouseClicked
-        // txtPassword.setText("");
-    }//GEN-LAST:event_txtPasswordMouseClicked
-
-    private void txtPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyReleased
-        // BLL_Admin.Editpassword_admin();
-    }//GEN-LAST:event_txtPasswordKeyReleased
-
-    private void btnAvatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvatarActionPerformed
-        // BLL_Admin.EditAvatar_admin();
-    }//GEN-LAST:event_btnAvatarActionPerformed
-
-    private void btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelActionPerformed
-
-        // this.dispose();
-        // table_Admin_view menu = new table_Admin_view();
-        // menu.setVisible(true);
-    }//GEN-LAST:event_btn_CancelActionPerformed
+       // this.dispose();
+       // table_Admin_view menu = new table_Admin_view();
+       // menu.setVisible(true);
+    }//GEN-LAST:event_btn_CancelarActionPerformed
 
     private void btn_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AceptarActionPerformed
 
@@ -599,14 +471,90 @@ public class create_Admin_view extends javax.swing.JFrame {
             ((Table_Admin) mini_Table_Admin.getModel()).cargar();
 
         }
-        */
+*/
     }//GEN-LAST:event_btn_AceptarActionPerformed
 
+    private void txtNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNameMouseClicked
+        // txtName.setText("");
+    }//GEN-LAST:event_txtNameMouseClicked
+
+    private void txtLast_nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLast_nameMouseClicked
+        //txtLast_name.setText("");
+    }//GEN-LAST:event_txtLast_nameMouseClicked
+
+    private void txtMobileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMobileMouseClicked
+        //txtMobile.setText("");
+    }//GEN-LAST:event_txtMobileMouseClicked
+
+    private void txtEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEmailMouseClicked
+        //txtEmail.setText("");
+    }//GEN-LAST:event_txtEmailMouseClicked
+
+    private void txtUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUserMouseClicked
+        // txtUser.setText("");
+    }//GEN-LAST:event_txtUserMouseClicked
+
+    private void txtPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPasswordMouseClicked
+        // txtPassword.setText("");
+    }//GEN-LAST:event_txtPasswordMouseClicked
+
+    private void txtSalaryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSalaryMouseClicked
+        //txtSalary.setText("");
+    }//GEN-LAST:event_txtSalaryMouseClicked
+
+    private void txtActivityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtActivityMouseClicked
+        //txtActivity.setText("");
+    }//GEN-LAST:event_txtActivityMouseClicked
+
+    private void txtNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyReleased
+       // BLL_Admin.Editname_admin();
+    }//GEN-LAST:event_txtNameKeyReleased
+
+    private void txtLast_nameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLast_nameKeyReleased
+      //  BLL_Admin.Editlast_name_admin();
+    }//GEN-LAST:event_txtLast_nameKeyReleased
+
+    private void txtMobileKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMobileKeyReleased
+       // BLL_Admin.Editmobile_admin();
+    }//GEN-LAST:event_txtMobileKeyReleased
+
+    private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
+       // BLL_Admin.Editmail_admin();
+    }//GEN-LAST:event_txtEmailKeyReleased
+
+    private void txtUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyReleased
+        //BLL_Admin.Edituser_admin();
+    }//GEN-LAST:event_txtUserKeyReleased
+
+    private void txtPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyReleased
+       // BLL_Admin.Editpassword_admin();
+    }//GEN-LAST:event_txtPasswordKeyReleased
+
+    private void txtSalaryKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSalaryKeyReleased
+       // BLL_Admin.Editsalary_admin();
+    }//GEN-LAST:event_txtSalaryKeyReleased
+
+    private void txtActivityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtActivityKeyReleased
+       // BLL_Admin.Editactivity_admin();
+    }//GEN-LAST:event_txtActivityKeyReleased
+
+    private void btnAvatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvatarActionPerformed
+       // BLL_Admin.EditAvatar_admin();
+    }//GEN-LAST:event_btnAvatarActionPerformed
+
+    private void pick_date_birthPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pick_date_birthPropertyChange
+       // BLL_Admin.Editdate_birth_admin();
+    }//GEN-LAST:event_pick_date_birthPropertyChange
+
+    private void pick_date_contrPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pick_date_contrPropertyChange
+       // BLL_Admin.Editdate_contr_admin();
+    }//GEN-LAST:event_pick_date_contrPropertyChange
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JDialog Information_dialog;
     public static org.edisoncor.gui.button.ButtonAero btnAvatar;
     public static org.edisoncor.gui.button.ButtonAeroRight btn_Aceptar;
-    public static org.edisoncor.gui.button.ButtonAeroRight btn_Cancel;
+    public static org.edisoncor.gui.button.ButtonAeroRight btn_Cancelar;
     public static javax.swing.JComboBox<String> comboStatus;
     public static javax.swing.JLabel labActivity;
     public static javax.swing.JLabel labAvatar;
@@ -618,9 +566,8 @@ public class create_Admin_view extends javax.swing.JFrame {
     public static javax.swing.JLabel labPassword;
     public static javax.swing.JLabel labSalary;
     public static javax.swing.JLabel labUser;
-    public static javax.swing.JLabel lab_information_message;
     public static javax.swing.JLabel labdate_birth;
-    public static javax.swing.JLabel labdate_contr;
+    public static javax.swing.JLabel labdate_cont;
     public static org.edisoncor.gui.label.LabelHeader labelHeader1;
     public static org.edisoncor.gui.label.LabelHeader labelHeader10;
     public static org.edisoncor.gui.label.LabelHeader labelHeader11;
@@ -634,12 +581,10 @@ public class create_Admin_view extends javax.swing.JFrame {
     public static org.edisoncor.gui.label.LabelHeader labelHeader7;
     public static org.edisoncor.gui.label.LabelHeader labelHeader8;
     public static org.edisoncor.gui.label.LabelHeader labelHeader9;
-    public static javax.swing.JLabel labinfo_img;
     public static org.edisoncor.gui.panel.PanelImage panImage;
     public static org.edisoncor.gui.panel.PanelCurves panelCurves2;
     public static org.edisoncor.gui.panel.PanelRect panelRect1;
     public static org.edisoncor.gui.panel.PanelRect panelRect2;
-    public static org.edisoncor.gui.panel.PanelRound panelRound1;
     public static com.toedter.calendar.JDateChooser pick_date_birth;
     public static com.toedter.calendar.JDateChooser pick_date_contr;
     public static org.edisoncor.gui.textField.TextField txtActivity;

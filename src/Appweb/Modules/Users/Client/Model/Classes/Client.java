@@ -8,7 +8,6 @@ import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Classes.Date.ClassDate;
 import Appweb.General_tools.Format_tools;
 import Appweb.Modules.Users.Classes.User;
-import javax.swing.Icon;
 
 /**
  * 
@@ -222,6 +221,7 @@ public class Client extends User implements Serializable {
 
 	// String type one
 	// to string all attributes mum and son
+        /**
 	public String toString() {
 
 		StringBuffer buffer = new StringBuffer();
@@ -236,6 +236,11 @@ public class Client extends User implements Serializable {
 		return buffer.toString();
 
 	}
+        * */
+        
+         public String toString() {
+        return "client{" + "Dni=" + super.getDni() + "Last_name=" + super.getLast_name() + "Date_birth=" + super.getDate_birth() + "Antique=" + antique_c + "Salary=" + purchase+ '}';
+    }
 
 	public String toPurchase() {
 

@@ -1,9 +1,9 @@
-package Appweb.Modules.Users.Admin.Model.Tools.autocomplete;
+package Appweb.Modules.Users.Client.Model.Tools.autocomplete;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class StringSearchable implements Searchable_client<String,String>{
+public class StringSearchable_client implements Searchable_client<String,String>{
 	private List<String> terms = new ArrayList<String>();
 
 	/**
@@ -11,7 +11,7 @@ public class StringSearchable implements Searchable_client<String,String>{
 	 * @param terms The inventory of terms to search.
 	 */
 
-	public StringSearchable(List<String> terms){
+	public StringSearchable_client(List<String> terms){
             this.terms.addAll(terms);
 	}
 

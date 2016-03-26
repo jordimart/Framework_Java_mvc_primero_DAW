@@ -1,5 +1,7 @@
-package Appweb.Modules.Users.Admin.Model.DAO_Admin;
+package Appweb.Modules.Users.User_reg.Model.DAO_User;
 
+import Appweb.Modules.Users.Client.Model.DAO_Client.*;
+import Appweb.Modules.Users.Admin.Model.DAO_Admin.*;
 import Appweb.Classes.Date.ClassDate;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
@@ -48,7 +50,7 @@ import javax.swing.JOptionPane;
  *
  * @author ASUSG50V
  */
-public class DAO_Admin {
+public class DAO_User {
 
     private static final String ENCODING = "UTF-8";
 

@@ -1,13 +1,14 @@
-package Appweb.Modules.Users.Admin.View;
+package Appweb.Modules.Users.User_reg.View;
 
 
+import Appweb.Modules.Users.Client.View.*;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 
 /**
  *
  * @author ASUSG50V
  */
-public class table_Admin_view extends javax.swing.JFrame {
+public class table_User_view extends javax.swing.JFrame {
 
     //public static TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(new Table_Admin());
     //public static AutocompleteJComboBox combo = null;
@@ -15,7 +16,7 @@ public class table_Admin_view extends javax.swing.JFrame {
     /**
      * Creates new form table_Users
      */
-    public table_Admin_view() {
+    public table_User_view() {
         initComponents();
 
         //this.setTitle("Table Admin");

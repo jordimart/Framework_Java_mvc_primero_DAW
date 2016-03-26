@@ -1,5 +1,6 @@
-package Appweb.Modules.Users.Admin.Controller;
+package Appweb.Modules.Users.User_reg.Controller;
 
+import Appweb.Modules.Users.Admin.Controller.*;
 import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Main.Controller.ControllerMain;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
@@ -50,7 +51,7 @@ import javax.swing.table.TableRowSorter;
  *
  * @author jorge
  */
-public class ControllerAdmin implements ActionListener, MouseListener, PropertyChangeListener, KeyListener {
+public class ControllerUser implements ActionListener, MouseListener, PropertyChangeListener, KeyListener {
 
     public static task_Admin_view Task_Admin;
     public static table_Admin_view Table_Admin;
@@ -62,7 +63,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
     public static AutocompleteJComboBox combo = null;
     public static JTable tabla = null;
 
-    public ControllerAdmin(JFrame start, int i) {
+    public ControllerUser(JFrame start, int i) {
 
         if (i == 0) {
             Task_Admin = (task_Admin_view) start;
@@ -227,7 +228,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             this.Table_Admin.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
                     Table_Admin.dispose();
-                    new ControllerAdmin(new task_Admin_view(), 0).Start(0);
+                    new ControllerUser(new task_Admin_view(), 0).Start(0);
 
                 }
             });
@@ -497,7 +498,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             case btn_ges_users:
 
                 Task_Admin.dispose();
-                new ControllerAdmin(new table_Admin_view(), 1).Start(1);
+                new ControllerUser(new table_Admin_view(), 1).Start(1);
 
                 break;
             case btn_Config:
@@ -522,7 +523,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             case btnAdd_admin:
 
                  Table_Admin.dispose();
-                new ControllerAdmin(new create_Admin_view(), 2).Start(2);
+                new ControllerUser(new create_Admin_view(), 2).Start(2);
 
                 break;
             case btnEditar_admin:
@@ -550,7 +551,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             case btn_Volver_table:
 
                 Table_Admin.dispose();
-                new ControllerAdmin(new task_Admin_view(), 0).Start(0);
+                new ControllerUser(new task_Admin_view(), 0).Start(0);
 
                 break;
             case ANTERIOR:
@@ -583,7 +584,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
                 if (ok == true) {
 
                     Create_Admin.dispose();
-                    new ControllerAdmin(new table_Admin_view(), 1).Start(1);
+                    new ControllerUser(new table_Admin_view(), 1).Start(1);
 
                     ((Table_Admin) mini_Table_Admin.getModel()).cargar();
                 }
@@ -593,7 +594,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
 
                
                 Create_Admin.dispose();
-                new ControllerAdmin(new table_Admin_view(), 1).Start(1);
+                new ControllerUser(new table_Admin_view(), 1).Start(1);
 
                 break;
             case btnAvatar:
@@ -606,7 +607,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
                 ok = BLL_Admin.Enter_edited_admin();
                 if (ok == true) {
                     Edit_Admin.dispose();
-                    new ControllerAdmin(new table_Admin_view(), 1).Start(1);
+                    new ControllerUser(new table_Admin_view(), 1).Start(1);
                     ((Table_Admin) mini_Table_Admin.getModel()).cargar();
 
                 }
@@ -616,7 +617,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
 
                 
                 Edit_Admin.dispose();
-                new ControllerAdmin(new table_Admin_view(), 1).Start(1);
+                new ControllerUser(new table_Admin_view(), 1).Start(1);
 
                 break;
             case btnAvatar_e:
@@ -627,7 +628,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             case btnAccept_s:
 
                 Show_Admin.dispose();
-                new ControllerAdmin(new table_Admin_view(), 1).Start(1);
+                new ControllerUser(new table_Admin_view(), 1).Start(1);
 
                 break;
 

@@ -1,5 +1,7 @@
-package Appweb.Modules.Users.Admin.Model.BLL_Admin;
+package Appweb.Modules.Users.User_reg.Model.BLL_User;
 
+import Appweb.Modules.Users.Client.Model.BLL_Client.*;
+import Appweb.Modules.Users.Admin.Model.BLL_Admin.*;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin;
 import Appweb.Modules.Users.Admin.View.edit_Admin_view;
@@ -8,7 +10,9 @@ import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
+import static Appweb.Modules.Users.Admin.Controller.ControllerAdmin.Show_Admin;
 import static Appweb.Modules.Users.Admin.Controller.ControllerAdmin.Table_Admin;
+import Appweb.Modules.Users.Admin.View.create_Admin_view;
 import Appweb.Modules.Users.Admin.View.show_Admin_view;
 import static Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin;
@@ -20,7 +24,7 @@ import javax.swing.JOptionPane;
  *
  * @author ASUSG50V
  */
-public class BLL_Admin {
+public class BLL_User {
 
     //////////BLLs del formulario create Admin view///////
     public static void Enterdni_admin() {
@@ -82,18 +86,19 @@ public class BLL_Admin {
             singleadmin.Admin_array.add(a);
             DAO_Admin.auto_save_json_admin();
             ((Table_Admin) mini_Table_Admin.getModel()).cargar();
-            pagina.inicializa();
-            pagina.initLinkBox();
+                pagina.inicializa();
+                pagina.initLinkBox();
 
             JOptionPane.showMessageDialog(null, "Usuario creado");
             //create_Admin_view.lab_information_message.setText("Usuario creado");
-            // create_Admin_view.labinfo_img.setIcon(singletonapp.good_data);
+           // create_Admin_view.labinfo_img.setIcon(singletonapp.good_data);
 
             ok = true;
         } else {
 
-            // create_Admin_view.lab_information_message.setText("Revise los datos, no puede guardar si hay algun dato incorrecto");
+           // create_Admin_view.lab_information_message.setText("Revise los datos, no puede guardar si hay algun dato incorrecto");
             //create_Admin_view.labinfo_img.setIcon(singletonapp.wrong_data);
+
             JOptionPane.showMessageDialog(null, "Revise los datos, no puede guardar si hay algun dato incorrecto");
         }
         return ok;
@@ -338,15 +343,5 @@ public class BLL_Admin {
     public static void save_txt_admin() {
 
         DAO_Admin.save_txt_admin();
-    }
-
-    public static void auto_open_json_admin() {
-
-        DAO_Admin.auto_open_json_admin();
-    }
-
-    public static void auto_save_json_admin() {
-
-        DAO_Admin.auto_save_json_admin();
     }
 }

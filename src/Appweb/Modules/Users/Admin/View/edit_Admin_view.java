@@ -1,18 +1,5 @@
 package Appweb.Modules.Users.Admin.View;
 
-import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
-import static Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin;
-import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin;
-import java.awt.AWTKeyStroke;
-import java.awt.Color;
-import java.awt.KeyboardFocusManager;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.util.HashSet;
-import java.util.Set;
-import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
-
 /**
  *
  * @author ASUSG50V
