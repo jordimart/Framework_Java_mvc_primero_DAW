@@ -40,7 +40,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Data Admin"/>
+            <TitledBorder title="Data User registered"/>
           </Border>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -128,7 +128,7 @@
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="txtBenefits" pref="145" max="32767" attributes="0"/>
                                   <Component id="txtActivity" pref="145" max="32767" attributes="0"/>
-                                  <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtKarma" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -154,11 +154,13 @@
                           <Component id="txtBenefits" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelHeader3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtLast_name" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelHeader17" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                          <Component id="jTextField1" alignment="1" pref="23" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtKarma" alignment="1" pref="23" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="labelHeader3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtLast_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelHeader17" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -389,7 +391,7 @@
                 <Property name="text" type="java.lang.String" value="KARMA"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="txtKarma">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
               </Properties>

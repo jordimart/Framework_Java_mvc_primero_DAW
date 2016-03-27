@@ -6,9 +6,10 @@ import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.General_tools.singletonapp;
 
 import Appweb.Modules.Users.Client.Controller.ControllerClient;
+import static Appweb.Modules.Users.Client.Controller.ControllerClient.Table_Client;
 import Appweb.Modules.Users.Client.Model.Classes.Client;
-import Appweb.Modules.Users.Client.Model.Classes.Table_Client;
-import static Appweb.Modules.Users.Client.Model.Classes.Table_Client.datos;
+import Appweb.Modules.Users.Client.Model.Classes.Table_Client_class;
+import static Appweb.Modules.Users.Client.Model.Classes.Table_Client_class.datos;
 import Appweb.Modules.Users.Client.Model.Classes.singleclient;
 import Appweb.Modules.Users.Client.Model.DAO_Client.DAO_Client;
 import Appweb.Modules.Users.Client.Model.Tools.Pager.pagina_client;
@@ -80,7 +81,7 @@ public class BLL_Client {
         if (a != null) {
             singleclient.Client_array.add(a);
             DAO_Client.auto_save_json_client();
-            ((Table_Client) mini_Table_Client.getModel()).cargar();
+            ((Table_Client_class) mini_Table_Client.getModel()).cargar();
                 pagina_client.inicializa();
                 pagina_client.initLinkBox();
 
@@ -168,7 +169,7 @@ public class BLL_Client {
         boolean ok = false;
         int selection, inicio, selection1;
 
-        if (((Table_Client) table_Client_view.mini_Table_Client.getModel()).getRowCount() != 0) {
+        if (((Table_Client_class) table_Client_view.mini_Table_Client.getModel()).getRowCount() != 0) {
             int selec = table_Client_view.mini_Table_Client.getSelectedRow();
 
             if (selec == -1) {
@@ -185,10 +186,10 @@ public class BLL_Client {
 
                 singletonapp.pos = Look_for_dni_client(dni);
 
-                //Table_Admin.dispose();
+                Table_Client.dispose();
                 new ControllerClient(new edit_Client_view(), 2).Start(2);
                 DAO_Client.Load_edit_client();
-                ((Table_Client) mini_Table_Client.getModel()).cargar();
+                ((Table_Client_class) mini_Table_Client.getModel()).cargar();
                 pagina_client.inicializa();
                 pagina_client.initLinkBox();
 
@@ -207,7 +208,7 @@ public class BLL_Client {
         boolean ok = false;
         int selection, inicio, selection1;
 
-        if (((Table_Client) table_Client_view.mini_Table_Client.getModel()).getRowCount() != 0) {
+        if (((Table_Client_class) table_Client_view.mini_Table_Client.getModel()).getRowCount() != 0) {
             //int selec = table_Admin_view.mini_Table_Admin.getSelectedRow();
 
             inicio = (pagina_client.currentPageIndex - 1) * pagina_client.itemsPerPage; //nos situamos al inicio de la pÃ¡gina en cuestiÃ³n
@@ -223,7 +224,7 @@ public class BLL_Client {
                 dni = (String) mini_Table_Client.getModel().getValueAt(selection1, 0);
                 singletonapp.pos = Look_for_dni_client(dni);
 
-                ((Table_Client) mini_Table_Client.getModel()).removeRow(selection1);
+                ((Table_Client_class) mini_Table_Client.getModel()).removeRow(selection1);
                 singleclient.Client_array.remove(singletonapp.pos);
                 DAO_Client.auto_save_json_client();
 
@@ -252,7 +253,7 @@ public class BLL_Client {
             // arraylist
             singleclient.Client_array.clear();
             DAO_Client.auto_save_json_client();
-            ((Table_Client) mini_Table_Client.getModel()).cargar();
+            ((Table_Client_class) mini_Table_Client.getModel()).cargar();
             table_Client_view.jLabel3.setText(String.valueOf(datos.size()));
             pagina_client.inicializa();
             pagina_client.initLinkBox();
@@ -268,7 +269,7 @@ public class BLL_Client {
         boolean ok = false;
         int selection, inicio, selection1;
 
-        if (((Table_Client) table_Client_view.mini_Table_Client.getModel()).getRowCount() != 0) {
+        if (((Table_Client_class) table_Client_view.mini_Table_Client.getModel()).getRowCount() != 0) {
             int selec = table_Client_view.mini_Table_Client.getSelectedRow();
 
             if (selec == -1) {
@@ -284,7 +285,7 @@ public class BLL_Client {
 
                 singletonapp.pos = Look_for_dni_client(dni);
 
-                
+                Table_Client.dispose();
                 new ControllerClient(new show_Client_view(), 3).Start(3);
 
                 DAO_Client.Load_show_client();

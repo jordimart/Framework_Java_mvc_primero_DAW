@@ -18,7 +18,7 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author ASUSG50V
  */
-public class Table_Client extends AbstractTableModel {
+public class Table_Client_class extends AbstractTableModel {
 
     public static ArrayList<Client> datos = new ArrayList<Client>();
     public static ArrayList<Client> datosaux = new ArrayList<Client>();
@@ -118,7 +118,7 @@ public class Table_Client extends AbstractTableModel {
     public void addRow(Client usu) {
         datos.add(usu);
 
-        ((Table_Client) table_Client_view.mini_Table_Client.getModel()).fireTableDataChanged();
+        ((Table_Client_class) table_Client_view.mini_Table_Client.getModel()).fireTableDataChanged();
     }
 
     public void cargar() {

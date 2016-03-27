@@ -1,6 +1,6 @@
 package Appweb.Modules.Users.Client.Model.Tools.Pager;
 
-import Appweb.Modules.Users.Client.Model.Classes.Table_Client;
+import Appweb.Modules.Users.Client.Model.Classes.Table_Client_class;
 import Appweb.Modules.Users.Client.View.table_Client_view;
 
 
@@ -29,7 +29,7 @@ public class pagina_client {
     public static void inicializa() {
         int rowCount = 0;
         
-                rowCount = ((Table_Client) Appweb.Modules.Users.Client.View.table_Client_view.mini_Table_Client.getModel()).getRowCount();
+                rowCount = ((Table_Client_class) Appweb.Modules.Users.Client.View.table_Client_view.mini_Table_Client.getModel()).getRowCount();
                 
 
         int v = rowCount % itemsPerPage == 0 ? 0 : 1;
@@ -62,7 +62,7 @@ public class pagina_client {
 
         int rowCount = 0;
         
-                rowCount = ((Table_Client) Appweb.Modules.Users.Client.View.table_Client_view.mini_Table_Client.getModel()).getRowCount();
+                rowCount = ((Table_Client_class) Appweb.Modules.Users.Client.View.table_Client_view.mini_Table_Client.getModel()).getRowCount();
                
 
         int v = rowCount % itemsPerPage == 0 ? 0 : 1;

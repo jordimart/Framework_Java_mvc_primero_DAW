@@ -11,44 +11,35 @@ public class create_User_view extends javax.swing.JFrame {
      */
     public create_User_view() {
         initComponents();
-        
+
         /**
-        this.setTitle("Create Admin");
-        this.setLocationRelativeTo(null);
-        this.setSize(1000, 1200);//ancho x alto
-        this.setResizable(false);
-
-        Information_dialog.setLocationRelativeTo(null);
-        Information_dialog.setTitle("Information");
-        Information_dialog.setSize(1000, 200);
-        Information_dialog.setModal(true);
-        //Information_dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-
-        pick_date_birth.getDateEditor().setEnabled(false);
-        pick_date_contr.getDateEditor().setEnabled(false);
-
-        // Conjunto de teclas que queremos que sirvan para pasar el foco 
-        // al siguiente campo de texto: ENTER y TAB
-        Set<AWTKeyStroke> teclas = new HashSet<AWTKeyStroke>();
-        teclas.add(AWTKeyStroke.getAWTKeyStroke(KeyEvent.VK_ENTER, 0));
-        teclas.add(AWTKeyStroke.getAWTKeyStroke(
-                KeyEvent.VK_TAB, 0));
-
-        // Se pasa el conjunto de teclas al panel principal 
-        panrect1.setFocusTraversalKeys(
-                KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS,
-                teclas);
-
-        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                dispose();
-            }
-        });
+         * this.setTitle("Create Admin"); this.setLocationRelativeTo(null);
+         * this.setSize(1000, 1200);//ancho x alto this.setResizable(false);
+         *
+         * Information_dialog.setLocationRelativeTo(null);
+         * Information_dialog.setTitle("Information");
+         * Information_dialog.setSize(1000, 200);
+         * Information_dialog.setModal(true);
+         * //Information_dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+         *
+         * pick_date_birth.getDateEditor().setEnabled(false);
+         * pick_date_contr.getDateEditor().setEnabled(false);
+         *
+         * // Conjunto de teclas que queremos que sirvan para pasar el foco //
+         * al siguiente campo de texto: ENTER y TAB Set<AWTKeyStroke> teclas =
+         * new HashSet<AWTKeyStroke>();
+         * teclas.add(AWTKeyStroke.getAWTKeyStroke(KeyEvent.VK_ENTER, 0));
+         * teclas.add(AWTKeyStroke.getAWTKeyStroke( KeyEvent.VK_TAB, 0));
+         *
+         * // Se pasa el conjunto de teclas al panel principal
+         * panrect1.setFocusTraversalKeys(
+         * KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, teclas);
+         *
+         * this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+         * addWindowListener(new WindowAdapter() { public void
+         * windowClosing(WindowEvent e) { dispose(); } });
          */
     }
-
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -365,21 +356,18 @@ public class create_User_view extends javax.swing.JFrame {
                     .addComponent(labelHeader9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelHeader12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtActivity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelHeader12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtActivity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labActivity, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelHeader13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRect1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(labActivity, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelRect1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(labAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(labAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         btn_Cancel.setText("Cancelar");
@@ -437,23 +425,21 @@ public class create_User_view extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addGroup(panImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelRect2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelRect1, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(257, Short.MAX_VALUE))
+                    .addComponent(panelRect1, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panImage, javax.swing.GroupLayout.PREFERRED_SIZE, 954, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 674, Short.MAX_VALUE))
+            .addComponent(panImage, javax.swing.GroupLayout.PREFERRED_SIZE, 954, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(panImage, javax.swing.GroupLayout.DEFAULT_SIZE, 1123, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panImage, javax.swing.GroupLayout.PREFERRED_SIZE, 946, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         panImage.getAccessibleContext().setAccessibleName("");
@@ -535,15 +521,13 @@ public class create_User_view extends javax.swing.JFrame {
     private void btn_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AceptarActionPerformed
 
         /**
-        boolean ok = BLL_Admin.Enter_edited_admin();
-        if (ok == true) {
-            this.dispose();
-            table_Admin_view menu = new table_Admin_view();
-            menu.setVisible(true);
-            ((Table_Admin) mini_Table_Admin.getModel()).cargar();
-
-        }
-        */
+         * boolean ok = BLL_Admin.Enter_edited_admin(); if (ok == true) {
+         * this.dispose(); table_Admin_view menu = new table_Admin_view();
+         * menu.setVisible(true); ((Table_Admin)
+         * mini_Table_Admin.getModel()).cargar();
+         *
+         * }
+         */
     }//GEN-LAST:event_btn_AceptarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

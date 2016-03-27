@@ -45,10 +45,7 @@ import javax.swing.table.TableRowSorter;
  * @author jorge
  */
 public class ControllerUser implements ActionListener, MouseListener, PropertyChangeListener, KeyListener {
-    
 
-
-   // public static task_Admin_view Task_Admin;
     public static table_User_view Table_User;
     public static create_User_view Create_User;
     public static edit_User_view Edit_User;
@@ -60,7 +57,6 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
 
     public ControllerUser(JFrame start, int i) {
 
-       
         if (i == 0) {
             Table_User = (table_User_view) start;
         }
@@ -97,18 +93,11 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
 
     public enum Action_User {
 
-        //botones de Task_Admin//
-       // btn_Config,
-        //btn_Volver,
-        //btn_ges_users,
-        //btn_ges_inst,
-        //btn_ges_averias,
-        //botones table Admin//
-
-        btnAdd_user,
-        btnEditar_user,
-        btnBorrar_user,
-        btnMostrar_user,
+        //botones table User registered//
+        btnAdd,
+        btnEditar,
+        btnBorrar,
+        btnMostrar,
         btn_delete_all,
         btn_Return_table,
         ANTERIOR,
@@ -118,13 +107,12 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
         jComboBox1,//combo filtrar
         Tabla_pager,//mouseclicked
 
-        //botones create Admin//
+        //botones create User registered//
 
         btn_Aceptar,
         btn_Cancel_a,
         btnAvatar,
         pick_date_birth,
-       
         txtActivity,
         txtDni,
         txtEmail,
@@ -132,22 +120,19 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
         txtMobile,
         txtName,
         txtPassword,
-        
         txtUser,
-        //botones edit Admin//
+        //botones edit User registered//
 
         btn_Aceptar_e,
         btn_cancelar_e,
         btnAvatar_e,
         pick_date_birth_e,
-       
         txtActivity_e,
         txtEmail_e,
         txtLast_name_e,
         txtMobile_e,
         txtName_e,
         txtPassword_e,
-     
         txtUser_e,
         //botones Mostrar//
 
@@ -155,55 +140,16 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
     }
 
     public void Start(int i) {
-        
-        /**
-        if (i == 0) {
 
-            Task_User.setTitle(Lang.getInstance().getProperty("Task Admin"));
-            Task_Admin.setLocationRelativeTo(null);
-            Task_Admin.setSize(1000, 600);//ancho x alto
-            // this.setResizable(false);
-
-            Task_Admin.setExtendedState(JFrame.MAXIMIZED_BOTH);
-            Task_Admin.setVisible(true);
-
-            this.Task_Admin.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-            this.Task_Admin.addWindowListener(new WindowAdapter() {
-                public void windowClosing(WindowEvent e) {
-                    Task_Admin.dispose();
-                    new ControllerMain(new menu_Input(), 0).Start(0);
-
-                }
-            });
-
-            Task_Admin.btn_Config.setActionCommand("btn_Config");
-            Task_Admin.btn_Config.addActionListener(this);
-
-            Task_Admin.btn_Volver.setActionCommand("btn_Volver");
-            Task_Admin.btn_Volver.addActionListener(this);
-
-            Task_Admin.btn_ges_users.setActionCommand("btn_ges_users");
-            Task_Admin.btn_ges_users.addActionListener(this);
-
-            Task_Admin.btn_ges_inst.setActionCommand("btn_ges_inst");
-            Task_Admin.btn_ges_inst.addActionListener(this);
-
-            Task_Admin.btn_ges_averias.setActionCommand("btn_ges_averias");
-            Task_Admin.btn_ges_averias.addActionListener(this);
-
-        }
-        * */
         if (i == 0) {
 
             Table_User.setVisible(true);
 
             Table_User.setTitle("Table User registered");
             Table_User.setLocationRelativeTo(null);
-            Table_User.setSize(1000, 650);//ancho x alto
+            Table_User.setSize(1700, 1000);//ancho x alto
             Table_User.setResizable(true);
-            Table_User.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
-            //singletonapp.singleton_vtna = "Admin";
+            //Table_User.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
             Table_User.mini_Table_User.setModel(new Table_User_reg());
             ((Table_User_reg) mini_Table_User.getModel()).cargar();
@@ -244,16 +190,16 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
 
             });
 
-            Table_User.btnAdd_user.setActionCommand("btnAdd_admin");
+            Table_User.btnAdd_user.setActionCommand("btnAdd");
             Table_User.btnAdd_user.addActionListener((ActionListener) this);
 
-            Table_User.btnEditar_user.setActionCommand("btnEditar_admin");
+            Table_User.btnEditar_user.setActionCommand("btnEditar");
             Table_User.btnEditar_user.addActionListener(this);
 
-            Table_User.btnBorrar_user.setActionCommand("btnBorrar_admin");
+            Table_User.btnBorrar_user.setActionCommand("btnBorrar");
             Table_User.btnBorrar_user.addActionListener(this);
 
-            Table_User.btnMostrar_user.setActionCommand("btnMostrar_admin");
+            Table_User.btnMostrar_user.setActionCommand("btnMostrar");
             Table_User.btnMostrar_user.addActionListener(this);
 
             Table_User.btn_delete_all.setActionCommand("btn_delete_all");
@@ -286,7 +232,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             Create_User.setVisible(true);
             Create_User.setTitle("Create User registered");
             Create_User.setLocationRelativeTo(null);
-            Create_User.setSize(1000, 1200);//ancho x alto
+            Create_User.setSize(950, 950);//ancho x alto
             Create_User.setResizable(false);
 
             //Information_dialog.setLocationRelativeTo(null);
@@ -295,7 +241,6 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             //Information_dialog.setModal(true);
             //Information_dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
             Create_User.pick_date_birth.getDateEditor().setEnabled(false);
-           
 
             // Conjunto de teclas que queremos que sirvan para pasar el foco 
             // al siguiente campo de texto: ENTER y TAB
@@ -324,12 +269,6 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
 
             Create_User.btnAvatar.setActionCommand("btnAvatar");
             Create_User.btnAvatar.addActionListener(this);
-
-            //Create_Admin.pick_date_birth.setName("pick_date_birth");
-            //Create_Admin.pick_date_birth.addPropertyChangeListener(this);
-
-            //Create_Admin.pick_date_contr.setName("pick_date_contr");
-            //Create_Admin.pick_date_contr.addPropertyChangeListener(this);
 
             Create_User.txtDni.setActionCommand("txtDni");
             Create_User.txtDni.setName("txtDni");
@@ -365,12 +304,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             Create_User.txtPassword.setName("txtPassword");
             Create_User.txtPassword.addActionListener(this);
             Create_User.txtPassword.addKeyListener(this);
-/**
-            Create_User.txtSalary.setActionCommand("txtSalary");
-            Create_User.txtSalary.setName("txtSalary");
-            Create_User.txtSalary.addActionListener(this);
-            Create_User.txtSalary.addKeyListener(this);
-*/
+
             Create_User.txtUser.setActionCommand("txtUser");
             Create_User.txtUser.setName("txtUser");
             Create_User.txtUser.addActionListener(this);
@@ -382,12 +316,13 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
 
             Edit_User.setTitle("Edit User registered");
             Edit_User.setLocationRelativeTo(null);
-            Edit_User.setSize(1000, 1200);//ancho x alto
+            Edit_User.setSize(950, 950);//ancho x alto
             Edit_User.setResizable(false);
             Edit_User.setBackground(Color.GRAY);
-            Create_User.pick_date_birth.getDateEditor().setEnabled(false);
-            //Create_User.pick_date_contr.getDateEditor().setEnabled(false);
-            Create_User.setVisible(true);
+            Edit_User.pick_date_birth.getDateEditor().setEnabled(false);
+           
+            Edit_User.setVisible(true);
+            
             // Conjunto de teclas que queremos que sirvan para pasar el foco 
             // al siguiente campo de texto: ENTER y TAB
             Set<AWTKeyStroke> teclas = new HashSet<AWTKeyStroke>();
@@ -406,7 +341,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
                 }
             });
 
-           Edit_User.btn_Aceptar.setActionCommand("btn_Aceptar_e");
+            Edit_User.btn_Aceptar.setActionCommand("btn_Aceptar_e");
             Edit_User.btn_Aceptar.addActionListener(this);
 
             Edit_User.btn_Cancelar.setActionCommand("btn_cancelar_e");
@@ -415,12 +350,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             Edit_User.btnAvatar.setActionCommand("btnAvatar_e");
             Edit_User.btnAvatar.addActionListener(this);
 
-            //Edit_Admin.pick_date_birth.setName("pick_date_birth_e");
-            //Edit_Admin.pick_date_birth.addPropertyChangeListener(this);
-
-            //Edit_Admin.pick_date_contr.setName("pick_date_contr_e");
-           // Edit_Admin.pick_date_contr.addPropertyChangeListener(this);
-
+            
             Edit_User.txtActivity.setActionCommand("txtActivity_e");
             Edit_User.txtActivity.setName("txtActivity_e");
             Edit_User.txtActivity.addActionListener(this);
@@ -450,12 +380,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             Edit_User.txtPassword.setName("txtPassword_e");
             Edit_User.txtPassword.addActionListener(this);
             Edit_User.txtPassword.addKeyListener(this);
-/**
-            Edit_User.txtSalary.setActionCommand("txtSalary_e");
-            Edit_User.txtSalary.setName("txtSalary_e");
-            Edit_User.txtSalary.addActionListener(this);
-            Edit_User.txtSalary.addKeyListener(this);
-*/
+            
             Edit_User.txtUser.setActionCommand("txtUser_e");
             Edit_User.txtUser.setName("txtUser_e");
             Edit_User.txtUser.addActionListener(this);
@@ -464,11 +389,12 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
 
         if (i == 3) {
 
-            Show_User.setTitle("Admin data");
+            Show_User.setTitle("User registered data");
             Show_User.setLocationRelativeTo(null);
             Show_User.setSize(1000, 650);//ancho x alto
             Show_User.setResizable(false);
             Show_User.setVisible(true);
+            
             this.Show_User.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             this.Show_User.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
@@ -485,61 +411,34 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
 
         boolean ok = false;
         switch (Action_User.valueOf(ae.getActionCommand())) {
-/**
-            case btn_ges_users:
+           
+            case btnAdd:
 
-                Task_Admin.dispose();
-                new ControllerUser(new table_Admin_view(), 1).Start(1);
-
-                break;
-            case btn_Config:
-
-                Task_Admin.dispose();
-                new ControllerMain(new menu_Settings(), 1).Start(1);
-
-                break;
-            case btn_Volver:
-
-                Task_Admin.dispose();
-                new ControllerMain(new menu_Input(), 0).Start(0);
-
-                break;
-
-            case btn_ges_inst:
-                //nulo
-                break;
-            case btn_ges_averias:
-                //nulo
-                break;
-                * 
-                */
-            case btnAdd_user:
-
-                 Table_User.dispose();
+                Table_User.dispose();
                 new ControllerUser(new create_User_view(), 1).Start(1);
 
                 break;
-            case btnEditar_user:
+            case btnEditar:
 
-                ok = BLL_User.modifity_select_user();
+                ok = BLL_User.modifity_select();
                 if (true == ok) {
 
                     Table_User.dispose();
                 }
 
                 break;
-            case btnBorrar_user:
+            case btnBorrar:
 
-                BLL_User.delete_select_user();
+                BLL_User.delete_select();
                 break;
-            case btnMostrar_user:
+            case btnMostrar:
 
-                BLL_User.show_select_user();
+                BLL_User.show_select();
 
                 break;
             case btn_delete_all:
 
-                BLL_User.Delete_all_user();
+                BLL_User.Delete_all();
                 break;
             case btn_Return_table:
 
@@ -572,7 +471,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
                 break;
             case btn_Aceptar:
 
-                ok = BLL_User.Enter_new_user();
+                ok = BLL_User.Enter_new();
 
                 if (ok == true) {
 
@@ -585,19 +484,18 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
 
             case btn_Cancel_a:
 
-               
                 Create_User.dispose();
                 new ControllerUser(new table_User_view(), 0).Start(0);
 
                 break;
             case btnAvatar:
 
-                BLL_User.EnterAvatar_user();
+                BLL_User.EnterAvatar();
 
                 break;
             case btn_Aceptar_e:
 
-                ok = BLL_User.Enter_edited_user();
+                ok = BLL_User.Enter_edited();
                 if (ok == true) {
                     Edit_User.dispose();
                     new ControllerUser(new table_User_view(), 0).Start(0);
@@ -608,14 +506,13 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
                 break;
             case btn_cancelar_e:
 
-                
                 Edit_User.dispose();
                 new ControllerUser(new table_User_view(), 0).Start(0);
 
                 break;
             case btnAvatar_e:
 
-                BLL_User.EditAvatar_user();
+                BLL_User.EditAvatar();
 
                 break;
             case btnAccept_s:
@@ -632,14 +529,10 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
 
-       
+        BLL_User.Enterdate_birth();
 
-        BLL_User.Enterdate_birth_user();
-        
-        BLL_User.Editdate_birth_user();
-        
+        BLL_User.Editdate_birth();
 
-        
     }
 
     @Override
@@ -665,7 +558,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             case txtPassword:
                 //BLL_Admin.Enterpassword_admin();
                 break;
-            
+
             case txtUser:
                 // BLL_Admin.Enteruser_admin();
                 break;
@@ -690,7 +583,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             case txtPassword_e:
                 // BLL_Admin.Editpassword_admin();
                 break;
-            
+
             case txtUser_e:
                 // BLL_Admin.Edituser_admin();
                 break;
@@ -704,51 +597,51 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
         switch (Action_User.valueOf(e.getComponent().getName())) {
 
             case txtDni:
-                BLL_User.Enterdni_user();
+                BLL_User.Enterdni();
                 break;
             case txtEmail:
-                BLL_User.Entermail_user();
+                BLL_User.Entermail();
                 break;
             case txtLast_name:
-                BLL_User.Enterlast_name_user();
+                BLL_User.Enterlast_name();
                 break;
             case txtMobile:
-                BLL_User.Entermobile_user();
+                BLL_User.Entermobile();
                 break;
             case txtName:
-                BLL_User.Entername_user();
+                BLL_User.Entername();
                 break;
             case txtPassword:
-                BLL_User.Enterpassword_user();
+                BLL_User.Enterpassword();
                 break;
-            
+
             case txtUser:
-                BLL_User.Enteruser_user();
+                BLL_User.Enteruser();
                 break;
             case txtActivity:
-                BLL_User.Enteractivity_user();
+                BLL_User.Enteractivity();
                 break;
             case txtActivity_e:
-                BLL_User.Editactivity_user();
+                BLL_User.Editactivity();
                 break;
             case txtEmail_e:
-                BLL_User.Editmail_user();
+                BLL_User.Editmail();
                 break;
             case txtLast_name_e:
-                BLL_User.Editlast_name_user();
+                BLL_User.Editlast_name();
                 break;
             case txtMobile_e:
-                BLL_User.Editmobile_user();
+                BLL_User.Editmobile();
                 break;
             case txtName_e:
-                BLL_User.Editname_user();
+                BLL_User.Editname();
                 break;
             case txtPassword_e:
-                BLL_User.Editpassword_user();
+                BLL_User.Editpassword();
                 break;
-            
+
             case txtUser_e:
-                BLL_User.Edituser_user();
+                BLL_User.Edituser();
                 break;
         }
 
@@ -762,7 +655,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             case Tabla_pager:
 
                 if (e.getClickCount() == 2) {
-                    BLL_User.modifity_select_user();
+                    BLL_User.modifity_select();
                 }
                 break;
 
@@ -776,5 +669,5 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
         ((Table_User_reg) mini_Table_User.getModel()).filtrar();
         combo.requestFocus();
     }
-    
+
 }

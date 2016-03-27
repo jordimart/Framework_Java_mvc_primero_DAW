@@ -40,7 +40,6 @@ import java.util.List;
 import java.util.Set;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.table.TableModel;
@@ -171,7 +170,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
 
             Task_Admin.setTitle(Lang.getInstance().getProperty("Task Admin"));
             Task_Admin.setLocationRelativeTo(null);
-            Task_Admin.setSize(1000, 600);//ancho x alto
+            Task_Admin.setSize(1600,1100);//ancho x alto
             // this.setResizable(false);
 
             Task_Admin.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -208,9 +207,9 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
 
             Table_Admin.setTitle("Table Admin");
             Table_Admin.setLocationRelativeTo(null);
-            Table_Admin.setSize(1000, 650);//ancho x alto
+            Table_Admin.setSize(1700, 1000);//ancho x alto
             Table_Admin.setResizable(true);
-            Table_Admin.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            //Table_Admin.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
             singletonapp.singleton_vtna = "Admin";
 
@@ -334,12 +333,6 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             Create_Admin.btnAvatar.setActionCommand("btnAvatar");
             Create_Admin.btnAvatar.addActionListener(this);
 
-            //Create_Admin.pick_date_birth.setName("pick_date_birth");
-            //Create_Admin.pick_date_birth.addPropertyChangeListener(this);
-
-            //Create_Admin.pick_date_contr.setName("pick_date_contr");
-            //Create_Admin.pick_date_contr.addPropertyChangeListener(this);
-
             Create_Admin.txtDni.setActionCommand("txtDni");
             Create_Admin.txtDni.setName("txtDni");
             Create_Admin.txtDni.addActionListener(this);
@@ -397,6 +390,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             Edit_Admin.pick_date_birth.getDateEditor().setEnabled(false);
             Edit_Admin.pick_date_contr.getDateEditor().setEnabled(false);
             Edit_Admin.setVisible(true);
+            
             // Conjunto de teclas que queremos que sirvan para pasar el foco 
             // al siguiente campo de texto: ENTER y TAB
             Set<AWTKeyStroke> teclas = new HashSet<AWTKeyStroke>();
@@ -423,12 +417,6 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
 
             Edit_Admin.btnAvatar.setActionCommand("btnAvatar_e");
             Edit_Admin.btnAvatar.addActionListener(this);
-
-            //Edit_Admin.pick_date_birth.setName("pick_date_birth_e");
-            //Edit_Admin.pick_date_birth.addPropertyChangeListener(this);
-
-            //Edit_Admin.pick_date_contr.setName("pick_date_contr_e");
-           // Edit_Admin.pick_date_contr.addPropertyChangeListener(this);
 
             Edit_Admin.txtActivity.setActionCommand("txtActivity_e");
             Edit_Admin.txtActivity.setName("txtActivity_e");
@@ -639,33 +627,14 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
 
-        JOptionPane.showMessageDialog(null, " Evento fecha " + evt);
+       
 
         BLL_Admin.Enterdate_birth_admin();
         BLL_Admin.Enterdate_contr_admin();
         BLL_Admin.Editdate_birth_admin();
         BLL_Admin.Editdate_contr_admin();
 
-        switch (Action_Admin.valueOf(evt.getPropertyName())) {
-
-            case pick_date_birth:
-                //BLL_Admin.Enterdate_birth_admin();
-
-                break;
-            case pick_date_contr:
-                // BLL_Admin.Enterdate_contr_admin();
-
-                break;
-            case pick_date_birth_e:
-                //BLL_Admin.Editdate_birth_admin();
-
-                break;
-            case pick_date_contr_e:
-                //BLL_Admin.Editdate_contr_admin();
-
-                break;
-
-        }
+        
     }
 
     @Override

@@ -1,8 +1,5 @@
 package Appweb.Modules.Users.User_reg.View;
 
-import Appweb.Modules.Users.Client.View.*;
-import Appweb.Modules.Users.Admin.View.*;
-
 /**
  *
  * @author ASUSG50V
@@ -16,32 +13,25 @@ public class edit_User_view extends javax.swing.JFrame {
         initComponents();
 
         /**
-        this.setTitle("Edit Admin");
-        this.setLocationRelativeTo(null);
-        this.setSize(1000, 1200);//ancho x alto
-        this.setResizable(false);
-        txtDni.setBackground(Color.GRAY);
-        pick_date_birth.getDateEditor().setEnabled(false);
-        pick_date_contr.getDateEditor().setEnabled(false);
-
-        // Conjunto de teclas que queremos que sirvan para pasar el foco 
-        // al siguiente campo de texto: ENTER y TAB
-        Set<AWTKeyStroke> teclas = new HashSet<AWTKeyStroke>();
-        teclas.add(AWTKeyStroke.getAWTKeyStroke(KeyEvent.VK_ENTER, 0));
-        teclas.add(AWTKeyStroke.getAWTKeyStroke(
-                KeyEvent.VK_TAB, 0));
-
-        panelRect1.setFocusTraversalKeys(
-                KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS,
-                teclas);
-
-        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                dispose();
-            }
-        });
-*/
+         * this.setTitle("Edit Admin"); this.setLocationRelativeTo(null);
+         * this.setSize(1000, 1200);//ancho x alto this.setResizable(false);
+         * txtDni.setBackground(Color.GRAY);
+         * pick_date_birth.getDateEditor().setEnabled(false);
+         * pick_date_contr.getDateEditor().setEnabled(false);
+         *
+         * // Conjunto de teclas que queremos que sirvan para pasar el foco //
+         * al siguiente campo de texto: ENTER y TAB Set<AWTKeyStroke> teclas =
+         * new HashSet<AWTKeyStroke>();
+         * teclas.add(AWTKeyStroke.getAWTKeyStroke(KeyEvent.VK_ENTER, 0));
+         * teclas.add(AWTKeyStroke.getAWTKeyStroke( KeyEvent.VK_TAB, 0));
+         *
+         * panelRect1.setFocusTraversalKeys(
+         * KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, teclas);
+         *
+         * this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+         * addWindowListener(new WindowAdapter() { public void
+         * windowClosing(WindowEvent e) { dispose(); } });
+         */
     }
 
     /**
@@ -317,21 +307,18 @@ public class edit_User_view extends javax.swing.JFrame {
                     .addComponent(labelHeader9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelHeader12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtActivity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelHeader12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtActivity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labActivity, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelHeader13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRect1Layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(labActivity, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelRect1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(labAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(labAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         btn_Cancelar.setText("Cancelar");
@@ -389,8 +376,8 @@ public class edit_User_view extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addGroup(panImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelRect2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelRect1, javax.swing.GroupLayout.PREFERRED_SIZE, 765, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(226, Short.MAX_VALUE))
+                    .addComponent(panelRect1, javax.swing.GroupLayout.PREFERRED_SIZE, 734, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -401,9 +388,9 @@ public class edit_User_view extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(panImage, javax.swing.GroupLayout.DEFAULT_SIZE, 1091, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panImage, javax.swing.GroupLayout.PREFERRED_SIZE, 947, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -411,23 +398,21 @@ public class edit_User_view extends javax.swing.JFrame {
 
     private void btn_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarActionPerformed
 
-       // this.dispose();
-       // table_Admin_view menu = new table_Admin_view();
-       // menu.setVisible(true);
+        // this.dispose();
+        // table_Admin_view menu = new table_Admin_view();
+        // menu.setVisible(true);
     }//GEN-LAST:event_btn_CancelarActionPerformed
 
     private void btn_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AceptarActionPerformed
 
         /**
-        boolean ok = BLL_Admin.Enter_edited_admin();
-        if (ok == true) {
-            this.dispose();
-            table_Admin_view menu = new table_Admin_view();
-            menu.setVisible(true);
-            ((Table_Admin) mini_Table_Admin.getModel()).cargar();
-
-        }
-*/
+         * boolean ok = BLL_Admin.Enter_edited_admin(); if (ok == true) {
+         * this.dispose(); table_Admin_view menu = new table_Admin_view();
+         * menu.setVisible(true); ((Table_Admin)
+         * mini_Table_Admin.getModel()).cargar();
+         *
+         * }
+         */
     }//GEN-LAST:event_btn_AceptarActionPerformed
 
     private void txtNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNameMouseClicked
@@ -459,19 +444,19 @@ public class edit_User_view extends javax.swing.JFrame {
     }//GEN-LAST:event_txtActivityMouseClicked
 
     private void txtNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyReleased
-       // BLL_Admin.Editname_admin();
+        // BLL_Admin.Editname_admin();
     }//GEN-LAST:event_txtNameKeyReleased
 
     private void txtLast_nameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLast_nameKeyReleased
-      //  BLL_Admin.Editlast_name_admin();
+        //  BLL_Admin.Editlast_name_admin();
     }//GEN-LAST:event_txtLast_nameKeyReleased
 
     private void txtMobileKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMobileKeyReleased
-       // BLL_Admin.Editmobile_admin();
+        // BLL_Admin.Editmobile_admin();
     }//GEN-LAST:event_txtMobileKeyReleased
 
     private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
-       // BLL_Admin.Editmail_admin();
+        // BLL_Admin.Editmail_admin();
     }//GEN-LAST:event_txtEmailKeyReleased
 
     private void txtUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyReleased
@@ -479,19 +464,19 @@ public class edit_User_view extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUserKeyReleased
 
     private void txtPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyReleased
-       // BLL_Admin.Editpassword_admin();
+        // BLL_Admin.Editpassword_admin();
     }//GEN-LAST:event_txtPasswordKeyReleased
 
     private void txtActivityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtActivityKeyReleased
-       // BLL_Admin.Editactivity_admin();
+        // BLL_Admin.Editactivity_admin();
     }//GEN-LAST:event_txtActivityKeyReleased
 
     private void btnAvatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvatarActionPerformed
-       // BLL_Admin.EditAvatar_admin();
+        // BLL_Admin.EditAvatar_admin();
     }//GEN-LAST:event_btnAvatarActionPerformed
 
     private void pick_date_birthPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pick_date_birthPropertyChange
-       // BLL_Admin.Editdate_birth_admin();
+        // BLL_Admin.Editdate_birth_admin();
     }//GEN-LAST:event_pick_date_birthPropertyChange
 
 

@@ -11,11 +11,10 @@ import Appweb.Modules.Users.User_reg.Model.Classes.singleuser_reg;
 import Appweb.Modules.Users.User_reg.Model.DAO_User.DAO_User;
 import Appweb.Modules.Users.User_reg.Model.Tools.Pager.pagina_user;
 import Appweb.Modules.Users.User_reg.View.edit_User_view;
+import Appweb.Modules.Users.User_reg.View.show_User_view;
 import Appweb.Modules.Users.User_reg.View.table_User_view;
 import static Appweb.Modules.Users.User_reg.View.table_User_view.mini_Table_User;
 import javax.swing.JOptionPane;
-
-
 
 /**
  *
@@ -23,55 +22,49 @@ import javax.swing.JOptionPane;
  */
 public class BLL_User {
 
-    //////////BLLs del formulario create Admin view///////
-    public static void Enterdni_admin() {
+    //////////BLLs del formulario create User_reg view///////
+    public static void Enterdni() {
         DAO_User.booleanEnterdni();
     }
 
-    public static void Entername_admin() {
+    public static void Entername() {
         DAO_User.booleanEntername();
     }
 
-    public static void Enterlast_name_admin() {
+    public static void Enterlast_name() {
         DAO_User.booleanEnterlast_name();
     }
 
-    public static void Entermobile_admin() {
+    public static void Entermobile() {
         DAO_User.booleanEntermobile();
     }
 
-    public static void Entermail_admin() {
+    public static void Entermail() {
         DAO_User.booleanEntermail();
     }
 
-    public static void Enteruser_admin() {
+    public static void Enteruser() {
         DAO_User.booleanEnteruser();
     }
 
-    public static void Enterpassword_admin() {
+    public static void Enterpassword() {
         DAO_User.booleanEnterpassword();
     }
 
-    public static void Entersalary_admin() {
-        DAO_User.booleanEntersalary();
-    }
-
-    public static void Enteractivity_admin() {
+    public static void Enteractivity() {
         DAO_User.booleanEnteractivity();
 
     }
 
-    public static void Enterdate_birth_admin() {
+    public static void Enterdate_birth() {
         DAO_User.booleanEnterdate_birth();
     }
 
-    
-
-    public static void EnterAvatar_admin() {
+    public static void EnterAvatar() {
         DAO_User.EnterAvatar();
     }
 
-    public static boolean Enter_new_admin() {
+    public static boolean Enter_new() {
 
         boolean ok = false;
 
@@ -81,72 +74,63 @@ public class BLL_User {
             singleuser_reg.User_reg_array.add(a);
             DAO_User.auto_save_json();
             ((Table_User_reg) mini_Table_User.getModel()).cargar();
-                pagina_user.inicializa();
-                pagina_user.initLinkBox();
+            pagina_user.inicializa();
+            pagina_user.initLinkBox();
 
             JOptionPane.showMessageDialog(null, "Usuario creado");
             //create_Admin_view.lab_information_message.setText("Usuario creado");
-           // create_Admin_view.labinfo_img.setIcon(singletonapp.good_data);
+            // create_Admin_view.labinfo_img.setIcon(singletonapp.good_data);
 
             ok = true;
         } else {
 
-           // create_Admin_view.lab_information_message.setText("Revise los datos, no puede guardar si hay algun dato incorrecto");
+            // create_Admin_view.lab_information_message.setText("Revise los datos, no puede guardar si hay algun dato incorrecto");
             //create_Admin_view.labinfo_img.setIcon(singletonapp.wrong_data);
-
             JOptionPane.showMessageDialog(null, "Revise los datos, no puede guardar si hay algun dato incorrecto");
         }
         return ok;
     }
 
-//////////BLLs del formulario edit Admin view///////
-    public static void Editname_admin() {
+//////////BLLs del formulario edit User_reg view///////
+    public static void Editname() {
         DAO_User.booleanEditname();
 
     }
 
-    public static void Editlast_name_admin() {
+    public static void Editlast_name() {
         DAO_User.booleanEditlast_name();
     }
 
-    public static void Editmobile_admin() {
+    public static void Editmobile() {
         DAO_User.booleanEditmobile();
     }
 
-    public static void Editmail_admin() {
+    public static void Editmail() {
         DAO_User.booleanEditmail();
     }
 
-    public static void Edituser_admin() {
+    public static void Edituser() {
         DAO_User.booleanEdituser();
     }
 
-    public static void Editpassword_admin() {
+    public static void Editpassword() {
         DAO_User.booleanEditpassword();
     }
 
-    public static void Editsalary_admin() {
-        DAO_User.booleanEditsalary();
-    }
-
-    public static void Editactivity_admin() {
+    public static void Editactivity() {
         DAO_User.booleanEditactivity();
 
     }
 
-    public static void Editdate_birth_admin() {
+    public static void Editdate_birth() {
         DAO_User.booleanEditdate_birth();
     }
 
-    public static void Editdate_contr_admin() {
-        DAO_User.booleanEditdate_contr();
-    }
-
-    public static void EditAvatar_admin() {
+    public static void EditAvatar() {
         DAO_User.EditAvatar();
     }
 
-    public static boolean Enter_edited_admin() {
+    public static boolean Enter_edited() {
 
         boolean ok = false;
 
@@ -166,15 +150,17 @@ public class BLL_User {
     }
 
     //////////BLLs de la parte del table///////////
-    public static boolean modifity_select_admin() {
+    public static boolean modifity_select() {
         String dni = "";
         boolean ok = false;
         int selection, inicio, selection1;
 
         if (((Table_User_reg) table_User_view.mini_Table_User.getModel()).getRowCount() != 0) {
-            int selec = table_User_view.mini_Table_User.getSelectedRow();
+            inicio = (pagina_user.currentPageIndex - 1) * pagina_user.itemsPerPage; //nos situamos al inicio de la pÃ¡gina en cuestiÃ³n
+            selection = mini_Table_User.getSelectedRow(); //nos situamos en la fila
+            selection1 = inicio + selection; //nos situamos en la fila correspondiente de esa pÃ¡gina
 
-            if (selec == -1) {
+            if (selection1 == -1) {
                 ok = false;
                 JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
 
@@ -205,13 +191,12 @@ public class BLL_User {
         return ok;
     }
 
-    public static boolean delete_select_admin() {
+    public static boolean delete_select() {
         String dni = "";
         boolean ok = false;
         int selection, inicio, selection1;
 
         if (((Table_User_reg) table_User_view.mini_Table_User.getModel()).getRowCount() != 0) {
-            
 
             inicio = (pagina_user.currentPageIndex - 1) * pagina_user.itemsPerPage; //nos situamos al inicio de la pÃ¡gina en cuestiÃ³n
             selection = mini_Table_User.getSelectedRow(); //nos situamos en la fila
@@ -243,7 +228,7 @@ public class BLL_User {
     /**
      * Borra todos los usuarios admin
      */
-    public static void Delete_all_admin() {
+    public static void Delete_all() {
 
         if (singleuser_reg.User_reg_array.isEmpty()) {
 
@@ -266,15 +251,17 @@ public class BLL_User {
 
     }
 
-    public static boolean show_select_admin() {
+    public static boolean show_select() {
         String dni = "";
         boolean ok = false;
         int selection, inicio, selection1;
 
         if (((Table_User_reg) table_User_view.mini_Table_User.getModel()).getRowCount() != 0) {
-            int selec = table_User_view.mini_Table_User.getSelectedRow();
+            inicio = (pagina_user.currentPageIndex - 1) * pagina_user.itemsPerPage; //nos situamos al inicio de la pÃ¡gina en cuestiÃ³n
+            selection = mini_Table_User.getSelectedRow(); //nos situamos en la fila
+            selection1 = inicio + selection; //nos situamos en la fila correspondiente de esa pÃ¡gina
 
-            if (selec == -1) {
+            if (selection1 == -1) {
                 ok = false;
                 JOptionPane.showMessageDialog(null, "No hay una persona seleccionada");
 
@@ -325,18 +312,28 @@ public class BLL_User {
 
     }
 
-    public static void save_json_admin() {
+    public static void save_json() {
 
         DAO_User.save_json();
     }
 
-    public static void save_xml_admin() {
+    public static void save_xml() {
 
         DAO_User.save_xml();
     }
 
-    public static void save_txt_admin() {
+    public static void save_txt() {
 
         DAO_User.save_txt();
+    }
+
+    public static void auto_open_json() {
+
+        DAO_User.auto_open_json();
+    }
+
+    public static void auto_save_json() {
+
+        DAO_User.auto_save_json();
     }
 }

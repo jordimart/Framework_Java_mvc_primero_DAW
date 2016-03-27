@@ -11,7 +11,7 @@ import Appweb.Modules.Main.View.menu_Input;
 
 import static Appweb.Modules.Users.Client.Controller.ControllerClient.Table_Client;
 import Appweb.Modules.Users.Client.Model.BLL_Client.BLL_Client;
-import Appweb.Modules.Users.Client.Model.Classes.Table_Client;
+import Appweb.Modules.Users.Client.Model.Classes.Table_Client_class;
 import Appweb.Modules.Users.Client.Model.Classes.singleclient;
 import Appweb.Modules.Users.Client.Model.Tools.Pager.pagina_client;
 import Appweb.Modules.Users.Client.Model.Tools.autocomplete.AutocompleteJComboBox_client;
@@ -41,7 +41,6 @@ import java.util.List;
 import java.util.Set;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.table.TableModel;
@@ -53,13 +52,13 @@ import javax.swing.table.TableRowSorter;
  */
 public class ControllerClient implements ActionListener, MouseListener, PropertyChangeListener, KeyListener {
 
-    //public static task_Admin_view Task_Admin;
+   
     public static table_Client_view Table_Client;
     public static create_Client_view Create_Client;
     public static edit_Client_view Edit_Client;
     public static show_Client_view Show_Client;
 
-    public static TableRowSorter<TableModel> sorter = new TableRowSorter<>(new Table_Client());
+    public static TableRowSorter<TableModel> sorter = new TableRowSorter<>(new Table_Client_class());
     public static AutocompleteJComboBox_client combo = null;
     public static JTable tabla = null;
 
@@ -108,12 +107,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
 
     public enum Action_Client {
 
-        //botones de Task_Client//
-        //btn_Config,
-        //btn_Volver,
-        //btn_ges_users,
-        //btn_ges_inst,
-        //btn_ges_averias,
+        
         
         //botones table Client//
 
@@ -137,7 +131,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
         btnAvatar,
         pick_date_birth,
         pick_date_contr,
-        //txtActivity,
+        
         txtDni,
         txtEmail,
         txtLast_name,
@@ -146,14 +140,15 @@ public class ControllerClient implements ActionListener, MouseListener, Property
         txtPassword,
         txtPurchase,
         txtUser,
-        //botones edit Admin//
+        
+        //botones edit Client//
 
         btn_Aceptar_e,
         btn_cancelar_e,
         btnAvatar_e,
         pick_date_birth_e,
         pick_date_contr_e,
-        //txtActivity_e,
+        
         txtEmail_e,
         txtLast_name_e,
         txtMobile_e,
@@ -161,6 +156,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
         txtPassword_e,
         txtPurchase_e,
         txtUser_e,
+        
         //botones Mostrar//
 
         btnAccept_s,
@@ -168,57 +164,21 @@ public class ControllerClient implements ActionListener, MouseListener, Property
 
     public void Start(int i) {
         
-        /**
-        if (i == 0) {
-
-            Task_Admin.setTitle(Lang.getInstance().getProperty("Task Admin"));
-            Task_Admin.setLocationRelativeTo(null);
-            Task_Admin.setSize(1000, 600);//ancho x alto
-            // this.setResizable(false);
-
-            Task_Admin.setExtendedState(JFrame.MAXIMIZED_BOTH);
-            Task_Admin.setVisible(true);
-
-            this.Task_Admin.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-            this.Task_Admin.addWindowListener(new WindowAdapter() {
-                public void windowClosing(WindowEvent e) {
-                    Task_Admin.dispose();
-                    new ControllerMain(new menu_Input(), 0).Start(0);
-
-                }
-            });
-
-            Task_Admin.btn_Config.setActionCommand("btn_Config");
-            Task_Admin.btn_Config.addActionListener(this);
-
-            Task_Admin.btn_Volver.setActionCommand("btn_Volver");
-            Task_Admin.btn_Volver.addActionListener(this);
-
-            Task_Admin.btn_ges_users.setActionCommand("btn_ges_users");
-            Task_Admin.btn_ges_users.addActionListener(this);
-
-            Task_Admin.btn_ges_inst.setActionCommand("btn_ges_inst");
-            Task_Admin.btn_ges_inst.addActionListener(this);
-
-            Task_Admin.btn_ges_averias.setActionCommand("btn_ges_averias");
-            Task_Admin.btn_ges_averias.addActionListener(this);
-
-        }
-         */
+        
         if (i == 0) {
 
             Table_Client.setVisible(true);
 
             Table_Client.setTitle("Table Client");
             Table_Client.setLocationRelativeTo(null);
-            Table_Client.setSize(1000, 650);//ancho x alto
+            Table_Client.setSize(1700, 1000);//ancho x alto
             Table_Client.setResizable(true);
-            Table_Client.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            //Table_Client.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
             
 
-            Table_Client.mini_Table_Client.setModel(new Table_Client());
-            ((Table_Client) mini_Table_Client.getModel()).cargar();
+            Table_Client.mini_Table_Client.setModel(new Table_Client_class());
+            ((Table_Client_class) mini_Table_Client.getModel()).cargar();
             Table_Client.mini_Table_Client.setFillsViewportHeight(true);
             Table_Client.mini_Table_Client.setRowSorter(sorter);
 
@@ -301,7 +261,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             Create_Client.setVisible(true);
             Create_Client.setTitle("Create Client");
             Create_Client.setLocationRelativeTo(null);
-            Create_Client.setSize(1000, 1200);//ancho x alto
+            Create_Client.setSize(950, 1030);//ancho x alto
             Create_Client.setResizable(false);
 
             //Information_dialog.setLocationRelativeTo(null);
@@ -340,21 +300,14 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             Create_Client.btnAvatar.setActionCommand("btnAvatar");
             Create_Client.btnAvatar.addActionListener(this);
 
-            //Create_Admin.pick_date_birth.setName("pick_date_birth");
-            //Create_Admin.pick_date_birth.addPropertyChangeListener(this);
-
-            //Create_Admin.pick_date_contr.setName("pick_date_contr");
-            //Create_Admin.pick_date_contr.addPropertyChangeListener(this);
+            
 
             Create_Client.txtDni.setActionCommand("txtDni");
             Create_Client.txtDni.setName("txtDni");
             Create_Client.txtDni.addActionListener(this);
             Create_Client.txtDni.addKeyListener(this);
 
-            //Create_Client.txtActivity.setActionCommand("txtActivity");
-            //Create_Client.txtActivity.setName("txtActivity");
-            //Create_Client.txtActivity.addActionListener(this);
-            //Create_Client.txtActivity.addKeyListener(this);
+            
 
             Create_Client.txtEmail.setActionCommand("txtEmail");
             Create_Client.txtEmail.setName("txtEmail");
@@ -397,12 +350,13 @@ public class ControllerClient implements ActionListener, MouseListener, Property
 
             Edit_Client.setTitle("Edit Client");
             Edit_Client.setLocationRelativeTo(null);
-            Edit_Client.setSize(1000, 1200);//ancho x alto
+            Edit_Client.setSize(950, 1030);//ancho x alto
             Edit_Client.setResizable(false);
             Edit_Client.setBackground(Color.GRAY);
             Edit_Client.pick_date_birth.getDateEditor().setEnabled(false);
             Edit_Client.pick_date_reg.getDateEditor().setEnabled(false);
             Edit_Client.setVisible(true);
+            
             // Conjunto de teclas que queremos que sirvan para pasar el foco 
             // al siguiente campo de texto: ENTER y TAB
             Set<AWTKeyStroke> teclas = new HashSet<AWTKeyStroke>();
@@ -429,17 +383,6 @@ public class ControllerClient implements ActionListener, MouseListener, Property
 
             Edit_Client.btnAvatar.setActionCommand("btnAvatar_e");
             Edit_Client.btnAvatar.addActionListener(this);
-
-            //Edit_Admin.pick_date_birth.setName("pick_date_birth_e");
-            //Edit_Admin.pick_date_birth.addPropertyChangeListener(this);
-
-            //Edit_Admin.pick_date_contr.setName("pick_date_contr_e");
-           // Edit_Admin.pick_date_contr.addPropertyChangeListener(this);
-
-           // Edit_Admin.txtActivity.setActionCommand("txtActivity_e");
-           // Edit_Admin.txtActivity.setName("txtActivity_e");
-           // Edit_Admin.txtActivity.addActionListener(this);
-            //Edit_Admin.txtActivity.addKeyListener(this);
 
             Edit_Client.txtEmail.setActionCommand("txtEmail_e");
             Edit_Client.txtEmail.setName("txtEmail_e");
@@ -481,7 +424,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
 
             Show_Client.setTitle("Client data");
             Show_Client.setLocationRelativeTo(null);
-            Show_Client.setSize(1000, 650);//ancho x alto
+            Show_Client.setSize(1000, 700);//ancho x alto
             Show_Client.setResizable(false);
             Show_Client.setVisible(true);
             
@@ -501,37 +444,11 @@ public class ControllerClient implements ActionListener, MouseListener, Property
 
         boolean ok = false;
         switch (Action_Client.valueOf(ae.getActionCommand())) {
-/**
-            case btn_ges_users:
 
-                Task_Admin.dispose();
-                new ControllerClient(new table_Admin_view(), 1).Start(1);
-
-                break;
-            case btn_Config:
-
-                Task_Admin.dispose();
-                new ControllerMain(new menu_Settings(), 1).Start(1);
-
-                break;
-            case btn_Volver:
-
-                Task_Admin.dispose();
-                new ControllerMain(new menu_Input(), 0).Start(0);
-
-                break;
-
-            case btn_ges_inst:
-                //nulo
-                break;
-            case btn_ges_averias:
-                //nulo
-                break;
-          */      
                 
             case btnAdd_client:
 
-                JOptionPane.showMessageDialog(null, "Entro a crear");
+               
                  Table_Client.dispose();
                 new ControllerClient(new create_Client_view(), 1).Start(1);
 
@@ -596,7 +513,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
                     Create_Client.dispose();
                     new ControllerClient(new table_Client_view(), 0).Start(0);
 
-                    ((Table_Client) mini_Table_Client.getModel()).cargar();
+                    ((Table_Client_class) mini_Table_Client.getModel()).cargar();
                 }
                 break;
 
@@ -618,7 +535,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
                 if (ok == true) {
                     Edit_Client.dispose();
                     new ControllerClient(new table_Client_view(), 0).Start(0);
-                    ((Table_Client) mini_Table_Client.getModel()).cargar();
+                    ((Table_Client_class) mini_Table_Client.getModel()).cargar();
 
                 }
 
@@ -655,28 +572,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
         BLL_Client.Enterdate_reg_client();
         BLL_Client.Editdate_birth_client();
         BLL_Client.Editdate_reg_client();
-/**
-        switch (Action_Admin.valueOf(evt.getPropertyName())) {
 
-            case pick_date_birth:
-                //BLL_Admin.Enterdate_birth_admin();
-
-                break;
-            case pick_date_contr:
-                // BLL_Admin.Enterdate_contr_admin();
-
-                break;
-            case pick_date_birth_e:
-                //BLL_Admin.Editdate_birth_admin();
-
-                break;
-            case pick_date_contr_e:
-                //BLL_Admin.Editdate_contr_admin();
-
-                break;
-
-        }
-        * */
     }
 
     @Override
@@ -809,7 +705,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
         System.out.println("word selected: " + ((JComboBox) combo).getSelectedItem());
         pagina_client.currentPageIndex = 1;
         pagina_client.initLinkBox();
-        ((Table_Client) mini_Table_Client.getModel()).filtrar();
+        ((Table_Client_class) mini_Table_Client.getModel()).filtrar();
         combo.requestFocus();
     }
 }

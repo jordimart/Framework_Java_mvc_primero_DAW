@@ -1,6 +1,6 @@
 package Appweb.Modules.Users.User_reg.Model.DAO_User;
 
-
+import Appweb.Classes.Date.ClassDate;
 import Appweb.General_tools.Date_tools;
 import static Appweb.General_tools.Date_tools.Date_min_max_condition_boolean;
 import Appweb.General_tools.Validate;
@@ -9,7 +9,11 @@ import static Appweb.General_tools.singletonapp.good_data;
 import static Appweb.General_tools.singletonapp.wrong_data;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Users.User_reg.Model.BLL_User.BLL_User;
+import Appweb.Modules.Users.User_reg.Model.Classes.User_reg;
+import Appweb.Modules.Users.User_reg.Model.Classes.singleuser_reg;
 import Appweb.Modules.Users.User_reg.View.create_User_view;
+import Appweb.Modules.Users.User_reg.View.edit_User_view;
+import Appweb.Modules.Users.User_reg.View.show_User_view;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -284,49 +288,6 @@ public class DAO_User {
     }
 
     /**
-     * DAO que valida una entrada de salario float, debe estar entre 800 y 2500.
-     *
-     * @return boolean
-     */
-    public static boolean booleanEnterpurchase() {
-
-        String s = "";
-        float sal = 0.0f;
-
-        boolean ok = false;
-
-        s = create_User_view.txtPurchase.getText();
-
-        if (Validate.oksalary(s) == true) {
-            sal = Float.parseFloat(s);
-            ok = true;
-
-            if ((sal >= 0) && (sal <= 2500)) {
-                ok = true;
-                create_User_view.labPurchase.setToolTipText("");
-                create_User_view.labPurchase.setIcon(good_data);
-                create_User_view.txtPurchase.setBackground(Color.GREEN);
-
-                // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
-                //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                ok = false;
-                create_User_view.labPurchase.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + ",debe estar comprendido entre 0 y 2500");
-                create_User_view.labPurchase.setIcon(wrong_data);
-                create_User_view.txtPurchase.setBackground(Color.RED);
-            }
-        } else {
-
-            ok = false;
-            create_User_view.labPurchase.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + ", quizas introdujo letras");
-            create_User_view.labPurchase.setIcon(wrong_data);
-            create_User_view.txtPurchase.setBackground(Color.RED);
-        }
-
-        return ok;
-    }
-
-    /**
      * DAO que valida un entrada de actividad que debe estar comprendida entre 0
      * y 100
      *
@@ -372,10 +333,8 @@ public class DAO_User {
     public static boolean booleanEnterdate_birth() {
 
         String s = "";
-        
+
         boolean ok = false;
-        
-      
 
         s = ((JTextFieldDateEditor) create_User_view.pick_date_birth.getDateEditor()).getText();
 
@@ -384,84 +343,26 @@ public class DAO_User {
         if (ok == false) {
 
             if (singletonapp.passdate == 0) {
-                create_Admin_view.labdate_birth.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_format_data_correctly"));
+                create_User_view.labdate_birth.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_format_data_correctly"));
             }
             if (singletonapp.passdate == 1) {
-                create_Admin_view.labdate_birth.setToolTipText(Lang.getInstance().getProperty("This_date_does_not_exist_in_the_calendar"));
+                create_User_view.labdate_birth.setToolTipText(Lang.getInstance().getProperty("This_date_does_not_exist_in_the_calendar"));
 
             }
             if (singletonapp.passdate == 2) {
-                create_Admin_view.labdate_birth.setToolTipText(Lang.getInstance().getProperty("You_can_not_register,_you_must_be") + 16 + Lang.getInstance().getProperty("years"));
+                create_User_view.labdate_birth.setToolTipText(Lang.getInstance().getProperty("You_can_not_register,_you_must_be") + 16 + Lang.getInstance().getProperty("years"));
 
             }
 
-            create_Admin_view.pick_date_birth.setBackground(Color.red);
-            create_Admin_view.labdate_birth.setIcon(wrong_data);
+            create_User_view.pick_date_birth.setBackground(Color.red);
+            create_User_view.labdate_birth.setIcon(wrong_data);
 
         } else {
-            create_Admin_view.labdate_birth.setToolTipText("");
-            create_Admin_view.pick_date_birth.setBackground(Color.GREEN);
-            create_Admin_view.labdate_birth.setIcon(good_data);
+            create_User_view.labdate_birth.setToolTipText("");
+            create_User_view.pick_date_birth.setBackground(Color.GREEN);
+            create_User_view.labdate_birth.setIcon(good_data);
         }
 
-        return ok;
-    }
-
-    /**
-     * DAO que valida una fecha de contratacion que debe validarse dependiendo
-     * de la de nacimiento
-     *
-     * @return
-     */
-    public static boolean booleanEnterdate_contr_admin() {
-
-        String s = "";
-        int act = 0;
-        boolean ok = false;
-
-        String date_contr;
-
-        s = ((JTextFieldDateEditor) create_Admin_view.pick_date_birth.getDateEditor()).getText();
-
-        date_contr = ((JTextFieldDateEditor) create_Admin_view.pick_date_contr.getDateEditor()).getText();
-
-        if (s.equals("") || date_contr.equals("")) {
-
-            create_Admin_view.labdate_contr.setToolTipText("Revise las fechas algun capmo esta en blanco");
-            create_Admin_view.pick_date_contr.setBackground(Color.red);
-            create_Admin_view.labdate_contr.setIcon(wrong_data);
-
-        } else {
-            ClassDate contr = new ClassDate(date_contr);
-
-            ok = Date_registered_boolean(contr, s, 16);
-
-            if (ok == false) {
-                if (singletonapp.passdate == 4) {
-                    create_Admin_view.labdate_contr.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_format_data_correctly"));
-                }
-                if (singletonapp.passdate == 0) {
-                    create_Admin_view.labdate_contr.setToolTipText(Lang.getInstance().getProperty("This_date_does_not_exist_in_the_calendar"));
-                }
-                if (singletonapp.passdate == 1) {
-                    create_Admin_view.labdate_contr.setToolTipText(Lang.getInstance().getProperty("The_date_may_not_be_later_than_the_system"));
-                }
-                if (singletonapp.passdate == 2) {
-                    create_Admin_view.labdate_contr.setToolTipText(Lang.getInstance().getProperty("The_record_date_may_not_be_earlier_wing_of_birth"));
-                }
-                if (singletonapp.passdate == 3) {
-                    create_Admin_view.labdate_contr.setToolTipText(Lang.getInstance().getProperty("On_this_date_you_were_not_of_legal_age"));
-                }
-
-                create_Admin_view.pick_date_contr.setBackground(Color.red);
-                create_Admin_view.labdate_contr.setIcon(wrong_data);
-
-            } else {
-                create_Admin_view.labdate_contr.setToolTipText(Lang.getInstance().getProperty(""));
-                create_Admin_view.pick_date_contr.setBackground(Color.GREEN);
-                create_Admin_view.labdate_contr.setIcon(good_data);
-            }
-        }
         return ok;
     }
 
@@ -471,33 +372,12 @@ public class DAO_User {
      *
      * @return CLassDate
      */
-    public static ClassDate Enter_date_birth_admin() {
+    public static ClassDate Enter_date_birth() {
 
         Calendar date_birth;
         int dia = 0, mes = 0, anio = 0;
 
-        date_birth = create_Admin_view.pick_date_birth.getCalendar();
-
-        dia = date_birth.get(Calendar.DATE);
-        mes = date_birth.get(Calendar.MONTH) + 1;
-        anio = date_birth.get(Calendar.YEAR);
-
-        return new ClassDate(dia, mes, anio);
-    }
-
-    /**
-     * Esta funcion se utiliza para entrarle el dato de fecha de contratacion al
-     * DAO de crear y en formato de calendar a mi clase fecha.
-     *
-     * @return CLassDate
-     */
-    public static ClassDate Enter_date_cntr_admin() {
-
-        String date = "";
-        Calendar date_birth;
-        int dia = 0, mes = 0, anio = 0;
-
-        date_birth = create_Admin_view.pick_date_contr.getCalendar();
+        date_birth = create_User_view.pick_date_birth.getCalendar();
 
         dia = date_birth.get(Calendar.DATE);
         mes = date_birth.get(Calendar.MONTH) + 1;
@@ -511,7 +391,7 @@ public class DAO_User {
      * busque una imagen d eavatar.La imagen si es externa se guarda en la
      * carpeta avatares.
      */
-    public static void EnterAvatar_admin() {
+    public static void EnterAvatar() {
 
         JFileChooser dlg = new JFileChooser();
         dlg.setCurrentDirectory(new File("src/Appweb/Modules/Users/Img/Avatares/"));
@@ -522,7 +402,7 @@ public class DAO_User {
             //Obtiene nombre del archivo seleccionado
             String file = dlg.getSelectedFile().getPath();
             String dir = dlg.getSelectedFile().toString();
-            create_Admin_view.labAvatar.setIcon(new ImageIcon(file));
+            create_User_view.labAvatar.setIcon(new ImageIcon(file));
             //Modificando la imagen
             ImageIcon icon = new ImageIcon(file);
             //Se extrae la imagen del icono
@@ -532,15 +412,15 @@ public class DAO_User {
             //SE GENERA EL IMAGE ICON CON LA NUEVA IMAGEN
             ImageIcon newIcon = new ImageIcon(newimg);
             //Se coloca el nuevo icono modificado
-            create_Admin_view.labAvatar.setIcon(newIcon);
+            create_User_view.labAvatar.setIcon(newIcon);
             //Se cambia el tamaño de la etiqueta
-            create_Admin_view.labAvatar.setSize(470, 290);
+            create_User_view.labAvatar.setSize(470, 290);
 
             try {
 
                 File source = new File(dir);
                 File dest = new File("src/Appweb/Modules/Users/Img/Avatares/" + source.getName());
-                create_Admin_view.labAvatar.setToolTipText(dest.toString());
+                create_User_view.labAvatar.setToolTipText(dest.toString());
                 copyFileUsingJava7Files(source, dest);
 
             } catch (HeadlessException | IOException e) {
@@ -557,7 +437,7 @@ public class DAO_User {
 
     }
 
-    public static Admin add_create_Admin() {
+    public static User_reg add_create() {
 
         String Dni = "", Name = "", Last_name = "", Mobile = "", Email = "", User = "", Password = "";
         ClassDate date_cont = null;
@@ -565,42 +445,42 @@ public class DAO_User {
         int activity = 0;
         float salary = 0.000f;
         ClassDate Date_birth = null;
-        char[] password = create_Admin_view.txtPassword.getPassword();
-        Admin a = null;
+        char[] password = create_User_view.txtPassword.getPassword();
+        User_reg a = null;
         String Avatar = null;
 
-        boolean pass, pass1, pass2, pass3, pass4, pass5, pass6, pass7, pass8, pass9, pass10;
+        boolean pass, pass1, pass2, pass3, pass4, pass5, pass6, pass8, pass9;
 
-        pass = booleanEnterdnia();
-        pass1 = booleanEntername_admin();
-        pass2 = booleanEnterlast_name_admin();
-        pass3 = booleanEntermobile_admin();
-        pass4 = booleanEntermail_admin();
-        pass5 = booleanEnteruser_admin();
-        pass6 = booleanEnterpassword_admin();
-        pass7 = booleanEntersalary_admin();
-        pass8 = booleanEnteractivity_admin();
-        pass9 = booleanEnterdate_birth_admin();
-        pass10 = booleanEnterdate_contr_admin();
+        pass = booleanEnterdni();
+        pass1 = booleanEntername();
+        pass2 = booleanEnterlast_name();
+        pass3 = booleanEntermobile();
+        pass4 = booleanEntermail();
+        pass5 = booleanEnteruser();
+        pass6 = booleanEnterpassword();
+        // pass7 = booleanEntersalary();
+        pass8 = booleanEnteractivity();
+        pass9 = booleanEnterdate_birth();
+        //pass10 = booleanEnterdate_contr_admin();
 
-        if (pass == true && pass1 == true && pass2 == true && pass3 == true && pass4 == true && pass5 == true && pass6 == true && pass7 == true && pass8 == true && pass9 == true && pass10 == true) {
+        if (pass == true && pass1 == true && pass2 == true && pass3 == true && pass4 == true && pass5 == true && pass6 == true && pass8 == true && pass9 == true) {
             // Enter User atributtes
-            Dni = create_Admin_view.txtDni.getText().toUpperCase();
-            Name = create_Admin_view.txtName.getText();
-            Last_name = create_Admin_view.txtLast_name.getText();
-            Mobile = create_Admin_view.txtMobile.getText();
-            Date_birth = Enter_date_birth_admin();
-            Email = create_Admin_view.txtEmail.getText();
-            User = create_Admin_view.txtUser.getText();
+            Dni = create_User_view.txtDni.getText().toUpperCase();
+            Name = create_User_view.txtName.getText();
+            Last_name = create_User_view.txtLast_name.getText();
+            Mobile = create_User_view.txtMobile.getText();
+            Date_birth = Enter_date_birth();
+            Email = create_User_view.txtEmail.getText();
+            User = create_User_view.txtUser.getText();
             Password = new String(password);
-            Avatar = create_Admin_view.labAvatar.getToolTipText();
-            Status = create_Admin_view.comboStatus.getSelectedItem().toString();
+            Avatar = create_User_view.labAvatar.getToolTipText();
+            Status = create_User_view.comboStatus.getSelectedItem().toString();
             // Enter Admin attributes
-            date_cont = Enter_date_cntr_admin();
-            salary = Float.parseFloat(create_Admin_view.txtSalary.getText());
-            activity = Integer.parseInt(create_Admin_view.txtActivity.getText());
+            // date_cont = Enter_date_cntr_admin();
+            //salary = Float.parseFloat(create_Admin_view.txtSalary.getText());
+            activity = Integer.parseInt(create_User_view.txtActivity.getText());
 
-            a = new Admin(Dni, Name, Last_name, Mobile, Date_birth, Email, User, Password, Avatar, Status, date_cont, salary, activity);
+            a = new User_reg(Dni, Name, Last_name, Mobile, Date_birth, Email, User, Password, Avatar, Status, activity);
         } else {
             a = null;
         }
@@ -608,35 +488,35 @@ public class DAO_User {
     }
 
     //////////////Daos para la ventana de editar Admin ////////
-    public static void Load_edit_admin() {
+    public static void Load_edit_user() {
 
-        Admin a = singleadmin.Admin_array.get(singletonapp.pos);
+        User_reg a = singleuser_reg.User_reg_array.get(singletonapp.pos);
 
-        Float sal = a.getSalary();
-        int act = a.getActivity();
+        //Float sal = a.getSalary();
+        int act = a.getActivity_u();
         ClassDate date_birth = new ClassDate(a.getDate_birth().todate());
-        ClassDate date_cont = new ClassDate(a.getDate_cont().todate());
+        //ClassDate date_cont = new ClassDate(a.getDate_cont().todate());
 
-        edit_Admin_view.txtDni.setText(a.getDni());
-        edit_Admin_view.txtName.setText(a.getName());
-        edit_Admin_view.txtLast_name.setText(a.getLast_name());
-        edit_Admin_view.txtMobile.setText(a.getMobile());
-        
-        edit_Admin_view.txtEmail.setText(a.getEmail());
-        edit_Admin_view.txtUser.setText(a.getUser());
-        edit_Admin_view.txtPassword.setText(a.getPassword());
-        
-        edit_Admin_view.txtSalary.setText("" + sal);
-        edit_Admin_view.txtActivity.setText("" + act);
-        load_EditAvatar_admin(a.getAvatar());
-        edit_Admin_view.pick_date_birth.setCalendar(date_birth.string_to_cal());
-        edit_Admin_view.pick_date_contr.setCalendar(date_cont.string_to_cal());
+        edit_User_view.txtDni.setText(a.getDni());
+        edit_User_view.txtName.setText(a.getName());
+        edit_User_view.txtLast_name.setText(a.getLast_name());
+        edit_User_view.txtMobile.setText(a.getMobile());
+
+        edit_User_view.txtEmail.setText(a.getEmail());
+        edit_User_view.txtUser.setText(a.getUser());
+        edit_User_view.txtPassword.setText(a.getPassword());
+
+        //edit_User_view.txtSalary.setText("" + sal);
+        edit_User_view.txtActivity.setText("" + act);
+        load_EditAvatar(a.getAvatar());
+        edit_User_view.pick_date_birth.setCalendar(date_birth.string_to_cal());
+        // edit_Admin_view.pick_date_contr.setCalendar(date_cont.string_to_cal());
 
     }
 
-    public static void load_EditAvatar_admin(String file) {
+    public static void load_EditAvatar(String file) {
 
-        edit_Admin_view.labAvatar.setIcon(new ImageIcon(file));
+        edit_User_view.labAvatar.setIcon(new ImageIcon(file));
         //Modificando la imagen
         ImageIcon icon = new ImageIcon(file);
         //Se extrae la imagen del icono
@@ -646,50 +526,50 @@ public class DAO_User {
         //SE GENERA EL IMAGE ICON CON LA NUEVA IMAGEN
         ImageIcon newIcon = new ImageIcon(newimg);
         //Se coloca el nuevo icono modificado
-        edit_Admin_view.labAvatar.setIcon(newIcon);
+        edit_User_view.labAvatar.setIcon(newIcon);
         //Se cambia el tamaño de la etiqueta
-        edit_Admin_view.labAvatar.setSize(470, 290);
-        edit_Admin_view.labAvatar.setToolTipText(file);
+        edit_User_view.labAvatar.setSize(470, 290);
+        edit_User_view.labAvatar.setToolTipText(file);
     }
 
-    public static boolean booleanEditname_admin() {
+    public static boolean booleanEditname() {
 
         boolean ok = false;
-        String name = edit_Admin_view.txtName.getText();
+        String name = edit_User_view.txtName.getText();
         ok = Validate.okword(name);
         if (ok == false) {
 
-            edit_Admin_view.labName.setIcon(wrong_data);
-            edit_Admin_view.txtName.setBackground(Color.red);
-            edit_Admin_view.labName.setToolTipText("No ha introducido los datos correctamente");
+            edit_User_view.labName.setIcon(wrong_data);
+            edit_User_view.txtName.setBackground(Color.red);
+            edit_User_view.labName.setToolTipText("No ha introducido los datos correctamente");
             //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
             ok = true;
-            edit_Admin_view.labName.setToolTipText("");
-            edit_Admin_view.labName.setIcon(good_data);
-            edit_Admin_view.txtName.setBackground(Color.GREEN);
+            edit_User_view.labName.setToolTipText("");
+            edit_User_view.labName.setIcon(good_data);
+            edit_User_view.txtName.setBackground(Color.GREEN);
 
         }
 
         return ok;
     }
 
-    public static boolean booleanEditlast_name_admin() {
+    public static boolean booleanEditlast_name() {
 
         boolean ok = false;
-        String name = edit_Admin_view.txtLast_name.getText();
+        String name = edit_User_view.txtLast_name.getText();
         ok = Validate.okword(name);
         if (ok == false) {
-            edit_Admin_view.labLast_name.setIcon(wrong_data);
-            edit_Admin_view.txtLast_name.setBackground(Color.red);
-            edit_Admin_view.labLast_name.setToolTipText("No ha introducido los datos correctamente");
+            edit_User_view.labLast_name.setIcon(wrong_data);
+            edit_User_view.txtLast_name.setBackground(Color.red);
+            edit_User_view.labLast_name.setToolTipText("No ha introducido los datos correctamente");
             //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
-            edit_Admin_view.labLast_name.setToolTipText("");
-            edit_Admin_view.labLast_name.setIcon(good_data);
-            edit_Admin_view.txtLast_name.setBackground(Color.GREEN);
+            edit_User_view.labLast_name.setToolTipText("");
+            edit_User_view.labLast_name.setIcon(good_data);
+            edit_User_view.txtLast_name.setBackground(Color.GREEN);
 
         }
 
@@ -701,23 +581,23 @@ public class DAO_User {
      *
      * @return string movil
      */
-    public static boolean booleanEditmobile_admin() {
+    public static boolean booleanEditmobile() {
 
         String s = "";
         boolean ok = false;
 
-        s = edit_Admin_view.txtMobile.getText();
+        s = edit_User_view.txtMobile.getText();
         ok = Validate.okmobile(s);
         if (ok == false) {
-            edit_Admin_view.labMobile.setIcon(wrong_data);
-            edit_Admin_view.txtMobile.setBackground(Color.red);
-            edit_Admin_view.labMobile.setToolTipText("No ha introducido los datos correctamente, solo puede contener 9 numeros");
+            edit_User_view.labMobile.setIcon(wrong_data);
+            edit_User_view.txtMobile.setBackground(Color.red);
+            edit_User_view.labMobile.setToolTipText("No ha introducido los datos correctamente, solo puede contener 9 numeros");
             // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
-            edit_Admin_view.labMobile.setToolTipText("");
-            edit_Admin_view.labMobile.setIcon(good_data);
-            edit_Admin_view.txtMobile.setBackground(Color.GREEN);
+            edit_User_view.labMobile.setToolTipText("");
+            edit_User_view.labMobile.setIcon(good_data);
+            edit_User_view.txtMobile.setBackground(Color.GREEN);
         }
 
         return ok;
@@ -728,24 +608,24 @@ public class DAO_User {
      *
      * @return
      */
-    public static boolean booleanEditmail_admin() {
+    public static boolean booleanEditmail() {
 
         String cad = "";
         boolean ok = false;
 
-        cad = edit_Admin_view.txtEmail.getText();
+        cad = edit_User_view.txtEmail.getText();
         ok = Validate.okmail(cad);
         if (ok == false) {
-            edit_Admin_view.labEmail.setIcon(wrong_data);
-            edit_Admin_view.txtEmail.setBackground(Color.red);
-            edit_Admin_view.labEmail.setToolTipText("No ha introducido los datos correctamente,Ejemplo: xxxx@xxx.xxx");
+            edit_User_view.labEmail.setIcon(wrong_data);
+            edit_User_view.txtEmail.setBackground(Color.red);
+            edit_User_view.labEmail.setToolTipText("No ha introducido los datos correctamente,Ejemplo: xxxx@xxx.xxx");
 
             //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             // Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
-            edit_Admin_view.labEmail.setToolTipText("");
-            edit_Admin_view.labEmail.setIcon(good_data);
-            edit_Admin_view.txtEmail.setBackground(Color.GREEN);
+            edit_User_view.labEmail.setToolTipText("");
+            edit_User_view.labEmail.setIcon(good_data);
+            edit_User_view.txtEmail.setBackground(Color.GREEN);
 
         }
 
@@ -757,24 +637,24 @@ public class DAO_User {
      *
      * @return
      */
-    public static boolean booleanEdituser_admin() {
+    public static boolean booleanEdituser() {
 
         String cad = "";
         boolean ok = false;
 
-        cad = edit_Admin_view.txtUser.getText();
+        cad = edit_User_view.txtUser.getText();
         ok = Validate.okuser(cad);
         if (ok == false) {
-            edit_Admin_view.labUser.setIcon(wrong_data);
-            edit_Admin_view.txtUser.setBackground(Color.red);
-            edit_Admin_view.labUser.setToolTipText("No ha introducido los datos correctamente");
+            edit_User_view.labUser.setIcon(wrong_data);
+            edit_User_view.txtUser.setBackground(Color.red);
+            edit_User_view.labUser.setToolTipText("No ha introducido los datos correctamente");
             // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
             ok = true;
-            edit_Admin_view.labUser.setToolTipText("");
-            edit_Admin_view.labUser.setIcon(good_data);
-            edit_Admin_view.txtUser.setBackground(Color.GREEN);
+            edit_User_view.labUser.setToolTipText("");
+            edit_User_view.labUser.setIcon(good_data);
+            edit_User_view.txtUser.setBackground(Color.GREEN);
         }
 
         return ok;
@@ -785,86 +665,38 @@ public class DAO_User {
      *
      * @return
      */
-    public static boolean booleanEditpassword_admin() {
+    public static boolean booleanEditpassword() {
 
         boolean ok = false;
 
         char passArray[];
-        passArray = edit_Admin_view.txtPassword.getPassword();
+        passArray = edit_User_view.txtPassword.getPassword();
         String cad = new String(passArray);
 
         ok = Validate.okpassword(cad);
         if (ok == false) {
-            edit_Admin_view.labPassword.setIcon(wrong_data);
-            edit_Admin_view.txtPassword.setBackground(Color.red);
-            edit_Admin_view.labPassword.setToolTipText("No ha introducido los datos correctamente,Debe contener mayusculas,numeros y letras");
+            edit_User_view.labPassword.setIcon(wrong_data);
+            edit_User_view.txtPassword.setBackground(Color.red);
+            edit_User_view.labPassword.setToolTipText("No ha introducido los datos correctamente,Debe contener mayusculas,numeros y letras");
             // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
             ok = true;
-            edit_Admin_view.labPassword.setToolTipText("");
-            edit_Admin_view.labPassword.setIcon(good_data);
-            edit_Admin_view.txtPassword.setBackground(Color.GREEN);
+            edit_User_view.labPassword.setToolTipText("");
+            edit_User_view.labPassword.setIcon(good_data);
+            edit_User_view.txtPassword.setBackground(Color.GREEN);
         }
 
         return ok;
     }
 
-    /**
-     * Menu que pide una palabra que puede tener todo tipo de caracteres.
-     *
-     * @return
-     */
-    public static boolean booleanEditsalary_admin() {
-
-        String s = "";
-        float sal = 0.0f;
-
-        boolean ok = false;
-
-        s = edit_Admin_view.txtSalary.getText();
-        // ok = ;
-
-        if (Validate.oksalary(s) == true) {
-
-            try {
-                sal = Float.parseFloat(s);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            ok = true;
-
-            if ((sal >= 800) && (sal <= 2500)) {
-                ok = true;
-                edit_Admin_view.labSalary.setToolTipText("");
-                edit_Admin_view.labSalary.setIcon(good_data);
-                edit_Admin_view.txtSalary.setBackground(Color.GREEN);
-                // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
-                //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                ok = false;
-                edit_Admin_view.labSalary.setToolTipText("No ha introducido los datos correctamente,Debe estar comprendido entre 800 y 2500");
-                edit_Admin_view.labSalary.setIcon(wrong_data);
-                edit_Admin_view.txtSalary.setBackground(Color.RED);
-            }
-        } else {
-            ok = false;
-            edit_Admin_view.labSalary.setToolTipText("No ha introducido los datos correctamente, quizas introdujo letras");
-            edit_Admin_view.labSalary.setIcon(wrong_data);
-            edit_Admin_view.txtSalary.setBackground(Color.RED);
-        }
-
-        return ok;
-    }
-
-    public static boolean booleanEditactivity_admin() {
+    public static boolean booleanEditactivity() {
 
         String s = "";
         int act = 0;
         boolean ok = false;
 
-        s = edit_Admin_view.txtActivity.getText();
+        s = edit_User_view.txtActivity.getText();
 
         if (Validate.oksalary(s) == true) {
 
@@ -872,126 +704,66 @@ public class DAO_User {
 
             if ((act >= 0) && (act <= 100)) {
                 ok = true;
-                edit_Admin_view.labActivity.setToolTipText("");
-                edit_Admin_view.labActivity.setIcon(good_data);
-                edit_Admin_view.txtActivity.setBackground(Color.GREEN);
+                edit_User_view.labActivity.setToolTipText("");
+                edit_User_view.labActivity.setIcon(good_data);
+                edit_User_view.txtActivity.setBackground(Color.GREEN);
             } else {
-                edit_Admin_view.labActivity.setToolTipText("No ha introducido los datos correctamente,Debe estar comprendido entre 0 y 100");
+                edit_User_view.labActivity.setToolTipText("No ha introducido los datos correctamente,Debe estar comprendido entre 0 y 100");
                 ok = false;
-                edit_Admin_view.labActivity.setIcon(wrong_data);
-                edit_Admin_view.txtActivity.setBackground(Color.red);
+                edit_User_view.labActivity.setIcon(wrong_data);
+                edit_User_view.txtActivity.setBackground(Color.red);
             }
         } else {
-            edit_Admin_view.labActivity.setToolTipText("No ha introducido los datos correctamente, quizas introdujo letras");
-            edit_Admin_view.labActivity.setIcon(wrong_data);
-            edit_Admin_view.txtActivity.setBackground(Color.RED);
+            edit_User_view.labActivity.setToolTipText("No ha introducido los datos correctamente, quizas introdujo letras");
+            edit_User_view.labActivity.setIcon(wrong_data);
+            edit_User_view.txtActivity.setBackground(Color.RED);
 
         }
         return ok;
     }
 
-    public static boolean booleanEditdate_birth_admin() {
+    public static boolean booleanEditdate_birth() {
 
         String s = "";
-        int act = 0;
+
         boolean ok = false;
-        Calendar date_birth;
-        int dia = 0, mes = 0, anio = 0;
 
-        s = ((JTextFieldDateEditor) edit_Admin_view.pick_date_birth.getDateEditor()).getText();
+        s = ((JTextFieldDateEditor) edit_User_view.pick_date_birth.getDateEditor()).getText();
 
-        ok = Date_min_max_condition_boolean(s, 16, 65);
+        ok = Date_tools.Date_min_condition_boolean(s, 18);
 
         if (ok == false) {
 
             if (singletonapp.passdate == 0) {
-                edit_Admin_view.labdate_birth.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_format_data_correctly"));
+                edit_User_view.labdate_birth.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_format_data_correctly"));
             }
             if (singletonapp.passdate == 1) {
-                edit_Admin_view.labdate_birth.setToolTipText(Lang.getInstance().getProperty("This_date_does_not_exist_in_the_calendar"));
+                edit_User_view.labdate_birth.setToolTipText(Lang.getInstance().getProperty("This_date_does_not_exist_in_the_calendar"));
 
             }
             if (singletonapp.passdate == 2) {
-                edit_Admin_view.labdate_birth.setToolTipText(Lang.getInstance().getProperty("You_can_not_register,_you_must_be") + 16 + Lang.getInstance().getProperty("years"));
+                edit_User_view.labdate_birth.setToolTipText(Lang.getInstance().getProperty("You_can_not_register,_you_must_be") + 16 + Lang.getInstance().getProperty("years"));
 
             }
 
-            edit_Admin_view.pick_date_birth.setBackground(Color.red);
-            edit_Admin_view.labdate_birth.setIcon(wrong_data);
+            edit_User_view.pick_date_birth.setBackground(Color.red);
+            edit_User_view.labdate_birth.setIcon(wrong_data);
 
         } else {
-            edit_Admin_view.labdate_birth.setToolTipText("");
-            edit_Admin_view.pick_date_birth.setBackground(Color.GREEN);
-            edit_Admin_view.labdate_birth.setIcon(good_data);
+            edit_User_view.labdate_birth.setToolTipText("");
+            edit_User_view.pick_date_birth.setBackground(Color.GREEN);
+            edit_User_view.labdate_birth.setIcon(good_data);
         }
 
         return ok;
     }
 
-    public static boolean booleanEditdate_contr_admin() {
+    public static ClassDate Edit_date_birth() {
 
-        String s = "";
-        int act = 0;
-        boolean ok = false;
-        Calendar date_birth;
-        String date_contr;
-        int dia = 0, mes = 0, anio = 0;
-        int diac = 0, mesc = 0, anioc = 0;
-
-        s = ((JTextFieldDateEditor) edit_Admin_view.pick_date_birth.getDateEditor()).getText();
-
-        date_contr = ((JTextFieldDateEditor) edit_Admin_view.pick_date_contr.getDateEditor()).getText();
-
-        if (s.equals("") || date_contr.equals("")) {
-
-            edit_Admin_view.labdate_cont.setToolTipText("Revise las fechas algun capmo esta en blanco");
-            edit_Admin_view.pick_date_contr.setBackground(Color.red);
-            edit_Admin_view.labdate_cont.setIcon(wrong_data);
-
-        } else {
-
-            ClassDate contr = new ClassDate(date_contr);
-
-            ok = Date_registered_boolean(contr, s, 16);
-
-            if (ok == false) {
-
-                if (singletonapp.passdate == 4) {
-                    edit_Admin_view.labdate_cont.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_format_data_correctly"));
-                }
-                if (singletonapp.passdate == 0) {
-                    edit_Admin_view.labdate_cont.setToolTipText(Lang.getInstance().getProperty("This_date_does_not_exist_in_the_calendar"));
-                }
-                if (singletonapp.passdate == 1) {
-                    edit_Admin_view.labdate_cont.setToolTipText(Lang.getInstance().getProperty("The_date_may_not_be_later_than_the_system"));
-                }
-                if (singletonapp.passdate == 2) {
-                    edit_Admin_view.labdate_cont.setToolTipText(Lang.getInstance().getProperty("The_record_date_may_not_be_earlier_wing_of_birth"));
-                }
-                if (singletonapp.passdate == 3) {
-                    edit_Admin_view.labdate_cont.setToolTipText(Lang.getInstance().getProperty("On_this_date_you_were_not_of_legal_age"));
-                }
-
-                edit_Admin_view.pick_date_contr.setBackground(Color.red);
-                edit_Admin_view.labdate_cont.setIcon(wrong_data);
-
-            } else {
-                edit_Admin_view.labdate_cont.setToolTipText(Lang.getInstance().getProperty(""));
-                edit_Admin_view.pick_date_contr.setBackground(Color.GREEN);
-                edit_Admin_view.labdate_cont.setIcon(good_data);
-            }
-        }
-
-        return ok;
-    }
-
-    public static ClassDate Edit_date_birth_admin() {
-
-        String date = "";
         Calendar date_birth;
         int dia = 0, mes = 0, anio = 0;
 
-        date_birth = edit_Admin_view.pick_date_birth.getCalendar();
+        date_birth = edit_User_view.pick_date_birth.getCalendar();
 
         dia = date_birth.get(Calendar.DATE);
         mes = date_birth.get(Calendar.MONTH) + 1;
@@ -1000,22 +772,7 @@ public class DAO_User {
         return new ClassDate(dia, mes, anio);
     }
 
-    public static ClassDate Edit_date_cntr_admin() {
-
-        String date = "";
-        Calendar date_birth;
-        int dia = 0, mes = 0, anio = 0;
-
-        date_birth = edit_Admin_view.pick_date_contr.getCalendar();
-
-        dia = date_birth.get(Calendar.DATE);
-        mes = date_birth.get(Calendar.MONTH) + 1;
-        anio = date_birth.get(Calendar.YEAR);
-
-        return new ClassDate(dia, mes, anio);
-    }
-
-    public static void EditAvatar_admin() {
+    public static void EditAvatar() {
 
         JFileChooser dlg = new JFileChooser();
         dlg.setCurrentDirectory(new File("src/Appweb/Modules/Users/Img/Avatares/"));
@@ -1026,7 +783,7 @@ public class DAO_User {
             //Obtiene nombre del archivo seleccionado
             String file = dlg.getSelectedFile().getPath();
             String dir = dlg.getSelectedFile().toString();
-            edit_Admin_view.labAvatar.setIcon(new ImageIcon(file));
+            edit_User_view.labAvatar.setIcon(new ImageIcon(file));
             //Modificando la imagen
             ImageIcon icon = new ImageIcon(file);
             //Se extrae la imagen del icono
@@ -1036,15 +793,15 @@ public class DAO_User {
             //SE GENERA EL IMAGE ICON CON LA NUEVA IMAGEN
             ImageIcon newIcon = new ImageIcon(newimg);
             //Se coloca el nuevo icono modificado
-            edit_Admin_view.labAvatar.setIcon(newIcon);
+            edit_User_view.labAvatar.setIcon(newIcon);
             //Se cambia el tamaño de la etiqueta
-            edit_Admin_view.labAvatar.setSize(470, 290);
+            edit_User_view.labAvatar.setSize(470, 290);
 
             try {
 
                 File source = new File(dir);
                 File dest = new File("src/Appweb/Modules/Users/Img/Avatares/" + source.getName());
-                edit_Admin_view.labAvatar.setToolTipText(dest.toString());
+                edit_User_view.labAvatar.setToolTipText(dest.toString());
                 copyFileUsingJava7Files(source, dest);
 
             } catch (HeadlessException | IOException e) {
@@ -1054,7 +811,7 @@ public class DAO_User {
         }
     }
 
-    public static Admin modify_edit_Admin() {
+    public static User_reg modify_edit() {
 
         String Dni = "", Name = "", Last_name = "", Mobile = "", Email = "", User = "", Password = "";
         ClassDate date_cont = null;
@@ -1062,80 +819,81 @@ public class DAO_User {
         int activity = 0;
         float salary = 0.000f;
         ClassDate Date_birth = null;
-        char[] password = edit_Admin_view.txtPassword.getPassword();
-        Admin a = null;
+        char[] password = edit_User_view.txtPassword.getPassword();
+        User_reg a = null;
         String Avatar = null;
         boolean ok = false;
 
-        boolean pass, pass1, pass2, pass3, pass4, pass5, pass6, pass7, pass8, pass9, pass10;
+        boolean pass1, pass2, pass3, pass4, pass5, pass6, pass7, pass8, pass9, pass10;
 
-        pass1 = booleanEditname_admin();
-        pass2 = booleanEditlast_name_admin();
-        pass3 = booleanEditmobile_admin();
-        pass4 = booleanEditmail_admin();
-        pass5 = booleanEdituser_admin();
-        pass6 = booleanEditpassword_admin();
-        pass7 = booleanEditsalary_admin();
-        pass8 = booleanEditactivity_admin();
-        pass9 = booleanEditdate_birth_admin();
-        pass10 = booleanEditdate_contr_admin();
+        pass1 = booleanEditname();
+        pass2 = booleanEditlast_name();
+        pass3 = booleanEditmobile();
+        pass4 = booleanEditmail();
+        pass5 = booleanEdituser();
+        pass6 = booleanEditpassword();
+        // pass7 = booleanEditsalary();
+        pass8 = booleanEditactivity();
+        pass9 = booleanEditdate_birth();
+        // pass10 = booleanEditdate_contr_admin();
 
-        if (pass1 == true && pass2 == true && pass3 == true && pass4 == true && pass5 == true && pass6 == true && pass7 == true && pass8 == true && pass9 == true && pass10 == true) {
+        if (pass1 == true && pass2 == true && pass3 == true && pass4 == true && pass5 == true && pass6 == true && pass8 == true && pass9 == true) {
 
-            Dni = edit_Admin_view.txtDni.getText();
-            Name = edit_Admin_view.txtName.getText();
-            Last_name = edit_Admin_view.txtLast_name.getText();
-            Mobile = edit_Admin_view.txtMobile.getText();
-            Date_birth = Edit_date_birth_admin();
-            Email = edit_Admin_view.txtEmail.getText();
-            User = edit_Admin_view.txtUser.getText();
+            Dni = edit_User_view.txtDni.getText();
+            Name = edit_User_view.txtName.getText();
+            Last_name = edit_User_view.txtLast_name.getText();
+            Mobile = edit_User_view.txtMobile.getText();
+            Date_birth = Edit_date_birth();
+            Email = edit_User_view.txtEmail.getText();
+            User = edit_User_view.txtUser.getText();
             Password = new String(password);
-            Avatar = edit_Admin_view.labAvatar.getToolTipText();
-            Status = edit_Admin_view.comboStatus.getSelectedItem().toString();
+            Avatar = edit_User_view.labAvatar.getToolTipText();
+            Status = edit_User_view.comboStatus.getSelectedItem().toString();
             // Enter Admin attributes
-            date_cont = Edit_date_cntr_admin();
-            salary = Float.parseFloat(edit_Admin_view.txtSalary.getText());
-            activity = Integer.parseInt(edit_Admin_view.txtActivity.getText());
+            //date_cont = Edit_date_cntr_admin();
+            //salary = Float.parseFloat(edit_Admin_view.txtSalary.getText());
+            activity = Integer.parseInt(edit_User_view.txtActivity.getText());
 
-            a = new Admin(Dni, Name, Last_name, Mobile, Date_birth, Email, User, Password, Avatar, Status, date_cont, salary, activity);
+            a = new User_reg(Dni, Name, Last_name, Mobile, Date_birth, Email, User, Password, Avatar, Status, activity);
         } else {
             a = null;
         }
         return a;
     }
 
-    public static void Load_show_admin() {
+    public static void Load_show() {
 
-        Admin a = singleadmin.Admin_array.get(singletonapp.pos);
+        User_reg a = singleuser_reg.User_reg_array.get(singletonapp.pos);
 
-        Float sal = a.getSalary();
-        int act = a.getActivity();
+        //Float sal = a.getSalary();
+        int act = a.getActivity_u();
         int age = a.getAge();
-        int ant = a.getAntique();
+        //int ant = a.getAntique();
         Float ben = a.getBenefits();
 
-        show_Admin_view.txtDni.setText(a.getDni());
-        show_Admin_view.txtName.setText(a.getName());
-        show_Admin_view.txtLast_name.setText(a.getLast_name());
-        show_Admin_view.txtMobile.setText(a.getMobile());
-        show_Admin_view.txtDate_birth.setText(a.getDate_birth().todate());
-        show_Admin_view.txtAge.setText("" + age);
-        show_Admin_view.txtEmail.setText(a.getEmail());
-        show_Admin_view.txtUser.setText(a.getUser());
-        show_Admin_view.txtPassword.setText(a.getPassword());
-        show_Admin_view.txtStatus.setText(a.getStatus());
-        show_Admin_view.txtDate_cont.setText(a.getDate_cont().todate());
-        show_Admin_view.txtAntique.setText("" + ant);
-        show_Admin_view.txtSalary.setText("" + sal);
-        show_Admin_view.txtActivity.setText("" + act);
-        show_Admin_view.txtBenefits.setText("" + ben);
-        ShowAvatar_admin(a.getAvatar());
+        show_User_view.txtDni.setText(a.getDni());
+        show_User_view.txtName.setText(a.getName());
+        show_User_view.txtLast_name.setText(a.getLast_name());
+        show_User_view.txtMobile.setText(a.getMobile());
+        show_User_view.txtDate_birth.setText(a.getDate_birth().todate());
+        show_User_view.txtAge.setText("" + age);
+        show_User_view.txtEmail.setText(a.getEmail());
+        show_User_view.txtUser.setText(a.getUser());
+        show_User_view.txtPassword.setText(a.getPassword());
+        show_User_view.txtStatus.setText(a.getStatus());
+        // show_User_view.txtDate_cont.setText(a.getDate_cont().todate());
+        //show_User_view.txtAntique.setText("" + ant);
+        // show_User_view.txtSalary.setText("" + sal);
+        show_User_view.txtActivity.setText("" + act);
+        show_User_view.txtBenefits.setText("" + ben);
+        show_User_view.txtKarma.setText(a.getKarma());
+        ShowAvatar(a.getAvatar());
 
     }
 
-    public static void ShowAvatar_admin(String file) {
+    public static void ShowAvatar(String file) {
 
-        show_Admin_view.labAvatar.setIcon(new ImageIcon(file));
+        show_User_view.labAvatar.setIcon(new ImageIcon(file));
         //Modificando la imagen
         ImageIcon icon = new ImageIcon(file);
         //Se extrae la imagen del icono
@@ -1145,22 +903,22 @@ public class DAO_User {
         //SE GENERA EL IMAGE ICON CON LA NUEVA IMAGEN
         ImageIcon newIcon = new ImageIcon(newimg);
         //Se coloca el nuevo icono modificado
-        show_Admin_view.labAvatar.setIcon(newIcon);
+        show_User_view.labAvatar.setIcon(newIcon);
         //Se cambia el tamaño de la etiqueta
-        show_Admin_view.labAvatar.setSize(470, 290);
-        show_Admin_view.labAvatar.setToolTipText(file);
+        show_User_view.labAvatar.setSize(470, 290);
+        show_User_view.labAvatar.setToolTipText(file);
 
     }
 
-    public static void save_json_admin() {
+    public static void save_json() {
 
-        if (singleadmin.Admin_array.size() != 0) {
+        if (singleuser_reg.User_reg_array.size() != 0) {
 
             String PATH = null;
             try {
                 XStream xstreamjson = new XStream(new JettisonMappedXmlDriver());
                 xstreamjson.setMode(XStream.NO_REFERENCES);
-                xstreamjson.alias("empleafijo", Admin.class);
+                xstreamjson.alias("User_reg", User_reg.class);
 
                 JFileChooser fileChooser = new JFileChooser();
 
@@ -1174,16 +932,16 @@ public class DAO_User {
                     PATH = PATH + ".json";
 
                     Gson gson = new Gson();
-                    String json = gson.toJson(singleadmin.Admin_array);
+                    String json = gson.toJson(singleuser_reg.User_reg_array);
                     FileWriter fileXml = new FileWriter(PATH);
                     fileXml.write(json.toString());
                     fileXml.close();
 
-                    JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("User_file_saved") + " Admin json",
+                    JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("User_file_saved") + " User registered json",
                             Lang.getInstance().getProperty("File") + " json", JOptionPane.INFORMATION_MESSAGE);
                 }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Failed_to_save_user") + " Admin json", "Error",
+                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Failed_to_save_user") + " User registered json", "Error",
                         JOptionPane.ERROR_MESSAGE);
             }
 
@@ -1195,9 +953,9 @@ public class DAO_User {
         }
     }
 
-    public static void save_txt_admin() {
+    public static void save_txt() {
 
-        if (singleadmin.Admin_array.size() != 0) {
+        if (singleuser_reg.User_reg_array.size() != 0) {
 
             String PATH = " ";
             try {
@@ -1216,7 +974,7 @@ public class DAO_User {
 
                     FileOutputStream fo = new FileOutputStream(f);
                     ObjectOutputStream o = new ObjectOutputStream(fo);
-                    o.writeObject(singleadmin.Admin_array);
+                    o.writeObject(singleuser_reg.User_reg_array);
                     o.close();
                     JOptionPane.showMessageDialog(null, "Archivo TXT guardado con exito", "Archivo TXT", JOptionPane.INFORMATION_MESSAGE);
                 }
@@ -1231,9 +989,9 @@ public class DAO_User {
         }
     }
 
-    public static void save_xml_admin() {
+    public static void save_xml() {
 
-        if (singleadmin.Admin_array.size() != 0) {
+        if (singleuser_reg.User_reg_array.size() != 0) {
 
             String PATH = " ";
 
@@ -1241,10 +999,10 @@ public class DAO_User {
                 OutputStream os = new ByteArrayOutputStream();
                 OutputStreamWriter osw = new OutputStreamWriter(os);
                 XStream xstream = new XStream();
-                Annotations.configureAliases(xstream, Admin.class);
+                Annotations.configureAliases(xstream, User_reg.class);
 
                 String header = "<?xml version=\"1.0\" encoding=\"" + ENCODING + "\"?>\n";
-                xstream.toXML(singleadmin.Admin_array, osw);
+                xstream.toXML(singleuser_reg.User_reg_array, osw);
                 StringBuffer xml = new StringBuffer();
                 xml.append(header);
                 xml.append(os.toString());
@@ -1279,12 +1037,12 @@ public class DAO_User {
         }
     }
 
-    public static void auto_save_json_admin() {
+    public static void auto_save_json() {
 
         String PATH = " ";
 
         try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/Admin/Model/Admin_files/adminusers";
+            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/User_reg/Model/User_reg_files/useregusers";
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -1292,34 +1050,32 @@ public class DAO_User {
         try {
             XStream xstreamjson = new XStream(new JettisonMappedXmlDriver());
             xstreamjson.setMode(XStream.NO_REFERENCES);
-            xstreamjson.alias("Admin", Admin.class);
+            xstreamjson.alias("User_reg", User_reg.class);
 
             File JFC = new File(PATH);
             PATH = JFC.getAbsolutePath();
             PATH = PATH + ".json";
 
             Gson gson = new Gson();
-            String json = gson.toJson(singleadmin.Admin_array);
+            String json = gson.toJson(singleuser_reg.User_reg_array);
             FileWriter fileXml = new FileWriter(PATH);
             fileXml.write(json.toString());
             fileXml.close();
 
-            System.out.print(Lang.getInstance().getProperty("User_file_saved") + " Admin json \n");
+            System.out.print(Lang.getInstance().getProperty("User_file_saved") + " User_registered json \n");
 
         } catch (Exception e) {
-            System.out.print(Lang.getInstance().getProperty("Failed_to_save_user") + " Admin json" + " \n");
+            System.out.print(Lang.getInstance().getProperty("Failed_to_save_user") + " User registered json" + " \n");
         }
     }
 
-    public static void auto_open_json_admin() {
+    public static void auto_open_json() {
 
         String PATH = " ";
-        Admin a = new Admin("");
-        Client c = new Client("");
-        User_reg u = new User_reg("");
+        User_reg a = new User_reg("");
 
         try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/Admin/Model/Admin_files/adminusers.json";
+            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/User_reg/Model/User_reg_files/useregusers.json";
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -1327,12 +1083,12 @@ public class DAO_User {
         try {
             XStream xstream = new XStream(new JettisonMappedXmlDriver());
             xstream.setMode(XStream.NO_REFERENCES);
-            xstream.alias("Admin", Admin.class);
+            xstream.alias("User_reg", User_reg.class);
 
             File JFC = new File(PATH);
             PATH = JFC.getAbsolutePath();
 
-            singleadmin.Admin_array.clear();
+            singleuser_reg.User_reg_array.clear();
 
             JsonReader lector = new JsonReader(new FileReader(PATH));
             JsonParser parseador = new JsonParser();
@@ -1341,15 +1097,15 @@ public class DAO_User {
             Gson json = new Gson();
             JsonArray lista = raiz.getAsJsonArray();
             for (JsonElement elemento : lista) {
-                a = json.fromJson(elemento, Admin.class);
-                singleadmin.Admin_array.add(a);
+                a = json.fromJson(elemento, User_reg.class);
+                singleuser_reg.User_reg_array.add(a);
 
             }
-            System.out.print(Lang.getInstance().getProperty("Loaded_user_file") + " Admin json" + " \n");
+            System.out.print(Lang.getInstance().getProperty("Loaded_user_file") + " User registered json" + " \n");
 
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.print(Lang.getInstance().getProperty("Error_loading_user_file") + " json" + " \n");
+            System.out.print(Lang.getInstance().getProperty("Error_loading_user_file") + "User registered json" + " \n");
         }
     }
 }

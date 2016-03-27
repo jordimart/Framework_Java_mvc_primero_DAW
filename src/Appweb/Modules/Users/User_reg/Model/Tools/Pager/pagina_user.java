@@ -1,8 +1,6 @@
 package Appweb.Modules.Users.User_reg.Model.Tools.Pager;
 
 
-import Appweb.General_tools.singletonapp;
-import static Appweb.Modules.Users.User_reg.Controller.ControllerUser.Table_User;
 import Appweb.Modules.Users.User_reg.Model.Classes.Table_User_reg;
 import Appweb.Modules.Users.User_reg.View.table_User_view;
 
@@ -51,7 +49,7 @@ public class pagina_user {
 
     public static void initLinkBox() {
         
-                Appweb.Modules.Users.Admin.Controller.ControllerAdmin.sorter.setRowFilter(new RowFilter<TableModel, Integer>() {
+                Appweb.Modules.Users.User_reg.Controller.ControllerUser.sorter.setRowFilter(new RowFilter<TableModel, Integer>() {
                     @Override
                     public boolean include(RowFilter.Entry<? extends TableModel, ? extends Integer> entry) {
                         int ti = currentPageIndex - 1;

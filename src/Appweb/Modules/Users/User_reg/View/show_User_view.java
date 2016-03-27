@@ -1,11 +1,4 @@
-
 package Appweb.Modules.Users.User_reg.View;
-
-import Appweb.Modules.Users.Client.View.*;
-import Appweb.Modules.Users.Admin.View.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 /**
  *
@@ -18,24 +11,19 @@ public class show_User_view extends javax.swing.JFrame {
      */
     public show_User_view() {
         initComponents();
-        
+
         /**
-         this.setTitle("Admin data");
-        this.setLocationRelativeTo(null);
-        this.setSize(1000, 650);//ancho x alto
-        this.setResizable(false);
-        
-        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                dispose();
-            }
-        });
-        * */
+         * this.setTitle("Admin data"); this.setLocationRelativeTo(null);
+         * this.setSize(1000, 650);//ancho x alto this.setResizable(false);
+         *
+         * this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+         * addWindowListener(new WindowAdapter() { public void
+         * windowClosing(WindowEvent e) { dispose(); } });
+        *
+         */
     }
 
-   
-   
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -70,12 +58,12 @@ public class show_User_view extends javax.swing.JFrame {
         labAvatar = new javax.swing.JLabel();
         btnAcept = new org.edisoncor.gui.button.ButtonAero();
         labelHeader17 = new org.edisoncor.gui.label.LabelHeader();
-        jTextField1 = new javax.swing.JTextField();
+        txtKarma = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1000, 650));
 
-        panelImage1.setBorder(javax.swing.BorderFactory.createTitledBorder("Data Admin"));
+        panelImage1.setBorder(javax.swing.BorderFactory.createTitledBorder("Data User registered"));
         panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/General_tools/Img/Fondo_claro_1.jpg"))); // NOI18N
 
         labelHeader1.setText("DNI:");
@@ -149,7 +137,7 @@ public class show_User_view extends javax.swing.JFrame {
 
         labelHeader17.setText("KARMA");
 
-        jTextField1.setEditable(false);
+        txtKarma.setEditable(false);
 
         javax.swing.GroupLayout panelRect1Layout = new javax.swing.GroupLayout(panelRect1);
         panelRect1.setLayout(panelRect1Layout);
@@ -196,7 +184,7 @@ public class show_User_view extends javax.swing.JFrame {
                         .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtBenefits, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
                             .addComponent(txtActivity, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                            .addComponent(jTextField1))))
+                            .addComponent(txtKarma))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelRect1Layout.setVerticalGroup(
@@ -215,11 +203,12 @@ public class show_User_view extends javax.swing.JFrame {
                     .addComponent(labelHeader11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBenefits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelHeader3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtLast_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelHeader17, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE))
+                .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtKarma, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                    .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelHeader3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtLast_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelHeader17, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -297,15 +286,13 @@ public class show_User_view extends javax.swing.JFrame {
 
     private void btnAceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptActionPerformed
         //this.dispose();
-       
-        
+
+
     }//GEN-LAST:event_btnAceptActionPerformed
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static org.edisoncor.gui.button.ButtonAero btnAcept;
-    public static javax.swing.JTextField jTextField1;
     public static javax.swing.JLabel labAvatar;
     public static org.edisoncor.gui.label.LabelHeader labelHeader1;
     public static org.edisoncor.gui.label.LabelHeader labelHeader10;
@@ -330,6 +317,7 @@ public class show_User_view extends javax.swing.JFrame {
     public static org.edisoncor.gui.textField.TextField txtDate_birth;
     public static org.edisoncor.gui.textField.TextField txtDni;
     public static org.edisoncor.gui.textField.TextField txtEmail;
+    public static javax.swing.JTextField txtKarma;
     public static org.edisoncor.gui.textField.TextField txtLast_name;
     public static org.edisoncor.gui.textField.TextField txtMobile;
     public static org.edisoncor.gui.textField.TextField txtName;

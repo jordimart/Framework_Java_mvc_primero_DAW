@@ -13,10 +13,10 @@ import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
 import Appweb.Modules.Users.Client.Controller.ControllerClient;
 import Appweb.Modules.Users.Client.Model.BLL_Client.BLL_Client;
-import Appweb.Modules.Users.Client.View.create_Client_view;
-import Appweb.Modules.Users.Client.View.edit_Client_view;
-import Appweb.Modules.Users.Client.View.show_Client_view;
 import Appweb.Modules.Users.Client.View.table_Client_view;
+import Appweb.Modules.Users.User_reg.Controller.ControllerUser;
+import Appweb.Modules.Users.User_reg.Model.BLL_User.BLL_User;
+import Appweb.Modules.Users.User_reg.View.table_User_view;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -80,6 +80,7 @@ public class ControllerMain implements ActionListener {
             auto_open_config_json();
             BLL_Admin.auto_open_json_admin();
             BLL_Client.auto_open_json_client();
+            BLL_User.auto_open_json();
 
             Login.setVisible(true);
             Login.setTitle("Menu Login ");
@@ -200,75 +201,106 @@ public class ControllerMain implements ActionListener {
                 new ControllerAdmin(new task_Admin_view(), 0).Start(0);
 
                 break;
+
             case btnUser_reglogin:
+
+                Login.dispose();
+                new ControllerUser(new table_User_view(), 0).Start(0);
 
                 break;
 
             case btnClientlogin:
 
                 Login.dispose();
-                
                 new ControllerClient(new table_Client_view(), 0).Start(0);
-                // new ControllerClient(new show_Client_view(),3).Start(3);
 
                 break;
+
             case btnTestlogin:
 
                 Login.dispose();
                 new ControllerMain(new task_Dummy_view(), 2).Start(2);
 
                 break;
+
             case btnSettings:
 
                 Login.dispose();
                 new ControllerMain(new menu_Settings(), 1).Start(1);
 
                 break;
+
             case btnExit:
 
                 JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
                         JOptionPane.INFORMATION_MESSAGE);
 
                 System.exit(0);
+
                 break;
+
             case btn_Accept_Settings:
 
                 BLL_config.Configuration_accept();
                 BLL_config.auto_save_config_json();
 
                 break;
+
             case btn_Load_Settings:
 
                 BLL_config.open_config_json();
+
                 break;
+
             case btn_Return_Settings:
 
                 Settings.dispose();
                 new ControllerMain(new menu_Input(), 0).Start(0);
 
                 break;
+
             case btn_Save_setting:
+
                 BLL_config.save_config_json();
+
                 break;
+
             case btn_Show:
+
                 JOptionPane.showMessageDialog(null, Classconfig.getInstance().tostring());
+
                 break;
+
             case btnCreate_dummis_admin:
+
                 BLL_Dummies.create_Dummy_admin();
+
                 break;
+
             case btnDelete_all_admin:
+
                 BLL_Dummies.Delete_all_admin_dummies();
+
                 break;
+
             case btnEntry_admin:
 
                 Dummies.dispose();
                 new ControllerAdmin(new task_Admin_view(), 0).Start(0);
 
                 break;
+
             case btnEntry_client:
 
+                Dummies.dispose();
+                new ControllerClient(new table_Client_view(), 0).Start(0);
+
                 break;
+
             case btnEntry_user_reg:
+
+                Dummies.dispose();
+                new ControllerUser(new table_User_view(), 0).Start(0);
 
                 break;
         }
