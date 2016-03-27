@@ -15,7 +15,7 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author ASUSG50V
  */
-public class Table_Admin extends AbstractTableModel {
+public class Table_Admin_class extends AbstractTableModel {
 
     public static ArrayList<Admin> datos = new ArrayList<Admin>();
     public static ArrayList<Admin> datosaux = new ArrayList<Admin>();
@@ -115,7 +115,7 @@ public class Table_Admin extends AbstractTableModel {
     public void addRow(Admin usu) {
         datos.add(usu);
 
-        ((Table_Admin) table_Admin_view.mini_Table_Admin.getModel()).fireTableDataChanged();
+        ((Table_Admin_class) table_Admin_view.mini_Table_Admin.getModel()).fireTableDataChanged();
     }
 
     public void cargar() {

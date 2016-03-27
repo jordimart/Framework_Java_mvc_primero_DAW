@@ -11,8 +11,8 @@ import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
 import static Appweb.Modules.Users.Admin.Controller.ControllerAdmin.Table_Admin;
 import Appweb.Modules.Users.Admin.View.show_Admin_view;
 import static Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin;
-import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin;
-import static Appweb.Modules.Users.Admin.Model.Classes.Table_Admin.datos;
+import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin_class;
+import static Appweb.Modules.Users.Admin.Model.Classes.Table_Admin_class.datos;
 import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
 import javax.swing.JOptionPane;
 
@@ -81,7 +81,7 @@ public class BLL_Admin {
         if (a != null) {
             singleadmin.Admin_array.add(a);
             DAO_Admin.auto_save_json_admin();
-            ((Table_Admin) mini_Table_Admin.getModel()).cargar();
+            ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
             pagina.inicializa();
             pagina.initLinkBox();
 
@@ -171,7 +171,7 @@ public class BLL_Admin {
         boolean ok = false;
         int selection, inicio, selection1;
 
-        if (((Table_Admin) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
+        if (((Table_Admin_class) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
             int selec = table_Admin_view.mini_Table_Admin.getSelectedRow();
 
             if (selec == -1) {
@@ -191,7 +191,7 @@ public class BLL_Admin {
                 //Table_Admin.dispose();
                 new ControllerAdmin(new edit_Admin_view(), 3).Start(3);
                 DAO_Admin.Load_edit_admin();
-                ((Table_Admin) mini_Table_Admin.getModel()).cargar();
+                ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
                 pagina.inicializa();
                 pagina.initLinkBox();
 
@@ -210,7 +210,7 @@ public class BLL_Admin {
         boolean ok = false;
         int selection, inicio, selection1;
 
-        if (((Table_Admin) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
+        if (((Table_Admin_class) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
             //int selec = table_Admin_view.mini_Table_Admin.getSelectedRow();
 
             inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage; //nos situamos al inicio de la pÃ¡gina en cuestiÃ³n
@@ -226,7 +226,7 @@ public class BLL_Admin {
                 dni = (String) mini_Table_Admin.getModel().getValueAt(selection1, 0);
                 singletonapp.pos = Look_for_dni_admin(dni);
 
-                ((Table_Admin) mini_Table_Admin.getModel()).removeRow(selection1);
+                ((Table_Admin_class) mini_Table_Admin.getModel()).removeRow(selection1);
                 singleadmin.Admin_array.remove(singletonapp.pos);
                 DAO_Admin.auto_save_json_admin();
 
@@ -255,7 +255,7 @@ public class BLL_Admin {
             // arraylist
             singleadmin.Admin_array.clear();
             DAO_Admin.auto_save_json_admin();
-            ((Table_Admin) mini_Table_Admin.getModel()).cargar();
+            ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
             table_Admin_view.jLabel3.setText(String.valueOf(datos.size()));
             pagina.inicializa();
             pagina.initLinkBox();
@@ -271,7 +271,7 @@ public class BLL_Admin {
         boolean ok = false;
         int selection, inicio, selection1;
 
-        if (((Table_Admin) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
+        if (((Table_Admin_class) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
             int selec = table_Admin_view.mini_Table_Admin.getSelectedRow();
 
             if (selec == -1) {

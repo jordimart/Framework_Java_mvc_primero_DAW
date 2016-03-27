@@ -96,6 +96,9 @@ public class table_Client_view extends javax.swing.JFrame {
         btnAdd_client = new org.edisoncor.gui.button.ButtonAction();
         btn_Return_client = new org.edisoncor.gui.button.ButtonAction();
         btn_delete_all = new org.edisoncor.gui.button.ButtonAction();
+        btn_Save_file = new org.edisoncor.gui.button.ButtonAction();
+        combo_file = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
         panel2 = new org.edisoncor.gui.panel.PanelRect();
         jScrollPane2 = new javax.swing.JScrollPane();
         mini_Table_Client = new org.jdesktop.swingx.JXTable();
@@ -114,10 +117,6 @@ public class table_Client_view extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        menu_save = new javax.swing.JMenu();
-        menu_save_json = new javax.swing.JMenuItem();
-        menu_save_xml = new javax.swing.JMenuItem();
-        menu_save_txt = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -188,19 +187,33 @@ public class table_Client_view extends javax.swing.JFrame {
             }
         });
 
+        btn_Save_file.setText("Guardar");
+
+        combo_file.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Json", "Xml", "Txt" }));
+
+        jLabel4.setText("Guardar en:");
+
         javax.swing.GroupLayout panelRect1Layout = new javax.swing.GroupLayout(panelRect1);
         panelRect1.setLayout(panelRect1Layout);
         panelRect1Layout.setHorizontalGroup(
             panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRect1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnAdd_client, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                    .addComponent(btnEditar_client, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMostrar_client, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBorrar_client, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_Return_client, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_delete_all, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRect1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnAdd_client, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                            .addComponent(btnEditar_client, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnMostrar_client, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnBorrar_client, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_Return_client, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_delete_all, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(panelRect1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btn_Save_file, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                            .addComponent(combo_file, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         panelRect1Layout.setVerticalGroup(
@@ -218,7 +231,13 @@ public class table_Client_view extends javax.swing.JFrame {
                 .addComponent(btn_delete_all, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Return_client, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(combo_file, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_Save_file, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
         );
 
         mini_Table_Client.setModel(new javax.swing.table.DefaultTableModel(
@@ -446,34 +465,6 @@ public class table_Client_view extends javax.swing.JFrame {
                 .addGap(167, 167, 167))
         );
 
-        menu_save.setText("Guardar");
-
-        menu_save_json.setText("Guardar json");
-        menu_save_json.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_save_jsonActionPerformed(evt);
-            }
-        });
-        menu_save.add(menu_save_json);
-
-        menu_save_xml.setText("Guardar xml");
-        menu_save_xml.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_save_xmlActionPerformed(evt);
-            }
-        });
-        menu_save.add(menu_save_xml);
-
-        menu_save_txt.setText("Guardar txt");
-        menu_save_txt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_save_txtActionPerformed(evt);
-            }
-        });
-        menu_save.add(menu_save_txt);
-
-        jMenuBar1.add(menu_save);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -562,18 +553,6 @@ public class table_Client_view extends javax.swing.JFrame {
         //BLL_Admin.Delete_all_admin();
     }//GEN-LAST:event_btn_delete_allActionPerformed
 
-    private void menu_save_jsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_save_jsonActionPerformed
-        BLL_Client.save_json_client();
-    }//GEN-LAST:event_menu_save_jsonActionPerformed
-
-    private void menu_save_xmlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_save_xmlActionPerformed
-        BLL_Client.save_xml_client();
-    }//GEN-LAST:event_menu_save_xmlActionPerformed
-
-    private void menu_save_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_save_txtActionPerformed
-        BLL_Client.save_txt_client();
-    }//GEN-LAST:event_menu_save_txtActionPerformed
-
     private void mini_Table_ClientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mini_Table_ClientMouseClicked
         
         /**
@@ -606,12 +585,15 @@ public class table_Client_view extends javax.swing.JFrame {
     public static org.edisoncor.gui.button.ButtonAction btnEditar_client;
     public static org.edisoncor.gui.button.ButtonAction btnMostrar_client;
     public static org.edisoncor.gui.button.ButtonAction btn_Return_client;
+    public static org.edisoncor.gui.button.ButtonAction btn_Save_file;
     public static org.edisoncor.gui.button.ButtonAction btn_delete_all;
     public static org.edisoncor.gui.comboBox.ComboBoxRound comboBoxRound1;
+    public static javax.swing.JComboBox<String> combo_file;
     public static javax.swing.JComboBox jComboBox1;
     public static javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel jLabel2;
     public static javax.swing.JLabel jLabel3;
+    public static javax.swing.JLabel jLabel4;
     public static javax.swing.JMenuBar jMenuBar1;
     public static javax.swing.JPanel jPanel1;
     public static javax.swing.JPanel jPanel2;
@@ -620,10 +602,6 @@ public class table_Client_view extends javax.swing.JFrame {
     public static javax.swing.JPanel jPanel5;
     public static javax.swing.JScrollPane jScrollPane2;
     public static org.edisoncor.gui.label.LabelRect labelRect1;
-    public static javax.swing.JMenu menu_save;
-    public static javax.swing.JMenuItem menu_save_json;
-    public static javax.swing.JMenuItem menu_save_txt;
-    public static javax.swing.JMenuItem menu_save_xml;
     public static org.jdesktop.swingx.JXTable mini_Table_Client;
     public static org.edisoncor.gui.panel.PanelRect panel2;
     public static org.edisoncor.gui.panel.PanelCurves panelCurves1;

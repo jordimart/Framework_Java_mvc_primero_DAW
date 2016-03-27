@@ -100,6 +100,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
         btnMostrar,
         btn_delete_all,
         btn_Return_table,
+        btn_Save_file,
         ANTERIOR,
         SIGUIENTE,
         primero,
@@ -207,6 +208,9 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
 
             Table_User.btn_Return.setActionCommand("btn_Return_table");
             Table_User.btn_Return.addActionListener(this);
+            
+             Table_User.btn_Save_file.setActionCommand("btn_Save_file");
+            Table_User.btn_Save_file.addActionListener(this);
 
             Table_User.ANTERIOR.setActionCommand("ANTERIOR");
             Table_User.ANTERIOR.addActionListener(this);
@@ -446,6 +450,21 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
                 new ControllerMain(new menu_Input(), 0).Start(0);
 
                 break;
+                
+                case btn_Save_file:
+
+                if (Table_User.combo_file.getSelectedItem().equals("Json")) {
+                    BLL_User.save_json();
+                }
+                if (Table_User.combo_file.getSelectedItem().equals("Xml")) {
+                    BLL_User.save_xml();
+                }
+                if (Table_User.combo_file.getSelectedItem().equals("Txt")) {
+                    BLL_User.save_txt();
+                }
+
+                break;
+                
             case ANTERIOR:
                 pagina_user.currentPageIndex -= 1;
                 pagina_user.initLinkBox();

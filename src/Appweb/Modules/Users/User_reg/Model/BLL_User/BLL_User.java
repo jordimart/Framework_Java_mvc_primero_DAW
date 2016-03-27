@@ -2,7 +2,7 @@ package Appweb.Modules.Users.User_reg.Model.BLL_User;
 
 import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
-import static Appweb.Modules.Users.Admin.Model.Classes.Table_Admin.datos;
+import static Appweb.Modules.Users.Admin.Model.Classes.Table_Admin_class.datos;
 import Appweb.Modules.Users.User_reg.Controller.ControllerUser;
 import static Appweb.Modules.Users.User_reg.Controller.ControllerUser.Table_User;
 import Appweb.Modules.Users.User_reg.Model.Classes.Table_User_reg;

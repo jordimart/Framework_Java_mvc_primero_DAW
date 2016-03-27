@@ -6,7 +6,7 @@ import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.Model.Config.View.menu_Settings;
 import Appweb.Modules.Main.View.menu_Input;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
-import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin;
+import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin_class;
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
 import Appweb.Modules.Users.Admin.Model.Tools.autocomplete.AutocompleteJComboBox;
@@ -57,7 +57,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
     public static edit_Admin_view Edit_Admin;
     public static show_Admin_view Show_Admin;
 
-    public static TableRowSorter<TableModel> sorter = new TableRowSorter<>(new Table_Admin());
+    public static TableRowSorter<TableModel> sorter = new TableRowSorter<>(new Table_Admin_class());
     public static AutocompleteJComboBox combo = null;
     public static JTable tabla = null;
 
@@ -113,7 +113,6 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
         btn_ges_users,
         btn_ges_inst,
         btn_ges_averias,
-        
         //botones table Admin//
 
         btnAdd_admin,
@@ -122,6 +121,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
         btnMostrar_admin,
         btn_delete_all,
         btn_Volver_table,
+        btn_Save_file,
         ANTERIOR,
         SIGUIENTE,
         primero,
@@ -170,7 +170,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
 
             Task_Admin.setTitle(Lang.getInstance().getProperty("Task Admin"));
             Task_Admin.setLocationRelativeTo(null);
-            Task_Admin.setSize(1600,1100);//ancho x alto
+            Task_Admin.setSize(1600, 1100);//ancho x alto
             // this.setResizable(false);
 
             Task_Admin.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -213,8 +213,8 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
 
             singletonapp.singleton_vtna = "Admin";
 
-            Table_Admin.mini_Table_Admin.setModel(new Table_Admin());
-            ((Table_Admin) mini_Table_Admin.getModel()).cargar();
+            Table_Admin.mini_Table_Admin.setModel(new Table_Admin_class());
+            ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
             Table_Admin.mini_Table_Admin.setFillsViewportHeight(true);
             Table_Admin.mini_Table_Admin.setRowSorter(sorter);
 
@@ -269,6 +269,9 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
 
             Table_Admin.btn_Volver.setActionCommand("btn_Volver_table");
             Table_Admin.btn_Volver.addActionListener(this);
+
+            Table_Admin.btn_Save_file.setActionCommand("btn_Save_file");
+            Table_Admin.btn_Save_file.addActionListener(this);
 
             Table_Admin.ANTERIOR.setActionCommand("ANTERIOR");
             Table_Admin.ANTERIOR.addActionListener(this);
@@ -390,7 +393,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             Edit_Admin.pick_date_birth.getDateEditor().setEnabled(false);
             Edit_Admin.pick_date_contr.getDateEditor().setEnabled(false);
             Edit_Admin.setVisible(true);
-            
+
             // Conjunto de teclas que queremos que sirvan para pasar el foco 
             // al siguiente campo de texto: ENTER y TAB
             Set<AWTKeyStroke> teclas = new HashSet<AWTKeyStroke>();
@@ -510,7 +513,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
                 break;
             case btnAdd_admin:
 
-                 Table_Admin.dispose();
+                Table_Admin.dispose();
                 new ControllerAdmin(new create_Admin_view(), 2).Start(2);
 
                 break;
@@ -542,6 +545,21 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
                 new ControllerAdmin(new task_Admin_view(), 0).Start(0);
 
                 break;
+
+            case btn_Save_file:
+
+                if (Table_Admin.combo_file.getSelectedItem().equals("Json")) {
+                    BLL_Admin.save_json_admin();
+                }
+                if (Table_Admin.combo_file.getSelectedItem().equals("Xml")) {
+                    BLL_Admin.save_xml_admin();
+                }
+                if (Table_Admin.combo_file.getSelectedItem().equals("Txt")) {
+                    BLL_Admin.save_txt_admin();
+                }
+
+                break;
+
             case ANTERIOR:
                 pagina.currentPageIndex -= 1;
                 pagina.initLinkBox();
@@ -574,13 +592,12 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
                     Create_Admin.dispose();
                     new ControllerAdmin(new table_Admin_view(), 1).Start(1);
 
-                    ((Table_Admin) mini_Table_Admin.getModel()).cargar();
+                    ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
                 }
                 break;
 
             case btn_Cancel_a:
 
-               
                 Create_Admin.dispose();
                 new ControllerAdmin(new table_Admin_view(), 1).Start(1);
 
@@ -596,14 +613,13 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
                 if (ok == true) {
                     Edit_Admin.dispose();
                     new ControllerAdmin(new table_Admin_view(), 1).Start(1);
-                    ((Table_Admin) mini_Table_Admin.getModel()).cargar();
+                    ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
 
                 }
 
                 break;
             case btn_cancelar_e:
 
-                
                 Edit_Admin.dispose();
                 new ControllerAdmin(new table_Admin_view(), 1).Start(1);
 
@@ -627,14 +643,11 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
 
-       
-
         BLL_Admin.Enterdate_birth_admin();
         BLL_Admin.Enterdate_contr_admin();
         BLL_Admin.Editdate_birth_admin();
         BLL_Admin.Editdate_contr_admin();
 
-        
     }
 
     @Override
@@ -776,7 +789,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
         System.out.println("word selected: " + ((JComboBox) combo).getSelectedItem());
         pagina.currentPageIndex = 1;
         pagina.initLinkBox();
-        ((Table_Admin) mini_Table_Admin.getModel()).filtrar();
+        ((Table_Admin_class) mini_Table_Admin.getModel()).filtrar();
         combo.requestFocus();
     }
 }

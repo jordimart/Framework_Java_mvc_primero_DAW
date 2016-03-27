@@ -22,6 +22,8 @@ import Appweb.Modules.Users.Client.View.show_Client_view;
 import Appweb.Modules.Users.Client.View.table_Client_view;
 import static Appweb.Modules.Users.Client.View.table_Client_view.jComboBox1;
 import static Appweb.Modules.Users.Client.View.table_Client_view.mini_Table_Client;
+import static Appweb.Modules.Users.User_reg.Controller.ControllerUser.Table_User;
+import Appweb.Modules.Users.User_reg.Model.BLL_User.BLL_User;
 import java.awt.AWTKeyStroke;
 import java.awt.Color;
 import java.awt.KeyboardFocusManager;
@@ -117,6 +119,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
         btnMostrar_client,
         btn_delete_all,
         btn_Return_table,
+        btn_Save_file,
         ANTERIOR,
         SIGUIENTE,
         primero,
@@ -236,6 +239,9 @@ public class ControllerClient implements ActionListener, MouseListener, Property
 
             Table_Client.btn_Return_client.setActionCommand("btn_Return_table");
             Table_Client.btn_Return_client.addActionListener(this);
+            
+            Table_Client.btn_Save_file.setActionCommand("btn_Save_file");
+            Table_Client.btn_Save_file.addActionListener(this);
 
             Table_Client.ANTERIOR.setActionCommand("ANTERIOR");
             Table_Client.ANTERIOR.addActionListener(this);
@@ -481,6 +487,21 @@ public class ControllerClient implements ActionListener, MouseListener, Property
                 new ControllerMain(new menu_Input(), 0).Start(0);
 
                 break;
+                
+            case btn_Save_file:
+
+                if (Table_Client.combo_file.getSelectedItem().equals("Json")) {
+                    BLL_Client.save_json_client();
+                }
+                if (Table_Client.combo_file.getSelectedItem().equals("Xml")) {
+                    BLL_Client.save_xml_client();
+                }
+                if (Table_Client.combo_file.getSelectedItem().equals("Txt")) {
+                    BLL_Client.save_txt_client();
+                }
+
+                break;
+                
             case ANTERIOR:
                 pagina_client.currentPageIndex -= 1;
                 pagina_client.initLinkBox();
