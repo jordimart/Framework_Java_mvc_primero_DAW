@@ -19,6 +19,8 @@ public class table_Client_view extends javax.swing.JFrame {
      */
     public table_Client_view() {
         initComponents();
+        
+        
 
         //this.setTitle("Table Admin");
         //this.setLocationRelativeTo(null);
@@ -587,9 +589,9 @@ public class table_Client_view extends javax.swing.JFrame {
     }//GEN-LAST:event_mini_Table_ClientMouseClicked
 
     private void btnAdd_clientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd_clientActionPerformed
-         this.dispose();
-        create_Client_view menu = new create_Client_view();
-        menu.setVisible(true);
+        // this.dispose();
+       // create_Client_view menu = new create_Client_view();
+       // menu.setVisible(true);
     }//GEN-LAST:event_btnAdd_clientActionPerformed
 
 

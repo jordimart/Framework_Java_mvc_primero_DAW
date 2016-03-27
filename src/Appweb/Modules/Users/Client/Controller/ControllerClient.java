@@ -1,6 +1,5 @@
 package Appweb.Modules.Users.Client.Controller;
 
-import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Main.Controller.ControllerMain;
 import Appweb.Modules.Main.View.menu_Input;
 
@@ -67,9 +66,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
     public ControllerClient(JFrame start, int i) {
 
         
-        //if (i == 0) {
-           // Task_Admin = (task_Admin_view) start;
-        //}
+        
         if (i == 0) {
             Table_Client = (table_Client_view) start;
         }
@@ -218,7 +215,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             Table_Client.setResizable(true);
             Table_Client.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-            //singletonapp.singleton_vtna = "Client";
+            
 
             Table_Client.mini_Table_Client.setModel(new Table_Client());
             ((Table_Client) mini_Table_Client.getModel()).cargar();
@@ -234,7 +231,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             this.Table_Client.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
                     Table_Client.dispose();
-                    JOptionPane.showMessageDialog(null, " Ahora deberia abrir el login ");
+                   
                     new ControllerMain(new menu_Input(), 0).Start(0);
 
                 }
@@ -242,15 +239,17 @@ public class ControllerClient implements ActionListener, MouseListener, Property
 
             List<String> myWords = new ArrayList<String>();
 
-            for (int j = 0; j <= singleclient.Client_array.size() - 1; j++) {
+            for (int j = 0; j <= singleclient.Client_array.size()- 1; j++) {
                 myWords.add(singleclient.Client_array.get(j).getName().toLowerCase());
                 myWords.add(singleclient.Client_array.get(j).getName().toUpperCase());
             }
 
             StringSearchable_client searchable = new StringSearchable_client(myWords);
-            this.combo = new AutocompleteJComboBox_client(searchable);
+            
+            combo = new AutocompleteJComboBox_client(searchable);
             Table_Client.jPanel3.setLayout(new java.awt.BorderLayout());
             Table_Client.jPanel3.add(combo);
+            
 
             combo.addActionListener(new java.awt.event.ActionListener() {
                 @Override
@@ -275,7 +274,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             Table_Client.btn_delete_all.setActionCommand("btn_delete_all");
             Table_Client.btn_delete_all.addActionListener(this);
 
-            Table_Client.btn_Return_client.setActionCommand("btn_Volver_table");
+            Table_Client.btn_Return_client.setActionCommand("btn_Return_table");
             Table_Client.btn_Return_client.addActionListener(this);
 
             Table_Client.ANTERIOR.setActionCommand("ANTERIOR");

@@ -9,6 +9,10 @@ import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.Model.Config.Model.DAO_config.DAO_config;
 import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
+import Appweb.Modules.Users.Client.Model.Classes.Client;
+import Appweb.Modules.Users.Client.Model.Classes.singleclient;
+import Appweb.Modules.Users.User_reg.Model.Classes.User_reg;
+import Appweb.Modules.Users.User_reg.Model.Classes.singleuser_reg;
 
 /**
  * @author Jorge Martines Frias
@@ -87,8 +91,8 @@ public class Classconfig implements Serializable {
 		dummy = false;
 
 		singleadmin.Admin_array = new ArrayList<Admin>();
-		//singleadmin.Client_array = new ArrayList<Client>();
-		//singleadmin.User_reg_array = new ArrayList<User_reg>();
+		singleclient.Client_array = new ArrayList<Client>();
+		singleuser_reg.User_reg_array = new ArrayList<User_reg>();
 		//singleadmin.Object_array = new ArrayList<Object>();
 
                

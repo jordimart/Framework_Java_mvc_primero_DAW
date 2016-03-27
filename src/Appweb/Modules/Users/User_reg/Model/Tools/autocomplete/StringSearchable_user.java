@@ -1,10 +1,10 @@
 package Appweb.Modules.Users.User_reg.Model.Tools.autocomplete;
-import Appweb.Modules.Users.Client.Model.Tools.autocomplete.*;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class StringSearchable_user implements Searchable_client<String,String>{
+public class StringSearchable_user implements Searchable_user<String,String>{
 	private List<String> terms = new ArrayList<String>();
 
 	/**

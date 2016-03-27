@@ -1,5 +1,4 @@
 package Appweb.Modules.Users.User_reg.Model.Tools.autocomplete;
-import Appweb.Modules.Users.Client.Model.Tools.autocomplete.*;
 import java.util.Collection;
 
 public interface Searchable_user<E, V>{

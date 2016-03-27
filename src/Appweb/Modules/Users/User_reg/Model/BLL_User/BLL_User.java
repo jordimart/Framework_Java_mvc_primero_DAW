@@ -1,24 +1,21 @@
 package Appweb.Modules.Users.User_reg.Model.BLL_User;
 
-import Appweb.Modules.Users.Client.Model.BLL_Client.*;
-import Appweb.Modules.Users.Admin.Model.BLL_Admin.*;
-import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
-import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin;
-import Appweb.Modules.Users.Admin.View.edit_Admin_view;
-import Appweb.Modules.Users.Admin.View.table_Admin_view;
-import Appweb.Modules.Users.Admin.Model.Classes.Admin;
-import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 import Appweb.General_tools.singletonapp;
-import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
-import static Appweb.Modules.Users.Admin.Controller.ControllerAdmin.Show_Admin;
-import static Appweb.Modules.Users.Admin.Controller.ControllerAdmin.Table_Admin;
-import Appweb.Modules.Users.Admin.View.create_Admin_view;
-import Appweb.Modules.Users.Admin.View.show_Admin_view;
-import static Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin;
-import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin;
+import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import static Appweb.Modules.Users.Admin.Model.Classes.Table_Admin.datos;
-import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
+import Appweb.Modules.Users.User_reg.Controller.ControllerUser;
+import static Appweb.Modules.Users.User_reg.Controller.ControllerUser.Table_User;
+import Appweb.Modules.Users.User_reg.Model.Classes.Table_User_reg;
+import Appweb.Modules.Users.User_reg.Model.Classes.User_reg;
+import Appweb.Modules.Users.User_reg.Model.Classes.singleuser_reg;
+import Appweb.Modules.Users.User_reg.Model.DAO_User.DAO_User;
+import Appweb.Modules.Users.User_reg.Model.Tools.Pager.pagina_user;
+import Appweb.Modules.Users.User_reg.View.edit_User_view;
+import Appweb.Modules.Users.User_reg.View.table_User_view;
+import static Appweb.Modules.Users.User_reg.View.table_User_view.mini_Table_User;
 import javax.swing.JOptionPane;
+
+
 
 /**
  *
@@ -28,66 +25,64 @@ public class BLL_User {
 
     //////////BLLs del formulario create Admin view///////
     public static void Enterdni_admin() {
-        DAO_Admin.booleanEnterdnia();
+        DAO_User.booleanEnterdni();
     }
 
     public static void Entername_admin() {
-        DAO_Admin.booleanEntername_admin();
+        DAO_User.booleanEntername();
     }
 
     public static void Enterlast_name_admin() {
-        DAO_Admin.booleanEnterlast_name_admin();
+        DAO_User.booleanEnterlast_name();
     }
 
     public static void Entermobile_admin() {
-        DAO_Admin.booleanEntermobile_admin();
+        DAO_User.booleanEntermobile();
     }
 
     public static void Entermail_admin() {
-        DAO_Admin.booleanEntermail_admin();
+        DAO_User.booleanEntermail();
     }
 
     public static void Enteruser_admin() {
-        DAO_Admin.booleanEnteruser_admin();
+        DAO_User.booleanEnteruser();
     }
 
     public static void Enterpassword_admin() {
-        DAO_Admin.booleanEnterpassword_admin();
+        DAO_User.booleanEnterpassword();
     }
 
     public static void Entersalary_admin() {
-        DAO_Admin.booleanEntersalary_admin();
+        DAO_User.booleanEntersalary();
     }
 
     public static void Enteractivity_admin() {
-        DAO_Admin.booleanEnteractivity_admin();
+        DAO_User.booleanEnteractivity();
 
     }
 
     public static void Enterdate_birth_admin() {
-        DAO_Admin.booleanEnterdate_birth_admin();
+        DAO_User.booleanEnterdate_birth();
     }
 
-    public static void Enterdate_contr_admin() {
-        DAO_Admin.booleanEnterdate_contr_admin();
-    }
+    
 
     public static void EnterAvatar_admin() {
-        DAO_Admin.EnterAvatar_admin();
+        DAO_User.EnterAvatar();
     }
 
     public static boolean Enter_new_admin() {
 
         boolean ok = false;
 
-        Admin a = DAO_Admin.add_create_Admin();
+        User_reg a = DAO_User.add_create();
 
         if (a != null) {
-            singleadmin.Admin_array.add(a);
-            DAO_Admin.auto_save_json_admin();
-            ((Table_Admin) mini_Table_Admin.getModel()).cargar();
-                pagina.inicializa();
-                pagina.initLinkBox();
+            singleuser_reg.User_reg_array.add(a);
+            DAO_User.auto_save_json();
+            ((Table_User_reg) mini_Table_User.getModel()).cargar();
+                pagina_user.inicializa();
+                pagina_user.initLinkBox();
 
             JOptionPane.showMessageDialog(null, "Usuario creado");
             //create_Admin_view.lab_information_message.setText("Usuario creado");
@@ -106,60 +101,60 @@ public class BLL_User {
 
 //////////BLLs del formulario edit Admin view///////
     public static void Editname_admin() {
-        DAO_Admin.booleanEditname_admin();
+        DAO_User.booleanEditname();
 
     }
 
     public static void Editlast_name_admin() {
-        DAO_Admin.booleanEditlast_name_admin();
+        DAO_User.booleanEditlast_name();
     }
 
     public static void Editmobile_admin() {
-        DAO_Admin.booleanEditmobile_admin();
+        DAO_User.booleanEditmobile();
     }
 
     public static void Editmail_admin() {
-        DAO_Admin.booleanEditmail_admin();
+        DAO_User.booleanEditmail();
     }
 
     public static void Edituser_admin() {
-        DAO_Admin.booleanEdituser_admin();
+        DAO_User.booleanEdituser();
     }
 
     public static void Editpassword_admin() {
-        DAO_Admin.booleanEditpassword_admin();
+        DAO_User.booleanEditpassword();
     }
 
     public static void Editsalary_admin() {
-        DAO_Admin.booleanEditsalary_admin();
+        DAO_User.booleanEditsalary();
     }
 
     public static void Editactivity_admin() {
-        DAO_Admin.booleanEditactivity_admin();
+        DAO_User.booleanEditactivity();
 
     }
 
     public static void Editdate_birth_admin() {
-        DAO_Admin.booleanEditdate_birth_admin();
+        DAO_User.booleanEditdate_birth();
     }
 
     public static void Editdate_contr_admin() {
-        DAO_Admin.booleanEditdate_contr_admin();
+        DAO_User.booleanEditdate_contr();
     }
 
     public static void EditAvatar_admin() {
-        DAO_Admin.EditAvatar_admin();
+        DAO_User.EditAvatar();
     }
 
     public static boolean Enter_edited_admin() {
 
         boolean ok = false;
 
-        Admin a = DAO_Admin.modify_edit_Admin();
+        User_reg a = DAO_User.modify_edit();
 
         if (a != null) {
-            singleadmin.Admin_array.set(singletonapp.pos, a);
-            DAO_Admin.auto_save_json_admin();
+            singleuser_reg.User_reg_array.set(singletonapp.pos, a);
+            DAO_User.auto_save_json();
             JOptionPane.showMessageDialog(null, "Usuario modificado");
 
             ok = true;
@@ -176,8 +171,8 @@ public class BLL_User {
         boolean ok = false;
         int selection, inicio, selection1;
 
-        if (((Table_Admin) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
-            int selec = table_Admin_view.mini_Table_Admin.getSelectedRow();
+        if (((Table_User_reg) table_User_view.mini_Table_User.getModel()).getRowCount() != 0) {
+            int selec = table_User_view.mini_Table_User.getSelectedRow();
 
             if (selec == -1) {
                 ok = false;
@@ -185,20 +180,20 @@ public class BLL_User {
 
             } else {
 
-                inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage; //nos situamos al inicio de la pÃ¡gina en cuestiÃ³n
-                selection = mini_Table_Admin.getSelectedRow(); //nos situamos en la fila
+                inicio = (pagina_user.currentPageIndex - 1) * pagina_user.itemsPerPage; //nos situamos al inicio de la pÃ¡gina en cuestiÃ³n
+                selection = mini_Table_User.getSelectedRow(); //nos situamos en la fila
                 selection1 = inicio + selection; //nos situamos en la fila correspondiente de esa pÃ¡gina
 
-                dni = (String) mini_Table_Admin.getModel().getValueAt(selection1, 0);
+                dni = (String) mini_Table_User.getModel().getValueAt(selection1, 0);
 
-                singletonapp.pos = Look_for_dni_admin(dni);
+                singletonapp.pos = Look_for_dni_user(dni);
 
-                //Table_Admin.dispose();
-                new ControllerAdmin(new edit_Admin_view(), 3).Start(3);
-                DAO_Admin.Load_edit_admin();
-                ((Table_Admin) mini_Table_Admin.getModel()).cargar();
-                pagina.inicializa();
-                pagina.initLinkBox();
+                Table_User.dispose();
+                new ControllerUser(new edit_User_view(), 2).Start(2);
+                DAO_User.Load_edit_user();
+                ((Table_User_reg) mini_Table_User.getModel()).cargar();
+                pagina_user.inicializa();
+                pagina_user.initLinkBox();
 
                 ok = true;
             }
@@ -215,11 +210,11 @@ public class BLL_User {
         boolean ok = false;
         int selection, inicio, selection1;
 
-        if (((Table_Admin) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
-            //int selec = table_Admin_view.mini_Table_Admin.getSelectedRow();
+        if (((Table_User_reg) table_User_view.mini_Table_User.getModel()).getRowCount() != 0) {
+            
 
-            inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage; //nos situamos al inicio de la pÃ¡gina en cuestiÃ³n
-            selection = mini_Table_Admin.getSelectedRow(); //nos situamos en la fila
+            inicio = (pagina_user.currentPageIndex - 1) * pagina_user.itemsPerPage; //nos situamos al inicio de la pÃ¡gina en cuestiÃ³n
+            selection = mini_Table_User.getSelectedRow(); //nos situamos en la fila
             selection1 = inicio + selection; //nos situamos en la fila correspondiente de esa pÃ¡gina
 
             if (selection1 == -1) {
@@ -228,12 +223,12 @@ public class BLL_User {
 
             } else {
 
-                dni = (String) mini_Table_Admin.getModel().getValueAt(selection1, 0);
-                singletonapp.pos = Look_for_dni_admin(dni);
+                dni = (String) mini_Table_User.getModel().getValueAt(selection1, 0);
+                singletonapp.pos = Look_for_dni_user(dni);
 
-                ((Table_Admin) mini_Table_Admin.getModel()).removeRow(selection1);
-                singleadmin.Admin_array.remove(singletonapp.pos);
-                DAO_Admin.auto_save_json_admin();
+                ((Table_User_reg) mini_Table_User.getModel()).removeRow(selection1);
+                singleuser_reg.User_reg_array.remove(singletonapp.pos);
+                DAO_User.auto_save_json();
 
                 ok = true;
             }
@@ -250,7 +245,7 @@ public class BLL_User {
      */
     public static void Delete_all_admin() {
 
-        if (singleadmin.Admin_array.isEmpty()) {
+        if (singleuser_reg.User_reg_array.isEmpty()) {
 
             JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_can_not_erase_because_no_elements"),
                     Lang.getInstance().getProperty("Information"), JOptionPane.ERROR_MESSAGE);
@@ -258,15 +253,15 @@ public class BLL_User {
 
             // delete all objects to the
             // arraylist
-            singleadmin.Admin_array.clear();
-            DAO_Admin.auto_save_json_admin();
-            ((Table_Admin) mini_Table_Admin.getModel()).cargar();
-            table_Admin_view.jLabel3.setText(String.valueOf(datos.size()));
-            pagina.inicializa();
-            pagina.initLinkBox();
+            singleuser_reg.User_reg_array.clear();
+            DAO_User.auto_save_json();
+            ((Table_User_reg) mini_Table_User.getModel()).cargar();
+            table_User_view.jLabel3.setText(String.valueOf(datos.size()));
+            pagina_user.inicializa();
+            pagina_user.initLinkBox();
 
             JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("All_elements_have_been_deleted") + "\n"
-                    + Lang.getInstance().getProperty("Remaining_number_of_elements") + singleadmin.Admin_array.size());
+                    + Lang.getInstance().getProperty("Remaining_number_of_elements") + singleuser_reg.User_reg_array.size());
         }
 
     }
@@ -276,26 +271,26 @@ public class BLL_User {
         boolean ok = false;
         int selection, inicio, selection1;
 
-        if (((Table_Admin) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
-            int selec = table_Admin_view.mini_Table_Admin.getSelectedRow();
+        if (((Table_User_reg) table_User_view.mini_Table_User.getModel()).getRowCount() != 0) {
+            int selec = table_User_view.mini_Table_User.getSelectedRow();
 
             if (selec == -1) {
                 ok = false;
                 JOptionPane.showMessageDialog(null, "No hay una persona seleccionada");
 
             } else {
-                inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage; //nos situamos al inicio de la pagina en cuestiÃ³n
-                selection = mini_Table_Admin.getSelectedRow(); //nos situamos en la fila
+                inicio = (pagina_user.currentPageIndex - 1) * pagina_user.itemsPerPage; //nos situamos al inicio de la pagina en cuestiÃ³n
+                selection = mini_Table_User.getSelectedRow(); //nos situamos en la fila
                 selection1 = inicio + selection; //nos situamos en la fila correspondiente de esa pagina
 
-                dni = (String) mini_Table_Admin.getModel().getValueAt(selection1, 0);
+                dni = (String) mini_Table_User.getModel().getValueAt(selection1, 0);
 
-                singletonapp.pos = Look_for_dni_admin(dni);
+                singletonapp.pos = Look_for_dni_user(dni);
 
-                Table_Admin.dispose();
-                new ControllerAdmin(new show_Admin_view(), 4).Start(4);
+                Table_User.dispose();
+                new ControllerUser(new show_User_view(), 3).Start(3);
 
-                DAO_Admin.Load_show_admin();
+                DAO_User.Load_show();
 
                 ok = true;
             }
@@ -314,13 +309,13 @@ public class BLL_User {
      * @param dni (string)
      * @return pos (int posicion en el array)
      */
-    public static int Look_for_dni_admin(String dni) {
+    public static int Look_for_dni_user(String dni) {
 
         int pos = -1;
 
-        for (int i = 0; i < singleadmin.Admin_array.size(); i++) {
+        for (int i = 0; i < singleuser_reg.User_reg_array.size(); i++) {
 
-            if (singleadmin.Admin_array.get(i).getDni().equals(dni)) {
+            if (singleuser_reg.User_reg_array.get(i).getDni().equals(dni)) {
                 pos = i;
             }
 
@@ -332,16 +327,16 @@ public class BLL_User {
 
     public static void save_json_admin() {
 
-        DAO_Admin.save_json_admin();
+        DAO_User.save_json();
     }
 
     public static void save_xml_admin() {
 
-        DAO_Admin.save_xml_admin();
+        DAO_User.save_xml();
     }
 
     public static void save_txt_admin() {
 
-        DAO_Admin.save_txt_admin();
+        DAO_User.save_txt();
     }
 }

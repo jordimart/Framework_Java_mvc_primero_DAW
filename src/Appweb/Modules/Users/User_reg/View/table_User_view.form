@@ -170,11 +170,11 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnAdd_admin" pref="201" max="32767" attributes="0"/>
-                          <Component id="btnEditar_admin" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnMostrar_admin" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnBorrar_admin" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btn_Volver" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnAdd_user" pref="201" max="32767" attributes="0"/>
+                          <Component id="btnEditar_user" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnMostrar_user" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnBorrar_user" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btn_Return" alignment="0" max="32767" attributes="0"/>
                           <Component id="btn_delete_all" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="25" max="32767" attributes="0"/>
@@ -185,61 +185,61 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnAdd_admin" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="btnAdd_user" min="-2" pref="52" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnEditar_admin" min="-2" pref="54" max="-2" attributes="0"/>
+                      <Component id="btnEditar_user" min="-2" pref="54" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnMostrar_admin" min="-2" pref="53" max="-2" attributes="0"/>
+                      <Component id="btnMostrar_user" min="-2" pref="53" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnBorrar_admin" min="-2" pref="57" max="-2" attributes="0"/>
+                      <Component id="btnBorrar_user" min="-2" pref="57" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btn_delete_all" min="-2" pref="61" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btn_Volver" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="btn_Return" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="org.edisoncor.gui.button.ButtonAction" name="btnEditar_admin">
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="btnEditar_user">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Editar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditar_adminActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditar_userActionPerformed"/>
               </Events>
             </Component>
-            <Component class="org.edisoncor.gui.button.ButtonAction" name="btnBorrar_admin">
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="btnBorrar_user">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Borrar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBorrar_adminActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBorrar_userActionPerformed"/>
               </Events>
             </Component>
-            <Component class="org.edisoncor.gui.button.ButtonAction" name="btnMostrar_admin">
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="btnMostrar_user">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Mostrar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrar_adminActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrar_userActionPerformed"/>
               </Events>
             </Component>
-            <Component class="org.edisoncor.gui.button.ButtonAction" name="btnAdd_admin">
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="btnAdd_user">
               <Properties>
                 <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdd_adminActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdd_userActionPerformed"/>
               </Events>
             </Component>
-            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_Volver">
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_Return">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Volver"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_VolverActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_ReturnActionPerformed"/>
               </Events>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_delete_all">
@@ -290,14 +290,14 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="org.jdesktop.swingx.JXTable" name="mini_Table_Admin">
+                <Component class="org.jdesktop.swingx.JXTable" name="mini_Table_User">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="0" rowCount="4"/>
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mini_Table_AdminMouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mini_Table_UserMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>

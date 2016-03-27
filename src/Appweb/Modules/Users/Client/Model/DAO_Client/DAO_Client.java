@@ -1,6 +1,7 @@
 package Appweb.Modules.Users.Client.Model.DAO_Client;
 
 import Appweb.Classes.Date.ClassDate;
+import Appweb.General_tools.Date_tools;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 
 import static Appweb.General_tools.Date_tools.Date_min_max_condition_boolean;
@@ -496,7 +497,6 @@ public class DAO_Client {
      */
     public static ClassDate Enter_date_reg_client() {
 
-        String date = "";
         Calendar date_birth;
         int dia = 0, mes = 0, anio = 0;
 
@@ -565,7 +565,7 @@ public class DAO_Client {
         String Dni = "", Name = "", Last_name = "", Mobile = "", Email = "", User = "", Password = "", Premium = "", client_type = "";
         ClassDate date_reg = null;
         String Status = "";
-        //int activity = 0;
+
         float purchase = 0.000f;
         ClassDate Date_birth = null;
         char[] password = create_Client_view.txtPassword.getPassword();
@@ -582,7 +582,6 @@ public class DAO_Client {
         pass5 = booleanEnteruser_client();
         pass6 = booleanEnterpassword_client();
         pass7 = booleanEnterpurchase_client();
-        //pass8 = booleanEnteractivity_client();
         pass9 = booleanEnterdate_birth_client();
         pass10 = booleanEnterdate_reg_client();
 
@@ -604,7 +603,6 @@ public class DAO_Client {
             // Enter Admin attributes
             date_reg = Enter_date_reg_client();
             purchase = Float.parseFloat(create_Client_view.txtPurchase.getText());
-            //activity = Integer.parseInt(create_Admin_view.txtActivity.getText());
 
             c = new Client(Dni, Name, Last_name, Mobile, Date_birth, Email, User, Password, Avatar, Status, date_reg, purchase, Premium, client_type);
         } else {
@@ -841,7 +839,7 @@ public class DAO_Client {
 
             ok = true;
 
-            if ((sal >= 800) && (sal <= 2500)) {
+            if ((sal >= 0) && (sal <= 2500)) {
                 ok = true;
                 edit_Client_view.labPurchase.setToolTipText("");
                 edit_Client_view.labPurchase.setIcon(good_data);
@@ -850,7 +848,7 @@ public class DAO_Client {
                 //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
             } else {
                 ok = false;
-                edit_Client_view.labPurchase.setToolTipText("No ha introducido los datos correctamente,Debe estar comprendido entre 800 y 2500");
+                edit_Client_view.labPurchase.setToolTipText("No ha introducido los datos correctamente,Debe estar comprendido entre 0 y 2500");
                 edit_Client_view.labPurchase.setIcon(wrong_data);
                 edit_Client_view.txtPurchase.setBackground(Color.RED);
             }
@@ -896,12 +894,10 @@ public class DAO_Client {
         String s = "";
         int act = 0;
         boolean ok = false;
-        Calendar date_birth;
-        int dia = 0, mes = 0, anio = 0;
 
         s = ((JTextFieldDateEditor) edit_Client_view.pick_date_birth.getDateEditor()).getText();
 
-        ok = Date_min_max_condition_boolean(s, 16, 65);
+        ok = Date_tools.Date_min_condition_boolean(s, 18);
 
         if (ok == false) {
 
@@ -932,12 +928,9 @@ public class DAO_Client {
     public static boolean booleanEditdate_reg_client() {
 
         String s = "";
-        int act = 0;
         boolean ok = false;
-        Calendar date_birth;
         String date_reg;
-        int dia = 0, mes = 0, anio = 0;
-        int diac = 0, mesc = 0, anioc = 0;
+        
 
         s = ((JTextFieldDateEditor) edit_Client_view.pick_date_birth.getDateEditor()).getText();
 
@@ -953,7 +946,7 @@ public class DAO_Client {
 
             ClassDate reg = new ClassDate(date_reg);
 
-            ok = Date_registered_boolean(reg, s, 16);
+            ok = Date_tools.Date_registered_boolean(reg, s, 18);
 
             if (ok == false) {
 
@@ -1055,18 +1048,18 @@ public class DAO_Client {
 
     public static Client modify_edit_client() {
 
-        String Dni = "", Name = "", Last_name = "", Mobile = "", Email = "", User = "", Password = "", Premium = "", client_type = "";
-        ClassDate date_reg = null;
+        String Dni = "", Name = "", Last_name = "", Mobile = "", Email = "", User = "", Password = "", Premium = "", Client_type = "";
+        ClassDate Date_reg = null;
         String Status = "";
-        //int activity = 0;
-        float purchase = 0.000f;
+        
+        float Purchase = 0.000f;
         ClassDate Date_birth = null;
         char[] password = edit_Client_view.txtPassword.getPassword();
         Client c = null;
         String Avatar = null;
         boolean ok = false;
 
-        boolean pass1, pass2, pass3, pass4, pass5, pass6, pass7, pass8, pass9, pass10;
+        boolean pass1, pass2, pass3, pass4, pass5, pass6, pass7, pass9, pass10;
 
         pass1 = booleanEditname_client();
         pass2 = booleanEditlast_name_client();
@@ -1075,7 +1068,6 @@ public class DAO_Client {
         pass5 = booleanEdituser_client();
         pass6 = booleanEditpassword_client();
         pass7 = booleanEditpurchase_client();
-        //pass8 = booleanEditactivity_client();
         pass9 = booleanEditdate_birth_client();
         pass10 = booleanEditdate_reg_client();
 
@@ -1093,12 +1085,12 @@ public class DAO_Client {
             Status = edit_Client_view.comboStatus.getSelectedItem().toString();
 
             // Enter Admin attributes
-            Premium = create_Client_view.combo_premium.getSelectedItem().toString();
-            client_type = create_Client_view.combo_client.getSelectedItem().toString();
-            date_reg = Edit_date_reg_client();
-            purchase = Float.parseFloat(edit_Client_view.txtPurchase.getText());
+            Premium = edit_Client_view.combo_premium.getSelectedItem().toString();
+            Client_type = edit_Client_view.combo_client.getSelectedItem().toString();
+            Date_reg = Edit_date_reg_client();
+            Purchase = Float.parseFloat(edit_Client_view.txtPurchase.getText());
 
-            c = new Client(Dni, Name, Last_name, Mobile, Date_birth, Email, User, Password, Avatar, Status, date_reg, purchase, Premium, client_type);
+            c = new Client(Dni, Name, Last_name, Mobile, Date_birth, Email, User, Password, Avatar, Status, Date_reg, Purchase, Premium, Client_type);
         } else {
             c = null;
         }
@@ -1110,7 +1102,6 @@ public class DAO_Client {
         Client c = singleclient.Client_array.get(singletonapp.pos);
 
         Float sal = c.getPurchase();
-        //int act = c.getActivity();
         int age = c.getAge();
         int ant = c.getAntique_c();
         Float ben = c.getBenefits();
@@ -1128,7 +1119,6 @@ public class DAO_Client {
         show_Client_view.txtDate_cont.setText(c.getEntry_date().todate());
         show_Client_view.txtAntique.setText("" + ant);
         show_Client_view.txtPurchase.setText("" + sal);
-        //show_Client_view.txtActivity.setText("" + act);
         show_Client_view.txtBenefits.setText("" + ben);
         show_Client_view.txt_premium.setText(c.getPremium());
         show_Client_view.txt_client.setText(c.getClient_type());

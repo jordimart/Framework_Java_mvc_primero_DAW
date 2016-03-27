@@ -1,6 +1,5 @@
 package Appweb.Modules.Users.Client.Model.Tools.Pager;
 
-import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Users.Client.Model.Classes.Table_Client;
 import Appweb.Modules.Users.Client.View.table_Client_view;
 
@@ -45,7 +44,7 @@ public class pagina_client {
 
     public static void initLinkBox() {
         
-                Appweb.Modules.Users.Admin.Controller.ControllerAdmin.sorter.setRowFilter(new RowFilter<TableModel, Integer>() {
+                Appweb.Modules.Users.Client.Controller.ControllerClient.sorter.setRowFilter(new RowFilter<TableModel, Integer>() {
                     @Override
                     public boolean include(RowFilter.Entry<? extends TableModel, ? extends Integer> entry) {
                         int ti = currentPageIndex - 1;
@@ -63,7 +62,7 @@ public class pagina_client {
 
         int rowCount = 0;
         
-                rowCount = ((Table_Client) Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin.getModel()).getRowCount();
+                rowCount = ((Table_Client) Appweb.Modules.Users.Client.View.table_Client_view.mini_Table_Client.getModel()).getRowCount();
                
 
         int v = rowCount % itemsPerPage == 0 ? 0 : 1;

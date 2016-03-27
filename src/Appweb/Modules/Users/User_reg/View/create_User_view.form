@@ -109,7 +109,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="A&#xf1;adir datos de un Administrador">
+            <TitledBorder title="A&#xf1;adir datos de un Usuario registrado">
               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder/>
               </Border>
@@ -149,13 +149,10 @@
                   <Component id="panelCurves2" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="panelRect1" alignment="0" pref="1011" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="panelRect2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="panelRect2" min="-2" max="-2" attributes="0"/>
+                      <Component id="panelRect1" min="-2" pref="766" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace pref="257" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -174,17 +171,15 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="labelHeader10" alignment="0" max="32767" attributes="0"/>
                           <Component id="labelHeader9" alignment="0" max="32767" attributes="0"/>
                           <Component id="labelHeader8" alignment="0" max="32767" attributes="0"/>
                           <Component id="labelHeader7" alignment="0" max="32767" attributes="0"/>
                           <Component id="labelHeader6" alignment="0" max="32767" attributes="0"/>
-                          <Component id="labelHeader5" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelHeader5" alignment="0" pref="161" max="32767" attributes="0"/>
                           <Component id="labelHeader4" alignment="0" max="32767" attributes="0"/>
                           <Component id="labelHeader3" alignment="0" max="32767" attributes="0"/>
                           <Component id="labelHeader2" alignment="0" max="32767" attributes="0"/>
                           <Component id="labelHeader1" alignment="0" max="32767" attributes="0"/>
-                          <Component id="labelHeader11" alignment="0" max="32767" attributes="0"/>
                           <Component id="labelHeader12" alignment="0" max="32767" attributes="0"/>
                           <Component id="labelHeader13" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -197,10 +192,8 @@
                           <Component id="txtMobile" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtUser" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtSalary" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtActivity" alignment="0" max="32767" attributes="0"/>
                           <Component id="pick_date_birth" alignment="0" max="32767" attributes="0"/>
-                          <Component id="pick_date_contr" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtPassword" alignment="0" max="32767" attributes="0"/>
                           <Component id="comboStatus" alignment="0" max="32767" attributes="0"/>
                           <Component id="btnAvatar" alignment="0" pref="162" max="32767" attributes="0"/>
@@ -220,8 +213,6 @@
                                   <Component id="labEmail" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
                                   <Component id="labUser" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
                                   <Component id="labPassword" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
-                                  <Component id="labdate_contr" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
-                                  <Component id="labSalary" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
                                   <Component id="labActivity" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -290,34 +281,27 @@
                           <Component id="labelHeader9" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="comboStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="labdate_contr" alignment="0" max="32767" attributes="0"/>
-                          <Component id="labelHeader10" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="pick_date_contr" alignment="0" pref="20" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="labelHeader11" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtSalary" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="labSalary" alignment="0" max="32767" attributes="0"/>
-                      </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelHeader12" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtActivity" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labActivity" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelHeader13" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnAvatar" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelHeader13" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAvatar" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="labAvatar" min="-2" pref="136" max="-2" attributes="0"/>
-                      <EmptySpace pref="215" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="labActivity" min="-2" pref="21" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="labAvatar" min="-2" pref="136" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="64" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -368,16 +352,6 @@
                 <Property name="text" type="java.lang.String" value="Status:"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader10">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Fecha de contratacion:"/>
-              </Properties>
-            </Component>
-            <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader11">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Salario:"/>
-              </Properties>
-            </Component>
             <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader12">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Actividad:"/>
@@ -420,12 +394,6 @@
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtUserKeyReleased"/>
               </Events>
             </Component>
-            <Component class="org.edisoncor.gui.textField.TextField" name="txtSalary">
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtSalaryMouseClicked"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSalaryKeyReleased"/>
-              </Events>
-            </Component>
             <Component class="org.edisoncor.gui.textField.TextField" name="txtActivity">
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtActivityMouseClicked"/>
@@ -439,15 +407,6 @@
               </Properties>
               <Events>
                 <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="pick_date_birthPropertyChange"/>
-              </Events>
-            </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="pick_date_contr">
-              <Properties>
-                <Property name="toolTipText" type="java.lang.String" value="Para modificar fecha pulse el boton"/>
-                <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
-              </Properties>
-              <Events>
-                <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="pick_date_contrPropertyChange"/>
               </Events>
             </Component>
             <Component class="org.edisoncor.gui.passwordField.PasswordField" name="txtPassword">
@@ -473,10 +432,6 @@
             <Component class="javax.swing.JLabel" name="labUser">
             </Component>
             <Component class="javax.swing.JLabel" name="labPassword">
-            </Component>
-            <Component class="javax.swing.JLabel" name="labdate_contr">
-            </Component>
-            <Component class="javax.swing.JLabel" name="labSalary">
             </Component>
             <Component class="javax.swing.JLabel" name="labActivity">
             </Component>

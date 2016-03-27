@@ -1,13 +1,17 @@
-package Appweb.Modules.Users.Client.Model.Classes;
+package Appweb.Modules.Users.User_reg.Model.Classes;
+
 
 import Appweb.Classes.Date.ClassDate;
-import static Appweb.Modules.Users.Client.Controller.ControllerClient.combo;
-import Appweb.Modules.Users.Client.Model.Tools.Pager.pagina_client;
+import static Appweb.Modules.Users.User_reg.Controller.ControllerUser.combo;
+import Appweb.Modules.Users.User_reg.Model.Tools.Pager.pagina_user;
+import Appweb.Modules.Users.User_reg.View.table_User_view;
 
 
 
 
-import Appweb.Modules.Users.Client.View.table_Client_view;
+
+
+
 
 
 import java.util.ArrayList;
@@ -18,11 +22,11 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author ASUSG50V
  */
-public class Table_Client extends AbstractTableModel {
+public class Table_User_reg extends AbstractTableModel {
 
-    public static ArrayList<Client> datos = new ArrayList<Client>();
-    public static ArrayList<Client> datosaux = new ArrayList<Client>();
-    String[] columnas = {"Dni", "Name", "Last name", "Date_birth", "Antique","Purchase"};
+    public static ArrayList<User_reg> datos = new ArrayList<User_reg>();
+    public static ArrayList<User_reg> datosaux = new ArrayList<User_reg>();
+    String[] columnas = {"Dni", "Name", "Last name", "Date_birth", "Benefits","Karma"};
 
     @Override
     public String getColumnName(int col) {
@@ -46,7 +50,7 @@ public class Table_Client extends AbstractTableModel {
     public Object getValueAt(int row, int col) {
 
         Object dev = null;
-        Client fila = (Client) datos.get(row);
+        User_reg fila = (User_reg) datos.get(row);
 
         switch (col) {
             case 0:
@@ -66,10 +70,10 @@ public class Table_Client extends AbstractTableModel {
                 break;
 
             case 4:
-                dev = fila.getAntique_c();
+                dev = fila.getBenefits();
                 break;
             case 5:
-                dev = fila.getPurchase();
+                dev = fila.getKarma();
                 break;
 
         }
@@ -85,7 +89,7 @@ public class Table_Client extends AbstractTableModel {
     //Actualiza un objeto de una fila y columna
     @Override
     public void setValueAt(Object value, int row, int col) {
-        Client fila = (Client) datos.get(row);
+        User_reg fila = (User_reg) datos.get(row);
 
         switch (col) {
 
@@ -108,31 +112,35 @@ public class Table_Client extends AbstractTableModel {
                 break;
 
             case 4:
-                fila.setPurchase(Float.parseFloat(value.toString()));
+                fila.setBenefits(Float.parseFloat(value.toString()));
+                break;
+                
+                case 5:
+                fila.setKarma(value.toString());
                 break;
 
         }
         fireTableCellUpdated(row, col);
     }
 
-    public void addRow(Client usu) {
+    public void addRow(User_reg usu) {
         datos.add(usu);
 
-        ((Table_Client) table_Client_view.mini_Table_Client.getModel()).fireTableDataChanged();
+        ((Table_User_reg) table_User_view.mini_Table_User.getModel()).fireTableDataChanged();
     }
 
     public void cargar() {
         datos.clear();
         datosaux.clear();
 
-        Client client = null;
+        User_reg user = null;
 
-        for (int i = 0; i <= singleclient.Client_array.size() - 1; i++) {
+        for (int i = 0; i <= singleuser_reg.User_reg_array.size() - 1; i++) {
 
-            client = singleclient.Client_array.get(i);
+            user = singleuser_reg.User_reg_array.get(i);
 
-            addRow(client);
-            datosaux.add(client);
+            addRow(user);
+            datosaux.add(user);
 
             try {
                 Thread.sleep(1); //1 milliseconds
@@ -156,13 +164,13 @@ public class Table_Client extends AbstractTableModel {
                     cont++;
                 }
             }
-            table_Client_view.jLabel3.setText(String.valueOf(cont));
+            table_User_view.jLabel3.setText(String.valueOf(cont));
             System.out.println("word selected: " + nom);
-            pagina_client.initLinkBox();
+            pagina_user.initLinkBox();
         }
     }
 
-    public Client buscar(String u) {
+    public User_reg buscar(String u) {
         datos.clear();
         cargar();
 
@@ -176,7 +184,7 @@ public class Table_Client extends AbstractTableModel {
         return null;
     }
 
-    public int buscaUsuario(Client u) {
+    public int buscaUsuario(User_reg u) {
         datos.clear();
         cargar();
 
@@ -192,10 +200,10 @@ public class Table_Client extends AbstractTableModel {
         datos.remove(fila);
 
         fireTableDataChanged();
-        table_Client_view.jLabel3.setText(String.valueOf(datos.size()));
+        table_User_view.jLabel3.setText(String.valueOf(datos.size()));
 
-        pagina_client.inicializa();
-        pagina_client.initLinkBox();
+        pagina_user.inicializa();
+        pagina_user.initLinkBox();
 
     }
 

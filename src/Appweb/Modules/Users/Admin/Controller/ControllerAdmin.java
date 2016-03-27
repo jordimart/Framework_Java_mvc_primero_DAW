@@ -114,6 +114,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
         btn_ges_users,
         btn_ges_inst,
         btn_ges_averias,
+        
         //botones table Admin//
 
         btnAdd_admin,

@@ -13,6 +13,9 @@ import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
 import Appweb.Modules.Users.Client.Controller.ControllerClient;
 import Appweb.Modules.Users.Client.Model.BLL_Client.BLL_Client;
+import Appweb.Modules.Users.Client.View.create_Client_view;
+import Appweb.Modules.Users.Client.View.edit_Client_view;
+import Appweb.Modules.Users.Client.View.show_Client_view;
 import Appweb.Modules.Users.Client.View.table_Client_view;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -206,6 +209,7 @@ public class ControllerMain implements ActionListener {
                 Login.dispose();
                 
                 new ControllerClient(new table_Client_view(), 0).Start(0);
+                // new ControllerClient(new show_Client_view(),3).Start(3);
 
                 break;
             case btnTestlogin:

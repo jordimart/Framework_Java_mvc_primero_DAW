@@ -1,23 +1,15 @@
 package Appweb.Modules.Users.User_reg.Model.DAO_User;
 
-import Appweb.Modules.Users.Client.Model.DAO_Client.*;
-import Appweb.Modules.Users.Admin.Model.DAO_Admin.*;
-import Appweb.Classes.Date.ClassDate;
-import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
-import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
-import Appweb.Modules.Users.Admin.View.create_Admin_view;
-import Appweb.Modules.Users.Admin.Model.Classes.Admin;
+
+import Appweb.General_tools.Date_tools;
 import static Appweb.General_tools.Date_tools.Date_min_max_condition_boolean;
-import static Appweb.General_tools.Date_tools.Date_registered_boolean;
 import Appweb.General_tools.Validate;
 import Appweb.General_tools.singletonapp;
 import static Appweb.General_tools.singletonapp.good_data;
 import static Appweb.General_tools.singletonapp.wrong_data;
-import Appweb.Modules.Users.Admin.View.edit_Admin_view;
-import Appweb.Modules.Users.Admin.View.show_Admin_view;
-import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
-import Appweb.Modules.Users.Client.Model.Classes.Client;
-import Appweb.Modules.Users.User_reg.Model.Classes.User_reg;
+import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
+import Appweb.Modules.Users.User_reg.Model.BLL_User.BLL_User;
+import Appweb.Modules.Users.User_reg.View.create_User_view;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -61,7 +53,7 @@ public class DAO_User {
      *
      * @return boolean ok.
      */
-    public static boolean booleanEnterdnia() {
+    public static boolean booleanEnterdni() {
 
         String dni = "";
         boolean ok = false;
@@ -72,15 +64,15 @@ public class DAO_User {
 
         aux = "";
 
-        dni = create_Admin_view.txtDni.getText();
+        dni = create_User_view.txtDni.getText();
         dni = dni.toUpperCase();
         ok = Validate.okdni(dni);
 
         if (ok == false) {
 
-            create_Admin_view.labDni.setIcon(wrong_data);
-            create_Admin_view.labDni.setToolTipText("No has introducido los datos correctamente");
-            create_Admin_view.txtDni.setBackground(Color.red);
+            create_User_view.labDni.setIcon(wrong_data);
+            create_User_view.labDni.setToolTipText("No has introducido los datos correctamente");
+            create_User_view.txtDni.setBackground(Color.red);
             //JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -100,29 +92,29 @@ public class DAO_User {
             if (pass == letter) {
                 ok = true;
 
-                singletonapp.pos = BLL_Admin.Look_for_dni_admin(dni);
+                singletonapp.pos = BLL_User.Look_for_dni_user(dni);
 
                 if (singletonapp.pos != -1) {
 
                     ok = false;
 
-                    create_Admin_view.labDni.setIcon(wrong_data);
-                    create_Admin_view.txtDni.setBackground(Color.RED);
-                    create_Admin_view.labDni.setToolTipText(Lang.getInstance().getProperty("You_can_not_repeat_dni"));
+                    create_User_view.labDni.setIcon(wrong_data);
+                    create_User_view.txtDni.setBackground(Color.RED);
+                    create_User_view.labDni.setToolTipText(Lang.getInstance().getProperty("You_can_not_repeat_dni"));
 
                 } else {
 
                     ok = true;
-                    create_Admin_view.labDni.setToolTipText("");
-                    create_Admin_view.labDni.setIcon(good_data);
-                    create_Admin_view.txtDni.setBackground(Color.GREEN);
+                    create_User_view.labDni.setToolTipText("");
+                    create_User_view.labDni.setIcon(good_data);
+                    create_User_view.txtDni.setBackground(Color.GREEN);
                 }
 
             } else {
                 ok = false;
-                create_Admin_view.labDni.setToolTipText("El Dni introducido no existe");
-                create_Admin_view.labDni.setIcon(wrong_data);
-                create_Admin_view.txtDni.setBackground(Color.RED);
+                create_User_view.labDni.setToolTipText("El Dni introducido no existe");
+                create_User_view.labDni.setIcon(wrong_data);
+                create_User_view.txtDni.setBackground(Color.RED);
 
             }
 
@@ -136,20 +128,20 @@ public class DAO_User {
      *
      * @return boolean
      */
-    public static boolean booleanEntername_admin() {
+    public static boolean booleanEntername() {
 
         boolean ok = false;
-        String name = create_Admin_view.txtName.getText();
+        String name = create_User_view.txtName.getText();
         ok = Validate.okword(name);
         if (ok == false) {
-            create_Admin_view.labName.setIcon(wrong_data);
-            create_Admin_view.txtName.setBackground(Color.red);
-            create_Admin_view.labName.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
+            create_User_view.labName.setIcon(wrong_data);
+            create_User_view.txtName.setBackground(Color.red);
+            create_User_view.labName.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
 
         } else {
-            create_Admin_view.labName.setToolTipText("");
-            create_Admin_view.labName.setIcon(good_data);
-            create_Admin_view.txtName.setBackground(Color.GREEN);
+            create_User_view.labName.setToolTipText("");
+            create_User_view.labName.setIcon(good_data);
+            create_User_view.txtName.setBackground(Color.GREEN);
 
         }
 
@@ -162,20 +154,20 @@ public class DAO_User {
      *
      * @return boolean
      */
-    public static boolean booleanEnterlast_name_admin() {
+    public static boolean booleanEnterlast_name() {
 
         boolean ok = false;
-        String name = create_Admin_view.txtName.getText();
+        String name = create_User_view.txtName.getText();
         ok = Validate.okword(name);
         if (ok == false) {
-            create_Admin_view.labLast_name.setIcon(wrong_data);
-            create_Admin_view.txtLast_name.setBackground(Color.red);
-            create_Admin_view.labLast_name.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
+            create_User_view.labLast_name.setIcon(wrong_data);
+            create_User_view.txtLast_name.setBackground(Color.red);
+            create_User_view.labLast_name.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
 
         } else {
-            create_Admin_view.labLast_name.setToolTipText("");
-            create_Admin_view.labLast_name.setIcon(good_data);
-            create_Admin_view.txtLast_name.setBackground(Color.GREEN);
+            create_User_view.labLast_name.setToolTipText("");
+            create_User_view.labLast_name.setIcon(good_data);
+            create_User_view.txtLast_name.setBackground(Color.GREEN);
 
         }
 
@@ -187,22 +179,22 @@ public class DAO_User {
      *
      * @return boolean
      */
-    public static boolean booleanEntermobile_admin() {
+    public static boolean booleanEntermobile() {
 
         String s = "";
         boolean ok = false;
 
-        s = create_Admin_view.txtMobile.getText();
+        s = create_User_view.txtMobile.getText();
         ok = Validate.okmobile(s);
         if (ok == false) {
-            create_Admin_view.labMobile.setIcon(wrong_data);
-            create_Admin_view.txtMobile.setBackground(Color.red);
-            create_Admin_view.labMobile.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
+            create_User_view.labMobile.setIcon(wrong_data);
+            create_User_view.txtMobile.setBackground(Color.red);
+            create_User_view.labMobile.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
 
         } else {
-            create_Admin_view.labMobile.setToolTipText("");
-            create_Admin_view.labMobile.setIcon(good_data);
-            create_Admin_view.txtMobile.setBackground(Color.GREEN);
+            create_User_view.labMobile.setToolTipText("");
+            create_User_view.labMobile.setIcon(good_data);
+            create_User_view.txtMobile.setBackground(Color.GREEN);
         }
 
         return ok;
@@ -214,22 +206,22 @@ public class DAO_User {
      *
      * @return boolean
      */
-    public static boolean booleanEntermail_admin() {
+    public static boolean booleanEntermail() {
 
         String cad = "";
         boolean ok = false;
 
-        cad = create_Admin_view.txtEmail.getText();
+        cad = create_User_view.txtEmail.getText();
         ok = Validate.okmail(cad);
         if (ok == false) {
-            create_Admin_view.labEmail.setIcon(wrong_data);
-            create_Admin_view.txtEmail.setBackground(Color.red);
-            create_Admin_view.labEmail.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
+            create_User_view.labEmail.setIcon(wrong_data);
+            create_User_view.txtEmail.setBackground(Color.red);
+            create_User_view.labEmail.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
 
         } else {
-            create_Admin_view.labEmail.setToolTipText("");
-            create_Admin_view.labEmail.setIcon(good_data);
-            create_Admin_view.txtEmail.setBackground(Color.GREEN);
+            create_User_view.labEmail.setToolTipText("");
+            create_User_view.labEmail.setIcon(good_data);
+            create_User_view.txtEmail.setBackground(Color.GREEN);
 
         }
 
@@ -241,22 +233,22 @@ public class DAO_User {
      *
      * @return boolean
      */
-    public static boolean booleanEnteruser_admin() {
+    public static boolean booleanEnteruser() {
 
         String cad = "";
         boolean ok = false;
 
-        cad = create_Admin_view.txtUser.getText();
+        cad = create_User_view.txtUser.getText();
         ok = Validate.okuser(cad);
         if (ok == false) {
-            create_Admin_view.labUser.setIcon(wrong_data);
-            create_Admin_view.txtUser.setBackground(Color.red);
-            create_Admin_view.labUser.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
+            create_User_view.labUser.setIcon(wrong_data);
+            create_User_view.txtUser.setBackground(Color.red);
+            create_User_view.labUser.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
 
         } else {
-            create_Admin_view.labUser.setToolTipText("");
-            create_Admin_view.labUser.setIcon(good_data);
-            create_Admin_view.txtUser.setBackground(Color.GREEN);
+            create_User_view.labUser.setToolTipText("");
+            create_User_view.labUser.setIcon(good_data);
+            create_User_view.txtUser.setBackground(Color.GREEN);
         }
 
         return ok;
@@ -268,24 +260,24 @@ public class DAO_User {
      *
      * @return boolean
      */
-    public static boolean booleanEnterpassword_admin() {
+    public static boolean booleanEnterpassword() {
 
         boolean ok = false;
 
-        char passArray[] = create_Admin_view.txtPassword.getPassword();
+        char passArray[] = create_User_view.txtPassword.getPassword();
         String cad = new String(passArray);
 
         ok = Validate.okpassword(cad);
         if (ok == false) {
-            create_Admin_view.labPassword.setIcon(wrong_data);
-            create_Admin_view.txtPassword.setBackground(Color.red);
-            create_Admin_view.labPassword.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
+            create_User_view.labPassword.setIcon(wrong_data);
+            create_User_view.txtPassword.setBackground(Color.red);
+            create_User_view.labPassword.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
 
         } else {
             ok = true;
-            create_Admin_view.labPassword.setToolTipText("");
-            create_Admin_view.labPassword.setIcon(good_data);
-            create_Admin_view.txtPassword.setBackground(Color.GREEN);
+            create_User_view.labPassword.setToolTipText("");
+            create_User_view.labPassword.setIcon(good_data);
+            create_User_view.txtPassword.setBackground(Color.GREEN);
         }
 
         return ok;
@@ -296,39 +288,39 @@ public class DAO_User {
      *
      * @return boolean
      */
-    public static boolean booleanEntersalary_admin() {
+    public static boolean booleanEnterpurchase() {
 
         String s = "";
         float sal = 0.0f;
 
         boolean ok = false;
 
-        s = create_Admin_view.txtSalary.getText();
+        s = create_User_view.txtPurchase.getText();
 
         if (Validate.oksalary(s) == true) {
             sal = Float.parseFloat(s);
             ok = true;
 
-            if ((sal >= 800) && (sal <= 2500)) {
+            if ((sal >= 0) && (sal <= 2500)) {
                 ok = true;
-                create_Admin_view.labSalary.setToolTipText("");
-                create_Admin_view.labSalary.setIcon(good_data);
-                create_Admin_view.txtSalary.setBackground(Color.GREEN);
+                create_User_view.labPurchase.setToolTipText("");
+                create_User_view.labPurchase.setIcon(good_data);
+                create_User_view.txtPurchase.setBackground(Color.GREEN);
 
                 // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
                 //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
             } else {
                 ok = false;
-                create_Admin_view.labSalary.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + ",debe estar comprendido entre 800 y 2500");
-                create_Admin_view.labSalary.setIcon(wrong_data);
-                create_Admin_view.txtSalary.setBackground(Color.RED);
+                create_User_view.labPurchase.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + ",debe estar comprendido entre 0 y 2500");
+                create_User_view.labPurchase.setIcon(wrong_data);
+                create_User_view.txtPurchase.setBackground(Color.RED);
             }
         } else {
 
             ok = false;
-            create_Admin_view.labSalary.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + ", quizas introdujo letras");
-            create_Admin_view.labSalary.setIcon(wrong_data);
-            create_Admin_view.txtSalary.setBackground(Color.RED);
+            create_User_view.labPurchase.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + ", quizas introdujo letras");
+            create_User_view.labPurchase.setIcon(wrong_data);
+            create_User_view.txtPurchase.setBackground(Color.RED);
         }
 
         return ok;
@@ -340,13 +332,13 @@ public class DAO_User {
      *
      * @return boolean
      */
-    public static boolean booleanEnteractivity_admin() {
+    public static boolean booleanEnteractivity() {
 
         String s = "";
         int act = 0;
         boolean ok = false;
 
-        s = create_Admin_view.txtActivity.getText();
+        s = create_User_view.txtActivity.getText();
 
         if (Validate.oksalary(s) == true) {
 
@@ -354,19 +346,19 @@ public class DAO_User {
 
             if ((act >= 0) && (act <= 100)) {
                 ok = true;
-                create_Admin_view.labActivity.setToolTipText("");
-                create_Admin_view.labActivity.setIcon(good_data);
-                create_Admin_view.txtActivity.setBackground(Color.GREEN);
+                create_User_view.labActivity.setToolTipText("");
+                create_User_view.labActivity.setIcon(good_data);
+                create_User_view.txtActivity.setBackground(Color.GREEN);
             } else {
                 ok = false;
-                create_Admin_view.labActivity.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + ",Debe estar comprendido entre 0 y 100");
-                create_Admin_view.labActivity.setIcon(wrong_data);
-                create_Admin_view.txtActivity.setBackground(Color.red);
+                create_User_view.labActivity.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + ",Debe estar comprendido entre 0 y 100");
+                create_User_view.labActivity.setIcon(wrong_data);
+                create_User_view.txtActivity.setBackground(Color.red);
             }
         } else {
-            create_Admin_view.labActivity.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + ", quizas introdujo letras");
-            create_Admin_view.labActivity.setIcon(wrong_data);
-            create_Admin_view.txtActivity.setBackground(Color.RED);
+            create_User_view.labActivity.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + ", quizas introdujo letras");
+            create_User_view.labActivity.setIcon(wrong_data);
+            create_User_view.txtActivity.setBackground(Color.RED);
 
         }
         return ok;
@@ -377,17 +369,17 @@ public class DAO_User {
      *
      * @return
      */
-    public static boolean booleanEnterdate_birth_admin() {
+    public static boolean booleanEnterdate_birth() {
 
         String s = "";
-        int act = 0;
+        
         boolean ok = false;
-        Calendar date_birth;
-        int dia = 0, mes = 0, anio = 0;
+        
+      
 
-        s = ((JTextFieldDateEditor) create_Admin_view.pick_date_birth.getDateEditor()).getText();
+        s = ((JTextFieldDateEditor) create_User_view.pick_date_birth.getDateEditor()).getText();
 
-        ok = Date_min_max_condition_boolean(s, 16, 65);
+        ok = Date_tools.Date_min_condition_boolean(s, 18);
 
         if (ok == false) {
 

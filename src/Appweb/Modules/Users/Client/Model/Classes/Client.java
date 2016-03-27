@@ -239,7 +239,7 @@ public class Client extends User implements Serializable {
         * */
         
          public String toString() {
-        return "client{" + "Dni=" + super.getDni() + "Last_name=" + super.getLast_name() + "Date_birth=" + super.getDate_birth() + "Antique=" + antique_c + "Salary=" + purchase+ '}';
+        return "client{" + "Dni=" + super.getDni() + "Last_name=" + super.getLast_name() + "Date_birth=" + super.getDate_birth() + "Antique=" + antique_c + "Purchase=" + purchase+ '}';
     }
 
 	public String toPurchase() {
