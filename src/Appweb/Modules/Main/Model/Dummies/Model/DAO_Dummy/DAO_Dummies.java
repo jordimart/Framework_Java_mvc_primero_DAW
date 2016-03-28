@@ -7,7 +7,9 @@ import Appweb.Modules.Main.Model.Dummies.View.task_Dummy_view;
 import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 import Appweb.Modules.Users.Client.Model.Classes.Client;
+import Appweb.Modules.Users.Client.Model.Classes.singleclient;
 import Appweb.Modules.Users.User_reg.Model.Classes.User_reg;
+import Appweb.Modules.Users.User_reg.Model.Classes.singleuser_reg;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -37,7 +39,7 @@ public class DAO_Dummies {
         int n = 0;
         int num = 0;
         int rest = 0;
-        int posa = 0, posc = 0, posu = 0;
+        int posa = 0;
         char pass = ' ';
         boolean ok = true;
 
@@ -374,13 +376,13 @@ public class DAO_Dummies {
         Date_birth = DAO_Dummies.Dummydate_int_min(18);
         Email = DAO_Dummies.Dummyemail(Name, Last_name);
         User = DAO_Dummies.Dummyuser(Name);
-        Password = "Rox150902";
+        Password = "Client150902client";
         Avatar = "src/Appweb/Modules/Users/Img/Avatares/images.jpg";
         Status = "Conected";
 
         // Enter Admin attributes
-        entry_date = new ClassDate("01/01/2006");
-        purchase = DAO_Dummies.Dummysalary(500, 1000);
+        entry_date = new ClassDate(01,01,2006);
+        purchase = DAO_Dummies.Dummysalary(0, 3000);
         premium = "Yes";
         client_type = "Bueno";
 
@@ -411,7 +413,7 @@ public class DAO_Dummies {
         Date_birth = DAO_Dummies.Dummydate_int_min(18);
         Email = DAO_Dummies.Dummyemail(Name, Last_name);
         User = DAO_Dummies.Dummyuser(Name);
-        Password = "Juanpa";
+        Password = "User150902user";
         Avatar = "src/Appweb/Modules/Users/Img/Avatares/images.jpg";
         Status = "Conected";
 
@@ -426,7 +428,7 @@ public class DAO_Dummies {
         String PATH = " ";
 
         try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/files/Admin_files/dummyadminusers";
+            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/Model/files/Admin_files/dummyadminusers";
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -463,7 +465,7 @@ public class DAO_Dummies {
         User_reg u = null;
 
         try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/files/Admin_files/dummyadminusers.json";
+            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/Model/files/Admin_files/dummyadminusers.json";
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -494,7 +496,160 @@ public class DAO_Dummies {
 
         } catch (Exception e) {
             //System.out.print(Lang.getInstance().getProperty("Error_loading_user_file")+ "json"+" \n");
-            task_Dummy_view.labStatus_dummie_admin.setText(Lang.getInstance().getProperty("Error_loading_user_file") + "json" + " \n");
+            task_Dummy_view.labStatus_dummie_admin.setText(Lang.getInstance().getProperty("Error_loading_user_file") + "Admin json" + " \n");
+        }
+    }
+    
+    
+     public static void auto_save_json_dummy_client() {
+
+        String PATH = " ";
+
+        try {
+            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/Model/files/Client_files/dummyclientusers";
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            XStream xstreamjson = new XStream(new JettisonMappedXmlDriver());
+            xstreamjson.setMode(XStream.NO_REFERENCES);
+            xstreamjson.alias("Admin", Admin.class);
+
+            if (singleclient.Client_array.size() != 0) {
+                File JFC = new File(PATH);
+                PATH = JFC.getAbsolutePath();
+                PATH = PATH + ".json";
+
+                Gson gson = new Gson();
+                String json = gson.toJson(singleclient.Client_array);
+                FileWriter fileXml = new FileWriter(PATH);
+                fileXml.write(json.toString());
+                fileXml.close();
+
+                System.out.print(Lang.getInstance().getProperty("User_file_saved") + " Dummy  Client json \n");
+            }
+
+        } catch (Exception e) {
+            System.out.print("Error_save_user_file " + "json dummy Client" + " \n");
+        }
+    }
+
+    public static void auto_open_json_dummy_client() {
+
+        String PATH = " ";
+        Client a = null;
+        
+
+        try {
+            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/Model/files/Client_files/dummyclientusers.json";
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            XStream xstream = new XStream(new JettisonMappedXmlDriver());
+            xstream.setMode(XStream.NO_REFERENCES);
+            xstream.alias("Client", Client.class);
+
+            File JFC = new File(PATH);
+            PATH = JFC.getAbsolutePath();
+
+           singleclient.Client_array.clear();
+
+            JsonReader lector = new JsonReader(new FileReader(PATH));
+            JsonParser parseador = new JsonParser();
+            JsonElement raiz = parseador.parse(lector);
+
+            Gson json = new Gson();
+            JsonArray lista = raiz.getAsJsonArray();
+            for (JsonElement elemento : lista) {
+                a = json.fromJson(elemento, Client.class);
+                singleclient.Client_array.add(a);
+
+            }
+            task_Dummy_view.labStatus_dummie_client.setText(Lang.getInstance().getProperty("Loaded_user_file") + " Dummy  Client json" + " \n");
+           
+
+        } catch (Exception e) {
+       
+            task_Dummy_view.labStatus_dummie_client.setText(Lang.getInstance().getProperty("Error_loading_user_file") + " Client json" + " \n");
+        }
+    }
+    
+    public static void auto_save_json_dummy_user() {
+
+        String PATH = " ";
+
+        try {
+            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/Model/files/User_reg_files/dummyuseregusers";
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            XStream xstreamjson = new XStream(new JettisonMappedXmlDriver());
+            xstreamjson.setMode(XStream.NO_REFERENCES);
+            xstreamjson.alias("Admin", Admin.class);
+
+            if (singleuser_reg.User_reg_array.size() != 0) {
+                File JFC = new File(PATH);
+                PATH = JFC.getAbsolutePath();
+                PATH = PATH + ".json";
+
+                Gson gson = new Gson();
+                String json = gson.toJson(singleuser_reg.User_reg_array);
+                FileWriter fileXml = new FileWriter(PATH);
+                fileXml.write(json.toString());
+                fileXml.close();
+
+                System.out.print(Lang.getInstance().getProperty("User_file_saved") + " Dummy  User registered json \n");
+            }
+
+        } catch (Exception e) {
+            System.out.print("Error_save_user_file " + "json dummy User registered" + " \n");
+        }
+    }
+
+    public static void auto_open_json_dummy_user() {
+
+        String PATH = " ";
+        User_reg a = null;
+        
+
+        try {
+            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/Model/files/Client_files/dummyuseregusers.json";
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            XStream xstream = new XStream(new JettisonMappedXmlDriver());
+            xstream.setMode(XStream.NO_REFERENCES);
+            xstream.alias("User_reg", User_reg.class);
+
+            File JFC = new File(PATH);
+            PATH = JFC.getAbsolutePath();
+
+           singleuser_reg.User_reg_array.clear();
+
+            JsonReader lector = new JsonReader(new FileReader(PATH));
+            JsonParser parseador = new JsonParser();
+            JsonElement raiz = parseador.parse(lector);
+
+            Gson json = new Gson();
+            JsonArray lista = raiz.getAsJsonArray();
+            for (JsonElement elemento : lista) {
+                a = json.fromJson(elemento, User_reg.class);
+                singleuser_reg.User_reg_array.add(a);
+
+            }
+            task_Dummy_view.labStatus_dummie_user.setText(Lang.getInstance().getProperty("Loaded_user_file") + " Dummy  User registered json" + " \n");
+           
+
+        } catch (Exception e) {
+       
+            task_Dummy_view.labStatus_dummie_user.setText(Lang.getInstance().getProperty("Error_loading_user_file") + " User registered json" + " \n");
         }
     }
 }

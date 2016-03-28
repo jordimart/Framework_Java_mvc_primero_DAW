@@ -1,9 +1,4 @@
-
 package Appweb.Modules.Users.Admin.View;
-
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 /**
  *
@@ -11,29 +6,12 @@ import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
  */
 public class show_Admin_view extends javax.swing.JFrame {
 
-    /**
-     * Creates new form show_Admin_view
-     */
     public show_Admin_view() {
         initComponents();
-        
-        /**
-         this.setTitle("Admin data");
-        this.setLocationRelativeTo(null);
-        this.setSize(1000, 650);//ancho x alto
-        this.setResizable(false);
-        
-        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                dispose();
-            }
-        });
-        * */
+
     }
 
-   
-   
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -317,12 +295,9 @@ public class show_Admin_view extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptActionPerformed
-        //this.dispose();
-       
-        
+
     }//GEN-LAST:event_btnAceptActionPerformed
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static org.edisoncor.gui.button.ButtonAero btnAcept;

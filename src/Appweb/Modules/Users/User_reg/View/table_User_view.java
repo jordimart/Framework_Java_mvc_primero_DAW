@@ -1,81 +1,15 @@
 package Appweb.Modules.Users.User_reg.View;
 
-
-import Appweb.Modules.Users.Client.View.*;
-import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
-
 /**
  *
  * @author ASUSG50V
  */
 public class table_User_view extends javax.swing.JFrame {
 
-    //public static TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(new Table_Admin());
-    //public static AutocompleteJComboBox combo = null;
-
-    /**
-     * Creates new form table_Users
-     */
     public table_User_view() {
         initComponents();
 
-        //this.setTitle("Table Admin");
-        //this.setLocationRelativeTo(null);
-        //this.setSize(1000, 650);//ancho x alto
-        //this.setResizable(true);
-        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
-        //singletonapp.singleton_vtna = "Admin";
-
-        //mini_Table_Admin.setModel(new Table_Admin());
-        //((Table_Admin) mini_Table_Admin.getModel()).cargar();
-        //mini_Table_Admin.setFillsViewportHeight(true);
-        //mini_Table_Admin.setRowSorter(sorter);
-
-        //pagina.inicializa();
-        //pagina.initLinkBox();
-
-        //jLabel3.setText(String.valueOf(singleadmin.Admin_array.size()));
-
-        //this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        //addWindowListener(new WindowAdapter() {
-            //public void windowClosing(WindowEvent e) {
-               // dispose();
-                //task_Admin_view menu = new task_Admin_view();
-                //menu.setVisible(true);
-
-           // }
-        //});
-
-       // List<String> myWords = new ArrayList<String>();
-        //for (int i = 0; i <= singleadmin.Admin_array.size() - 1; i++) {
-          //  myWords.add(singleadmin.Admin_array.get(i).getName().toLowerCase());
-           // myWords.add(singleadmin.Admin_array.get(i).getName().toUpperCase());
-       // }
-
-       // StringSearchable searchable = new StringSearchable(myWords);
-       // combo = new AutocompleteJComboBox(searchable);
-
-        //jPanel3.setLayout(new java.awt.BorderLayout());
-       // jPanel3.add(combo);
-
-        //combo.addActionListener(new java.awt.event.ActionListener() {
-           // @Override
-            //public void actionPerformed(java.awt.event.ActionEvent evt) {
-               // comboActionPerformed(evt);
-            //}
-
-            
-       // });
-        
     }
-
-   // public static void comboActionPerformed(java.awt.event.ActionEvent evt) {
-      //  System.out.println("word selected: " + ((JComboBox) combo).getSelectedItem());
-       // pagina.currentPageIndex = 1;
-       // ((Table_Admin) mini_Table_Admin.getModel()).filtrar();
-       // combo.requestFocus();
-   // }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -483,93 +417,62 @@ public class table_User_view extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ANTERIORActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANTERIORActionPerformed
-        //pagina.currentPageIndex -= 1;
-       // pagina.initLinkBox();
+
     }//GEN-LAST:event_ANTERIORActionPerformed
 
     private void SIGUIENTEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SIGUIENTEActionPerformed
-        //pagina.currentPageIndex += 1;
-        //pagina.initLinkBox();
+
     }//GEN-LAST:event_SIGUIENTEActionPerformed
 
     private void primeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_primeroActionPerformed
-       // pagina.currentPageIndex = 1;
-       // pagina.initLinkBox();
+
     }//GEN-LAST:event_primeroActionPerformed
 
     private void ultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultimoActionPerformed
-       // pagina.currentPageIndex = pagina.maxPageIndex;
-       // pagina.initLinkBox();
+
     }//GEN-LAST:event_ultimoActionPerformed
-/**
+    /**
     private void btnA�adir_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA�adir_adminActionPerformed
        
-
+     *
 
     }//GEN-LAST:event_btnA�adir_adminActionPerformed
 */
     private void btnEditar_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditar_userActionPerformed
 
-       /** 
-        boolean ok = false;
-        ok = BLL_Admin.modifity_select_admin();
-        if (true == ok) {
 
-            this.dispose();
-        }
-        */
     }//GEN-LAST:event_btnEditar_userActionPerformed
 
     private void btn_ReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ReturnActionPerformed
 
-        //this.dispose();
-        //task_Admin_view menu = new task_Admin_view();
-       // menu.setVisible(true);
+
     }//GEN-LAST:event_btn_ReturnActionPerformed
 
     private void btnMostrar_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrar_userActionPerformed
-        //BLL_Admin.show_select_admin();
+
 
     }//GEN-LAST:event_btnMostrar_userActionPerformed
 
     private void btnBorrar_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrar_userActionPerformed
-        //BLL_Admin.delete_select_admin();
+
     }//GEN-LAST:event_btnBorrar_userActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-
-       
-       // pagina.itemsPerPage = Integer.parseInt(jComboBox1.getSelectedItem().toString());
-        //pagina.currentPageIndex = 1;
-        //pagina.initLinkBox();
 
 
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void btn_delete_allActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_delete_allActionPerformed
-        //BLL_Admin.Delete_all_admin();
+
     }//GEN-LAST:event_btn_delete_allActionPerformed
 
     private void mini_Table_UserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mini_Table_UserMouseClicked
-        
-        /**
-        if (evt.getClickCount() == 2) {
-            boolean modificar;
 
-            modificar = BLL_Admin.modifity_select_admin();
-            if (modificar == false) {
-            } else {
-                this.dispose();
-            }
 
-        } 
-        */
     }//GEN-LAST:event_mini_Table_UserMouseClicked
 
     private void btnAdd_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd_userActionPerformed
-        // this.dispose();
-        //create_Admin_view menu = new create_Admin_view();
-        //menu.setVisible(true);
+
     }//GEN-LAST:event_btnAdd_userActionPerformed
 
 

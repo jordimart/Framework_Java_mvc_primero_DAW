@@ -68,6 +68,10 @@ public class ControllerMain implements ActionListener {
 
         btnCreate_dummis_admin,
         btnDelete_all_admin,
+        btnCreate_dummis_client,
+        btnDelete_all_client,
+        btnCreate_dummis_user,
+        btnDelete_all_user,
         btnEntry_admin,
         btnEntry_client,
         btnEntry_user_reg
@@ -171,6 +175,18 @@ public class ControllerMain implements ActionListener {
 
             Dummies.btnDelete_all_admin.setActionCommand("btnDelete_all_admin");
             Dummies.btnDelete_all_admin.addActionListener(this);
+            
+            Dummies.btnCreate_dummis_client.setActionCommand("btnCreate_dummis_client");
+            Dummies.btnCreate_dummis_client.addActionListener(this);
+
+            Dummies.btnDelete_all_client.setActionCommand("btnDelete_all_client");
+            Dummies.btnDelete_all_client.addActionListener(this);
+            
+            Dummies.btnCreate_dummis_user.setActionCommand("btnCreate_dummis_user");
+            Dummies.btnCreate_dummis_user.addActionListener(this);
+
+            Dummies.btnDelete_all_user.setActionCommand("btnDelete_all_user");
+            Dummies.btnDelete_all_user.addActionListener(this);
 
             Dummies.btnEntry_admin.setActionCommand("btnEntry_admin");
             Dummies.btnEntry_admin.addActionListener(this);
@@ -280,6 +296,30 @@ public class ControllerMain implements ActionListener {
             case btnDelete_all_admin:
 
                 BLL_Dummies.Delete_all_admin_dummies();
+
+                break;
+                
+                case btnCreate_dummis_client:
+
+                BLL_Dummies.create_Dummy_client();
+
+                break;
+
+            case btnDelete_all_client:
+
+                BLL_Dummies.Delete_all_client_dummies();
+
+                break;
+                
+                case btnCreate_dummis_user:
+
+                BLL_Dummies.create_Dummy_user();
+
+                break;
+
+            case btnDelete_all_user:
+
+                BLL_Dummies.Delete_all_user_dummies();
 
                 break;
 

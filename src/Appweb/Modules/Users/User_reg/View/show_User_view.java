@@ -6,21 +6,9 @@ package Appweb.Modules.Users.User_reg.View;
  */
 public class show_User_view extends javax.swing.JFrame {
 
-    /**
-     * Creates new form show_Admin_view
-     */
     public show_User_view() {
         initComponents();
 
-        /**
-         * this.setTitle("Admin data"); this.setLocationRelativeTo(null);
-         * this.setSize(1000, 650);//ancho x alto this.setResizable(false);
-         *
-         * this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-         * addWindowListener(new WindowAdapter() { public void
-         * windowClosing(WindowEvent e) { dispose(); } });
-        *
-         */
     }
 
 
@@ -285,7 +273,6 @@ public class show_User_view extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptActionPerformed
-        //this.dispose();
 
 
     }//GEN-LAST:event_btnAceptActionPerformed
