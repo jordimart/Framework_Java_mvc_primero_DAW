@@ -2,11 +2,8 @@ package Appweb.Modules.Users.Admin.Model.Classes;
 
 import Appweb.Classes.Date.ClassDate;
 import static Appweb.Modules.Users.Admin.Controller.ControllerAdmin.combo;
-
 import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
 import Appweb.Modules.Users.Admin.View.table_Admin_view;
-
-
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.table.AbstractTableModel;
@@ -66,7 +63,7 @@ public class Table_Admin_class extends AbstractTableModel {
                 dev = fila.getAntique();
                 break;
             case 5:
-                dev = fila.getSalary();
+                dev = fila.toSalary();
                 break;
 
         }

@@ -5,15 +5,6 @@ import Appweb.Classes.Date.ClassDate;
 import static Appweb.Modules.Users.User_reg.Controller.ControllerUser.combo;
 import Appweb.Modules.Users.User_reg.Model.Tools.Pager.pagina_user;
 import Appweb.Modules.Users.User_reg.View.table_User_view;
-
-
-
-
-
-
-
-
-
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.table.AbstractTableModel;
@@ -70,7 +61,7 @@ public class Table_User_reg extends AbstractTableModel {
                 break;
 
             case 4:
-                dev = fila.getBenefits();
+                dev = fila.toBenefits();
                 break;
             case 5:
                 dev = fila.getKarma();

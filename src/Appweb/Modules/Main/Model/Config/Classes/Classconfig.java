@@ -82,7 +82,7 @@ public class Classconfig implements Serializable {
 	 */
 	public Classconfig() {
 
-		datef = "dd/mm/yyyy";
+		datef = "dd/MM/yyyy";
 		num_dec = "0.0";
 		currency = "euro";
 		language = "english";

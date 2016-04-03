@@ -1,12 +1,9 @@
 package Appweb.Modules.Users.Admin.Model.Classes;
 
 import java.io.Serializable;
-
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Classes.Date.ClassDate;
-import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.General_tools.Format_tools;
 import Appweb.Modules.Users.Classes.User;
 
@@ -228,19 +225,19 @@ public class Admin extends User implements Serializable {
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.0")) {
 
-				money = money + Lang.getInstance().getProperty("Salary") + ": " + Format_tools.F_1dec(getSalary()) + " ? \n";
+				money = money   + Format_tools.F_1dec(getSalary()) + " € \n";
 
 			}
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.00")) {
 
-				money = money + Lang.getInstance().getProperty("Salary") + ": " + Format_tools.F_Euro(getSalary()) + " \n";
+				money = money   + Format_tools.F_Euro(getSalary()) + " \n";
 
 			}
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.000")) {
 
-				money = money + Lang.getInstance().getProperty("Salary") + ": " + Format_tools.F_3dec(getSalary()) + " ? \n";
+				money = money   + Format_tools.F_3dec(getSalary()) + " € \n";
 
 			}
 
@@ -250,22 +247,22 @@ public class Admin extends User implements Serializable {
 
 			float cald = 0.000f;
 
-			cald = (float) (1.09922 * (getBenefits()));
+			cald = (float) (1.09922 * (getSalary()));
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.0")) {
 
-				money = money + Lang.getInstance().getProperty("Salary") + ": $" + Format_tools.F_1dec(cald) + "  \n";
+				money = money  + " $" + Format_tools.F_1dec(cald) + "  \n";
 			}
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.00")) {
 
-				money = money + Lang.getInstance().getProperty("Salary") + ": " + Format_tools.F_Dollar(cald) + " \n";
+				money = money  + " " + Format_tools.F_Dollar(cald) + " \n";
 
 			}
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.000")) {
 
-				money = money + Lang.getInstance().getProperty("Salary") + ": $" + Format_tools.F_3dec(cald) + "  \n";
+				money = money  + " $" + Format_tools.F_3dec(cald) + "  \n";
 
 			}
 
@@ -275,22 +272,22 @@ public class Admin extends User implements Serializable {
 
 			float calp = 0.000f;
 
-			calp = (float) 0.728500 * (getBenefits());
+			calp = (float) (0.728500 * (getSalary()));
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.0")) {
 
-				money = money + Lang.getInstance().getProperty("Salary") + ": " + Format_tools.F_1dec(calp) + "   \n";
+				money = money +"£" + Format_tools.F_1dec(calp) + "   \n";
 			}
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.00")) {
 
-				money = money + Lang.getInstance().getProperty("Salary") + ": " + Format_tools.F_Libra(calp) + " \n";
+				money = money  + Format_tools.F_Libra(calp) + " \n";
 
 			}
 
 			if (Classconfig.getInstance().getnum_dec().equals("0.000")) {
 
-				money = money + Lang.getInstance().getProperty("Salary") + ": ?" + Format_tools.F_3dec(calp) + "   \n";
+				money = money +"£" + Format_tools.F_3dec(calp) + "   \n";
 			}
 
 			break;

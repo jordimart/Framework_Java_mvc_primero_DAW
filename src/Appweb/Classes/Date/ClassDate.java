@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 
 /**
@@ -29,8 +28,6 @@ public class ClassDate implements Serializable {
 	 * @param day
 	 * @param month
 	 * @param year
-	 * @return date
-	 * day + "/" + month + "/" + year
 	 */
 
 	public ClassDate(int day, int month, int year) {
@@ -63,7 +60,7 @@ public class ClassDate implements Serializable {
 
 		switch (Classconfig.getInstance().getdatef()) {
 
-		case "dd/mm/yyyy":
+		case "dd/MM/yyyy":
 			tool = date.split("/");
 			this.day = Integer.parseInt(tool[0]);
 			this.month = Integer.parseInt(tool[1]);
@@ -73,7 +70,7 @@ public class ClassDate implements Serializable {
 
 			break;
 
-		case "dd-mm-yyyy":
+		case "dd-MM-yyyy":
 			tool = date.split("-");
 			this.day = Integer.parseInt(tool[0]);
 			this.month = Integer.parseInt(tool[1]);
@@ -83,7 +80,7 @@ public class ClassDate implements Serializable {
 
 			break;
 
-		case "yyyy/mm/dd":
+		case "yyyy/MM/dd":
 			tool = date.split("/");
 			this.day = Integer.parseInt(tool[2]);
 			this.month = Integer.parseInt(tool[1]);
@@ -93,7 +90,7 @@ public class ClassDate implements Serializable {
 
 			break;
 
-		case "yyyy-mm-dd":
+		case "yyyy-MM-dd":
 			tool = date.split("-");
 			this.day = Integer.parseInt(tool[2]);
 			this.month = Integer.parseInt(tool[1]);
@@ -190,16 +187,16 @@ public class ClassDate implements Serializable {
 
 		switch (Classconfig.getInstance().getdatef()) {
 
-		case "dd/mm/yyyy":
+		case "dd/MM/yyyy":
 			cad = getDay() + "/" + getMonth() + "/" + getYear();
 			break;
-		case "dd-mm-yyyy":
+		case "dd-MM-yyyy":
 			cad = getDay() + "-" + getMonth() + "-" + getYear();
 			break;
-		case "yyyy/mm/dd":
+		case "yyyy/MM/dd":
 			cad = getYear() + "/" + getMonth() + "/" + getDay();
 			break;
-		case "yyyy-mm-dd":
+		case "yyyy-MM-dd":
 			cad = getYear() + "-" + getMonth() + "-" + getDay();
 			break;
 		}

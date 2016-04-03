@@ -1,6 +1,7 @@
 package Appweb.Modules.Users.User_reg.Controller;
 
 import Appweb.Modules.Main.Controller.ControllerMain;
+import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Modules.Main.View.menu_Input;
 import static Appweb.Modules.Users.User_reg.Controller.ControllerUser.Table_User;
 import Appweb.Modules.Users.User_reg.Model.BLL_User.BLL_User;
@@ -15,7 +16,6 @@ import Appweb.Modules.Users.User_reg.View.show_User_view;
 import Appweb.Modules.Users.User_reg.View.table_User_view;
 import static Appweb.Modules.Users.User_reg.View.table_User_view.jComboBox1;
 import static Appweb.Modules.Users.User_reg.View.table_User_view.mini_Table_User;
-import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
 import java.awt.AWTKeyStroke;
 import java.awt.Color;
 import java.awt.KeyboardFocusManager;
@@ -208,8 +208,8 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
 
             Table_User.btn_Return.setActionCommand("btn_Return_table");
             Table_User.btn_Return.addActionListener(this);
-            
-             Table_User.btn_Save_file.setActionCommand("btn_Save_file");
+
+            Table_User.btn_Save_file.setActionCommand("btn_Save_file");
             Table_User.btn_Save_file.addActionListener(this);
 
             Table_User.ANTERIOR.setActionCommand("ANTERIOR");
@@ -245,6 +245,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             //Information_dialog.setModal(true);
             //Information_dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
             Create_User.pick_date_birth.getDateEditor().setEnabled(false);
+            Create_User.pick_date_birth.setDateFormatString(Classconfig.getInstance().getdatef());
 
             // Conjunto de teclas que queremos que sirvan para pasar el foco 
             // al siguiente campo de texto: ENTER y TAB
@@ -258,10 +259,12 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
                     KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS,
                     teclas);
 
-            Create_User.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-            addWindowListener(new WindowAdapter() {
+            this.Create_User.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+            this.Create_User.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
                     Create_User.dispose();
+                    new ControllerUser(new table_User_view(), 0).Start(0);
+
                 }
             });
 
@@ -324,9 +327,10 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             Edit_User.setResizable(false);
             Edit_User.setBackground(Color.GRAY);
             Edit_User.pick_date_birth.getDateEditor().setEnabled(false);
-           
+            Edit_User.pick_date_birth.setDateFormatString(Classconfig.getInstance().getdatef());
+
             Edit_User.setVisible(true);
-            
+
             // Conjunto de teclas que queremos que sirvan para pasar el foco 
             // al siguiente campo de texto: ENTER y TAB
             Set<AWTKeyStroke> teclas = new HashSet<AWTKeyStroke>();
@@ -342,6 +346,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             this.Edit_User.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
                     Edit_User.dispose();
+                    new ControllerUser(new table_User_view(), 0).Start(0);
                 }
             });
 
@@ -354,7 +359,6 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             Edit_User.btnAvatar.setActionCommand("btnAvatar_e");
             Edit_User.btnAvatar.addActionListener(this);
 
-            
             Edit_User.txtActivity.setActionCommand("txtActivity_e");
             Edit_User.txtActivity.setName("txtActivity_e");
             Edit_User.txtActivity.addActionListener(this);
@@ -384,7 +388,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             Edit_User.txtPassword.setName("txtPassword_e");
             Edit_User.txtPassword.addActionListener(this);
             Edit_User.txtPassword.addKeyListener(this);
-            
+
             Edit_User.txtUser.setActionCommand("txtUser_e");
             Edit_User.txtUser.setName("txtUser_e");
             Edit_User.txtUser.addActionListener(this);
@@ -398,11 +402,12 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             Show_User.setSize(1000, 650);//ancho x alto
             Show_User.setResizable(false);
             Show_User.setVisible(true);
-            
+
             this.Show_User.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             this.Show_User.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
                     Show_User.dispose();
+                    new ControllerUser(new table_User_view(), 0).Start(0);
                 }
             });
 
@@ -415,7 +420,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
 
         boolean ok = false;
         switch (Action_User.valueOf(ae.getActionCommand())) {
-           
+
             case btnAdd:
 
                 Table_User.dispose();
@@ -450,8 +455,8 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
                 new ControllerMain(new menu_Input(), 0).Start(0);
 
                 break;
-                
-                case btn_Save_file:
+
+            case btn_Save_file:
 
                 if (Table_User.combo_file.getSelectedItem().equals("Json")) {
                     BLL_User.save_json();
@@ -464,7 +469,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
                 }
 
                 break;
-                
+
             case ANTERIOR:
                 pagina_user.currentPageIndex -= 1;
                 pagina_user.initLinkBox();

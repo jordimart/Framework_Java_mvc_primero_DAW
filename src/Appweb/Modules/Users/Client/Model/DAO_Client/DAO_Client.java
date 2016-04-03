@@ -3,21 +3,18 @@ package Appweb.Modules.Users.Client.Model.DAO_Client;
 import Appweb.Classes.Date.ClassDate;
 import Appweb.General_tools.Date_tools;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
-
 import static Appweb.General_tools.Date_tools.Date_min_max_condition_boolean;
 import static Appweb.General_tools.Date_tools.Date_registered_boolean;
 import Appweb.General_tools.Validate;
 import Appweb.General_tools.singletonapp;
 import static Appweb.General_tools.singletonapp.good_data;
 import static Appweb.General_tools.singletonapp.wrong_data;
-
 import Appweb.Modules.Users.Client.Model.BLL_Client.BLL_Client;
 import Appweb.Modules.Users.Client.Model.Classes.Client;
 import Appweb.Modules.Users.Client.Model.Classes.singleclient;
 import Appweb.Modules.Users.Client.View.create_Client_view;
 import Appweb.Modules.Users.Client.View.edit_Client_view;
 import Appweb.Modules.Users.Client.View.show_Client_view;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -335,40 +332,6 @@ public class DAO_Client {
     }
 
     /**
-     * DAO que valida un entrada de actividad que debe estar comprendida entre 0
-     * y 100
-     *
-     * @return boolean
-     */
-    /**
-     * public static boolean booleanEnteractivity_admin() {
-     *
-     * String s = ""; int act = 0; boolean ok = false;
-     *
-     * s = create_Admin_view.txtActivity.getText();
-     *
-     * if (Validate.oksalary(s) == true) {
-     *
-     * act = Integer.parseInt(s);
-     *
-     * if ((act >= 0) && (act <= 100)) { ok = true;
-     * create_Admin_view.labActivity.setToolTipText("");
-     * create_Admin_view.labActivity.setIcon(good_data);
-     * create_Admin_view.txtActivity.setBackground(Color.GREEN); } else { ok =
-     * false;
-     * create_Admin_view.labActivity.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly")
-     * + ",Debe estar comprendido entre 0 y 100");
-     * create_Admin_view.labActivity.setIcon(wrong_data);
-     * create_Admin_view.txtActivity.setBackground(Color.red); } } else {
-     * create_Admin_view.labActivity.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly")
-     * + ", quizas introdujo letras");
-     * create_Admin_view.labActivity.setIcon(wrong_data);
-     * create_Admin_view.txtActivity.setBackground(Color.RED);
-     *
-     * }
-     * return ok; }
-     */
-    /**
      * DAO que valida una fecha de nac imiento que deb estar entre 16 y 65 años
      *
      * @return
@@ -376,10 +339,8 @@ public class DAO_Client {
     public static boolean booleanEnterdate_birth_client() {
 
         String s = "";
-        int act = 0;
+
         boolean ok = false;
-        Calendar date_birth;
-        int dia = 0, mes = 0, anio = 0;
 
         s = ((JTextFieldDateEditor) create_Client_view.pick_date_birth.getDateEditor()).getText();
 
@@ -420,7 +381,7 @@ public class DAO_Client {
     public static boolean booleanEnterdate_reg_client() {
 
         String s = "";
-        int act = 0;
+
         boolean ok = false;
 
         String date_reg;
@@ -431,7 +392,7 @@ public class DAO_Client {
 
         if (s.equals("") || date_reg.equals("")) {
 
-            create_Client_view.labdate_reg.setToolTipText("Revise las fechas algun capmo esta en blanco");
+            create_Client_view.labdate_reg.setToolTipText("Revise las fechas algun campo esta en blanco");
             create_Client_view.pick_date_reg.setBackground(Color.red);
             create_Client_view.labdate_reg.setIcon(wrong_data);
 
@@ -862,37 +823,10 @@ public class DAO_Client {
         return ok;
     }
 
-    /**
-     * public static boolean booleanEditactivity_client() {
-     *
-     * String s = ""; int act = 0; boolean ok = false;
-     *
-     * s = edit_Admin_view.txtActivity.getText();
-     *
-     * if (Validate.oksalary(s) == true) {
-     *
-     * act = Integer.parseInt(s);
-     *
-     * if ((act >= 0) && (act <= 100)) { ok = true;
-     * edit_Admin_view.labActivity.setToolTipText("");
-     * edit_Admin_view.labActivity.setIcon(good_data);
-     * edit_Admin_view.txtActivity.setBackground(Color.GREEN); } else {
-     * edit_Admin_view.labActivity.setToolTipText("No ha introducido los datos
-     * correctamente,Debe estar comprendido entre 0 y 100"); ok = false;
-     * edit_Admin_view.labActivity.setIcon(wrong_data);
-     * edit_Admin_view.txtActivity.setBackground(Color.red); } } else {
-     * edit_Admin_view.labActivity.setToolTipText("No ha introducido los datos
-     * correctamente, quizas introdujo letras");
-     * edit_Admin_view.labActivity.setIcon(wrong_data);
-     * edit_Admin_view.txtActivity.setBackground(Color.RED);
-     *
-     * }
-     * return ok; }
-     */
     public static boolean booleanEditdate_birth_client() {
 
         String s = "";
-        int act = 0;
+
         boolean ok = false;
 
         s = ((JTextFieldDateEditor) edit_Client_view.pick_date_birth.getDateEditor()).getText();
@@ -930,7 +864,6 @@ public class DAO_Client {
         String s = "";
         boolean ok = false;
         String date_reg;
-        
 
         s = ((JTextFieldDateEditor) edit_Client_view.pick_date_birth.getDateEditor()).getText();
 
@@ -938,7 +871,7 @@ public class DAO_Client {
 
         if (s.equals("") || date_reg.equals("")) {
 
-            edit_Client_view.labdate_reg.setToolTipText("Revise las fechas algun capmo esta en blanco");
+            edit_Client_view.labdate_reg.setToolTipText("Revise las fechas algun campo esta en blanco");
             edit_Client_view.pick_date_reg.setBackground(Color.red);
             edit_Client_view.labdate_reg.setIcon(wrong_data);
 
@@ -1051,7 +984,7 @@ public class DAO_Client {
         String Dni = "", Name = "", Last_name = "", Mobile = "", Email = "", User = "", Password = "", Premium = "", Client_type = "";
         ClassDate Date_reg = null;
         String Status = "";
-        
+
         float Purchase = 0.000f;
         ClassDate Date_birth = null;
         char[] password = edit_Client_view.txtPassword.getPassword();
@@ -1101,10 +1034,8 @@ public class DAO_Client {
 
         Client c = singleclient.Client_array.get(singletonapp.pos);
 
-        Float sal = c.getPurchase();
         int age = c.getAge();
         int ant = c.getAntique_c();
-        Float ben = c.getBenefits();
 
         show_Client_view.txtDni.setText(c.getDni());
         show_Client_view.txtName.setText(c.getName());
@@ -1118,8 +1049,8 @@ public class DAO_Client {
         show_Client_view.txtStatus.setText(c.getStatus());
         show_Client_view.txtDate_cont.setText(c.getEntry_date().todate());
         show_Client_view.txtAntique.setText("" + ant);
-        show_Client_view.txtPurchase.setText("" + sal);
-        show_Client_view.txtBenefits.setText("" + ben);
+        show_Client_view.txtPurchase.setText(c.toPurchase());
+        show_Client_view.txtBenefits.setText(c.toBenefits());
         show_Client_view.txt_premium.setText(c.getPremium());
         show_Client_view.txt_client.setText(c.getClient_type());
         ShowAvatar_client(c.getAvatar());

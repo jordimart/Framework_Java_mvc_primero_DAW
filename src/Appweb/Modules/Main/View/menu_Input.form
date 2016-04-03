@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <Component id="panelImage1" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -50,15 +50,13 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="538" max="32767" attributes="0"/>
-                  <Component id="btnSettings" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace pref="707" max="32767" attributes="0"/>
                   <Component id="btn_English_main" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btn_spain_main" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="btn_valencian_main" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                   <Component id="panelNice1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               </Group>
@@ -68,24 +66,16 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btn_valencian_main" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                                  <Component id="btn_spain_main" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                                  <Component id="btn_English_main" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="panelNice1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btn_valencian_main" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="btn_spain_main" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="btn_English_main" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                          <Component id="btnSettings" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="panelNice1" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="339" max="32767" attributes="0"/>
+                  <EmptySpace pref="286" max="32767" attributes="0"/>
                   <Component id="panelCurves1" min="-2" pref="90" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -99,14 +89,15 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="Login_Admin" alignment="0" pref="146" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="Login_Admin" pref="158" max="32767" attributes="0"/>
                           <Component id="Login_User_reg" alignment="0" max="32767" attributes="0"/>
                           <Component id="Login_Client" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btn_Exit" max="32767" attributes="0"/>
-                          <Component id="btn_Test" max="32767" attributes="0"/>
+                          <Component id="btn_Test" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnSettings" max="32767" attributes="0"/>
+                          <Component id="btn_Exit" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="29" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -122,8 +113,10 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btn_Test" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnSettings" min="-2" pref="23" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btn_Exit" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="26" max="32767" attributes="0"/>
+                      <EmptySpace pref="45" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -163,6 +156,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_TestActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JButton" name="btnSettings">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Configuracion"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSettingsActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="org.edisoncor.gui.panel.PanelCurves" name="panelCurves1">
@@ -200,14 +201,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_English_mainActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnSettings">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Configuracion"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSettingsActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

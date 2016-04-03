@@ -1,14 +1,9 @@
 package Appweb.Modules.Users.Client.Controller;
 
+import static Appweb.General_tools.singletonapp.singleactiondate;
 import Appweb.Modules.Main.Controller.ControllerMain;
+import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Modules.Main.View.menu_Input;
-
-
-
-
-
-
-
 import static Appweb.Modules.Users.Client.Controller.ControllerClient.Table_Client;
 import Appweb.Modules.Users.Client.Model.BLL_Client.BLL_Client;
 import Appweb.Modules.Users.Client.Model.Classes.Table_Client_class;
@@ -22,8 +17,6 @@ import Appweb.Modules.Users.Client.View.show_Client_view;
 import Appweb.Modules.Users.Client.View.table_Client_view;
 import static Appweb.Modules.Users.Client.View.table_Client_view.jComboBox1;
 import static Appweb.Modules.Users.Client.View.table_Client_view.mini_Table_Client;
-import static Appweb.Modules.Users.User_reg.Controller.ControllerUser.Table_User;
-import Appweb.Modules.Users.User_reg.Model.BLL_User.BLL_User;
 import java.awt.AWTKeyStroke;
 import java.awt.Color;
 import java.awt.KeyboardFocusManager;
@@ -54,7 +47,6 @@ import javax.swing.table.TableRowSorter;
  */
 public class ControllerClient implements ActionListener, MouseListener, PropertyChangeListener, KeyListener {
 
-   
     public static table_Client_view Table_Client;
     public static create_Client_view Create_Client;
     public static edit_Client_view Edit_Client;
@@ -66,8 +58,6 @@ public class ControllerClient implements ActionListener, MouseListener, Property
 
     public ControllerClient(JFrame start, int i) {
 
-        
-        
         if (i == 0) {
             Table_Client = (table_Client_view) start;
         }
@@ -109,10 +99,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
 
     public enum Action_Client {
 
-        
-        
         //botones table Client//
-
         btnAdd_client,
         btnEditar_client,
         btnBorrar_client,
@@ -134,7 +121,6 @@ public class ControllerClient implements ActionListener, MouseListener, Property
         btnAvatar,
         pick_date_birth,
         pick_date_contr,
-        
         txtDni,
         txtEmail,
         txtLast_name,
@@ -143,7 +129,6 @@ public class ControllerClient implements ActionListener, MouseListener, Property
         txtPassword,
         txtPurchase,
         txtUser,
-        
         //botones edit Client//
 
         btn_Aceptar_e,
@@ -151,7 +136,6 @@ public class ControllerClient implements ActionListener, MouseListener, Property
         btnAvatar_e,
         pick_date_birth_e,
         pick_date_contr_e,
-        
         txtEmail_e,
         txtLast_name_e,
         txtMobile_e,
@@ -159,15 +143,13 @@ public class ControllerClient implements ActionListener, MouseListener, Property
         txtPassword_e,
         txtPurchase_e,
         txtUser_e,
-        
         //botones Mostrar//
 
         btnAccept_s,
     }
 
     public void Start(int i) {
-        
-        
+
         if (i == 0) {
 
             Table_Client.setVisible(true);
@@ -177,8 +159,6 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             Table_Client.setSize(1700, 1000);//ancho x alto
             Table_Client.setResizable(true);
             //Table_Client.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
-            
 
             Table_Client.mini_Table_Client.setModel(new Table_Client_class());
             ((Table_Client_class) mini_Table_Client.getModel()).cargar();
@@ -194,7 +174,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             this.Table_Client.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
                     Table_Client.dispose();
-                   
+
                     new ControllerMain(new menu_Input(), 0).Start(0);
 
                 }
@@ -202,17 +182,16 @@ public class ControllerClient implements ActionListener, MouseListener, Property
 
             List<String> myWords = new ArrayList<String>();
 
-            for (int j = 0; j <= singleclient.Client_array.size()- 1; j++) {
+            for (int j = 0; j <= singleclient.Client_array.size() - 1; j++) {
                 myWords.add(singleclient.Client_array.get(j).getName().toLowerCase());
                 myWords.add(singleclient.Client_array.get(j).getName().toUpperCase());
             }
 
             StringSearchable_client searchable = new StringSearchable_client(myWords);
-            
+
             combo = new AutocompleteJComboBox_client(searchable);
             Table_Client.jPanel3.setLayout(new java.awt.BorderLayout());
             Table_Client.jPanel3.add(combo);
-            
 
             combo.addActionListener(new java.awt.event.ActionListener() {
                 @Override
@@ -239,7 +218,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
 
             Table_Client.btn_Return_client.setActionCommand("btn_Return_table");
             Table_Client.btn_Return_client.addActionListener(this);
-            
+
             Table_Client.btn_Save_file.setActionCommand("btn_Save_file");
             Table_Client.btn_Save_file.addActionListener(this);
 
@@ -269,6 +248,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             Create_Client.setLocationRelativeTo(null);
             Create_Client.setSize(950, 1030);//ancho x alto
             Create_Client.setResizable(false);
+            singleactiondate="add";
 
             //Information_dialog.setLocationRelativeTo(null);
             //Information_dialog.setTitle("Information");
@@ -277,6 +257,8 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             //Information_dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
             Create_Client.pick_date_birth.getDateEditor().setEnabled(false);
             Create_Client.pick_date_reg.getDateEditor().setEnabled(false);
+            Create_Client.pick_date_birth.setDateFormatString(Classconfig.getInstance().getdatef());
+            Create_Client.pick_date_reg.setDateFormatString(Classconfig.getInstance().getdatef());
 
             // Conjunto de teclas que queremos que sirvan para pasar el foco 
             // al siguiente campo de texto: ENTER y TAB
@@ -294,6 +276,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             this.Create_Client.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
                     Create_Client.dispose();
+                    new ControllerClient(new table_Client_view(), 0).Start(0);
                 }
             });
 
@@ -306,14 +289,10 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             Create_Client.btnAvatar.setActionCommand("btnAvatar");
             Create_Client.btnAvatar.addActionListener(this);
 
-            
-
             Create_Client.txtDni.setActionCommand("txtDni");
             Create_Client.txtDni.setName("txtDni");
             Create_Client.txtDni.addActionListener(this);
             Create_Client.txtDni.addKeyListener(this);
-
-            
 
             Create_Client.txtEmail.setActionCommand("txtEmail");
             Create_Client.txtEmail.setName("txtEmail");
@@ -361,8 +340,11 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             Edit_Client.setBackground(Color.GRAY);
             Edit_Client.pick_date_birth.getDateEditor().setEnabled(false);
             Edit_Client.pick_date_reg.getDateEditor().setEnabled(false);
+            Edit_Client.pick_date_birth.setDateFormatString(Classconfig.getInstance().getdatef());
+            Edit_Client.pick_date_reg.setDateFormatString(Classconfig.getInstance().getdatef());
+            singleactiondate="edit";
             Edit_Client.setVisible(true);
-            
+
             // Conjunto de teclas que queremos que sirvan para pasar el foco 
             // al siguiente campo de texto: ENTER y TAB
             Set<AWTKeyStroke> teclas = new HashSet<AWTKeyStroke>();
@@ -378,6 +360,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             this.Edit_Client.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
                     Edit_Client.dispose();
+                    new ControllerClient(new table_Client_view(), 0).Start(0);
                 }
             });
 
@@ -415,8 +398,8 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             Edit_Client.txtPassword.addActionListener(this);
             Edit_Client.txtPassword.addKeyListener(this);
 
-            Edit_Client.txtPurchase.setActionCommand("txtSalary_e");
-            Edit_Client.txtPurchase.setName("txtSalary_e");
+            Edit_Client.txtPurchase.setActionCommand("txtPurchase_e");
+            Edit_Client.txtPurchase.setName("txtPurchase_e");
             Edit_Client.txtPurchase.addActionListener(this);
             Edit_Client.txtPurchase.addKeyListener(this);
 
@@ -433,11 +416,12 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             Show_Client.setSize(1000, 700);//ancho x alto
             Show_Client.setResizable(false);
             Show_Client.setVisible(true);
-            
+
             this.Show_Client.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             this.Show_Client.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
                     Show_Client.dispose();
+                    new ControllerClient(new table_Client_view(), 0).Start(0);
                 }
             });
 
@@ -451,11 +435,9 @@ public class ControllerClient implements ActionListener, MouseListener, Property
         boolean ok = false;
         switch (Action_Client.valueOf(ae.getActionCommand())) {
 
-                
             case btnAdd_client:
 
-               
-                 Table_Client.dispose();
+                Table_Client.dispose();
                 new ControllerClient(new create_Client_view(), 1).Start(1);
 
                 break;
@@ -487,7 +469,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
                 new ControllerMain(new menu_Input(), 0).Start(0);
 
                 break;
-                
+
             case btn_Save_file:
 
                 if (Table_Client.combo_file.getSelectedItem().equals("Json")) {
@@ -501,7 +483,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
                 }
 
                 break;
-                
+
             case ANTERIOR:
                 pagina_client.currentPageIndex -= 1;
                 pagina_client.initLinkBox();
@@ -540,7 +522,6 @@ public class ControllerClient implements ActionListener, MouseListener, Property
 
             case btn_Cancel_a:
 
-               
                 Create_Client.dispose();
                 new ControllerClient(new table_Client_view(), 0).Start(0);
 
@@ -563,7 +544,6 @@ public class ControllerClient implements ActionListener, MouseListener, Property
                 break;
             case btn_cancelar_e:
 
-                
                 Edit_Client.dispose();
                 new ControllerClient(new table_Client_view(), 0).Start(0);
 
@@ -587,13 +567,15 @@ public class ControllerClient implements ActionListener, MouseListener, Property
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
 
-       
+        if (singleactiondate.equals("add")) {
+            BLL_Client.Enterdate_birth_client();
+            BLL_Client.Enterdate_reg_client();
+        }
 
-        BLL_Client.Enterdate_birth_client();
-        BLL_Client.Enterdate_reg_client();
-        BLL_Client.Editdate_birth_client();
-        BLL_Client.Editdate_reg_client();
-
+        if (singleactiondate.equals("edit")) {
+            BLL_Client.Editdate_birth_client();
+            BLL_Client.Editdate_reg_client();
+        }
     }
 
     @Override
@@ -625,8 +607,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             case txtUser:
                 // BLL_Admin.Enteruser_admin();
                 break;
-            
-            
+
             case txtEmail_e:
                 // BLL_Admin.Editmail_admin();
                 break;
@@ -681,7 +662,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             case txtUser:
                 BLL_Client.Enteruser_client();
                 break;
-            
+
             case txtEmail_e:
                 BLL_Client.Editmail_client();
                 break;

@@ -20,4 +20,7 @@ public class singletonapp {
     public static ImageIcon good_data = new ImageIcon("src/Appweb/General_tools/Img/Imagen_ok_16x16.png");
     //objeto singleton que contendrá la ventana activa
     public static String singleton_vtna="";
+    public static boolean singlecargar=false;//se utiliza para que solo se cargue la configuracion al inicializar la aplicacion
+    public static String singleactiondate="";//se utiliza para que eñ propertychange de fecha solo actue en la pantalla que este.
+    
 }

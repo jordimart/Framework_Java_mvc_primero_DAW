@@ -204,7 +204,7 @@
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="group_date"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="dd/mm/yyyy"/>
+                    <Property name="text" type="java.lang.String" value="dd/MM/yyyy"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -215,7 +215,7 @@
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="group_date"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="dd-mm-yyyy"/>
+                    <Property name="text" type="java.lang.String" value="dd-MM-yyyy"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -226,7 +226,7 @@
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="group_date"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="yyyy/mm/dd"/>
+                    <Property name="text" type="java.lang.String" value="yyyy/MM/dd"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -237,7 +237,7 @@
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="group_date"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="yyyy-mm-dd"/>
+                    <Property name="text" type="java.lang.String" value="yyyy-MM-dd"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

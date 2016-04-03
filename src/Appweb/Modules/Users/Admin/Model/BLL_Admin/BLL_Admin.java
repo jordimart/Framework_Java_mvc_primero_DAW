@@ -188,7 +188,7 @@ public class BLL_Admin {
 
                 singletonapp.pos = Look_for_dni_admin(dni);
 
-                //Table_Admin.dispose();
+                
                 new ControllerAdmin(new edit_Admin_view(), 3).Start(3);
                 DAO_Admin.Load_edit_admin();
                 ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();

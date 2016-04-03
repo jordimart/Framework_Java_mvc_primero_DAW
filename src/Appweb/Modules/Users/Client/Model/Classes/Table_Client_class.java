@@ -3,13 +3,7 @@ package Appweb.Modules.Users.Client.Model.Classes;
 import Appweb.Classes.Date.ClassDate;
 import static Appweb.Modules.Users.Client.Controller.ControllerClient.combo;
 import Appweb.Modules.Users.Client.Model.Tools.Pager.pagina_client;
-
-
-
-
 import Appweb.Modules.Users.Client.View.table_Client_view;
-
-
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.table.AbstractTableModel;
@@ -69,7 +63,7 @@ public class Table_Client_class extends AbstractTableModel {
                 dev = fila.getAntique_c();
                 break;
             case 5:
-                dev = fila.getPurchase();
+                dev = fila.toPurchase();
                 break;
 
         }

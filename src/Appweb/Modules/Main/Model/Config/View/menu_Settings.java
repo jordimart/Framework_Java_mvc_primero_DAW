@@ -66,16 +66,16 @@ public class menu_Settings extends javax.swing.JFrame {
         panelRectTranslucido1.setBorder(javax.swing.BorderFactory.createTitledBorder("Menu Configuracion"));
 
         group_date.add(chk_day_bar);
-        chk_day_bar.setText("dd/mm/yyyy");
+        chk_day_bar.setText("dd/MM/yyyy");
 
         group_date.add(chk_day_bar2);
-        chk_day_bar2.setText("dd-mm-yyyy");
+        chk_day_bar2.setText("dd-MM-yyyy");
 
         group_date.add(chk_year_bar);
-        chk_year_bar.setText("yyyy/mm/dd");
+        chk_year_bar.setText("yyyy/MM/dd");
 
         group_date.add(chk_year_bar2);
-        chk_year_bar2.setText("yyyy-mm-dd");
+        chk_year_bar2.setText("yyyy-MM-dd");
 
         labelHeader1.setText("Formato fecha");
 

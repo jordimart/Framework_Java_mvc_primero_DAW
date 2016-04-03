@@ -600,11 +600,12 @@ public class DAO_Admin {
             User = create_Admin_view.txtUser.getText();
             Password = new String(password);
             Avatar = create_Admin_view.labAvatar.getToolTipText();
-            Status = create_Admin_view.comboStatus.getSelectedItem().toString();
+            
             // Enter Admin attributes
             date_cont = Enter_date_cntr_admin();
             salary = Float.parseFloat(create_Admin_view.txtSalary.getText());
             activity = Integer.parseInt(create_Admin_view.txtActivity.getText());
+            Status = create_Admin_view.comboStatus.getSelectedItem().toString();
 
             a = new Admin(Dni, Name, Last_name, Mobile, Date_birth, Email, User, Password, Avatar, Status, date_cont, salary, activity);
         } else {
@@ -1114,11 +1115,11 @@ public class DAO_Admin {
 
         Admin a = singleadmin.Admin_array.get(singletonapp.pos);
 
-        Float sal = a.getSalary();
+       
         int act = a.getActivity();
         int age = a.getAge();
         int ant = a.getAntique();
-        Float ben = a.getBenefits();
+        //Float ben = a.getBenefits();
 
         show_Admin_view.txtDni.setText(a.getDni());
         show_Admin_view.txtName.setText(a.getName());
@@ -1132,9 +1133,9 @@ public class DAO_Admin {
         show_Admin_view.txtStatus.setText(a.getStatus());
         show_Admin_view.txtDate_cont.setText(a.getDate_cont().todate());
         show_Admin_view.txtAntique.setText("" + ant);
-        show_Admin_view.txtSalary.setText("" + sal);
+        show_Admin_view.txtSalary.setText(a.toSalary());
         show_Admin_view.txtActivity.setText("" + act);
-        show_Admin_view.txtBenefits.setText("" + ben);
+        show_Admin_view.txtBenefits.setText(a.toBenefits());
         ShowAvatar_admin(a.getAvatar());
 
     }

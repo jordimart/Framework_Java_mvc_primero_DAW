@@ -2,7 +2,6 @@ package Appweb.Modules.Users.User_reg.Model.DAO_User;
 
 import Appweb.Classes.Date.ClassDate;
 import Appweb.General_tools.Date_tools;
-import static Appweb.General_tools.Date_tools.Date_min_max_condition_boolean;
 import Appweb.General_tools.Validate;
 import Appweb.General_tools.singletonapp;
 import static Appweb.General_tools.singletonapp.good_data;
@@ -865,11 +864,8 @@ public class DAO_User {
 
         User_reg a = singleuser_reg.User_reg_array.get(singletonapp.pos);
 
-        //Float sal = a.getSalary();
         int act = a.getActivity_u();
         int age = a.getAge();
-        //int ant = a.getAntique();
-        Float ben = a.getBenefits();
 
         show_User_view.txtDni.setText(a.getDni());
         show_User_view.txtName.setText(a.getName());
@@ -881,11 +877,9 @@ public class DAO_User {
         show_User_view.txtUser.setText(a.getUser());
         show_User_view.txtPassword.setText(a.getPassword());
         show_User_view.txtStatus.setText(a.getStatus());
-        // show_User_view.txtDate_cont.setText(a.getDate_cont().todate());
-        //show_User_view.txtAntique.setText("" + ant);
-        // show_User_view.txtSalary.setText("" + sal);
+
         show_User_view.txtActivity.setText("" + act);
-        show_User_view.txtBenefits.setText("" + ben);
+        show_User_view.txtBenefits.setText(a.toBenefits());
         show_User_view.txtKarma.setText(a.getKarma());
         ShowAvatar(a.getAvatar());
 

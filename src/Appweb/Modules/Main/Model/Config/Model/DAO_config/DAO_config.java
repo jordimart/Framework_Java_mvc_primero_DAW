@@ -41,7 +41,6 @@ import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_three_d;
 import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_two_d;
 import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_year_bar;
 import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_year_bar2;
-import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
 
 
 public class DAO_config {

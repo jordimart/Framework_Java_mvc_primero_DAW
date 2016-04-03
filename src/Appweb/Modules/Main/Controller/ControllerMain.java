@@ -1,5 +1,6 @@
 package Appweb.Modules.Main.Controller;
 
+import static Appweb.General_tools.singletonapp.singlecargar;
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.Model.Config.Model.BLL_config.BLL_config;
@@ -57,6 +58,9 @@ public class ControllerMain implements ActionListener {
         btnTestlogin,
         btnSettings,
         btnExit,
+        btn_English_main,
+        btn_spain_main,
+        btn_valencian_main,
         //botones de menu config//
 
         btn_Accept_Settings,
@@ -81,10 +85,13 @@ public class ControllerMain implements ActionListener {
     public void Start(int i) {
         if (i == 0) {
 
-            auto_open_config_json();
-            BLL_Admin.auto_open_json_admin();
-            BLL_Client.auto_open_json_client();
-            BLL_User.auto_open_json();
+            if (singlecargar == false) {
+                auto_open_config_json();
+                BLL_Admin.auto_open_json_admin();
+                BLL_Client.auto_open_json_client();
+                BLL_User.auto_open_json();
+                singlecargar = true;
+            }
 
             Login.setVisible(true);
             Login.setTitle("Menu Login ");
@@ -110,8 +117,14 @@ public class ControllerMain implements ActionListener {
             Login.btn_Exit.setActionCommand("btnExit");
             Login.btn_Exit.addActionListener(this);
 
-            Login.btn_English_main.setActionCommand("btnLanguage_English");
+            Login.btn_English_main.setActionCommand("btn_English_main");
             Login.btn_English_main.addActionListener(this);
+
+            Login.btn_spain_main.setActionCommand("btn_spain_main");
+            Login.btn_spain_main.addActionListener(this);
+
+            Login.btn_valencian_main.setActionCommand("btn_valencian_main");
+            Login.btn_valencian_main.addActionListener(this);
 
             // Login.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             this.Login.addWindowListener(new WindowAdapter() {
@@ -166,22 +179,22 @@ public class ControllerMain implements ActionListener {
             Dummies.setVisible(true);
             Dummies.setTitle("Menu Test");
             Dummies.setLocationRelativeTo(null);
-            Dummies.setSize(1000, 650);//ancho x alto
+            Dummies.setSize(1100, 900);//ancho x alto
             //this.setResizable(false);
-            Dummies.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            //Dummies.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
             Dummies.btnCreate_dummis_admin.setActionCommand("btnCreate_dummis_admin");
             Dummies.btnCreate_dummis_admin.addActionListener(this);
 
             Dummies.btnDelete_all_admin.setActionCommand("btnDelete_all_admin");
             Dummies.btnDelete_all_admin.addActionListener(this);
-            
+
             Dummies.btnCreate_dummis_client.setActionCommand("btnCreate_dummis_client");
             Dummies.btnCreate_dummis_client.addActionListener(this);
 
             Dummies.btnDelete_all_client.setActionCommand("btnDelete_all_client");
             Dummies.btnDelete_all_client.addActionListener(this);
-            
+
             Dummies.btnCreate_dummis_user.setActionCommand("btnCreate_dummis_user");
             Dummies.btnCreate_dummis_user.addActionListener(this);
 
@@ -245,6 +258,21 @@ public class ControllerMain implements ActionListener {
                 new ControllerMain(new menu_Settings(), 1).Start(1);
 
                 break;
+            case btn_English_main:
+
+                BLL_config.language_english();
+
+                break;
+            case btn_spain_main:
+
+                BLL_config.language_spanish();
+
+                break;
+            case btn_valencian_main:
+
+                BLL_config.language_valencian();
+
+                break;
 
             case btnExit:
 
@@ -298,8 +326,8 @@ public class ControllerMain implements ActionListener {
                 BLL_Dummies.Delete_all_admin_dummies();
 
                 break;
-                
-                case btnCreate_dummis_client:
+
+            case btnCreate_dummis_client:
 
                 BLL_Dummies.create_Dummy_client();
 
@@ -310,8 +338,8 @@ public class ControllerMain implements ActionListener {
                 BLL_Dummies.Delete_all_client_dummies();
 
                 break;
-                
-                case btnCreate_dummis_user:
+
+            case btnCreate_dummis_user:
 
                 BLL_Dummies.create_Dummy_user();
 
