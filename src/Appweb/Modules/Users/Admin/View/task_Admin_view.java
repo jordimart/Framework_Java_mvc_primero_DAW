@@ -33,22 +33,12 @@ public class task_Admin_view extends javax.swing.JFrame {
         lab_Admin_menu.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         btn_ges_users.setText("GESTION USUARIOS");
-        btn_ges_users.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ges_usersActionPerformed(evt);
-            }
-        });
 
         btn_ges_inst.setText("GESTION INSTALACIONES");
 
         btn_ges_averias.setText("GESTION AVERIAS");
 
         btn_Volver.setText("VOLVER");
-        btn_Volver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_VolverActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panelRect1Layout = new javax.swing.GroupLayout(panelRect1);
         panelRect1.setLayout(panelRect1Layout);
@@ -113,14 +103,6 @@ public class task_Admin_view extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_ges_usersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ges_usersActionPerformed
-
-    }//GEN-LAST:event_btn_ges_usersActionPerformed
-
-    private void btn_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VolverActionPerformed
-
-    }//GEN-LAST:event_btn_VolverActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

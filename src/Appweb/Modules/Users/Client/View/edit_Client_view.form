@@ -323,40 +323,16 @@
               </Properties>
             </Component>
             <Component class="org.edisoncor.gui.textField.TextField" name="txtName">
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtNameMouseClicked"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNameKeyReleased"/>
-              </Events>
             </Component>
             <Component class="org.edisoncor.gui.textField.TextField" name="txtLast_name">
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtLast_nameMouseClicked"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtLast_nameKeyReleased"/>
-              </Events>
             </Component>
             <Component class="org.edisoncor.gui.textField.TextField" name="txtMobile">
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtMobileMouseClicked"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtMobileKeyReleased"/>
-              </Events>
             </Component>
             <Component class="org.edisoncor.gui.textField.TextField" name="txtEmail">
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtEmailMouseClicked"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtEmailKeyReleased"/>
-              </Events>
             </Component>
             <Component class="org.edisoncor.gui.textField.TextField" name="txtUser">
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtUserMouseClicked"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtUserKeyReleased"/>
-              </Events>
             </Component>
             <Component class="org.edisoncor.gui.textField.TextField" name="txtPurchase">
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtPurchaseMouseClicked"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPurchaseKeyReleased"/>
-              </Events>
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="pick_date_birth">
               <Properties>
@@ -377,10 +353,6 @@
               </Events>
             </Component>
             <Component class="org.edisoncor.gui.passwordField.PasswordField" name="txtPassword">
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtPasswordMouseClicked"/>
-                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPasswordKeyReleased"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labAvatar">
             </Component>
@@ -423,9 +395,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="A&#xf1;adir Avatar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAvatarActionPerformed"/>
-              </Events>
             </Component>
             <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader14">
               <Properties>
@@ -493,17 +462,11 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cancelar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_CancelarActionPerformed"/>
-              </Events>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonAeroRight" name="btn_Aceptar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Aceptar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_AceptarActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>

@@ -2,8 +2,9 @@ package Appweb.Modules.Users.Client.Model.BLL_Client;
 
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 
-
 import Appweb.General_tools.singletonapp;
+import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
+import Appweb.Modules.Users.Admin.View.table_Admin_view;
 
 import Appweb.Modules.Users.Client.Controller.ControllerClient;
 import static Appweb.Modules.Users.Client.Controller.ControllerClient.Table_Client;
@@ -17,6 +18,8 @@ import Appweb.Modules.Users.Client.View.edit_Client_view;
 import Appweb.Modules.Users.Client.View.show_Client_view;
 import Appweb.Modules.Users.Client.View.table_Client_view;
 import static Appweb.Modules.Users.Client.View.table_Client_view.mini_Table_Client;
+import Appweb.Modules.Users.User_reg.Controller.ControllerUser;
+import Appweb.Modules.Users.User_reg.View.table_User_view;
 import javax.swing.JOptionPane;
 
 /**
@@ -58,8 +61,6 @@ public class BLL_Client {
         DAO_Client.booleanEnterpurchase_client();
     }
 
-    
-
     public static void Enterdate_birth_client() {
         DAO_Client.booleanEnterdate_birth_client();
     }
@@ -82,19 +83,18 @@ public class BLL_Client {
             singleclient.Client_array.add(a);
             DAO_Client.auto_save_json_client();
             ((Table_Client_class) mini_Table_Client.getModel()).cargar();
-                pagina_client.inicializa();
-                pagina_client.initLinkBox();
+            pagina_client.inicializa();
+            pagina_client.initLinkBox();
 
             JOptionPane.showMessageDialog(null, "Usuario creado");
             //create_Admin_view.lab_information_message.setText("Usuario creado");
-           // create_Admin_view.labinfo_img.setIcon(singletonapp.good_data);
+            // create_Admin_view.labinfo_img.setIcon(singletonapp.good_data);
 
             ok = true;
         } else {
 
-           // create_Admin_view.lab_information_message.setText("Revise los datos, no puede guardar si hay algun dato incorrecto");
+            // create_Admin_view.lab_information_message.setText("Revise los datos, no puede guardar si hay algun dato incorrecto");
             //create_Admin_view.labinfo_img.setIcon(singletonapp.wrong_data);
-
             JOptionPane.showMessageDialog(null, "Revise los datos, no puede guardar si hay algun dato incorrecto");
         }
         return ok;
@@ -129,8 +129,6 @@ public class BLL_Client {
     public static void Editsalary_client() {
         DAO_Client.booleanEditpurchase_client();
     }
-
-    
 
     public static void Editdate_birth_client() {
         DAO_Client.booleanEditdate_birth_client();
@@ -305,6 +303,7 @@ public class BLL_Client {
      * posicion.
      *
      * @param dni (string)
+     *
      * @return pos (int posicion en el array)
      */
     public static int Look_for_dni_client(String dni) {
@@ -337,12 +336,41 @@ public class BLL_Client {
 
         DAO_Client.save_txt_client();
     }
+
     public static void auto_open_json_client() {
 
         DAO_Client.auto_open_json_client();
     }
+
     public static void auto_save_json_client() {
 
         DAO_Client.auto_save_json_client();
+    }
+
+    public static void change_table_user() {
+
+        int i = Table_Client.combouser.getSelectedIndex();
+
+        switch (i) {
+
+            case 0:
+                Table_Client.dispose();
+                new ControllerAdmin(new table_Admin_view(), 1).Start(1);
+
+                break;
+
+            case 1:
+                JOptionPane.showMessageDialog(null, "Ya esta gestionando Clientes");
+
+                break;
+
+            case 2:
+
+                Table_Client.dispose();
+                new ControllerUser(new table_User_view(), 0).Start(0);
+
+                break;
+        }
+
     }
 }

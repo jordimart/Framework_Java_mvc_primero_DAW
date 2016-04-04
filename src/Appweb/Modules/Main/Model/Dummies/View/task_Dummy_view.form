@@ -162,9 +162,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Crear"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreate_dummis_adminActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labStatus_dummie_admin">
             </Component>
@@ -172,9 +169,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Borrar todos"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDelete_all_adminActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="comboDummy_admin">
               <Properties>
@@ -238,9 +232,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Entrada Administrador"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEntry_adminActionPerformed"/>
-              </Events>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonRound" name="btnEntry_client">
               <Properties>
@@ -329,9 +320,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Crear"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreate_dummis_clientActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labStatus_dummie_client">
             </Component>
@@ -339,9 +327,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Borrar todos"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDelete_all_clientActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="comboDummy_client">
               <Properties>
@@ -447,9 +432,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Crear"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreate_dummis_userActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labStatus_dummie_user">
             </Component>
@@ -457,9 +439,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Borrar todos"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDelete_all_userActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="comboDummy_user">
               <Properties>

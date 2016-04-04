@@ -62,18 +62,8 @@ public class task_Dummy_view extends javax.swing.JFrame {
         labelRound3.setText("Numero:");
 
         btnCreate_dummis_admin.setText("Crear");
-        btnCreate_dummis_admin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreate_dummis_adminActionPerformed(evt);
-            }
-        });
 
         btnDelete_all_admin.setText("Borrar todos");
-        btnDelete_all_admin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDelete_all_adminActionPerformed(evt);
-            }
-        });
 
         comboDummy_admin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cargar", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "100", "1000", "2000" }));
 
@@ -122,11 +112,6 @@ public class task_Dummy_view extends javax.swing.JFrame {
         );
 
         btnEntry_admin.setText("Entrada Administrador");
-        btnEntry_admin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntry_adminActionPerformed(evt);
-            }
-        });
 
         btnEntry_client.setText("Entrada Cliente");
 
@@ -163,18 +148,8 @@ public class task_Dummy_view extends javax.swing.JFrame {
         labelRound6.setText("Numero:");
 
         btnCreate_dummis_client.setText("Crear");
-        btnCreate_dummis_client.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreate_dummis_clientActionPerformed(evt);
-            }
-        });
 
         btnDelete_all_client.setText("Borrar todos");
-        btnDelete_all_client.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDelete_all_clientActionPerformed(evt);
-            }
-        });
 
         comboDummy_client.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cargar", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "100", "1000", "2000" }));
 
@@ -229,18 +204,8 @@ public class task_Dummy_view extends javax.swing.JFrame {
         labelRound9.setText("Numero:");
 
         btnCreate_dummis_user.setText("Crear");
-        btnCreate_dummis_user.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreate_dummis_userActionPerformed(evt);
-            }
-        });
 
         btnDelete_all_user.setText("Borrar todos");
-        btnDelete_all_user.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDelete_all_userActionPerformed(evt);
-            }
-        });
 
         comboDummy_user.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cargar", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "100", "1000", "2000" }));
 
@@ -336,35 +301,6 @@ public class task_Dummy_view extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnCreate_dummis_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreate_dummis_adminActionPerformed
-      
-      
-    }//GEN-LAST:event_btnCreate_dummis_adminActionPerformed
-
-    private void btnEntry_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntry_adminActionPerformed
-       
-    }//GEN-LAST:event_btnEntry_adminActionPerformed
-
-    private void btnDelete_all_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete_all_adminActionPerformed
-      
-    }//GEN-LAST:event_btnDelete_all_adminActionPerformed
-
-    private void btnCreate_dummis_clientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreate_dummis_clientActionPerformed
-       
-    }//GEN-LAST:event_btnCreate_dummis_clientActionPerformed
-
-    private void btnDelete_all_clientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete_all_clientActionPerformed
-        
-    }//GEN-LAST:event_btnDelete_all_clientActionPerformed
-
-    private void btnCreate_dummis_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreate_dummis_userActionPerformed
-        
-    }//GEN-LAST:event_btnCreate_dummis_userActionPerformed
-
-    private void btnDelete_all_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete_all_userActionPerformed
-       
-    }//GEN-LAST:event_btnDelete_all_userActionPerformed
 
     
 

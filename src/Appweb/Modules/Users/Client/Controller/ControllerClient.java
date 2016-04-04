@@ -113,7 +113,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
         ultimo,
         jComboBox1,//combo filtrar
         Tabla_pager,//mouseclicked
-
+        btnchange_user,
         //botones create Admin//
 
         btn_Aceptar,
@@ -158,7 +158,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             Table_Client.setLocationRelativeTo(null);
             Table_Client.setSize(1700, 1000);//ancho x alto
             Table_Client.setResizable(true);
-            //Table_Client.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            Table_Client.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
             Table_Client.mini_Table_Client.setModel(new Table_Client_class());
             ((Table_Client_class) mini_Table_Client.getModel()).cargar();
@@ -239,6 +239,9 @@ public class ControllerClient implements ActionListener, MouseListener, Property
 
             Table_Client.mini_Table_Client.setName("Tabla_pager");
             Table_Client.mini_Table_Client.addMouseListener(this);
+
+            Table_Client.btnchange_user.setActionCommand("btnchange_user");
+            Table_Client.btnchange_user.addActionListener(this);
         }
 
         if (i == 1) {
@@ -248,7 +251,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             Create_Client.setLocationRelativeTo(null);
             Create_Client.setSize(950, 1030);//ancho x alto
             Create_Client.setResizable(false);
-            singleactiondate="add";
+            singleactiondate = "add";
 
             //Information_dialog.setLocationRelativeTo(null);
             //Information_dialog.setTitle("Information");
@@ -342,7 +345,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             Edit_Client.pick_date_reg.getDateEditor().setEnabled(false);
             Edit_Client.pick_date_birth.setDateFormatString(Classconfig.getInstance().getdatef());
             Edit_Client.pick_date_reg.setDateFormatString(Classconfig.getInstance().getdatef());
-            singleactiondate="edit";
+            singleactiondate = "edit";
             Edit_Client.setVisible(true);
 
             // Conjunto de teclas que queremos que sirvan para pasar el foco 
@@ -453,6 +456,11 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             case btnBorrar_client:
 
                 BLL_Client.delete_select_client();
+                break;
+
+            case btnchange_user:
+
+                BLL_Client.change_table_user();
                 break;
             case btnMostrar_client:
 

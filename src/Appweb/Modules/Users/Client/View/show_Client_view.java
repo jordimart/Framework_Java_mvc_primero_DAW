@@ -138,11 +138,6 @@ public class show_Client_view extends javax.swing.JFrame {
         txtPassword.setPreferredSize(new java.awt.Dimension(65, 22));
 
         btnAcept.setText("Aceptar");
-        btnAcept.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAceptActionPerformed(evt);
-            }
-        });
 
         labelHeader17.setText("TIPO DE CLIENTE");
 
@@ -307,11 +302,6 @@ public class show_Client_view extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptActionPerformed
-
-
-    }//GEN-LAST:event_btnAceptActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

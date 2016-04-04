@@ -126,9 +126,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Entrada Administrador"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Login_AdminActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="Login_User_reg">
               <Properties>
@@ -144,25 +141,16 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salir"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_ExitActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btn_Test">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Entrada Test"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_TestActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnSettings">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Configuracion"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSettingsActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -176,9 +164,6 @@
               <Image iconType="3" name="/Appweb/Modules/Main/img/BanderaValencia.png"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_valencian_mainActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_spain_main">
           <Properties>
@@ -186,9 +171,6 @@
               <Image iconType="3" name="/Appweb/Modules/Main/img/Spain48x48.png"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_spain_mainActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_English_main">
           <Properties>
@@ -199,9 +181,6 @@
               <Dimension value="[48, 48]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_English_mainActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>

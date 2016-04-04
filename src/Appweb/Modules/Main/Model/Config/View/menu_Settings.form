@@ -546,41 +546,26 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Aplicar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_Accept_SettingsActionPerformed"/>
-              </Events>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_Load_Settings">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cargar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_Load_SettingsActionPerformed"/>
-              </Events>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_Return_Settings">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Volver"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_Return_SettingsActionPerformed"/>
-              </Events>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_Save_setting">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Guardar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_Save_settingActionPerformed"/>
-              </Events>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_Show">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Mostrar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_ShowActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>

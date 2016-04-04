@@ -14,6 +14,10 @@ import static Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin_class;
 import static Appweb.Modules.Users.Admin.Model.Classes.Table_Admin_class.datos;
 import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
+import Appweb.Modules.Users.Client.Controller.ControllerClient;
+import Appweb.Modules.Users.Client.View.table_Client_view;
+import Appweb.Modules.Users.User_reg.Controller.ControllerUser;
+import Appweb.Modules.Users.User_reg.View.table_User_view;
 import javax.swing.JOptionPane;
 
 /**
@@ -86,12 +90,10 @@ public class BLL_Admin {
             pagina.initLinkBox();
 
             JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("User_created"));
-            
 
             ok = true;
         } else {
 
-            
             JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Check_data,cannot_save_if_there_is_any_incorrect_data"));
         }
         return ok;
@@ -186,7 +188,6 @@ public class BLL_Admin {
 
                 singletonapp.pos = Look_for_dni_admin(dni);
 
-                
                 new ControllerAdmin(new edit_Admin_view(), 3).Start(3);
                 DAO_Admin.Load_edit_admin();
                 ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
@@ -304,6 +305,7 @@ public class BLL_Admin {
      * posicion.
      *
      * @param dni (string)
+     *
      * @return pos (int posicion en el array)
      */
     public static int Look_for_dni_admin(String dni) {
@@ -345,5 +347,32 @@ public class BLL_Admin {
     public static void auto_save_json_admin() {
 
         DAO_Admin.auto_save_json_admin();
+    }
+
+    public static void change_table_user() {
+
+        int i = Table_Admin.combouser.getSelectedIndex();
+
+        switch (i) {
+
+            case 0:
+
+                JOptionPane.showMessageDialog(null, "Ya esta gestionando administradores");
+                break;
+
+            case 1:
+
+                Table_Admin.dispose();
+                new ControllerClient(new table_Client_view(), 0).Start(0);
+                break;
+
+            case 2:
+
+                Table_Admin.dispose();
+                new ControllerUser(new table_User_view(), 0).Start(0);
+
+                break;
+        }
+
     }
 }

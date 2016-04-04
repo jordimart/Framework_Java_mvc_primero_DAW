@@ -117,9 +117,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="GESTION USUARIOS"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_ges_usersActionPerformed"/>
-              </Events>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_ges_inst">
               <Properties>
@@ -135,9 +132,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="VOLVER"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_VolverActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>

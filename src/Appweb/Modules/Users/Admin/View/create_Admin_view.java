@@ -143,83 +143,6 @@ public class create_Admin_view extends javax.swing.JFrame {
 
         labelHeader13.setText("Avatar:");
 
-        txtName.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtNameMouseClicked(evt);
-            }
-        });
-        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtNameKeyReleased(evt);
-            }
-        });
-
-        txtLast_name.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtLast_nameMouseClicked(evt);
-            }
-        });
-        txtLast_name.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtLast_nameKeyReleased(evt);
-            }
-        });
-
-        txtMobile.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtMobileMouseClicked(evt);
-            }
-        });
-        txtMobile.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtMobileKeyReleased(evt);
-            }
-        });
-
-        txtEmail.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtEmailMouseClicked(evt);
-            }
-        });
-        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtEmailKeyReleased(evt);
-            }
-        });
-
-        txtUser.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtUserMouseClicked(evt);
-            }
-        });
-        txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtUserKeyReleased(evt);
-            }
-        });
-
-        txtSalary.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtSalaryMouseClicked(evt);
-            }
-        });
-        txtSalary.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtSalaryKeyReleased(evt);
-            }
-        });
-
-        txtActivity.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtActivityMouseClicked(evt);
-            }
-        });
-        txtActivity.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtActivityKeyReleased(evt);
-            }
-        });
-
         pick_date_birth.setToolTipText("Para modificar fecha pulse el boton");
         pick_date_birth.setDateFormatString("dd/MM/yyyy");
         pick_date_birth.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -236,25 +159,9 @@ public class create_Admin_view extends javax.swing.JFrame {
             }
         });
 
-        txtPassword.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtPasswordMouseClicked(evt);
-            }
-        });
-        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtPasswordKeyReleased(evt);
-            }
-        });
-
         comboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Conected", "Disconected" }));
 
         btnAvatar.setText("Añadir Avatar");
-        btnAvatar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAvatarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panelRect1Layout = new javax.swing.GroupLayout(panelRect1);
         panelRect1.setLayout(panelRect1Layout);
@@ -386,18 +293,8 @@ public class create_Admin_view extends javax.swing.JFrame {
         );
 
         btn_Cancel.setText("Cancelar");
-        btn_Cancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_CancelActionPerformed(evt);
-            }
-        });
 
         btn_Aceptar.setText("Aceptar");
-        btn_Aceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_AceptarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panelRect2Layout = new javax.swing.GroupLayout(panelRect2);
         panelRect2.setLayout(panelRect2Layout);
@@ -473,84 +370,6 @@ public class create_Admin_view extends javax.swing.JFrame {
     private void pick_date_contrPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_pick_date_contrPropertyChange
        
     }//GEN-LAST:event_pick_date_contrPropertyChange
-
-    private void txtNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNameMouseClicked
-       
-    }//GEN-LAST:event_txtNameMouseClicked
-
-    private void txtNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyReleased
-        
-    }//GEN-LAST:event_txtNameKeyReleased
-
-    private void txtLast_nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLast_nameMouseClicked
-       
-    }//GEN-LAST:event_txtLast_nameMouseClicked
-
-    private void txtLast_nameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLast_nameKeyReleased
-       
-    }//GEN-LAST:event_txtLast_nameKeyReleased
-
-    private void txtMobileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMobileMouseClicked
-       
-    }//GEN-LAST:event_txtMobileMouseClicked
-
-    private void txtMobileKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMobileKeyReleased
-       
-    }//GEN-LAST:event_txtMobileKeyReleased
-
-    private void txtEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEmailMouseClicked
-        
-    }//GEN-LAST:event_txtEmailMouseClicked
-
-    private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
-        
-    }//GEN-LAST:event_txtEmailKeyReleased
-
-    private void txtUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUserMouseClicked
-        
-    }//GEN-LAST:event_txtUserMouseClicked
-
-    private void txtUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyReleased
-       
-    }//GEN-LAST:event_txtUserKeyReleased
-
-    private void txtSalaryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSalaryMouseClicked
-       
-    }//GEN-LAST:event_txtSalaryMouseClicked
-
-    private void txtSalaryKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSalaryKeyReleased
-        
-    }//GEN-LAST:event_txtSalaryKeyReleased
-
-    private void txtActivityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtActivityMouseClicked
-        
-    }//GEN-LAST:event_txtActivityMouseClicked
-
-    private void txtActivityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtActivityKeyReleased
-       
-    }//GEN-LAST:event_txtActivityKeyReleased
-
-    private void txtPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPasswordMouseClicked
-       
-    }//GEN-LAST:event_txtPasswordMouseClicked
-
-    private void txtPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyReleased
-        
-    }//GEN-LAST:event_txtPasswordKeyReleased
-
-    private void btnAvatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvatarActionPerformed
-       
-    }//GEN-LAST:event_btnAvatarActionPerformed
-
-    private void btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelActionPerformed
-
-        
-    }//GEN-LAST:event_btn_CancelActionPerformed
-
-    private void btn_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AceptarActionPerformed
-
-       
-    }//GEN-LAST:event_btn_AceptarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDialog Information_dialog;

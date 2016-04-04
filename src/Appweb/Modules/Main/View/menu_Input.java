@@ -34,36 +34,16 @@ public class menu_Input extends javax.swing.JFrame {
         panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/General_tools/Img/Fondo_claro_1.jpg"))); // NOI18N
 
         Login_Admin.setText("Entrada Administrador");
-        Login_Admin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Login_AdminActionPerformed(evt);
-            }
-        });
 
         Login_User_reg.setText("Entrada User_reg");
 
         Login_Client.setText("Entrada Cliente");
 
         btn_Exit.setText("Salir");
-        btn_Exit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ExitActionPerformed(evt);
-            }
-        });
 
         btn_Test.setText("Entrada Test");
-        btn_Test.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_TestActionPerformed(evt);
-            }
-        });
 
         btnSettings.setText("Configuracion");
-        btnSettings.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSettingsActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panelNice1Layout = new javax.swing.GroupLayout(panelNice1);
         panelNice1.setLayout(panelNice1Layout);
@@ -99,26 +79,11 @@ public class menu_Input extends javax.swing.JFrame {
         );
 
         btn_valencian_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Main/img/BanderaValencia.png"))); // NOI18N
-        btn_valencian_main.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_valencian_mainActionPerformed(evt);
-            }
-        });
 
         btn_spain_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Main/img/Spain48x48.png"))); // NOI18N
-        btn_spain_main.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_spain_mainActionPerformed(evt);
-            }
-        });
 
         btn_English_main.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/Modules/Main/img/United Kingdom48x48.png"))); // NOI18N
         btn_English_main.setPreferredSize(new java.awt.Dimension(48, 48));
-        btn_English_main.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_English_mainActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
         panelImage1.setLayout(panelImage1Layout);
@@ -167,39 +132,6 @@ public class menu_Input extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void Login_AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login_AdminActionPerformed
-
-
-    }//GEN-LAST:event_Login_AdminActionPerformed
-
-    private void btn_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ExitActionPerformed
-
-
-    }//GEN-LAST:event_btn_ExitActionPerformed
-
-    private void btn_English_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_English_mainActionPerformed
-
-
-    }//GEN-LAST:event_btn_English_mainActionPerformed
-
-    private void btn_spain_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_spain_mainActionPerformed
-
-
-    }//GEN-LAST:event_btn_spain_mainActionPerformed
-
-    private void btn_valencian_mainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_valencian_mainActionPerformed
-
-
-    }//GEN-LAST:event_btn_valencian_mainActionPerformed
-
-    private void btn_TestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TestActionPerformed
-
-    }//GEN-LAST:event_btn_TestActionPerformed
-
-    private void btnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingsActionPerformed
-
-    }//GEN-LAST:event_btnSettingsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,4 +1,3 @@
-
 package Appweb.Modules.Main.Model.Config.View;
 
 /**
@@ -7,17 +6,11 @@ package Appweb.Modules.Main.Model.Config.View;
  */
 public class menu_Settings extends javax.swing.JFrame {
 
-    
     public menu_Settings() {
         initComponents();
-        
-       
-    }
-    
-    
-    
 
-    
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -254,39 +247,14 @@ public class menu_Settings extends javax.swing.JFrame {
         );
 
         btn_Accept_Settings.setText("Aplicar");
-        btn_Accept_Settings.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_Accept_SettingsActionPerformed(evt);
-            }
-        });
 
         btn_Load_Settings.setText("Cargar");
-        btn_Load_Settings.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_Load_SettingsActionPerformed(evt);
-            }
-        });
 
         btn_Return_Settings.setText("Volver");
-        btn_Return_Settings.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_Return_SettingsActionPerformed(evt);
-            }
-        });
 
         btn_Save_setting.setText("Guardar");
-        btn_Save_setting.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_Save_settingActionPerformed(evt);
-            }
-        });
 
         btn_Show.setText("Mostrar");
-        btn_Show.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ShowActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panelRectTranslucido1Layout = new javax.swing.GroupLayout(panelRectTranslucido1);
         panelRectTranslucido1.setLayout(panelRectTranslucido1Layout);
@@ -369,28 +337,6 @@ public class menu_Settings extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_Return_SettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Return_SettingsActionPerformed
-
-       
-    }//GEN-LAST:event_btn_Return_SettingsActionPerformed
-
-    private void btn_Accept_SettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Accept_SettingsActionPerformed
-
-       
-    }//GEN-LAST:event_btn_Accept_SettingsActionPerformed
-
-    private void btn_Load_SettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Load_SettingsActionPerformed
-      
-    }//GEN-LAST:event_btn_Load_SettingsActionPerformed
-
-    private void btn_Save_settingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Save_settingActionPerformed
-     
-    }//GEN-LAST:event_btn_Save_settingActionPerformed
-
-    private void btn_ShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ShowActionPerformed
-        
-    }//GEN-LAST:event_btn_ShowActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

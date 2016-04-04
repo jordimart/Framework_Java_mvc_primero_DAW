@@ -125,6 +125,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
         ultimo,
         jComboBox1,//combo filtrar
         Tabla_pager,//mouseclicked
+        btnchange_user,
 
         //botones create Admin//
 
@@ -211,7 +212,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             Table_Admin.setLocationRelativeTo(null);
             Table_Admin.setSize(1700, 1000);//ancho x alto
             Table_Admin.setResizable(true);
-            //Table_Admin.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            Table_Admin.setExtendedState(JFrame.MAXIMIZED_BOTH);
             
              //traduccion de botones
             Table_Admin.btnEditar_admin.setText(Lang.getInstance().getProperty("Edit"));
@@ -304,7 +305,11 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
 
             Table_Admin.mini_Table_Admin.setName("Tabla_pager");
             Table_Admin.mini_Table_Admin.addMouseListener(this);
-        }
+            
+            Table_Admin.btnchange_user.setActionCommand("btnchange_user");
+            Table_Admin.btnchange_user.addActionListener(this);
+            
+                }
 
         if (i == 2) {
 
@@ -585,6 +590,12 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             case btn_ges_averias:
                 //nulo
                 break;
+                
+                case btnchange_user:
+                    
+                BLL_Admin.change_table_user();
+                
+                break;
             case btnAdd_admin:
 
                 Table_Admin.dispose();
@@ -657,6 +668,8 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
                 pagina.initLinkBox();
 
                 break;
+                
+           
             case btn_Aceptar:
 
                 ok = BLL_Admin.Enter_new_admin();

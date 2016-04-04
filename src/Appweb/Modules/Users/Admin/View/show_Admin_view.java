@@ -136,11 +136,6 @@ public class show_Admin_view extends javax.swing.JFrame {
         txtPassword.setPreferredSize(new java.awt.Dimension(65, 22));
 
         btnAcept.setText("Aceptar");
-        btnAcept.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAceptActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panelRect1Layout = new javax.swing.GroupLayout(panelRect1);
         panelRect1.setLayout(panelRect1Layout);
@@ -293,10 +288,6 @@ public class show_Admin_view extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptActionPerformed
-
-    }//GEN-LAST:event_btnAceptActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

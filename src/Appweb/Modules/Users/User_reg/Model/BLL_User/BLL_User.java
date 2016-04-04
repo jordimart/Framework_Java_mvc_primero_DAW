@@ -2,7 +2,11 @@ package Appweb.Modules.Users.User_reg.Model.BLL_User;
 
 import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
+import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
 import static Appweb.Modules.Users.Admin.Model.Classes.Table_Admin_class.datos;
+import Appweb.Modules.Users.Admin.View.table_Admin_view;
+import Appweb.Modules.Users.Client.Controller.ControllerClient;
+import Appweb.Modules.Users.Client.View.table_Client_view;
 import Appweb.Modules.Users.User_reg.Controller.ControllerUser;
 import static Appweb.Modules.Users.User_reg.Controller.ControllerUser.Table_User;
 import Appweb.Modules.Users.User_reg.Model.Classes.Table_User_reg;
@@ -294,6 +298,7 @@ public class BLL_User {
      * posicion.
      *
      * @param dni (string)
+     *
      * @return pos (int posicion en el array)
      */
     public static int Look_for_dni_user(String dni) {
@@ -335,5 +340,32 @@ public class BLL_User {
     public static void auto_save_json() {
 
         DAO_User.auto_save_json();
+    }
+
+    public static void change_table_user() {
+
+        int i = Table_User.combouser.getSelectedIndex();
+
+        switch (i) {
+
+            case 0:
+                Table_User.dispose();
+                new ControllerAdmin(new table_Admin_view(), 1).Start(1);
+
+                break;
+
+            case 1:
+                Table_User.dispose();
+                new ControllerClient(new table_Client_view(), 0).Start(0);
+
+                break;
+
+            case 2:
+
+                JOptionPane.showMessageDialog(null, "Ya esta gestionando Usuarios registrados");
+
+                break;
+        }
+
     }
 }

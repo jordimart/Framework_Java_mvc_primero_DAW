@@ -107,6 +107,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
         ultimo,
         jComboBox1,//combo filtrar
         Tabla_pager,//mouseclicked
+        btnchange_user,
 
         //botones create User registered//
 
@@ -150,7 +151,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             Table_User.setLocationRelativeTo(null);
             Table_User.setSize(1700, 1000);//ancho x alto
             Table_User.setResizable(true);
-            //Table_User.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            Table_User.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
             Table_User.mini_Table_User.setModel(new Table_User_reg());
             ((Table_User_reg) mini_Table_User.getModel()).cargar();
@@ -229,6 +230,9 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
 
             Table_User.mini_Table_User.setName("Tabla_pager");
             Table_User.mini_Table_User.addMouseListener(this);
+            
+            Table_User.btnchange_user.setActionCommand("btnchange_user");
+            Table_User.btnchange_user.addActionListener(this);
         }
 
         if (i == 1) {
@@ -439,6 +443,11 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             case btnBorrar:
 
                 BLL_User.delete_select();
+                break;
+                
+                case btnchange_user:
+
+                BLL_User.change_table_user();
                 break;
             case btnMostrar:
 
