@@ -1,5 +1,6 @@
 package Appweb.Modules.Main.Model.Config.Model.DAO_config;
 
+import static Appweb.Modules.Main.Controller.ControllerMain.Settings;
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -544,90 +545,88 @@ public class DAO_config {
                     UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
 
                     break;
-                    
-                    case "S Blackmoon":
+
+                case "S Blackmoon":
 
                     Classconfig.getInstance().setTheme("S Blackmoon");
 
                     UIManager.setLookAndFeel(new SyntheticaBlackMoonLookAndFeel());
 
                     break;
-                    
-                    case "S Blueice":
+
+                case "S Blueice":
 
                     Classconfig.getInstance().setTheme("S Blueice");
 
                     UIManager.setLookAndFeel(new SyntheticaBlueIceLookAndFeel());
 
                     break;
-                    
-                    case "S Bluemoon":
+
+                case "S Bluemoon":
 
                     Classconfig.getInstance().setTheme("S Bluemoon");
 
                     UIManager.setLookAndFeel(new SyntheticaBlueMoonLookAndFeel());
 
                     break;
-                    
-                    case "S Bluesteel":
+
+                case "S Bluesteel":
 
                     Classconfig.getInstance().setTheme("S Bluesteel");
 
                     UIManager.setLookAndFeel(new SyntheticaBlueSteelLookAndFeel());
 
                     break;
-                    
-                   
-                    
-                    case "S Greendream":
+
+                case "S Greendream":
 
                     Classconfig.getInstance().setTheme("S Greendream");
 
                     UIManager.setLookAndFeel(new SyntheticaGreenDreamLookAndFeel());
 
                     break;
-                    
-                    case "S Mauvemetallic":
+
+                case "S Mauvemetallic":
 
                     Classconfig.getInstance().setTheme("S Mauvemetallic");
 
                     UIManager.setLookAndFeel(new SyntheticaMauveMetallicLookAndFeel());
 
                     break;
-                    
-                    case "S Orangemetallic":
+
+                case "S Orangemetallic":
 
                     Classconfig.getInstance().setTheme("S Orangemetallic");
 
                     UIManager.setLookAndFeel(new SyntheticaOrangeMetallicLookAndFeel());
 
                     break;
-                    
-                    case "S Silvermoon":
+
+                case "S Silvermoon":
 
                     Classconfig.getInstance().setTheme("S Silvermoon");
 
                     UIManager.setLookAndFeel(new SyntheticaSilverMoonLookAndFeel());
 
                     break;
-                    
-                    case "S Simple2d":
+
+                case "S Simple2d":
 
                     Classconfig.getInstance().setTheme("S Simple2d");
 
                     UIManager.setLookAndFeel(new SyntheticaSimple2DLookAndFeel());
 
                     break;
-                    
-                    case "S Skymetallic":
+
+                case "S Skymetallic":
 
                     Classconfig.getInstance().setTheme("S Skymetallic");
 
                     UIManager.setLookAndFeel(new SyntheticaSkyMetallicLookAndFeel());
 
                     break;
-                    
-                    case "S Whitevision":
+
+                case "S Whitevision":
 
                     Classconfig.getInstance().setTheme("S Whitevision");
 
@@ -656,6 +655,73 @@ public class DAO_config {
 
     public static void language_valencian() {
         Classconfig.getInstance().setLanguage("valencia");
+
+    }
+
+    public static void charge_config() {
+
+        String d = Classconfig.getInstance().getdatef();
+        String dec = Classconfig.getInstance().getnum_dec();
+        String c = Classconfig.getInstance().getCurrency();
+        String l = Classconfig.getInstance().getLanguage();
+
+        switch (d) {
+
+            case "dd/MM/yyyy":
+                Settings.chk_day_bar.setSelected(true);
+                break;
+            case "dd-MM-yyyy":
+                Settings.chk_day_bar2.setSelected(true);
+                break;
+            case "yyyy/MM/dd":
+                Settings.chk_year_bar.setSelected(true);
+                break;
+            case "yyyy-MM-dd":
+                Settings.chk_year_bar2.setSelected(true);
+                break;
+        }
+
+        switch (dec) {
+
+            case "0.0":
+                Settings.chk_one_d.setSelected(true);
+                break;
+            case "0.00":
+                Settings.chk_two_d.setSelected(true);
+                break;
+            case "0.000":
+                Settings.chk_three_d.setSelected(true);
+                break;
+
+        }
+
+        switch (c) {
+
+            case "euro":
+                Settings.chk_curr_euro.setSelected(true);
+                break;
+            case "dolar":
+                Settings.chk_curr_dollar.setSelected(true);
+                break;
+            case "pound":
+                Settings.chk_curr_pound.setSelected(true);
+                break;
+
+        }
+
+        switch (l) {
+
+            case "english":
+                Settings.chk_lang_en.setSelected(true);
+                break;
+            case "español":
+                Settings.chk_lang_es.setSelected(true);
+                break;
+            case "valencia":
+                Settings.chk_lang_val.setSelected(true);
+                break;
+
+        }
 
     }
 }

@@ -61,4 +61,9 @@ public class BLL_config {
         DAO_config.language_valencian();
 
     }
+    
+    public static void charge_config(){
+        
+        DAO_config.charge_config();
+    }
 }

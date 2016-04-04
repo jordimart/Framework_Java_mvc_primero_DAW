@@ -124,7 +124,7 @@ public class Date_tools {
 
                 valok = false;
                 // calculamos la edad
-                singletonapp.passdate = 0;
+                singletonapp.passdate2 = 0;
 
             } else if (d == null) {
                 valbirth = false;
@@ -135,19 +135,19 @@ public class Date_tools {
             }
 
             if (d.Date_compare_system_date() == 2) {
-                singletonapp.passdate = 1;
+                singletonapp.passdate2 = 1;
                 valcomps = false;
 
             }
             if (d.Date_compare_two_dates(c) == 0) {
-                singletonapp.passdate = 2;
+                singletonapp.passdate2 = 2;
                 valcomp = false;
 
             }
             if (age < min) {
 
                 valadult = false;
-                singletonapp.passdate = 3;
+                singletonapp.passdate2 = 3;
 
             }
 
@@ -163,7 +163,7 @@ public class Date_tools {
         else {
 
             val1 = false;
-            singletonapp.passdate = 4;
+            singletonapp.passdate2 = 4;
 
         }
 

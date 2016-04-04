@@ -135,9 +135,9 @@ public class BLL_Dummies {
      */
     public static void Delete_all_client_dummies() {
 
-        if (singleadmin.Admin_array.size() == 0) {
+        if (singleclient.Client_array.size() == 0) {
 
-            task_Dummy_view.labStatus_dummie_admin.setText(Lang.getInstance().getProperty("You_can_not_erase_because_no_elements"));
+            task_Dummy_view.labStatus_dummie_client.setText(Lang.getInstance().getProperty("You_can_not_erase_because_no_elements"));
 
         } else {
 

@@ -6,8 +6,10 @@ import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.Model.Dummies.View.task_Dummy_view;
 import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
+import Appweb.Modules.Users.Client.Model.BLL_Client.BLL_Client;
 import Appweb.Modules.Users.Client.Model.Classes.Client;
 import Appweb.Modules.Users.Client.Model.Classes.singleclient;
+import Appweb.Modules.Users.User_reg.Model.BLL_User.BLL_User;
 import Appweb.Modules.Users.User_reg.Model.Classes.User_reg;
 import Appweb.Modules.Users.User_reg.Model.Classes.singleuser_reg;
 import com.google.gson.Gson;
@@ -39,6 +41,8 @@ public class DAO_Dummies {
         int num = 0;
         int rest = 0;
         int posa = 0;
+        int posc = 0;
+        int posu = 0;
         char pass = ' ';
         boolean ok = true;
 
@@ -62,10 +66,10 @@ public class DAO_Dummies {
             s = s + pass;
 
             posa = BLL_Admin.Look_for_dni_admin(aux);
-            //posc = Look_for_dni.Look_for_dni_client(aux);
-            //posu = Look_for_dni.Look_for_dni_user_reg(aux);
+            posc = BLL_Client.Look_for_dni_client(aux);
+            posu = BLL_User.Look_for_dni_user(aux);
 
-            if ((posa != -1)) {
+            if ((posa != -1 || posc != -1 || posu != -1)) {
 
                 ok = false;
 
@@ -613,7 +617,7 @@ public class DAO_Dummies {
         User_reg a = null;
 
         try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/Model/files/Client_files/dummyuseregusers.json";
+            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/Model/files/User_reg_files/dummyuseregusers.json";
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -402,19 +402,19 @@ public class DAO_Client {
             ok = Date_registered_boolean(contr, s, 16);
 
             if (ok == false) {
-                if (singletonapp.passdate == 4) {
+                if (singletonapp.passdate2 == 4) {
                     create_Client_view.labdate_reg.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_format_data_correctly"));
                 }
-                if (singletonapp.passdate == 0) {
+                if (singletonapp.passdate2 == 0) {
                     create_Client_view.labdate_reg.setToolTipText(Lang.getInstance().getProperty("This_date_does_not_exist_in_the_calendar"));
                 }
-                if (singletonapp.passdate == 1) {
+                if (singletonapp.passdate2 == 1) {
                     create_Client_view.labdate_reg.setToolTipText(Lang.getInstance().getProperty("The_date_may_not_be_later_than_the_system"));
                 }
-                if (singletonapp.passdate == 2) {
+                if (singletonapp.passdate2 == 2) {
                     create_Client_view.labdate_reg.setToolTipText(Lang.getInstance().getProperty("The_record_date_may_not_be_earlier_wing_of_birth"));
                 }
-                if (singletonapp.passdate == 3) {
+                if (singletonapp.passdate2 == 3) {
                     create_Client_view.labdate_reg.setToolTipText(Lang.getInstance().getProperty("On_this_date_you_were_not_of_legal_age"));
                 }
 

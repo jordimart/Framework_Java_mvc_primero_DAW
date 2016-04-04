@@ -154,10 +154,9 @@ public class ControllerMain implements ActionListener {
             Settings.setLocationRelativeTo(null);
             Settings.setSize(980, 800);//ancho x alto
             Settings.setResizable(false);
-            Settings.chk_day_bar.setSelected(true);
-            Settings.chk_one_d.setSelected(true);
-            Settings.chk_curr_euro.setSelected(true);
-            Settings.chk_lang_en.setSelected(true);
+            
+            BLL_config.charge_config();
+            
             
            
 
