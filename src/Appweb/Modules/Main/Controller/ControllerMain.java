@@ -85,6 +85,7 @@ public class ControllerMain implements ActionListener {
     public void Start(int i) {
         if (i == 0) {
 
+            //Funcion para que solo cargue archivos la primera vez
             if (singlecargar == false) {
                 auto_open_config_json();
                 BLL_Admin.auto_open_json_admin();
@@ -92,13 +93,22 @@ public class ControllerMain implements ActionListener {
                 BLL_User.auto_open_json();
                 singlecargar = true;
             }
-
+            //Configuracion manual de la vista
             Login.setVisible(true);
             Login.setTitle("Menu Login ");
             Login.setLocationRelativeTo(null);
             Login.setSize(1000, 650);//ancho x alto
             Login.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
+            //Traduccion de botones y labels
+            Login.Login_Admin.setText(Lang.getInstance().getProperty("Login_Administrator"));
+            Login.Login_User_reg.setText(Lang.getInstance().getProperty("Login_User_reg"));
+            Login.Login_Client.setText(Lang.getInstance().getProperty("Login_Client"));
+            Login.btn_Test.setText(Lang.getInstance().getProperty("Login_Test"));
+            Login.btnSettings.setText(Lang.getInstance().getProperty("Configuration"));
+            Login.btn_Exit.setText(Lang.getInstance().getProperty("Exit"));
+
+            //botones de accion
             Login.Login_Admin.setActionCommand("btnAdminlogin");
             Login.Login_Admin.addActionListener(this);
 
@@ -138,6 +148,7 @@ public class ControllerMain implements ActionListener {
         }
         if (i == 1) {
 
+            //Configuracion manual de la vista
             Settings.setVisible(true);
             Settings.setTitle("Menu Settings");
             Settings.setLocationRelativeTo(null);
@@ -147,7 +158,22 @@ public class ControllerMain implements ActionListener {
             Settings.chk_one_d.setSelected(true);
             Settings.chk_curr_euro.setSelected(true);
             Settings.chk_lang_en.setSelected(true);
+            
+           
 
+            //Traduccion de botones y labels
+            Settings.labelHeader1.setText(Lang.getInstance().getProperty("Date_format"));
+            Settings.labelHeader2.setText(Lang.getInstance().getProperty("Number_of_decimals"));
+            Settings.labelHeader4.setText(Lang.getInstance().getProperty("Language"));
+            Settings.labelHeader5.setText(Lang.getInstance().getProperty("Theme"));
+            Settings.labelHeader3.setText(Lang.getInstance().getProperty("Currency"));
+            Settings.btn_Accept_Settings.setText(Lang.getInstance().getProperty("Apply"));
+            Settings.btn_Load_Settings.setText(Lang.getInstance().getProperty("Load"));
+            Settings.btn_Return_Settings.setText(Lang.getInstance().getProperty("Back"));
+            Settings.btn_Save_setting.setText(Lang.getInstance().getProperty("Save"));
+            Settings.btn_Show.setText(Lang.getInstance().getProperty("Show"));
+
+            //botones de accion
             Settings.btn_Accept_Settings.setActionCommand("btn_Accept_Settings");
             Settings.btn_Accept_Settings.addActionListener(this);
 
@@ -176,6 +202,7 @@ public class ControllerMain implements ActionListener {
 
         if (i == 2) {
 
+            //Configuracion manual de la vista
             Dummies.setVisible(true);
             Dummies.setTitle("Menu Test");
             Dummies.setLocationRelativeTo(null);
@@ -183,6 +210,30 @@ public class ControllerMain implements ActionListener {
             //this.setResizable(false);
             //Dummies.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
+            //Traduccion de botones y labels
+            Dummies.labelRound1.setText(Lang.getInstance().getProperty("Dummies_users"));
+            Dummies.labelRound2.setText(Lang.getInstance().getProperty("Admin"));
+            Dummies.labelRound3.setText(Lang.getInstance().getProperty("Number"));
+            Dummies.btnCreate_dummis_admin.setText(Lang.getInstance().getProperty("Create"));
+            Dummies.btnDelete_all_admin.setText(Lang.getInstance().getProperty("Delete_all"));
+
+            Dummies.labelRound4.setText(Lang.getInstance().getProperty("Dummies_users"));
+            Dummies.labelRound5.setText(Lang.getInstance().getProperty("Client"));
+            Dummies.labelRound6.setText(Lang.getInstance().getProperty("Number"));
+            Dummies.btnCreate_dummis_client.setText(Lang.getInstance().getProperty("Create"));
+            Dummies.btnDelete_all_client.setText(Lang.getInstance().getProperty("Delete_all"));
+
+            Dummies.labelRound7.setText(Lang.getInstance().getProperty("Dummies_users"));
+            Dummies.labelRound8.setText(Lang.getInstance().getProperty("Registered_User"));
+            Dummies.labelRound9.setText(Lang.getInstance().getProperty("Number"));
+            Dummies.btnCreate_dummis_user.setText(Lang.getInstance().getProperty("Create"));
+            Dummies.btnDelete_all_user.setText(Lang.getInstance().getProperty("Delete_all"));
+
+            Dummies.btnEntry_admin.setText(Lang.getInstance().getProperty("Login_Administrator"));
+            Dummies.btnEntry_client.setText(Lang.getInstance().getProperty("Login_Client"));
+            Dummies.btnEntry_user_reg.setText(Lang.getInstance().getProperty("Login_User_reg"));
+
+            //botones de accion
             Dummies.btnCreate_dummis_admin.setActionCommand("btnCreate_dummis_admin");
             Dummies.btnCreate_dummis_admin.addActionListener(this);
 
@@ -261,16 +312,23 @@ public class ControllerMain implements ActionListener {
             case btn_English_main:
 
                 BLL_config.language_english();
+                Login.dispose();
+                 new ControllerMain(new menu_Input(),0).Start(0);
 
                 break;
             case btn_spain_main:
 
                 BLL_config.language_spanish();
+                Login.dispose();
+                 new ControllerMain(new menu_Input(),0).Start(0);
+                
 
                 break;
             case btn_valencian_main:
 
                 BLL_config.language_valencian();
+                Login.dispose();
+                 new ControllerMain(new menu_Input(),0).Start(0);
 
                 break;
 

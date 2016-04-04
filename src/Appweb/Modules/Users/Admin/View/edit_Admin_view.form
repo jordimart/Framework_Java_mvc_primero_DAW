@@ -442,7 +442,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btn_Cancelar" alignment="1" min="-2" pref="118" max="-2" attributes="0"/>
+                          <Component id="btn_Cancel" alignment="1" min="-2" pref="118" max="-2" attributes="0"/>
                           <Component id="btn_Aceptar" alignment="1" min="-2" pref="118" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="32" max="32767" attributes="0"/>
@@ -455,19 +455,19 @@
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Component id="btn_Aceptar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btn_Cancelar" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_Cancel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="36" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="org.edisoncor.gui.button.ButtonAeroRight" name="btn_Cancelar">
+            <Component class="org.edisoncor.gui.button.ButtonAeroRight" name="btn_Cancel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cancelar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_CancelarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_CancelActionPerformed"/>
               </Events>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonAeroRight" name="btn_Aceptar">

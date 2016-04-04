@@ -73,20 +73,18 @@ public class BLL_Dummies {
 
             task_Dummy_view.labStatus_dummie_admin.setText(Lang.getInstance().getProperty("You_can_not_erase_because_no_elements"));
 
-            
         } else {
 
             // delete all objects to the
             // arraylist
             singleadmin.Admin_array.clear();
             task_Dummy_view.labStatus_dummie_admin.setText(Lang.getInstance().getProperty("All_elements_have_been_deleted"));
-            
+
         }
 
     }
-    
-    
-     public static void create_Dummy_client() {
+
+    public static void create_Dummy_client() {
         Client a = null;
         String combo = "";
         boolean pass = false;
@@ -141,18 +139,17 @@ public class BLL_Dummies {
 
             task_Dummy_view.labStatus_dummie_admin.setText(Lang.getInstance().getProperty("You_can_not_erase_because_no_elements"));
 
-            
         } else {
 
             // delete all objects to the
             // arraylist
             singleclient.Client_array.clear();
             task_Dummy_view.labStatus_dummie_client.setText(Lang.getInstance().getProperty("All_elements_have_been_deleted"));
-            
+
         }
 
     }
-    
+
     public static void create_Dummy_user() {
         User_reg a = null;
         String combo = "";
@@ -208,14 +205,13 @@ public class BLL_Dummies {
 
             task_Dummy_view.labStatus_dummie_user.setText(Lang.getInstance().getProperty("You_can_not_erase_because_no_elements"));
 
-            
         } else {
 
             // delete all objects to the
             // arraylist
             singleuser_reg.User_reg_array.clear();
             task_Dummy_view.labStatus_dummie_user.setText(Lang.getInstance().getProperty("All_elements_have_been_deleted"));
-            
+
         }
 
     }

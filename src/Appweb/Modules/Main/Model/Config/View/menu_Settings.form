@@ -433,13 +433,24 @@
                 <Component class="javax.swing.JComboBox" name="Combo_Theme">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="6">
+                      <StringArray count="17">
                         <StringItem index="0" value="Metal"/>
                         <StringItem index="1" value="System"/>
                         <StringItem index="2" value="Motif"/>
                         <StringItem index="3" value="Nimbus"/>
                         <StringItem index="4" value="Windows classic"/>
-                        <StringItem index="5" value="Synthetica"/>
+                        <StringItem index="5" value="S Blackeye"/>
+                        <StringItem index="6" value="S Blackmoon"/>
+                        <StringItem index="7" value="S Blueice"/>
+                        <StringItem index="8" value="S Bluemoon"/>
+                        <StringItem index="9" value="S Bluesteel"/>
+                        <StringItem index="10" value="S Greendream"/>
+                        <StringItem index="11" value="S Mauvemetallic"/>
+                        <StringItem index="12" value="S Orangemetallic"/>
+                        <StringItem index="13" value="S Silvermoon"/>
+                        <StringItem index="14" value="S Simple2d"/>
+                        <StringItem index="15" value="S Skymetallic"/>
+                        <StringItem index="16" value="S Whitevision"/>
                       </StringArray>
                     </Property>
                   </Properties>

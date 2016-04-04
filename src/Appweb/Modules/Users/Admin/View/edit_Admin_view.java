@@ -59,7 +59,7 @@ public class edit_Admin_view extends javax.swing.JFrame {
         comboStatus = new javax.swing.JComboBox<>();
         btnAvatar = new org.edisoncor.gui.button.ButtonAero();
         panelRect2 = new org.edisoncor.gui.panel.PanelRect();
-        btn_Cancelar = new org.edisoncor.gui.button.ButtonAeroRight();
+        btn_Cancel = new org.edisoncor.gui.button.ButtonAeroRight();
         btn_Aceptar = new org.edisoncor.gui.button.ButtonAeroRight();
         panelCurves2 = new org.edisoncor.gui.panel.PanelCurves();
 
@@ -265,7 +265,7 @@ public class edit_Admin_view extends javax.swing.JFrame {
                             .addComponent(labdate_cont, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labActivity, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         panelRect1Layout.setVerticalGroup(
             panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -296,7 +296,7 @@ public class edit_Admin_view extends javax.swing.JFrame {
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(labdate_birth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labelHeader5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pick_date_birth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pick_date_birth, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE))
                 .addGap(53, 53, 53)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelHeader6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -320,7 +320,7 @@ public class edit_Admin_view extends javax.swing.JFrame {
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(labdate_cont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(labelHeader10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pick_date_contr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pick_date_contr, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE))
                 .addGap(44, 44, 44)
                 .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -341,10 +341,10 @@ public class edit_Admin_view extends javax.swing.JFrame {
                 .addContainerGap(171, Short.MAX_VALUE))
         );
 
-        btn_Cancelar.setText("Cancelar");
-        btn_Cancelar.addActionListener(new java.awt.event.ActionListener() {
+        btn_Cancel.setText("Cancelar");
+        btn_Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_CancelarActionPerformed(evt);
+                btn_CancelActionPerformed(evt);
             }
         });
 
@@ -362,7 +362,7 @@ public class edit_Admin_view extends javax.swing.JFrame {
             .addGroup(panelRect2Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(panelRect2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_Cancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Cancel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Aceptar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
@@ -372,7 +372,7 @@ public class edit_Admin_view extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(btn_Aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btn_Cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_Cancel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -395,7 +395,7 @@ public class edit_Admin_view extends javax.swing.JFrame {
                 .addComponent(panelCurves2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
                 .addGroup(panImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelRect1, javax.swing.GroupLayout.DEFAULT_SIZE, 989, Short.MAX_VALUE)
+                    .addComponent(panelRect1, javax.swing.GroupLayout.DEFAULT_SIZE, 979, Short.MAX_VALUE)
                     .addGroup(panImageLayout.createSequentialGroup()
                         .addComponent(panelRect2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -418,10 +418,10 @@ public class edit_Admin_view extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelarActionPerformed
+    private void btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelActionPerformed
 
        
-    }//GEN-LAST:event_btn_CancelarActionPerformed
+    }//GEN-LAST:event_btn_CancelActionPerformed
 
     private void btn_AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AceptarActionPerformed
 
@@ -508,7 +508,7 @@ public class edit_Admin_view extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static org.edisoncor.gui.button.ButtonAero btnAvatar;
     public static org.edisoncor.gui.button.ButtonAeroRight btn_Aceptar;
-    public static org.edisoncor.gui.button.ButtonAeroRight btn_Cancelar;
+    public static org.edisoncor.gui.button.ButtonAeroRight btn_Cancel;
     public static javax.swing.JComboBox<String> comboStatus;
     public static javax.swing.JLabel labActivity;
     public static javax.swing.JLabel labAvatar;

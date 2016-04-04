@@ -189,7 +189,7 @@ public class menu_Settings extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        Combo_Theme.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Metal", "System", "Motif", "Nimbus", "Windows classic", "Synthetica" }));
+        Combo_Theme.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Metal", "System", "Motif", "Nimbus", "Windows classic", "S Blackeye", "S Blackmoon", "S Blueice", "S Bluemoon", "S Bluesteel", "S Greendream", "S Mauvemetallic", "S Orangemetallic", "S Silvermoon", "S Simple2d", "S Skymetallic", "S Whitevision" }));
 
         labelHeader5.setText("Apariencia");
 

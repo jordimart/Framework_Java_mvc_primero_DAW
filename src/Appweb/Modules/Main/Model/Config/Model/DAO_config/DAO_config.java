@@ -12,12 +12,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
@@ -25,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.Annotations;
 import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
-
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import static Appweb.Modules.Main.Model.Config.View.menu_Settings.Combo_Theme;
 import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_curr_dollar;
@@ -41,7 +38,18 @@ import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_three_d;
 import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_two_d;
 import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_year_bar;
 import static Appweb.Modules.Main.Model.Config.View.menu_Settings.chk_year_bar2;
-
+import de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaBlackMoonLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaBlueIceLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaBlueMoonLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaBlueSteelLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaGreenDreamLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaMauveMetallicLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaOrangeMetallicLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaSilverMoonLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaSimple2DLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaSkyMetallicLookAndFeel;
+import de.javasoft.plaf.synthetica.SyntheticaWhiteVisionLookAndFeel;
 
 public class DAO_config {
 
@@ -298,7 +306,6 @@ public class DAO_config {
     public static void auto_save_config_json() {
 
         String PATH = " ";
-        
 
         try {
             PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Config/Model/Files_config/appconfig";
@@ -322,21 +329,19 @@ public class DAO_config {
             fileXml.close();
 
             System.out.print(Lang.getInstance().getProperty("Config_file_saved") + " json\n");
-            
+
         } catch (Exception e) {
             e.printStackTrace();
             System.out.print(Lang.getInstance().getProperty("Failed_to_save_config") + " json\n");
 
         }
 
-        
     }
 
     public static void auto_open_config_json() {
 
         String PATH = " ";
         Classconfig config = null;
-      
 
         try {
             XStream xstream = new XStream(new JettisonMappedXmlDriver());
@@ -369,13 +374,11 @@ public class DAO_config {
             Classconfig.getInstance().setTheme(config.getTheme());
 
             System.out.print(Lang.getInstance().getProperty("Loaded_settings_file") + " json\n");
-            
 
         } catch (Exception e) {
             System.out.print(Lang.getInstance().getProperty("Error_loading_file") + " json\n");
         }
 
-       
     }
 
     /**
@@ -413,7 +416,7 @@ public class DAO_config {
                     break;
                 case "Synthetica":
 
-
+                    UIManager.setLookAndFeel("de.javasoft.plaf.synthetica.SyntheticaBlackMoonLookAndFeel");
                     break;
 
             }
@@ -506,32 +509,129 @@ public class DAO_config {
 
                 case "Metal":// Metal
                     Classconfig.getInstance().setTheme("Metal");
+                    UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
 
                     break;
 
                 case "System":// GTK - WINDOWS
                     Classconfig.getInstance().setTheme("System");
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
                     break;
 
                 case "Motif":// CDE/Motif
                     Classconfig.getInstance().setTheme("Motif");
+                    UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
                     break;
 
                 case "Nimbus":// Nimbus
 
                     Classconfig.getInstance().setTheme("Nimbus");
+                    UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 
                     break;// Windows Clasic
 
                 case "Windows classic":
 
                     Classconfig.getInstance().setTheme("Windows classic");
+                    UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel");
 
                     break;
 
-                case "Synthetica":
+                case "S Blackeye":
 
-                    Classconfig.getInstance().setTheme("Synthetica");
+                    Classconfig.getInstance().setTheme("S Blackeye");
+
+                    UIManager.setLookAndFeel(new SyntheticaBlackEyeLookAndFeel());
+
+                    break;
+                    
+                    case "S Blackmoon":
+
+                    Classconfig.getInstance().setTheme("S Blackmoon");
+
+                    UIManager.setLookAndFeel(new SyntheticaBlackMoonLookAndFeel());
+
+                    break;
+                    
+                    case "S Blueice":
+
+                    Classconfig.getInstance().setTheme("S Blueice");
+
+                    UIManager.setLookAndFeel(new SyntheticaBlueIceLookAndFeel());
+
+                    break;
+                    
+                    case "S Bluemoon":
+
+                    Classconfig.getInstance().setTheme("S Bluemoon");
+
+                    UIManager.setLookAndFeel(new SyntheticaBlueMoonLookAndFeel());
+
+                    break;
+                    
+                    case "S Bluesteel":
+
+                    Classconfig.getInstance().setTheme("S Bluesteel");
+
+                    UIManager.setLookAndFeel(new SyntheticaBlueSteelLookAndFeel());
+
+                    break;
+                    
+                   
+                    
+                    case "S Greendream":
+
+                    Classconfig.getInstance().setTheme("S Greendream");
+
+                    UIManager.setLookAndFeel(new SyntheticaGreenDreamLookAndFeel());
+
+                    break;
+                    
+                    case "S Mauvemetallic":
+
+                    Classconfig.getInstance().setTheme("S Mauvemetallic");
+
+                    UIManager.setLookAndFeel(new SyntheticaMauveMetallicLookAndFeel());
+
+                    break;
+                    
+                    case "S Orangemetallic":
+
+                    Classconfig.getInstance().setTheme("S Orangemetallic");
+
+                    UIManager.setLookAndFeel(new SyntheticaOrangeMetallicLookAndFeel());
+
+                    break;
+                    
+                    case "S Silvermoon":
+
+                    Classconfig.getInstance().setTheme("S Silvermoon");
+
+                    UIManager.setLookAndFeel(new SyntheticaSilverMoonLookAndFeel());
+
+                    break;
+                    
+                    case "S Simple2d":
+
+                    Classconfig.getInstance().setTheme("S Simple2d");
+
+                    UIManager.setLookAndFeel(new SyntheticaSimple2DLookAndFeel());
+
+                    break;
+                    
+                    case "S Skymetallic":
+
+                    Classconfig.getInstance().setTheme("S Skymetallic");
+
+                    UIManager.setLookAndFeel(new SyntheticaSkyMetallicLookAndFeel());
+
+                    break;
+                    
+                    case "S Whitevision":
+
+                    Classconfig.getInstance().setTheme("S Whitevision");
+
+                    UIManager.setLookAndFeel(new SyntheticaWhiteVisionLookAndFeel());
 
                     break;
 
@@ -544,16 +644,18 @@ public class DAO_config {
 
     }
 
-    public static void language_english(){
+    public static void language_english() {
         Classconfig.getInstance().setLanguage("english");
-    
+
     }
-    public static void language_spanish(){
-         Classconfig.getInstance().setLanguage("español");
-    
+
+    public static void language_spanish() {
+        Classconfig.getInstance().setLanguage("español");
+
     }
-    public static void language_valencian(){
+
+    public static void language_valencian() {
         Classconfig.getInstance().setLanguage("valencia");
-    
+
     }
 }

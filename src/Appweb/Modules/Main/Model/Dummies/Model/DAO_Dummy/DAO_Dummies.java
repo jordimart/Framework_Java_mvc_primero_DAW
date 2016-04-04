@@ -137,6 +137,7 @@ public class DAO_Dummies {
      * mayores al parametro min.
      *
      * @param min
+     *
      * @return
      */
     public static ClassDate Dummydate_int_min(int min) {
@@ -165,6 +166,7 @@ public class DAO_Dummies {
      *
      * @param name
      * @param last_name
+     *
      * @return
      */
     public static String Dummyemail(String name, String last_name) {
@@ -181,6 +183,7 @@ public class DAO_Dummies {
      * anterior.
      *
      * @param name
+     *
      * @return
      */
     public static String Dummyuser(String name) {
@@ -198,6 +201,7 @@ public class DAO_Dummies {
      *
      * @param min
      * @param max
+     *
      * @return
      */
     public static ClassDate Dummydate_int_min_max(int min, int max) {
@@ -227,6 +231,7 @@ public class DAO_Dummies {
      *
      * @param d
      * @param min
+     *
      * @return
      */
     public static ClassDate Dummy_date_entry(ClassDate d, int min) {
@@ -292,6 +297,7 @@ public class DAO_Dummies {
      *
      * @param n
      * @param m
+     *
      * @return
      */
     public static float Dummysalary(int n, int m) {
@@ -306,6 +312,7 @@ public class DAO_Dummies {
      *
      * @param n
      * @param m
+     *
      * @return
      */
     public static int Dummyactivity(int n, int m) {
@@ -342,7 +349,7 @@ public class DAO_Dummies {
         Status = "Conected";
 
         // Enter Admin attributes
-        date_cont = new ClassDate(01,01,2006);
+        date_cont = new ClassDate(01, 01, 2006);
 
         salary = DAO_Dummies.Dummysalary(500, 2000);
 
@@ -367,9 +374,7 @@ public class DAO_Dummies {
         String Avatar = null;
 
         Dni = DAO_Dummies.Dummydni();
-        ;
         Name = DAO_Dummies.Dummyname();
-        ;
         Last_name = DAO_Dummies.Dummylast_name();
         Mobile = DAO_Dummies.Dummymobile();
         Date_birth = DAO_Dummies.Dummydate_int_min(18);
@@ -380,7 +385,7 @@ public class DAO_Dummies {
         Status = "Conected";
 
         // Enter Admin attributes
-        entry_date = new ClassDate(01,01,2006);
+        entry_date = new ClassDate(01, 01, 2006);
         purchase = DAO_Dummies.Dummysalary(0, 3000);
         premium = "Yes";
         client_type = "Bueno";
@@ -404,9 +409,7 @@ public class DAO_Dummies {
         String Avatar = null;
 
         Dni = DAO_Dummies.Dummydni();
-        ;
         Name = DAO_Dummies.Dummyname();
-        ;
         Last_name = DAO_Dummies.Dummylast_name();
         Mobile = DAO_Dummies.Dummymobile();
         Date_birth = DAO_Dummies.Dummydate_int_min(18);
@@ -460,8 +463,6 @@ public class DAO_Dummies {
 
         String PATH = " ";
         Admin a = null;
-        Client c = null;
-        User_reg u = null;
 
         try {
             PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/Model/files/Admin_files/dummyadminusers.json";
@@ -491,16 +492,14 @@ public class DAO_Dummies {
 
             }
             task_Dummy_view.labStatus_dummie_admin.setText(Lang.getInstance().getProperty("Loaded_user_file") + " Dummy  Admin json" + " \n");
-            //System.out.print(Lang.getInstance().getProperty("Loaded_user_file") + " Dummy  Admin json"+" \n");
 
         } catch (Exception e) {
-            //System.out.print(Lang.getInstance().getProperty("Error_loading_user_file")+ "json"+" \n");
+
             task_Dummy_view.labStatus_dummie_admin.setText(Lang.getInstance().getProperty("Error_loading_user_file") + "Admin json" + " \n");
         }
     }
-    
-    
-     public static void auto_save_json_dummy_client() {
+
+    public static void auto_save_json_dummy_client() {
 
         String PATH = " ";
 
@@ -538,7 +537,6 @@ public class DAO_Dummies {
 
         String PATH = " ";
         Client a = null;
-        
 
         try {
             PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/Model/files/Client_files/dummyclientusers.json";
@@ -554,7 +552,7 @@ public class DAO_Dummies {
             File JFC = new File(PATH);
             PATH = JFC.getAbsolutePath();
 
-           singleclient.Client_array.clear();
+            singleclient.Client_array.clear();
 
             JsonReader lector = new JsonReader(new FileReader(PATH));
             JsonParser parseador = new JsonParser();
@@ -568,14 +566,13 @@ public class DAO_Dummies {
 
             }
             task_Dummy_view.labStatus_dummie_client.setText(Lang.getInstance().getProperty("Loaded_user_file") + " Dummy  Client json" + " \n");
-           
 
         } catch (Exception e) {
-       
+
             task_Dummy_view.labStatus_dummie_client.setText(Lang.getInstance().getProperty("Error_loading_user_file") + " Client json" + " \n");
         }
     }
-    
+
     public static void auto_save_json_dummy_user() {
 
         String PATH = " ";
@@ -614,7 +611,6 @@ public class DAO_Dummies {
 
         String PATH = " ";
         User_reg a = null;
-        
 
         try {
             PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/Model/files/Client_files/dummyuseregusers.json";
@@ -630,7 +626,7 @@ public class DAO_Dummies {
             File JFC = new File(PATH);
             PATH = JFC.getAbsolutePath();
 
-           singleuser_reg.User_reg_array.clear();
+            singleuser_reg.User_reg_array.clear();
 
             JsonReader lector = new JsonReader(new FileReader(PATH));
             JsonParser parseador = new JsonParser();
@@ -644,10 +640,9 @@ public class DAO_Dummies {
 
             }
             task_Dummy_view.labStatus_dummie_user.setText(Lang.getInstance().getProperty("Loaded_user_file") + " Dummy  User registered json" + " \n");
-           
 
         } catch (Exception e) {
-       
+
             task_Dummy_view.labStatus_dummie_user.setText(Lang.getInstance().getProperty("Error_loading_user_file") + " User registered json" + " \n");
         }
     }

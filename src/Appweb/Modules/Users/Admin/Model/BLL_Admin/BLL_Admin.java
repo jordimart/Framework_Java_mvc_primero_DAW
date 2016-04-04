@@ -85,16 +85,14 @@ public class BLL_Admin {
             pagina.inicializa();
             pagina.initLinkBox();
 
-            JOptionPane.showMessageDialog(null, "Usuario creado");
-            //create_Admin_view.lab_information_message.setText("Usuario creado");
-            // create_Admin_view.labinfo_img.setIcon(singletonapp.good_data);
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("User_created"));
+            
 
             ok = true;
         } else {
 
-            // create_Admin_view.lab_information_message.setText("Revise los datos, no puede guardar si hay algun dato incorrecto");
-            //create_Admin_view.labinfo_img.setIcon(singletonapp.wrong_data);
-            JOptionPane.showMessageDialog(null, "Revise los datos, no puede guardar si hay algun dato incorrecto");
+            
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Check_data,cannot_save_if_there_is_any_incorrect_data"));
         }
         return ok;
     }
@@ -155,12 +153,12 @@ public class BLL_Admin {
         if (a != null) {
             singleadmin.Admin_array.set(singletonapp.pos, a);
             DAO_Admin.auto_save_json_admin();
-            JOptionPane.showMessageDialog(null, "Usuario modificado");
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Modified_user"));
 
             ok = true;
         } else {
 
-            JOptionPane.showMessageDialog(null, "Revise los datos, no puede guardar si hay algun dato incorrecto");
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Check_data,cannot_save_if_there_is_any_incorrect_data"));
         }
         return ok;
     }
@@ -176,7 +174,7 @@ public class BLL_Admin {
 
             if (selec == -1) {
                 ok = false;
-                JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
+                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("There_is_not_a_selected_user"), "Error!", 2);
 
             } else {
 
@@ -198,7 +196,7 @@ public class BLL_Admin {
                 ok = true;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "lista vacia", "Error!", 2);
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("List_empty"), "Error!", 2);
 
             ok = false;
         }
@@ -219,7 +217,7 @@ public class BLL_Admin {
 
             if (selection1 == -1) {
                 ok = false;
-                JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
+                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("There_is_not_a_selected_user"), "Error!", 2);
 
             } else {
 
@@ -233,7 +231,7 @@ public class BLL_Admin {
                 ok = true;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "lista vacia", "Error!", 2);
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("List_empty"), "Error!", 2);
 
             ok = false;
         }
@@ -260,8 +258,7 @@ public class BLL_Admin {
             pagina.inicializa();
             pagina.initLinkBox();
 
-            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("All_elements_have_been_deleted") + "\n"
-                    + Lang.getInstance().getProperty("Remaining_number_of_elements") + singleadmin.Admin_array.size());
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("All_elements_have_been_deleted") + "\n");
         }
 
     }
@@ -276,7 +273,7 @@ public class BLL_Admin {
 
             if (selec == -1) {
                 ok = false;
-                JOptionPane.showMessageDialog(null, "No hay una persona seleccionada");
+                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("There_is_not_a_selected_user"));
 
             } else {
                 inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage; //nos situamos al inicio de la pagina en cuestiÃ³n
@@ -295,7 +292,7 @@ public class BLL_Admin {
                 ok = true;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "lista vacia");
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("List_empty"));
 
             ok = false;
         }
