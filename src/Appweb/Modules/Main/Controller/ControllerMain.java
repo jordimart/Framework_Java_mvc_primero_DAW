@@ -276,8 +276,9 @@ public class ControllerMain implements ActionListener {
 
             case btnAdminlogin:
 
-                Login.dispose();
-                new ControllerAdmin(new task_Admin_view(), 0).Start(0);
+                //Login.dispose();
+                //new ControllerAdmin(new task_Admin_view(), 0).Start(0);
+                 BLL_Dummies.create_Dummy_adminBD();
 
                 break;
 
