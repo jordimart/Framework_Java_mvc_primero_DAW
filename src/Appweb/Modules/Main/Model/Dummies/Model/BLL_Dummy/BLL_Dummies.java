@@ -1,6 +1,5 @@
 package Appweb.Modules.Main.Model.Dummies.Model.BLL_Dummy;
 
-import Appweb.Classes.ConectionBD;
 import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.Model.Dummies.Model.DAO_Dummy.DAO_Dummies;
@@ -12,10 +11,6 @@ import Appweb.Modules.Users.Client.Model.Classes.singleclient;
 import Appweb.Modules.Users.User_reg.Model.Classes.User_reg;
 import Appweb.Modules.Users.User_reg.Model.Classes.singleuser_reg;
 import java.awt.Color;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -69,67 +64,7 @@ public class BLL_Dummies {
         }
     }
 
-    public static int create_Dummy_adminBD() {
-        Admin a = null;
-        String combo = "";
-        boolean pass = false;
-
-        ConectionBD conect = new ConectionBD();
-        PreparedStatement stmt = null;
-        int resultado = 0;
-        Connection _con = null;
-
-        _con=conect.AbrirConexion();
-
-       
-try {
-    
-    a = DAO_Dummies.Dummyadmin();
-    
-    
-    
-               
-                stmt = _con.prepareStatement("INSERT INTO db_admin.admin"
-                        + "(dni,name,last_name,mobile,date_birth,age"
-                        + ",email,user,password,avatar,benefits,status,date_cont,antique,salary,activity) "
-                        + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-
-                stmt.setString(1, a.getDni());
-                stmt.setString(2, a.getName());
-                stmt.setString(3, a.getLast_name());
-                stmt.setString(4, a.getMobile());
-                stmt.setString(5, a.getDate_birth().todate());
-                stmt.setInt(6, a.getAge());
-                stmt.setString(7, a.getEmail());
-                stmt.setString(8, a.getUser());
-                stmt.setString(9, a.getPassword());
-                stmt.setString(10, a.getAvatar());
-                stmt.setFloat(11, a.getBenefits());
-                stmt.setString(12, a.getStatus());
-                stmt.setString(13, a.getDate_cont().todate());
-                stmt.setInt(14, a.getAntique());
-                stmt.setFloat(15, a.getSalary());
-                stmt.setInt(16, a.getActivity());
-
-                resultado=stmt.executeUpdate();
-                 JOptionPane.showMessageDialog(null, "El usuario ha sido dado de alta correctamente!");
-
-               } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Ha habido un problema al insertar un nuevo usuario!");
-        } finally {
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null, "Ha habido un error Logger!");
-                } 
-            }
-}
-
-        conect.CerrarConexion(_con);
-        return resultado;
-
-    }
+   
 
     /**
      * Borra todos los usuarios admin

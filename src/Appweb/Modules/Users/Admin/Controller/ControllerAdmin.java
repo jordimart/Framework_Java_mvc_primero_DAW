@@ -679,7 +679,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
                     Create_Admin.dispose();
                     new ControllerAdmin(new table_Admin_view(), 1).Start(1);
 
-                    ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
+                    //((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
                 }
                 break;
 
@@ -700,7 +700,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
                 if (ok == true) {
                     Edit_Admin.dispose();
                     new ControllerAdmin(new table_Admin_view(), 1).Start(1);
-                    ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
+                   // ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
 
                 }
 

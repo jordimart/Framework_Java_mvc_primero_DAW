@@ -7,6 +7,7 @@ import Appweb.Modules.Main.Model.Config.Model.BLL_config.BLL_config;
 import static Appweb.Modules.Main.Model.Config.Model.DAO_config.DAO_config.auto_open_config_json;
 import Appweb.Modules.Main.Model.Config.View.menu_Settings;
 import Appweb.Modules.Main.Model.Dummies.Model.BLL_Dummy.BLL_Dummies;
+import Appweb.Modules.Main.Model.Dummies.Model.BLL_Dummy.BLL_Dummy_BD;
 import Appweb.Modules.Main.Model.Dummies.View.task_Dummy_view;
 import Appweb.Modules.Main.View.menu_Input;
 import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
@@ -276,9 +277,9 @@ public class ControllerMain implements ActionListener {
 
             case btnAdminlogin:
 
-                //Login.dispose();
-                //new ControllerAdmin(new task_Admin_view(), 0).Start(0);
-                 BLL_Dummies.create_Dummy_adminBD();
+                Login.dispose();
+                new ControllerAdmin(new task_Admin_view(), 0).Start(0);
+                 
 
                 break;
 
@@ -375,7 +376,7 @@ public class ControllerMain implements ActionListener {
 
             case btnCreate_dummis_admin:
 
-                BLL_Dummies.create_Dummy_admin();
+               BLL_Dummy_BD.create_Dummy_admin();
 
                 break;
 

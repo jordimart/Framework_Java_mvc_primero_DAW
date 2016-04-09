@@ -4,7 +4,6 @@ import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin;
 import Appweb.Modules.Users.Admin.View.edit_Admin_view;
 import Appweb.Modules.Users.Admin.View.table_Admin_view;
-import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
@@ -80,12 +79,12 @@ public class BLL_Admin {
 
         boolean ok = false;
 
-        Admin a = DAO_Admin.add_create_Admin();
+        singleadmin.a = DAO_Admin.add_create_Admin();
 
-        if (a != null) {
-            singleadmin.Admin_array.add(a);
-            DAO_Admin.auto_save_json_admin();
-            ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
+        if (singleadmin.a != null) {
+            singleadmin.Admin_array.add(singleadmin.a);
+            BLL_Admin_BD.save_Admin();
+            //((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
             pagina.inicializa();
             pagina.initLinkBox();
 
@@ -150,11 +149,12 @@ public class BLL_Admin {
 
         boolean ok = false;
 
-        Admin a = DAO_Admin.modify_edit_Admin();
+        singleadmin.a = DAO_Admin.modify_edit_Admin();
 
-        if (a != null) {
-            singleadmin.Admin_array.set(singletonapp.pos, a);
-            DAO_Admin.auto_save_json_admin();
+        if (singleadmin.a != null) {
+            BLL_Admin_BD.save_modified_Admin();
+            singleadmin.Admin_array.set(singletonapp.pos, singleadmin.a);
+
             JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Modified_user"));
 
             ok = true;
@@ -190,9 +190,9 @@ public class BLL_Admin {
 
                 new ControllerAdmin(new edit_Admin_view(), 3).Start(3);
                 DAO_Admin.Load_edit_admin();
-                ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
-                pagina.inicializa();
-                pagina.initLinkBox();
+                //((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
+                //pagina.inicializa();
+               // pagina.initLinkBox();
 
                 ok = true;
             }
@@ -224,12 +224,17 @@ public class BLL_Admin {
 
                 dni = (String) mini_Table_Admin.getModel().getValueAt(selection1, 0);
                 singletonapp.pos = Look_for_dni_admin(dni);
+                int opc = JOptionPane.showConfirmDialog(null, "Deseas borrar a la persona con DNI: " + dni,
+                        "Info", JOptionPane.WARNING_MESSAGE);
+                if (opc == 0) {
 
-                ((Table_Admin_class) mini_Table_Admin.getModel()).removeRow(selection1);
-                singleadmin.Admin_array.remove(singletonapp.pos);
-                DAO_Admin.auto_save_json_admin();
+                    ((Table_Admin_class) mini_Table_Admin.getModel()).removeRow(selection1);
+                    
+                    BLL_Admin_BD.delete_Admin();
+                    ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
+                    ok = true;
+                }
 
-                ok = true;
             }
         } else {
             JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("List_empty"), "Error!", 2);

@@ -2,6 +2,7 @@ package Appweb.Modules.Users.Admin.Model.Classes;
 
 import Appweb.Classes.Date.ClassDate;
 import static Appweb.Modules.Users.Admin.Controller.ControllerAdmin.combo;
+import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin_BD;
 import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
 import Appweb.Modules.Users.Admin.View.table_Admin_view;
 import java.util.ArrayList;
@@ -119,14 +120,12 @@ public class Table_Admin_class extends AbstractTableModel {
         datos.clear();
         datosaux.clear();
 
-        Admin admin = null;
-
+        BLL_Admin_BD.cargarBD();
+        
         for (int i = 0; i <= singleadmin.Admin_array.size() - 1; i++) {
 
-            admin = singleadmin.Admin_array.get(i);
-
-            addRow(admin);
-            datosaux.add(admin);
+            addRow(singleadmin.Admin_array.get(i));
+            datosaux.add(singleadmin.Admin_array.get(i));
 
             try {
                 Thread.sleep(1); //1 milliseconds
@@ -143,7 +142,7 @@ public class Table_Admin_class extends AbstractTableModel {
         String nom = (String) ((JComboBox) combo).getSelectedItem();
         if (nom != null) {
             for (int i = 0; i < datosaux.size(); i++) {
-                
+
                 if (datosaux.get(i).getName().toLowerCase().startsWith(nom.toLowerCase())) {
                     addRow(datosaux.get(i));
                     cont++;
