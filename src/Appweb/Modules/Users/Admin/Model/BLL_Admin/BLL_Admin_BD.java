@@ -6,6 +6,7 @@
 package Appweb.Modules.Users.Admin.Model.BLL_Admin;
 
 import Appweb.Classes.ConectionBD;
+import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin_BD;
 
 import java.sql.Connection;
@@ -45,7 +46,7 @@ public class BLL_Admin_BD {
 
         con = conBD.AbrirConexion();
 
-        ok = DAO_Admin_BD.save_Admin(con);
+        singletonapp.singleactionBD = DAO_Admin_BD.save_Admin(con);
 
         conBD.CerrarConexion(con);
 

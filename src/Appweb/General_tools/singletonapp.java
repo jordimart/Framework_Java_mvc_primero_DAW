@@ -23,5 +23,6 @@ public class singletonapp {
     public static String singleton_vtna="";
     public static boolean singlecargar=false;//se utiliza para que solo se cargue la configuracion al inicializar la aplicacion
     public static String singleactiondate="";//se utiliza para que el propertychange de fecha solo actue en la pantalla que este.
+    public static int singleactionBD=0;
     
 }

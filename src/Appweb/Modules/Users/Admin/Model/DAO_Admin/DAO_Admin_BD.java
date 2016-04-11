@@ -102,7 +102,7 @@ public class DAO_Admin_BD {
 
             ok = stmt.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "El usuario ha sido dado de alta correctamente!");
+            
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un problema al insertar un nuevo usuario!");

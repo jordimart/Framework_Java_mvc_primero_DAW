@@ -85,13 +85,13 @@ public class BLL_Admin {
         if (singleadmin.a != null) {
             singleadmin.Admin_array.add(singleadmin.a);
             BLL_Admin_BD.save_Admin();
-            //((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
-            pagina.inicializa();
-            pagina.initLinkBox();
 
-            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("User_created"));
+            if (singletonapp.singleactionBD == 1) {
 
-            ok = true;
+                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("User_created"));
+
+                ok = true;
+            }
         } else {
 
             JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Check_data,cannot_save_if_there_is_any_incorrect_data"));
@@ -209,8 +209,6 @@ public class BLL_Admin {
         String dni = "";
         boolean ok = false;
         int selection, inicio, selection1;
-        
-        
 
         if (((Table_Admin_class) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
 
@@ -223,7 +221,7 @@ public class BLL_Admin {
                 JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("There_is_not_a_selected_user"), "Error!", 2);
 
             } else {
-                
+
                 dni = (String) mini_Table_Admin.getModel().getValueAt(selection1, 0);
                 singletonapp.pos = Look_for_dni_admin(dni);
                 int opc = JOptionPane.showConfirmDialog(null, "Deseas borrar a la persona con DNI: " + dni,
