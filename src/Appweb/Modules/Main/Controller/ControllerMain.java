@@ -11,13 +11,10 @@ import Appweb.Modules.Main.Model.Dummies.Model.BLL_Dummy.BLL_Dummy_BD;
 import Appweb.Modules.Main.Model.Dummies.View.task_Dummy_view;
 import Appweb.Modules.Main.View.menu_Input;
 import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
-import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
 import Appweb.Modules.Users.Client.Controller.ControllerClient;
-import Appweb.Modules.Users.Client.Model.BLL_Client.BLL_Client;
 import Appweb.Modules.Users.Client.View.table_Client_view;
 import Appweb.Modules.Users.User_reg.Controller.ControllerUser;
-import Appweb.Modules.Users.User_reg.Model.BLL_User.BLL_User;
 import Appweb.Modules.Users.User_reg.View.table_User_view;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -89,9 +86,9 @@ public class ControllerMain implements ActionListener {
             //Funcion para que solo cargue archivos la primera vez
             if (singlecargar == false) {
                 auto_open_config_json();
-                BLL_Admin.auto_open_json_admin();
-                BLL_Client.auto_open_json_client();
-                BLL_User.auto_open_json();
+                //BLL_Admin_BD.cargarBD();
+                //BLL_Client.auto_open_json_client();
+                //BLL_User.auto_open_json();
                 singlecargar = true;
             }
             //Configuracion manual de la vista
@@ -155,11 +152,8 @@ public class ControllerMain implements ActionListener {
             Settings.setLocationRelativeTo(null);
             Settings.setSize(980, 800);//ancho x alto
             Settings.setResizable(false);
-            
+
             BLL_config.charge_config();
-            
-            
-           
 
             //Traduccion de botones y labels
             Settings.labelHeader1.setText(Lang.getInstance().getProperty("Date_format"));
@@ -279,7 +273,6 @@ public class ControllerMain implements ActionListener {
 
                 Login.dispose();
                 new ControllerAdmin(new task_Admin_view(), 0).Start(0);
-                 
 
                 break;
 
@@ -314,22 +307,21 @@ public class ControllerMain implements ActionListener {
 
                 BLL_config.language_english();
                 Login.dispose();
-                 new ControllerMain(new menu_Input(),0).Start(0);
+                new ControllerMain(new menu_Input(), 0).Start(0);
 
                 break;
             case btn_spain_main:
 
                 BLL_config.language_spanish();
                 Login.dispose();
-                 new ControllerMain(new menu_Input(),0).Start(0);
-                
+                new ControllerMain(new menu_Input(), 0).Start(0);
 
                 break;
             case btn_valencian_main:
 
                 BLL_config.language_valencian();
                 Login.dispose();
-                 new ControllerMain(new menu_Input(),0).Start(0);
+                new ControllerMain(new menu_Input(), 0).Start(0);
 
                 break;
 
@@ -376,7 +368,7 @@ public class ControllerMain implements ActionListener {
 
             case btnCreate_dummis_admin:
 
-               BLL_Dummy_BD.create_Dummy_admin();
+                BLL_Dummy_BD.create_Dummy_admin();
 
                 break;
 

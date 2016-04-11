@@ -21,7 +21,7 @@ public class DAO_Admin_BD {
         ResultSet rs = null;
         PreparedStatement stmt = null;
 
-        singleadmin.Admin_array.clear();
+        
 
         try {
 
@@ -29,6 +29,7 @@ public class DAO_Admin_BD {
             rs = stmt.executeQuery();
 
             Admin a = null;
+            
 
             while (rs.next()) {
 
@@ -51,6 +52,8 @@ public class DAO_Admin_BD {
                 a.setActivity(rs.getInt("activity"));
 
                 singleadmin.Admin_array.add(a);
+                
+                
 
             }
         } catch (SQLException ex) {

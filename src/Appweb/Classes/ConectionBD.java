@@ -14,21 +14,20 @@ import javax.swing.JOptionPane;
  * @author jorge
  */
 public class ConectionBD {
-    
+
     /**
      * abrimos conexion en la base de datos
      *
      * @return
      */
-    public  Connection AbrirConexion() {
+    public Connection AbrirConexion() {
 
         Connection con = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String urlOdbc = "jdbc:mysql://127.0.0.1:3306/db_admin";
-            con =   (java.sql.DriverManager.getConnection(urlOdbc, "root", ""));
-             JOptionPane.showMessageDialog(null, "conectado!");
-            
+            con = (java.sql.DriverManager.getConnection(urlOdbc, "root", ""));
+
         } catch (Exception e) {
 
             JOptionPane.showMessageDialog(null, "Ha sido imposible establecer la conexion!");
@@ -45,13 +44,12 @@ public class ConectionBD {
         try {
             if (con != null) {
                 con.close();
-                 JOptionPane.showMessageDialog(null, "Conexion cerrada!");
-                
+
             }
         } catch (SQLException e) {
 
             JOptionPane.showMessageDialog(null, "Ha sido imposible cerrar la conexion!");
         }
     }
-    
+
 }

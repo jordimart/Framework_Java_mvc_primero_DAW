@@ -14,8 +14,6 @@ import static Appweb.General_tools.singletonapp.wrong_data;
 import Appweb.Modules.Users.Admin.View.edit_Admin_view;
 import Appweb.Modules.Users.Admin.View.show_Admin_view;
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
-import Appweb.Modules.Users.Client.Model.Classes.Client;
-import Appweb.Modules.Users.User_reg.Model.Classes.User_reg;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -1305,8 +1303,7 @@ public class DAO_Admin {
 
         String PATH = " ";
         Admin a = new Admin("");
-        Client c = new Client("");
-        User_reg u = new User_reg("");
+       
 
         try {
             PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/Admin/Model/Admin_files/adminusers.json";

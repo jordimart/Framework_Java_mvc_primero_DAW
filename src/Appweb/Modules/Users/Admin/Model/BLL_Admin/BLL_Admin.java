@@ -8,6 +8,7 @@ import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
 import static Appweb.Modules.Users.Admin.Controller.ControllerAdmin.Table_Admin;
+import static Appweb.Modules.Users.Admin.Controller.ControllerAdmin.sorter;
 import Appweb.Modules.Users.Admin.View.show_Admin_view;
 import static Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin_class;
@@ -192,7 +193,7 @@ public class BLL_Admin {
                 DAO_Admin.Load_edit_admin();
                 //((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
                 //pagina.inicializa();
-               // pagina.initLinkBox();
+                // pagina.initLinkBox();
 
                 ok = true;
             }
@@ -208,9 +209,10 @@ public class BLL_Admin {
         String dni = "";
         boolean ok = false;
         int selection, inicio, selection1;
+        
+        
 
         if (((Table_Admin_class) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
-            //int selec = table_Admin_view.mini_Table_Admin.getSelectedRow();
 
             inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage; //nos situamos al inicio de la pÃ¡gina en cuestiÃ³n
             selection = mini_Table_Admin.getSelectedRow(); //nos situamos en la fila
@@ -221,7 +223,7 @@ public class BLL_Admin {
                 JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("There_is_not_a_selected_user"), "Error!", 2);
 
             } else {
-
+                
                 dni = (String) mini_Table_Admin.getModel().getValueAt(selection1, 0);
                 singletonapp.pos = Look_for_dni_admin(dni);
                 int opc = JOptionPane.showConfirmDialog(null, "Deseas borrar a la persona con DNI: " + dni,
@@ -229,9 +231,14 @@ public class BLL_Admin {
                 if (opc == 0) {
 
                     ((Table_Admin_class) mini_Table_Admin.getModel()).removeRow(selection1);
-                    
+
                     BLL_Admin_BD.delete_Admin();
                     ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
+                    Table_Admin.mini_Table_Admin.setFillsViewportHeight(true);
+                    Table_Admin.mini_Table_Admin.setRowSorter(sorter);
+                    pagina.inicializa();
+                    pagina.initLinkBox();
+
                     ok = true;
                 }
 

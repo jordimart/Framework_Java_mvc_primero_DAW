@@ -17,7 +17,7 @@ public class Table_Admin_class extends AbstractTableModel {
 
     public static ArrayList<Admin> datos = new ArrayList<Admin>();
     public static ArrayList<Admin> datosaux = new ArrayList<Admin>();
-    String[] columnas = {"Dni", "Name", "Last name", "Date_birth", "Antique", "Salary"};
+    String[] columnas = {"Dni", "Name", "Last name", "Date birth", "Antique", "Salary"};
 
     @Override
     public String getColumnName(int col) {
@@ -117,11 +117,13 @@ public class Table_Admin_class extends AbstractTableModel {
     }
 
     public void cargar() {
+
         datos.clear();
         datosaux.clear();
+        singleadmin.Admin_array.clear();
 
         BLL_Admin_BD.cargarBD();
-        
+
         for (int i = 0; i <= singleadmin.Admin_array.size() - 1; i++) {
 
             addRow(singleadmin.Admin_array.get(i));
@@ -185,9 +187,6 @@ public class Table_Admin_class extends AbstractTableModel {
 
         fireTableDataChanged();
         table_Admin_view.jLabel3.setText(String.valueOf(datos.size()));
-
-        pagina.inicializa();
-        pagina.initLinkBox();
 
     }
 
