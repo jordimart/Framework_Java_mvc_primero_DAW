@@ -12,7 +12,6 @@ import static Appweb.Modules.Users.Admin.Controller.ControllerAdmin.sorter;
 import Appweb.Modules.Users.Admin.View.show_Admin_view;
 import static Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin_class;
-import static Appweb.Modules.Users.Admin.Model.Classes.Table_Admin_class.datos;
 import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
 import Appweb.Modules.Users.Client.Controller.ControllerClient;
 import Appweb.Modules.Users.Client.View.table_Client_view;
@@ -76,27 +75,38 @@ public class BLL_Admin {
         DAO_Admin.EnterAvatar_admin();
     }
 
+    /**
+     * BLL que utiliza un DAO para crear un Administrador con los datos
+     * introducidos por un usuario.Añade al Administrador al arraylist y
+     * mediante
+     * un BLL de Base de datos lo inserta en la base de datos.
+     * Retorna un boolean el Administrador se ha insertado con exito.
+     *
+     * @return boolean
+     */
     public static boolean Enter_new_admin() {
 
-        boolean ok = false;
+        boolean pass = false;
+        int ok = 0;
 
         singleadmin.a = DAO_Admin.add_create_Admin();
 
         if (singleadmin.a != null) {
-            singleadmin.Admin_array.add(singleadmin.a);
-            BLL_Admin_BD.save_Admin();
 
-            if (singletonapp.singleactionBD == 1) {
+            singleadmin.Admin_array.add(singleadmin.a);//introduce en el arrayadmin
+            ok = BLL_Admin_BD.save_Admin();//inserta en BD
 
+            if (ok == 1) {
+
+                pass = true;
                 JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("User_created"));
 
-                ok = true;
             }
         } else {
 
             JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Check_data,cannot_save_if_there_is_any_incorrect_data"));
         }
-        return ok;
+        return pass;
     }
 
 //////////BLLs del formulario edit Admin view///////
@@ -146,28 +156,52 @@ public class BLL_Admin {
         DAO_Admin.EditAvatar_admin();
     }
 
+    /**
+     * BLL que utiliza un DAO para modificar un Administrador con los datos
+     * introducidos por un usuario.Añade al Administrador al arraylist en
+     * lugar del modificado y mediante
+     * un BLL de Base de datos lo modifica en la base de datos.
+     * Retorna un boolean el Administrador se ha insertado con exito.
+     *
+     * @return
+     */
     public static boolean Enter_edited_admin() {
 
-        boolean ok = false;
+        boolean pass = false;
+        int ok = 0;
 
         singleadmin.a = DAO_Admin.modify_edit_Admin();
 
         if (singleadmin.a != null) {
-            BLL_Admin_BD.save_modified_Admin();
-            singleadmin.Admin_array.set(singletonapp.pos, singleadmin.a);
 
-            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Modified_user"));
+            ok = BLL_Admin_BD.save_modified_Admin();//modificamos alusuario en la BD
+            BLL_Admin_BD.load_BD();// cargamos de BD
+            //singleadmin.Admin_array.set(singletonapp.pos, singleadmin.a);
 
-            ok = true;
+            if (ok == 1) {
+
+                pass = true;
+                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Modified_user"));
+
+            }
         } else {
 
             JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Check_data,cannot_save_if_there_is_any_incorrect_data"));
         }
-        return ok;
+        return pass;
     }
 
     //////////BLLs de la parte del table///////////
+    /**
+     * BLL que recoge un dni de Administrador de la fila seleccionada por el
+     * usuario y busca si existe, en caso de existir carga la vista de editar y
+     * utiliza un DAO para cargar los datos en la vista y poder modificarlos.
+     * Retorna un boolean true si se ha encontrado el usuario.
+     *
+     * @return boolean
+     */
     public static boolean modifity_select_admin() {
+
         String dni = "";
         boolean ok = false;
         int selection, inicio, selection1;
@@ -185,15 +219,12 @@ public class BLL_Admin {
                 selection = mini_Table_Admin.getSelectedRow(); //nos situamos en la fila
                 selection1 = inicio + selection; //nos situamos en la fila correspondiente de esa pÃ¡gina
 
-                dni = (String) mini_Table_Admin.getModel().getValueAt(selection1, 0);
+                dni = (String) mini_Table_Admin.getModel().getValueAt(selection1, 0);//cogemos el valor del dni de la tabla
 
-                singletonapp.pos = Look_for_dni_admin(dni);
+                singletonapp.pos = Look_for_dni_admin(dni);//buscamos la posicion en el arraylist
 
-                new ControllerAdmin(new edit_Admin_view(), 3).Start(3);
-                DAO_Admin.Load_edit_admin();
-                //((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
-                //pagina.inicializa();
-                // pagina.initLinkBox();
+                new ControllerAdmin(new edit_Admin_view(), 3).Start(3);//llamamos a la vista de editar
+                DAO_Admin.Load_edit_admin();//cargamos los datos del administrador en la vista
 
                 ok = true;
             }
@@ -205,10 +236,20 @@ public class BLL_Admin {
         return ok;
     }
 
+    /**
+     * BLL que recoge un dni de Administrador de la fila seleccionada por el
+     * usuario y busca si existe, en este caso borra alusuario directamente de
+     * la BD con el BLL de BD y si se ha ejecutado correctamente carga y
+     * actualiza
+     * la tabla.
+     *
+     * @return
+     */
     public static boolean delete_select_admin() {
+
         String dni = "";
-        boolean ok = false;
-        int selection, inicio, selection1;
+        boolean pass = false;
+        int selection, inicio, selection1, ok;
 
         if (((Table_Admin_class) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
 
@@ -217,36 +258,41 @@ public class BLL_Admin {
             selection1 = inicio + selection; //nos situamos en la fila correspondiente de esa pÃ¡gina
 
             if (selection1 == -1) {
-                ok = false;
+                pass = false;
                 JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("There_is_not_a_selected_user"), "Error!", 2);
 
             } else {
 
                 dni = (String) mini_Table_Admin.getModel().getValueAt(selection1, 0);
                 singletonapp.pos = Look_for_dni_admin(dni);
+
                 int opc = JOptionPane.showConfirmDialog(null, "Deseas borrar a la persona con DNI: " + dni,
                         "Info", JOptionPane.WARNING_MESSAGE);
                 if (opc == 0) {
 
                     ((Table_Admin_class) mini_Table_Admin.getModel()).removeRow(selection1);
 
-                    BLL_Admin_BD.delete_Admin();
-                    ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
-                    Table_Admin.mini_Table_Admin.setFillsViewportHeight(true);
-                    Table_Admin.mini_Table_Admin.setRowSorter(sorter);
-                    pagina.inicializa();
-                    pagina.initLinkBox();
+                    ok = BLL_Admin_BD.delete_Admin();
 
-                    ok = true;
+                    if (ok == 1) {
+
+                        ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
+                        Table_Admin.mini_Table_Admin.setFillsViewportHeight(true);
+                        Table_Admin.mini_Table_Admin.setRowSorter(sorter);
+                        pagina.inicializa();
+                        pagina.initLinkBox();
+
+                        pass = true;
+                    }
                 }
 
             }
         } else {
             JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("List_empty"), "Error!", 2);
 
-            ok = false;
+            pass = false;
         }
-        return ok;
+        return pass;
     }
 
     /**
@@ -254,27 +300,33 @@ public class BLL_Admin {
      */
     public static void Delete_all_admin() {
 
+        int ok = 0;
+
         if (singleadmin.Admin_array.isEmpty()) {
 
             JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_can_not_erase_because_no_elements"),
                     Lang.getInstance().getProperty("Information"), JOptionPane.ERROR_MESSAGE);
         } else {
 
-            // delete all objects to the
-            // arraylist
-            singleadmin.Admin_array.clear();
-            DAO_Admin.auto_save_json_admin();
-            ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
-            table_Admin_view.jLabel3.setText(String.valueOf(datos.size()));
-            pagina.inicializa();
-            pagina.initLinkBox();
+            ok = BLL_Admin_BD.delete_all_Admin();//Borramos de la base de datos todos los Admin
 
-            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("All_elements_have_been_deleted") + "\n");
+            if (ok != -1) {
+
+                singleadmin.Admin_array.clear();
+                ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
+                Table_Admin.mini_Table_Admin.setFillsViewportHeight(true);
+                Table_Admin.mini_Table_Admin.setRowSorter(sorter);
+                pagina.inicializa();
+                pagina.initLinkBox();
+
+                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("All_elements_have_been_deleted") + "\n");
+            }
         }
 
     }
 
     public static boolean show_select_admin() {
+
         String dni = "";
         boolean ok = false;
         int selection, inicio, selection1;

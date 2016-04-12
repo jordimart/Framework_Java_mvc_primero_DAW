@@ -122,7 +122,7 @@ public class Table_Admin_class extends AbstractTableModel {
         datosaux.clear();
         singleadmin.Admin_array.clear();
 
-        BLL_Admin_BD.cargarBD();
+        BLL_Admin_BD.load_BD();
 
         for (int i = 0; i <= singleadmin.Admin_array.size() - 1; i++) {
 

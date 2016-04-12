@@ -6,9 +6,7 @@
 package Appweb.Modules.Users.Admin.Model.BLL_Admin;
 
 import Appweb.Classes.ConectionBD;
-import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin_BD;
-
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 
@@ -18,7 +16,11 @@ import javax.swing.JOptionPane;
  */
 public class BLL_Admin_BD {
 
-    public static void cargarBD() {
+    /**
+     * BLL que abre la conexion a base de datos y utiliza el DAO
+     * load para cargar los administradores de la base de datos a la aplicacion
+     */
+    public static void load_BD() {
 
         Connection con = null;
 
@@ -38,6 +40,13 @@ public class BLL_Admin_BD {
         conBD.CerrarConexion(con);
     }
 
+    /**
+     * BLL que abre la conexion a base de datos y mediante un DAO inserta un
+     * Administrador en la base de datos.
+     * Si se ha insertado correctamente nos devuelve un integer 1.
+     *
+     * @return int
+     */
     public static int save_Admin() {
 
         int ok = 0;
@@ -46,13 +55,20 @@ public class BLL_Admin_BD {
 
         con = conBD.AbrirConexion();
 
-        singletonapp.singleactionBD = DAO_Admin_BD.save_Admin(con);
+        ok = DAO_Admin_BD.save_Admin(con);
 
         conBD.CerrarConexion(con);
 
         return ok;
     }
 
+    /**
+     * BLL que abre la conexion a base de datos y mediante un DAO modifica un
+     * Administrador de la base de datos.
+     * Si se ha modificado correctamente devuleve un integer 1.
+     *
+     * @return int
+     */
     public static int save_modified_Admin() {
 
         int ok = 0;
@@ -68,6 +84,13 @@ public class BLL_Admin_BD {
         return ok;
     }
 
+    /**
+     * BLL que abre la conexion a base dedatos y mediante un DAO elimina un
+     * Administrador de la base de datos.
+     * Si se ha eliminado correctamente devuelve un integer 1.
+     *
+     * @return
+     */
     public static int delete_Admin() {
 
         int ok = 0;
@@ -76,7 +99,22 @@ public class BLL_Admin_BD {
 
         con = conBD.AbrirConexion();
 
-        DAO_Admin_BD.delete_Admin(con);
+        ok = DAO_Admin_BD.delete_Admin(con);
+
+        conBD.CerrarConexion(con);
+
+        return ok;
+    }
+    
+     public static int delete_all_Admin() {
+
+        int ok = 0;
+        Connection con = null;
+        ConectionBD conBD = new ConectionBD();
+
+        con = conBD.AbrirConexion();
+
+        ok = DAO_Admin_BD.delete_all_Admin(con);
 
         conBD.CerrarConexion(con);
 

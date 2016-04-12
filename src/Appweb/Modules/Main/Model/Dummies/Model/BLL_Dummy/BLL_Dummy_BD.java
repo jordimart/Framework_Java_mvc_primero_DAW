@@ -31,7 +31,7 @@ public class BLL_Dummy_BD {
 
         if (combo.equals("cargar")) {
 
-            BLL_Admin_BD.cargarBD();
+            BLL_Admin_BD.load_BD();
 
         } else {
 
@@ -70,6 +70,25 @@ public class BLL_Dummy_BD {
             }
 
         }
+    }
+    
+     public static void Delete_all_admin_dummies_BD() {
+
+        if (singleadmin.Admin_array.size() == 0) {
+
+            task_Dummy_view.labStatus_dummie_admin.setText(Lang.getInstance().getProperty("You_can_not_erase_because_no_elements"));
+
+        } else {
+
+            // delete all objects to the
+            // arraylist
+            
+            BLL_Admin_BD.delete_all_Admin();
+            singleadmin.Admin_array.clear();
+            task_Dummy_view.labStatus_dummie_admin.setText(Lang.getInstance().getProperty("All_elements_have_been_deleted"));
+
+        }
+
     }
 
 }

@@ -614,7 +614,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
                 break;
             case btnBorrar_admin:
                 
-                BLL_Admin_BD.cargarBD();
+                BLL_Admin_BD.load_BD();
                 BLL_Admin.delete_select_admin();
                 
                 break;

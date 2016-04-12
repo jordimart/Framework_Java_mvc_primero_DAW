@@ -13,13 +13,17 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author jorge
- * 
- * DAO de Base de datos. 
- * Se realizan todas las operaciones una vez estamos conectados a la base de datos.
+ *
+ * DAO de Base de datos.
+ * Se realizan todas las operaciones una vez estamos conectados a la base de
+ * datos.
  * load:Carga en la aplicacion los Administradores de la base de datos.
- * save_Admin: Inserta un Administrador en la base de datos creado enla aplicacion.
- * save_modified_Admin:Actualiza los datos de un Administrador modificado en la aplicacion.
- * delete_Admin:Elimina un Administrador de la base de datos eliminado en la aplicacion.
+ * save_Admin: Inserta un Administrador en la base de datos creado enla
+ * aplicacion.
+ * save_modified_Admin:Actualiza los datos de un Administrador modificado en la
+ * aplicacion.
+ * delete_Admin:Elimina un Administrador de la base de datos eliminado en la
+ * aplicacion.
  */
 public class DAO_Admin_BD {
 
@@ -174,8 +178,6 @@ public class DAO_Admin_BD {
             stmt.setString(17, singleadmin.a.getDni());
             ok = stmt.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "El usuario ha sido dado de alta correctamente!");
-
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un problema al insertar un nuevo usuario!");
         } finally {
@@ -194,7 +196,7 @@ public class DAO_Admin_BD {
     /**
      * Eliminamos un administrador de la base de datos.
      * Pasamos el parametro conexion.
-     * Retornamos un integer si ha insertado bien.
+     * Retornamos un integer si se ha insertado correctamente.
      *
      * @param con
      *
@@ -213,6 +215,31 @@ public class DAO_Admin_BD {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un error al eliminar el usuario!");
+        } finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Error en el Logger!");
+                }
+            }
+        }
+        return ok;
+    }
+
+    public static int delete_all_Admin(Connection con) {
+
+        PreparedStatement stmt = null;
+        int ok = 0;
+
+        try {
+
+            stmt = con.prepareStatement("DELETE FROM db_admin.admin ");
+
+            ok = stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ha habido un error al eliminar los administradores!");
         } finally {
             if (stmt != null) {
                 try {
