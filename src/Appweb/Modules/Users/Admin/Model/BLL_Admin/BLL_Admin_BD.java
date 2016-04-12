@@ -28,7 +28,7 @@ public class BLL_Admin_BD {
 
         try {
 
-            DAO_Admin_BD.cargar(con);
+            DAO_Admin_BD.load(con);
 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un error Logger2!");

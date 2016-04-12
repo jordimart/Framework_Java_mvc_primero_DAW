@@ -13,15 +13,26 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author jorge
+ * 
+ * DAO de Base de datos. 
+ * Se realizan todas las operaciones una vez estamos conectados a la base de datos.
+ * load:Carga en la aplicacion los Administradores de la base de datos.
+ * save_Admin: Inserta un Administrador en la base de datos creado enla aplicacion.
+ * save_modified_Admin:Actualiza los datos de un Administrador modificado en la aplicacion.
+ * delete_Admin:Elimina un Administrador de la base de datos eliminado en la aplicacion.
  */
 public class DAO_Admin_BD {
 
-    public static void cargar(Connection con) {
+    /**
+     * Carga los administradores de la base de datos en el arraylist de admin.
+     * Pasamos el parametro conexion a base de datos.
+     *
+     * @param con
+     */
+    public static void load(Connection con) {
 
         ResultSet rs = null;
         PreparedStatement stmt = null;
-
-        
 
         try {
 
@@ -29,7 +40,6 @@ public class DAO_Admin_BD {
             rs = stmt.executeQuery();
 
             Admin a = null;
-            
 
             while (rs.next()) {
 
@@ -52,8 +62,6 @@ public class DAO_Admin_BD {
                 a.setActivity(rs.getInt("activity"));
 
                 singleadmin.Admin_array.add(a);
-                
-                
 
             }
         } catch (SQLException ex) {
@@ -71,6 +79,15 @@ public class DAO_Admin_BD {
 
     }
 
+    /**
+     * Insertamos un solo administrador en la base de datos.
+     * Pasamos el parametro conexion.
+     * Retornamos un integer si ha insertado bien.
+     *
+     * @param con
+     *
+     * @return int
+     */
     public static int save_Admin(Connection con) {
 
         int ok = 0;
@@ -102,8 +119,6 @@ public class DAO_Admin_BD {
 
             ok = stmt.executeUpdate();
 
-            
-
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un problema al insertar un nuevo usuario!");
         } finally {
@@ -119,6 +134,15 @@ public class DAO_Admin_BD {
         return ok;
     }
 
+    /**
+     * Modificamos un administardor en la base de datos.
+     * Pasamos el parametro conexion.
+     * Retornamos un integer si ha insertado bien.
+     *
+     * @param con
+     *
+     * @return int
+     */
     public static int save_modified_Admin(Connection con) {
 
         int ok = 0;
@@ -167,6 +191,15 @@ public class DAO_Admin_BD {
         return ok;
     }
 
+    /**
+     * Eliminamos un administrador de la base de datos.
+     * Pasamos el parametro conexion.
+     * Retornamos un integer si ha insertado bien.
+     *
+     * @param con
+     *
+     * @return int
+     */
     public static int delete_Admin(Connection con) {
 
         PreparedStatement stmt = null;
@@ -176,8 +209,7 @@ public class DAO_Admin_BD {
 
             stmt = con.prepareStatement("DELETE FROM db_admin.admin WHERE dni=?");
             stmt.setString(1, singleadmin.Admin_array.get(singletonapp.pos).getDni());
-            stmt.executeUpdate();
-            ok = 1;
+            ok = stmt.executeUpdate();
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un error al eliminar el usuario!");
