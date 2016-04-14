@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Appweb.Modules.Main.Model.Dummies.Model.DAO_Dummy;
 
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
@@ -61,6 +57,7 @@ public class DAO_Dummy_BD {
                     stmt.close();
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, "Ha habido un error Logger!");
+                    ex.printStackTrace();
                 }
             }
         }

@@ -1,4 +1,3 @@
-
 package Appweb.Modules.Main.Model.Dummies.Model.BLL_Dummy;
 
 import Appweb.Classes.ConectionBD;
@@ -23,9 +22,8 @@ public class BLL_Dummy_BD {
         boolean pass = false;
         int ok = 0;
 
-        ConectionBD conect = new ConectionBD();
         Connection con = null;
-        con = conect.AbrirConexion();
+        con = ConectionBD.getConexion();
 
         combo = task_Dummy_view.comboDummy_admin.getSelectedItem().toString();
 
@@ -65,14 +63,14 @@ public class BLL_Dummy_BD {
 
             }
             if (pass == true) {
-                conect.CerrarConexion(con);
-               
+                ConectionBD.liberaConexion(con);
+
             }
 
         }
     }
-    
-     public static void Delete_all_admin_dummies_BD() {
+
+    public static void Delete_all_admin_dummies_BD() {
 
         if (singleadmin.Admin_array.size() == 0) {
 
@@ -82,7 +80,6 @@ public class BLL_Dummy_BD {
 
             // delete all objects to the
             // arraylist
-            
             BLL_Admin_BD.delete_all_Admin();
             singleadmin.Admin_array.clear();
             task_Dummy_view.labStatus_dummie_admin.setText(Lang.getInstance().getProperty("All_elements_have_been_deleted"));

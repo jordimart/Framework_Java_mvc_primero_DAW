@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Appweb.General_tools;
 
 import javax.swing.ImageIcon;
+import org.apache.commons.dbcp.BasicDataSource;
 
 /**
  *
@@ -23,6 +20,6 @@ public class singletonapp {
     public static String singleton_vtna="";
     public static boolean singlecargar=false;//se utiliza para que solo se cargue la configuracion al inicializar la aplicacion
     public static String singleactiondate="";//se utiliza para que el propertychange de fecha solo actue en la pantalla que este.
-    public static int singleactionBD=0;
+    public static  BasicDataSource singlepool=null;
     
 }

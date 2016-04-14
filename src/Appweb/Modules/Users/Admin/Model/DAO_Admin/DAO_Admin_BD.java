@@ -40,7 +40,7 @@ public class DAO_Admin_BD {
 
         try {
 
-            stmt = con.prepareStatement("SELECT * FROM admin");
+            stmt = con.prepareStatement("SELECT * FROM db_admin.admin");
             rs = stmt.executeQuery();
 
             Admin a = null;
@@ -76,6 +76,7 @@ public class DAO_Admin_BD {
                     stmt.close();
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, "Ha habido un error Logger!");
+                    ex.printStackTrace();
                 }
             }
 
@@ -131,6 +132,7 @@ public class DAO_Admin_BD {
                     stmt.close();
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, "Ha habido un error Logger!");
+                    ex.printStackTrace();
                 }
             }
         }
@@ -186,6 +188,7 @@ public class DAO_Admin_BD {
                     stmt.close();
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, "Ha habido un error Logger!");
+                    ex.printStackTrace();
                 }
             }
         }
@@ -221,6 +224,7 @@ public class DAO_Admin_BD {
                     stmt.close();
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, "Error en el Logger!");
+                    ex.printStackTrace();
                 }
             }
         }
@@ -246,6 +250,7 @@ public class DAO_Admin_BD {
                     stmt.close();
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, "Error en el Logger!");
+                    ex.printStackTrace();
                 }
             }
         }

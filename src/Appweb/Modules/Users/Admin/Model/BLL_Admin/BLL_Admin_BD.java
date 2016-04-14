@@ -24,9 +24,7 @@ public class BLL_Admin_BD {
 
         Connection con = null;
 
-        ConectionBD conBD = new ConectionBD();
-
-        con = conBD.AbrirConexion();
+        con=ConectionBD.getConexion();
 
         try {
 
@@ -34,10 +32,11 @@ public class BLL_Admin_BD {
 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un error Logger2!");
+            ex.printStackTrace();
 
         }
 
-        conBD.CerrarConexion(con);
+       ConectionBD.liberaConexion(con);
     }
 
     /**
@@ -51,13 +50,11 @@ public class BLL_Admin_BD {
 
         int ok = 0;
         Connection con = null;
-        ConectionBD conBD = new ConectionBD();
-
-        con = conBD.AbrirConexion();
+       con = ConectionBD.getConexion();
 
         ok = DAO_Admin_BD.save_Admin(con);
 
-        conBD.CerrarConexion(con);
+        ConectionBD.liberaConexion(con);
 
         return ok;
     }
@@ -73,13 +70,13 @@ public class BLL_Admin_BD {
 
         int ok = 0;
         Connection con = null;
-        ConectionBD conBD = new ConectionBD();
+        
 
-        con = conBD.AbrirConexion();
+        con = ConectionBD.getConexion();
 
         ok = DAO_Admin_BD.save_modified_Admin(con);
 
-        conBD.CerrarConexion(con);
+        ConectionBD.liberaConexion(con);
 
         return ok;
     }
@@ -95,13 +92,13 @@ public class BLL_Admin_BD {
 
         int ok = 0;
         Connection con = null;
-        ConectionBD conBD = new ConectionBD();
+       
 
-        con = conBD.AbrirConexion();
+        con = ConectionBD.getConexion();
 
         ok = DAO_Admin_BD.delete_Admin(con);
 
-        conBD.CerrarConexion(con);
+       ConectionBD.liberaConexion(con);
 
         return ok;
     }
@@ -112,11 +109,11 @@ public class BLL_Admin_BD {
         Connection con = null;
         ConectionBD conBD = new ConectionBD();
 
-        con = conBD.AbrirConexion();
+        con = ConectionBD.getConexion();
 
         ok = DAO_Admin_BD.delete_all_Admin(con);
 
-        conBD.CerrarConexion(con);
+       ConectionBD.liberaConexion(con);
 
         return ok;
     }

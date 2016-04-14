@@ -1,5 +1,6 @@
 package Appweb.Modules.Main.Controller;
 
+import Appweb.Classes.ConectionBD;
 import static Appweb.General_tools.singletonapp.singlecargar;
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
@@ -86,6 +87,7 @@ public class ControllerMain implements ActionListener {
             //Funcion para que solo cargue archivos la primera vez
             if (singlecargar == false) {
                 auto_open_config_json();
+                ConectionBD.start_pool_conection();
                 //BLL_Admin_BD.cargarBD();
                 //BLL_Client.auto_open_json_client();
                 //BLL_User.auto_open_json();

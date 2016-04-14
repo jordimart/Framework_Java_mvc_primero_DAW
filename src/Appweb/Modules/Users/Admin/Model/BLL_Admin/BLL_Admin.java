@@ -277,8 +277,6 @@ public class BLL_Admin {
                     if (ok == 1) {
 
                         ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
-                        Table_Admin.mini_Table_Admin.setFillsViewportHeight(true);
-                        Table_Admin.mini_Table_Admin.setRowSorter(sorter);
                         pagina.inicializa();
                         pagina.initLinkBox();
 
