@@ -32,7 +32,7 @@ public class DAO_Dummy_BD {
             stmt.setString(2, singleadmin.a.getName());
             stmt.setString(3, singleadmin.a.getLast_name());
             stmt.setString(4, singleadmin.a.getMobile());
-            stmt.setString(5, singleadmin.a.getDate_birth().todate());
+            stmt.setString(5, singleadmin.a.getDate_birth().toString());
             stmt.setInt(6, singleadmin.a.getAge());
             stmt.setString(7, singleadmin.a.getEmail());
             stmt.setString(8, singleadmin.a.getUser());
@@ -40,7 +40,7 @@ public class DAO_Dummy_BD {
             stmt.setString(10, singleadmin.a.getAvatar());
             stmt.setFloat(11, singleadmin.a.getBenefits());
             stmt.setString(12, singleadmin.a.getStatus());
-            stmt.setString(13, singleadmin.a.getDate_cont().todate());
+            stmt.setString(13, singleadmin.a.getDate_cont().toString());
             stmt.setInt(14, singleadmin.a.getAntique());
             stmt.setFloat(15, singleadmin.a.getSalary());
             stmt.setInt(16, singleadmin.a.getActivity());

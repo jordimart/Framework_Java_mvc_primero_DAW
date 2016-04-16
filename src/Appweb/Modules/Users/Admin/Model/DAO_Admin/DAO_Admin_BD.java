@@ -52,7 +52,7 @@ public class DAO_Admin_BD {
                 a.setName(rs.getString("name"));
                 a.setLast_name(rs.getString("last_name"));
                 a.setMobile(rs.getString("mobile"));
-                a.setDate_birth(new ClassDate(rs.getString("date_birth")));
+                a.setDate_birth(new ClassDate(rs.getString("date_birth"),1));
                 a.setAge(rs.getInt("age"));
                 a.setEmail(rs.getString("email"));
                 a.setUser(rs.getString("user"));
@@ -60,7 +60,7 @@ public class DAO_Admin_BD {
                 a.setAvatar(rs.getString("avatar"));
                 a.setBenefits(rs.getFloat("benefits"));
                 a.setStatus(rs.getString("status"));
-                a.setDate_cont(new ClassDate(rs.getString("date_cont")));
+                a.setDate_cont(new ClassDate(rs.getString("date_cont"),1));
                 a.setAntique(rs.getInt("antique"));
                 a.setSalary(rs.getFloat("salary"));
                 a.setActivity(rs.getInt("activity"));
@@ -109,7 +109,7 @@ public class DAO_Admin_BD {
             stmt.setString(2, singleadmin.a.getName());
             stmt.setString(3, singleadmin.a.getLast_name());
             stmt.setString(4, singleadmin.a.getMobile());
-            stmt.setString(5, singleadmin.a.getDate_birth().todate());
+            stmt.setString(5, singleadmin.a.getDate_birth().toString());
             stmt.setInt(6, singleadmin.a.getAge());
             stmt.setString(7, singleadmin.a.getEmail());
             stmt.setString(8, singleadmin.a.getUser());
@@ -117,7 +117,7 @@ public class DAO_Admin_BD {
             stmt.setString(10, singleadmin.a.getAvatar());
             stmt.setFloat(11, singleadmin.a.getBenefits());
             stmt.setString(12, singleadmin.a.getStatus());
-            stmt.setString(13, singleadmin.a.getDate_cont().todate());
+            stmt.setString(13, singleadmin.a.getDate_cont().toString());
             stmt.setInt(14, singleadmin.a.getAntique());
             stmt.setFloat(15, singleadmin.a.getSalary());
             stmt.setInt(16, singleadmin.a.getActivity());
@@ -164,7 +164,7 @@ public class DAO_Admin_BD {
             stmt.setString(2, singleadmin.a.getName());
             stmt.setString(3, singleadmin.a.getLast_name());
             stmt.setString(4, singleadmin.a.getMobile());
-            stmt.setString(5, singleadmin.a.getDate_birth().todate());
+            stmt.setString(5, singleadmin.a.getDate_birth().toString());
             stmt.setInt(6, singleadmin.a.getAge());
             stmt.setString(7, singleadmin.a.getEmail());
             stmt.setString(8, singleadmin.a.getUser());
@@ -172,7 +172,7 @@ public class DAO_Admin_BD {
             stmt.setString(10, singleadmin.a.getAvatar());
             stmt.setFloat(11, singleadmin.a.getBenefits());
             stmt.setString(12, singleadmin.a.getStatus());
-            stmt.setString(13, singleadmin.a.getDate_cont().todate());
+            stmt.setString(13, singleadmin.a.getDate_cont().toString());
             stmt.setInt(14, singleadmin.a.getAntique());
             stmt.setFloat(15, singleadmin.a.getSalary());
             stmt.setInt(16, singleadmin.a.getActivity());

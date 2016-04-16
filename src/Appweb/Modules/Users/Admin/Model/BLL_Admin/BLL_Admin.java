@@ -9,10 +9,10 @@ import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
 import static Appweb.Modules.Users.Admin.Controller.ControllerAdmin.Table_Admin;
 import static Appweb.Modules.Users.Admin.Controller.ControllerAdmin.sorter;
-import Appweb.Modules.Users.Admin.View.show_Admin_view;
 import static Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin_class;
 import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
+import Appweb.Modules.Users.Admin.View.show_Admin_view;
 import Appweb.Modules.Users.Client.Controller.ControllerClient;
 import Appweb.Modules.Users.Client.View.table_Client_view;
 import Appweb.Modules.Users.User_reg.Controller.ControllerUser;
@@ -280,8 +280,18 @@ public class BLL_Admin {
                         pagina.inicializa();
                         pagina.initLinkBox();
 
-                        pass = true;
                     }
+                    //si esta en la hoja 2 y solo hay 5 usuarios pasa a la 1.
+                    if (singleadmin.Admin_array.size() < 6) {
+
+                        pagina.currentPageIndex = 1;
+                        pagina.inicializa();
+                        pagina.initLinkBox();
+
+                    }
+
+                    pass = true;
+
                 }
 
             }

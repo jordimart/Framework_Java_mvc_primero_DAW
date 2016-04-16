@@ -99,7 +99,7 @@ public class Table_Admin_class extends AbstractTableModel {
 
             case 3:
 
-                fila.setDate_birth(new ClassDate(value.toString()));
+                fila.setDate_birth(new ClassDate(value.toString(),1));
                 break;
 
             case 4:
