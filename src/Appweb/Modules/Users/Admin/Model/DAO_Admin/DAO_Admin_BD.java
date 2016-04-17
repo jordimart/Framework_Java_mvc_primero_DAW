@@ -52,7 +52,7 @@ public class DAO_Admin_BD {
                 a.setName(rs.getString("name"));
                 a.setLast_name(rs.getString("last_name"));
                 a.setMobile(rs.getString("mobile"));
-                a.setDate_birth(new ClassDate(rs.getString("date_birth"),1));
+                a.setDate_birth(new ClassDate(rs.getString("date_birth"), 1));
                 a.setAge(rs.getInt("age"));
                 a.setEmail(rs.getString("email"));
                 a.setUser(rs.getString("user"));
@@ -60,7 +60,7 @@ public class DAO_Admin_BD {
                 a.setAvatar(rs.getString("avatar"));
                 a.setBenefits(rs.getFloat("benefits"));
                 a.setStatus(rs.getString("status"));
-                a.setDate_cont(new ClassDate(rs.getString("date_cont"),1));
+                a.setDate_cont(new ClassDate(rs.getString("date_cont"), 1));
                 a.setAntique(rs.getInt("antique"));
                 a.setSalary(rs.getFloat("salary"));
                 a.setActivity(rs.getInt("activity"));
@@ -69,7 +69,7 @@ public class DAO_Admin_BD {
 
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Ha habido un problema al obtener los usuarios!");
+            System.out.print("Ha habido un problema al cargar losusuarios de BD!\n");
         } finally {
             if (stmt != null) {
                 try {
@@ -125,7 +125,7 @@ public class DAO_Admin_BD {
             ok = stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Ha habido un problema al insertar un nuevo usuario!");
+            System.out.print("Ha habido un problema al insertar al nuevo usuario!\n");
         } finally {
             if (stmt != null) {
                 try {
@@ -181,7 +181,7 @@ public class DAO_Admin_BD {
             ok = stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Ha habido un problema al insertar un nuevo usuario!");
+            System.out.print("Ha habido un problema al modificar al nuevo usuario!\n");
         } finally {
             if (stmt != null) {
                 try {
@@ -217,7 +217,7 @@ public class DAO_Admin_BD {
             ok = stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Ha habido un error al eliminar el usuario!");
+            System.out.print("Ha habido un error al eliminar el usuario!\n");
         } finally {
             if (stmt != null) {
                 try {
@@ -243,7 +243,7 @@ public class DAO_Admin_BD {
             ok = stmt.executeUpdate();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Ha habido un error al eliminar los administradores!");
+            System.out.print("Ha habido un error al eliminar los administradores!");
         } finally {
             if (stmt != null) {
                 try {

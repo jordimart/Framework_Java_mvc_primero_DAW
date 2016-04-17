@@ -316,8 +316,12 @@ public class BLL_Admin {
                     Lang.getInstance().getProperty("Information"), JOptionPane.ERROR_MESSAGE);
         } else {
 
-            ok = BLL_Admin_BD.delete_all_Admin();//Borramos de la base de datos todos los Admin
+            int opc = JOptionPane.showConfirmDialog(null, "¿Deseas borrar todos los administradores? ",
+                    "Info", JOptionPane.WARNING_MESSAGE);
+            if (opc == 0) {
 
+                ok = BLL_Admin_BD.delete_all_Admin();//Borramos de la base de datos todos los Admin
+            }
             if (ok != -1) {
 
                 singleadmin.Admin_array.clear();
@@ -407,16 +411,6 @@ public class BLL_Admin {
     public static void save_txt_admin() {
 
         DAO_Admin.save_txt_admin();
-    }
-
-    public static void auto_open_json_admin() {
-
-        DAO_Admin.auto_open_json_admin();
-    }
-
-    public static void auto_save_json_admin() {
-
-        DAO_Admin.auto_save_json_admin();
     }
 
     public static void change_table_user() {

@@ -183,7 +183,8 @@ public class DAO_Dummies {
     }
 
     /**
-     * Funcion que devuelve un nombre de usuario que depende del nombre
+     * Funcion que devuelve un nombre de usuario que depende del nombre y un
+     * numero aleatorio ya que no debe repetirse.
      * anterior.
      *
      * @param name
@@ -193,10 +194,50 @@ public class DAO_Dummies {
     public static String Dummyuser(String name) {
 
         String user = "";
+        int num = (int) (Math.random() * (9999 - 1000) + 1000);
 
-        user = user + name + "user";
+        user = user + name + num;
 
         return user;
+    }
+
+    /**
+     * Funcion que genera un password usando el nombre delusuario e
+     * introduciendo
+     * numeros.
+     *
+     * @param name
+     *
+     * @return
+     */
+    public static String Dammypassword(String name) {
+
+        String pass = "";
+        int num = (int) (Math.random() * (9999 - 1000) + 1000);
+        String up = name.toUpperCase();
+
+        pass = pass + up + num + name;
+
+        return pass;
+
+    }
+
+    /**
+     * Funcion que devuelve la direccion de una imagen para el avatarde forma
+     * aleatoria.
+     *
+     * @return String con direccion
+     */
+    public static String Dammyavatar() {
+
+        String[] nom = {"0275.jpg", "0288.jpg", "0298.jpg", "0303.jpg", "0415.jpg", "0686.jpg", "0695.jpg", "0770.jpg", "0771.jpg",
+            "0781.jpg", "0782.jpg", "0808.jpg", "0815.jpg", "0870.jpg", "0872.jpg", "0984.jpg", "0986.jpg", "1331.jpg", "1332.jpg",
+            "1448.jpg", "1455.jpg", "1494.jpg", "1544.jpg", "1556.jpg", "1558.jpg", "1567.jpg", "1568.jpg", "1570.jpg", "1916.jpg",};
+
+        int pos = (int) (Math.random() * (29 - 1) + 1);
+        String avatar = "src/Appweb/Modules/Users/Img/Avatares/" + nom[pos];
+
+        return avatar;
     }
 
     /**
@@ -348,8 +389,8 @@ public class DAO_Dummies {
         Date_birth = DAO_Dummies.Dummydate_int_min_max(16, 65);
         Email = DAO_Dummies.Dummyemail(Name, Last_name);
         User = DAO_Dummies.Dummyuser(Name);
-        Password = "Jorge150902";
-        Avatar = "src/Appweb/Modules/Users/Img/Avatares/images.jpg";
+        Password = DAO_Dummies.Dammypassword(Name);
+        Avatar = DAO_Dummies.Dammyavatar();
         Status = "Conected";
 
         // Enter Admin attributes

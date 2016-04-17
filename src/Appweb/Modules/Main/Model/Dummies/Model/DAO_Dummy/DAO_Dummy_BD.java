@@ -1,4 +1,3 @@
-
 package Appweb.Modules.Main.Model.Dummies.Model.DAO_Dummy;
 
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
@@ -47,10 +46,10 @@ public class DAO_Dummy_BD {
 
             resultado = stmt.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "El usuario ha sido dado de alta correctamente!");
+            System.out.print("El usuario ha sido dado de alta correctamente!\n");
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Ha habido un problema al insertar un nuevo usuario!");
+            System.out.print("Ha habido un error al insertarel nuevo usuario!\n");
         } finally {
             if (stmt != null) {
                 try {
