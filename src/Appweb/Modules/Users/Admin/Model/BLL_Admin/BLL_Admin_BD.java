@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Appweb.Modules.Users.Admin.Model.BLL_Admin;
 
 import Appweb.Classes.ConectionBD;
@@ -24,7 +20,7 @@ public class BLL_Admin_BD {
 
         Connection con = null;
 
-        con=ConectionBD.getConexion();
+        con = ConectionBD.getConexion();
 
         try {
 
@@ -36,7 +32,7 @@ public class BLL_Admin_BD {
 
         }
 
-       ConectionBD.liberaConexion(con);
+        ConectionBD.liberaConexion(con);
     }
 
     /**
@@ -50,7 +46,7 @@ public class BLL_Admin_BD {
 
         int ok = 0;
         Connection con = null;
-       con = ConectionBD.getConexion();
+        con = ConectionBD.getConexion();
 
         ok = DAO_Admin_BD.save_Admin(con);
 
@@ -70,7 +66,6 @@ public class BLL_Admin_BD {
 
         int ok = 0;
         Connection con = null;
-        
 
         con = ConectionBD.getConexion();
 
@@ -92,28 +87,26 @@ public class BLL_Admin_BD {
 
         int ok = 0;
         Connection con = null;
-       
 
         con = ConectionBD.getConexion();
 
         ok = DAO_Admin_BD.delete_Admin(con);
 
-       ConectionBD.liberaConexion(con);
+        ConectionBD.liberaConexion(con);
 
         return ok;
     }
-    
-     public static int delete_all_Admin() {
+
+    public static int delete_all_Admin() {
 
         int ok = 0;
         Connection con = null;
-        ConectionBD conBD = new ConectionBD();
 
         con = ConectionBD.getConexion();
 
         ok = DAO_Admin_BD.delete_all_Admin(con);
 
-       ConectionBD.liberaConexion(con);
+        ConectionBD.liberaConexion(con);
 
         return ok;
     }
