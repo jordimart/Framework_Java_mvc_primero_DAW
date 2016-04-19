@@ -7,6 +7,7 @@ import Appweb.Classes.Date.ClassDate;
 import Appweb.General_tools.Format_tools;
 import Appweb.Modules.Users.Classes.User;
 import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
 
 /**
  *
@@ -41,14 +42,60 @@ public class Client extends User implements Serializable {
         this.client_type = client_type;
         super.setBenefits(Cal_benefits());
     }
-    
-    public BasicDBObject to_DB_Client(){
-        
+
+    /**
+     * Constructor basado en los datos extraidos de una BD mongo.
+     *
+     * @param dBObjectClient
+     *
+     * @return Objeto Client
+     */
+    public Client Client_to_DB(DBObject dBObjectClient) {
+
+        super.setDni((String) dBObjectClient.get("dni"));
+        super.setName((String) dBObjectClient.get("name"));
+        super.setLast_name((String) dBObjectClient.get("last_name"));
+        super.setMobile((String) dBObjectClient.get("mobile"));
+        super.setDate_birth((ClassDate) dBObjectClient.get("date_birth"));
+        super.setEmail((String) dBObjectClient.get("email"));
+        super.setUser((String) dBObjectClient.get("user"));
+        super.setPassword((String) dBObjectClient.get("password"));
+        super.setAvatar((String) dBObjectClient.get("avatar"));
+        super.setStatus((String) dBObjectClient.get("status"));
+        this.entry_date = (ClassDate) (dBObjectClient.get("entry_date"));
+        this.purchase = (float) dBObjectClient.get("purchase");
+        this.premium = (String) dBObjectClient.get("premium");
+        this.client_type = (String) dBObjectClient.get("client_type");
+
+        return new Client(super.getDni(), super.getName(), super.getLast_name(), super.getMobile(), super.getDate_birth(),
+                super.getEmail(), super.getUser(), super.getPassword(), super.getAvatar(), super.getStatus(),
+                this.entry_date, this.purchase, this.premium, this.client_type);
+    }
+
+    /**
+     * Introduce los datos de un cliente en un objeto BasicDBObject.
+     *
+     * @return
+     */
+    public BasicDBObject to_DB_Client() {
+
         BasicDBObject dBObjectClient = new BasicDBObject();
+
         dBObjectClient.append("dni", super.getDni());
-	dBObjectClient.append("name", super.getName());
-	dBObjectClient.append("last_name", super.getLast_name());
-        
+        dBObjectClient.append("name", super.getName());
+        dBObjectClient.append("last_name", super.getLast_name());
+        dBObjectClient.append("mobile", super.getMobile());
+        dBObjectClient.append("date_birth", super.getDate_birth().toString());
+        dBObjectClient.append("email", super.getEmail());
+        dBObjectClient.append("user", super.getUser());
+        dBObjectClient.append("password", super.getPassword());
+        dBObjectClient.append("avatar", super.getAvatar());
+        dBObjectClient.append("status", super.getStatus());
+        dBObjectClient.append("entry_date", this.getEntry_date().toString());
+        dBObjectClient.append("purchase", this.getPurchase());
+        dBObjectClient.append("premium", this.getPremium());
+        dBObjectClient.append("client_type", this.getClient_type());
+
         return dBObjectClient;
     }
 
@@ -318,7 +365,7 @@ public class Client extends User implements Serializable {
 
                 if (Classconfig.getInstance().getnum_dec() == "0.00") {
 
-                    money = money  + Format_tools.F_Libra(calp) + "\n";
+                    money = money + Format_tools.F_Libra(calp) + "\n";
 
                 }
 

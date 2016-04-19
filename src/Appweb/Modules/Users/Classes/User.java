@@ -4,7 +4,6 @@ import java.io.Serializable;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Classes.Date.ClassDate;
-import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.General_tools.Format_tools;
 
 /**
@@ -70,6 +69,8 @@ public abstract class User implements Comparable<User>, Serializable {
 
     }// end of constructor
 
+    
+    
     // constructor two
     // constructor por defecto, no recoge nada
     public User() {

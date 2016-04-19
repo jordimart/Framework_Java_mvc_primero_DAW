@@ -176,8 +176,8 @@ public class ClassDate implements Serializable {
     }
 
     /**
-     * Print all attributes Tostring con peticion de salida de fecha. En la
-     * ultima version utilizo el tostring todate para imprimir tipos de formato.
+     *  En la ultima version utilizo el tostring 
+     * para que imprima solo en formato de barras.
      *
      * @return
      */

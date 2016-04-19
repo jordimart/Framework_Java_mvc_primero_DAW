@@ -102,8 +102,6 @@ public class ControllerMain implements ActionListener {
                     singletonapp.collection = singletonapp.mongo.getCollection();
                 }
 
-                JOptionPane.showMessageDialog(null, "Esta a null" + singletonapp.client);
-
                 singlecargar = true;
             }
             //Configuracion manual de la vista

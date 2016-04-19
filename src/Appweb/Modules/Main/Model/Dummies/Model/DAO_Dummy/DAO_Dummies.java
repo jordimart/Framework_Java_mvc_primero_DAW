@@ -431,7 +431,7 @@ public class DAO_Dummies {
 
         // Enter Admin attributes
         entry_date = new ClassDate(01, 01, 2006);
-        purchase = DAO_Dummies.Dummysalary(0, 3000);
+        purchase = 1000;
         premium = "Yes";
         client_type = "Bueno";
 

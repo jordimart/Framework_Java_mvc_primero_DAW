@@ -3,7 +3,6 @@ package Appweb.Modules.Main.Model.Dummies.Model.BLL_Dummy;
 import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.Model.Dummies.Model.DAO_Dummy.DAO_Dummies;
-import Appweb.Modules.Main.Model.Dummies.Model.DAO_Dummy.DAO_Dummy_mongo;
 import Appweb.Modules.Main.Model.Dummies.View.task_Dummy_view;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin_BD;
 import Appweb.Modules.Users.Admin.Model.Classes.Admin;
@@ -129,7 +128,7 @@ public class BLL_Dummies {
             }
             if (pass == true) {
 
-                DAO_Dummy_mongo.create_Dummy_client_mongo();
+                BLL_Dummy_mongo.create_Dummy_client_mongo();
             }
 
         }
