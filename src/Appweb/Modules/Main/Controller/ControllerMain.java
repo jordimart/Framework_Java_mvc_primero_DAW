@@ -1,6 +1,8 @@
 package Appweb.Modules.Main.Controller;
 
 import Appweb.Classes.ConectionBD;
+import Appweb.Classes.Mongo_DB;
+import Appweb.General_tools.singletonapp;
 import static Appweb.General_tools.singletonapp.singlecargar;
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
@@ -88,9 +90,20 @@ public class ControllerMain implements ActionListener {
             if (singlecargar == false) {
                 auto_open_config_json();
                 ConectionBD.start_pool_conection();
-                //BLL_Admin_BD.cargarBD();
-                //BLL_Client.auto_open_json_client();
+
                 //BLL_User.auto_open_json();
+                singletonapp.mongo = new Mongo_DB();
+                singletonapp.nom_bd = singletonapp.mongo.getNom_bd();//coge el nombre de la base de datos
+                singletonapp.nom_table = singletonapp.mongo.getNom_table();//coge el nombre de la tabla
+
+                singletonapp.client = Mongo_DB.connect();//Abre la conexion a mongo
+                if (singletonapp.client != null) {
+                    singletonapp.db = singletonapp.mongo.getDb();
+                    singletonapp.collection = singletonapp.mongo.getCollection();
+                }
+
+                JOptionPane.showMessageDialog(null, "Esta a null" + singletonapp.client);
+
                 singlecargar = true;
             }
             //Configuracion manual de la vista

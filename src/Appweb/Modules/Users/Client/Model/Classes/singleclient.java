@@ -9,5 +9,6 @@ import java.util.ArrayList;
  */
 public class singleclient {
     public static ArrayList<Client> Client_array;
+    public static Client c;
     
 }

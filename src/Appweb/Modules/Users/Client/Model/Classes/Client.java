@@ -6,6 +6,7 @@ import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Classes.Date.ClassDate;
 import Appweb.General_tools.Format_tools;
 import Appweb.Modules.Users.Classes.User;
+import com.mongodb.BasicDBObject;
 
 /**
  *
@@ -39,6 +40,16 @@ public class Client extends User implements Serializable {
         this.premium = premium;
         this.client_type = client_type;
         super.setBenefits(Cal_benefits());
+    }
+    
+    public BasicDBObject to_DB_Client(){
+        
+        BasicDBObject dBObjectClient = new BasicDBObject();
+        dBObjectClient.append("dni", super.getDni());
+	dBObjectClient.append("name", super.getName());
+	dBObjectClient.append("last_name", super.getLast_name());
+        
+        return dBObjectClient;
     }
 
     // Constructor type two nothing
