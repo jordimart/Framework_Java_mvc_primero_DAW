@@ -101,6 +101,7 @@ public class BLL_Dummies {
 
         } else {
 
+            singleclient.Client_array.clear();
             singletonapp.num = Integer.parseInt(combo);
 
             for (int j = 0; j < singletonapp.num; j++) {

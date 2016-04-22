@@ -8,7 +8,6 @@ import Appweb.Modules.Users.Admin.View.table_Admin_view;
 
 import Appweb.Modules.Users.Client.Controller.ControllerClient;
 import static Appweb.Modules.Users.Client.Controller.ControllerClient.Table_Client;
-import Appweb.Modules.Users.Client.Model.Classes.Client;
 import Appweb.Modules.Users.Client.Model.Classes.Table_Client_class;
 import static Appweb.Modules.Users.Client.Model.Classes.Table_Client_class.datos;
 import Appweb.Modules.Users.Client.Model.Classes.singleclient;
@@ -77,11 +76,13 @@ public class BLL_Client {
 
         boolean ok = false;
 
-        Client a = DAO_Client.add_create_client();
+        singleclient.c = DAO_Client.add_create_client();
 
-        if (a != null) {
-            singleclient.Client_array.add(a);
-            DAO_Client.auto_save_json_client();
+        if (singleclient.c != null) {
+            //singleclient.Client_array.add(a);
+           // DAO_Client.auto_save_json_client();
+           BLL_Client_mongo.save();
+           
             ((Table_Client_class) mini_Table_Client.getModel()).cargar();
             pagina_client.inicializa();
             pagina_client.initLinkBox();
@@ -146,11 +147,14 @@ public class BLL_Client {
 
         boolean ok = false;
 
-        Client c = DAO_Client.modify_edit_client();
+        singleclient.c = DAO_Client.modify_edit_client();
 
-        if (c != null) {
-            singleclient.Client_array.set(singletonapp.pos, c);
-            DAO_Client.auto_save_json_client();
+        if (singleclient.c != null) {
+            //singleclient.Client_array.set(singletonapp.pos, c);
+            //DAO_Client.auto_save_json_client();
+            BLL_Client_mongo.save_modified();
+            
+            
             JOptionPane.showMessageDialog(null, "Usuario modificado");
 
             ok = true;
@@ -220,11 +224,13 @@ public class BLL_Client {
             } else {
 
                 dni = (String) mini_Table_Client.getModel().getValueAt(selection1, 0);
-                singletonapp.pos = Look_for_dni_client(dni);
+               // singletonapp.pos = Look_for_dni_client(dni);
 
                 ((Table_Client_class) mini_Table_Client.getModel()).removeRow(selection1);
-                singleclient.Client_array.remove(singletonapp.pos);
-                DAO_Client.auto_save_json_client();
+                //singleclient.Client_array.remove(singletonapp.pos);
+                BLL_Client_mongo.delete(dni);
+                //DAO_Client.auto_save_json_client();
+                BLL_Client_mongo.load();
 
                 ok = true;
             }

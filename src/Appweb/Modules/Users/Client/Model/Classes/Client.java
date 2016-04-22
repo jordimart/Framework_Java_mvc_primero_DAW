@@ -52,23 +52,23 @@ public class Client extends User implements Serializable {
      */
     public Client Client_to_DB(DBObject dBObjectClient) {
 
-        super.setDni((String) dBObjectClient.get("dni"));
-        super.setName((String) dBObjectClient.get("name"));
-        super.setLast_name((String) dBObjectClient.get("last_name"));
-        super.setMobile((String) dBObjectClient.get("mobile"));
-        super.setDate_birth((ClassDate) dBObjectClient.get("date_birth"));
-        super.setEmail((String) dBObjectClient.get("email"));
-        super.setUser((String) dBObjectClient.get("user"));
-        super.setPassword((String) dBObjectClient.get("password"));
-        super.setAvatar((String) dBObjectClient.get("avatar"));
-        super.setStatus((String) dBObjectClient.get("status"));
-        this.entry_date = (ClassDate) (dBObjectClient.get("entry_date"));
-        this.purchase = (float) dBObjectClient.get("purchase");
+        this.setDni((String) dBObjectClient.get("dni"));
+        this.setName((String) dBObjectClient.get("name"));
+        this.setLast_name((String) dBObjectClient.get("last_name"));
+        this.setMobile((String) dBObjectClient.get("mobile"));
+        this.setDate_birth(new ClassDate(dBObjectClient.get("date_birth").toString()));
+        this.setEmail((String) dBObjectClient.get("email"));
+        this.setUser((String) dBObjectClient.get("user"));
+        this.setPassword((String) dBObjectClient.get("password"));
+        this.setAvatar((String) dBObjectClient.get("avatar"));
+        this.setStatus((String) dBObjectClient.get("status"));
+        this.entry_date = new ClassDate(dBObjectClient.get("entry_date").toString());
+        this.purchase = Float.parseFloat(dBObjectClient.get("purchase").toString());
         this.premium = (String) dBObjectClient.get("premium");
         this.client_type = (String) dBObjectClient.get("client_type");
 
-        return new Client(super.getDni(), super.getName(), super.getLast_name(), super.getMobile(), super.getDate_birth(),
-                super.getEmail(), super.getUser(), super.getPassword(), super.getAvatar(), super.getStatus(),
+        return new Client(this.getDni(), this.getName(), this.getLast_name(), this.getMobile(), this.getDate_birth(),
+                this.getEmail(), this.getUser(), this.getPassword(), this.getAvatar(), this.getStatus(),
                 this.entry_date, this.purchase, this.premium, this.client_type);
     }
 

@@ -1,4 +1,6 @@
 package Appweb.Classes;
+
+import Appweb.General_tools.singletonapp;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.Mongo;
@@ -8,19 +10,20 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class Mongo_DB {
+
     private static Properties prop = new Properties();
     private static InputStream input = null;
     private static String machine = null;
     private static String port = null;
-    private static Mongo client = null;
-    private static DB db = null;
+    // private static Mongo client = null;
+    //private static DB db = null;
     private static String nom_bd = null;
     private static DBCollection collection = null;
     private static String nom_table = null;
-   
+
     public Mongo_DB() {
         try {
-            input = new FileInputStream("src/Appweb/Classes/mongo.properties"); 
+            input = new FileInputStream("src/Appweb/Classes/mongo.properties");
             try {
                 prop.load(input);
             } catch (Exception e) {
@@ -30,44 +33,44 @@ public class Mongo_DB {
             machine = prop.getProperty("machine");
             port = prop.getProperty("port");
             nom_bd = prop.getProperty("db");
-            nom_table = prop.getProperty("collection");      
+            nom_table = prop.getProperty("collection");
         } catch (FileNotFoundException e) {
             System.out.println("Unable to open mongo.properties");
             e.printStackTrace();
-        }finally {
+        } finally {
             if (input != null) {
-		try {
+                try {
                     input.close();
-		} catch (Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
-                    System.out.println("Unable to close mongo.properties"); 
-		}
+                    System.out.println("Unable to close mongo.properties");
+                }
             }
-	}
+        }
     }
-    
-    public static Mongo connect() {
+
+    public static void connect() {
         try {
-            client = new Mongo(getMachine(), Integer.parseInt(getPort()));
-            db = client.getDB(getNom_bd());
-            collection = db.getCollection(getNom_table());
+            singletonapp.client = new Mongo(getMachine(), Integer.parseInt(getPort()));
+            singletonapp.db = singletonapp.client.getDB(getNom_bd());
+            collection = singletonapp.db.getCollection(getNom_table());
         } catch (Exception e) {
             System.out.println("Unable to open client");
             e.printStackTrace();
-            if (client != null) {
-		try {
-                    client.close();
-		} catch (Exception ex) {
+            if (singletonapp.client != null) {
+                try {
+                    singletonapp.client.close();
+                } catch (Exception ex) {
                     System.out.println("Unable to close client");
                     ex.printStackTrace();
-		}
+                }
             }
-	}
-        return client;
+        }
+
     }
-    
+
     public static void disconnect() {
-	client.close();
+        singletonapp.client.close();
     }
 
     public static Properties getProp() {
@@ -79,11 +82,11 @@ public class Mongo_DB {
     }
 
     public static Mongo getClient() {
-        return client;
+        return singletonapp.client;
     }
 
     public static DB getDb() {
-        return db;
+        return singletonapp.db;
     }
 
     public static DBCollection getCollection() {
@@ -99,11 +102,11 @@ public class Mongo_DB {
     }
 
     public static void setClient(Mongo client) {
-        Mongo_DB.client = client;
+        singletonapp.client = client;
     }
 
     public static void setDb(DB db) {
-        Mongo_DB.db = db;
+        singletonapp.db = db;
     }
 
     public static void setCollection(DBCollection collection) {

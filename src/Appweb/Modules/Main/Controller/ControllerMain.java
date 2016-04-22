@@ -96,7 +96,7 @@ public class ControllerMain implements ActionListener {
                 singletonapp.nom_bd = singletonapp.mongo.getNom_bd();//coge el nombre de la base de datos
                 singletonapp.nom_table = singletonapp.mongo.getNom_table();//coge el nombre de la tabla
 
-                singletonapp.client = Mongo_DB.connect();//Abre la conexion a mongo
+                 Mongo_DB.connect();//Abre la conexion a mongo
                 if (singletonapp.client != null) {
                     singletonapp.db = singletonapp.mongo.getDb();
                     singletonapp.collection = singletonapp.mongo.getCollection();

@@ -1,9 +1,8 @@
 package Appweb.Modules.Users.Client.Model.Classes;
 
 import Appweb.Classes.Date.ClassDate;
-import static Appweb.General_tools.singletonapp.db;
 import static Appweb.Modules.Users.Client.Controller.ControllerClient.combo;
-import Appweb.Modules.Users.Client.Model.DAO_Client.DAO_Client_mongo;
+import Appweb.Modules.Users.Client.Model.BLL_Client.BLL_Client_mongo;
 import Appweb.Modules.Users.Client.Model.Tools.Pager.pagina_client;
 import Appweb.Modules.Users.Client.View.table_Client_view;
 import java.util.ArrayList;
@@ -123,7 +122,8 @@ public class Table_Client_class extends AbstractTableModel {
 
         Client client = null;
         
-        DAO_Client_mongo.load(db);
+        singleclient.Client_array.clear();
+        BLL_Client_mongo.load();
 
         for (int i = 0; i <= singleclient.Client_array.size() - 1; i++) {
 
