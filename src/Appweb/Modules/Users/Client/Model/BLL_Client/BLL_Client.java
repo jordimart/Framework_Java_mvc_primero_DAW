@@ -79,10 +79,9 @@ public class BLL_Client {
         singleclient.c = DAO_Client.add_create_client();
 
         if (singleclient.c != null) {
-            //singleclient.Client_array.add(a);
-           // DAO_Client.auto_save_json_client();
-           BLL_Client_mongo.save();
-           
+
+            BLL_Client_mongo.save();
+
             ((Table_Client_class) mini_Table_Client.getModel()).cargar();
             pagina_client.inicializa();
             pagina_client.initLinkBox();
@@ -150,11 +149,9 @@ public class BLL_Client {
         singleclient.c = DAO_Client.modify_edit_client();
 
         if (singleclient.c != null) {
-            //singleclient.Client_array.set(singletonapp.pos, c);
-            //DAO_Client.auto_save_json_client();
+
             BLL_Client_mongo.save_modified();
-            
-            
+
             JOptionPane.showMessageDialog(null, "Usuario modificado");
 
             ok = true;
@@ -191,9 +188,6 @@ public class BLL_Client {
                 Table_Client.dispose();
                 new ControllerClient(new edit_Client_view(), 2).Start(2);
                 DAO_Client.Load_edit_client();
-                ((Table_Client_class) mini_Table_Client.getModel()).cargar();
-                pagina_client.inicializa();
-                pagina_client.initLinkBox();
 
                 ok = true;
             }
@@ -211,7 +205,6 @@ public class BLL_Client {
         int selection, inicio, selection1;
 
         if (((Table_Client_class) table_Client_view.mini_Table_Client.getModel()).getRowCount() != 0) {
-            //int selec = table_Admin_view.mini_Table_Admin.getSelectedRow();
 
             inicio = (pagina_client.currentPageIndex - 1) * pagina_client.itemsPerPage; //nos situamos al inicio de la pÃ¡gina en cuestiÃ³n
             selection = mini_Table_Client.getSelectedRow(); //nos situamos en la fila
@@ -224,12 +217,11 @@ public class BLL_Client {
             } else {
 
                 dni = (String) mini_Table_Client.getModel().getValueAt(selection1, 0);
-               // singletonapp.pos = Look_for_dni_client(dni);
 
                 ((Table_Client_class) mini_Table_Client.getModel()).removeRow(selection1);
-                //singleclient.Client_array.remove(singletonapp.pos);
+
                 BLL_Client_mongo.delete(dni);
-                //DAO_Client.auto_save_json_client();
+
                 BLL_Client_mongo.load();
 
                 ok = true;
@@ -255,8 +247,8 @@ public class BLL_Client {
 
             // delete all objects to the
             // arraylist
-            singleclient.Client_array.clear();
-            DAO_Client.auto_save_json_client();
+            //singleclient.Client_array.clear();
+           // DAO_Client.auto_save_json_client();
             ((Table_Client_class) mini_Table_Client.getModel()).cargar();
             table_Client_view.jLabel3.setText(String.valueOf(datos.size()));
             pagina_client.inicializa();
@@ -343,15 +335,15 @@ public class BLL_Client {
         DAO_Client.save_txt_client();
     }
 
-    public static void auto_open_json_client() {
+    //public static void auto_open_json_client() {
 
-        DAO_Client.auto_open_json_client();
-    }
+       // DAO_Client.auto_open_json_client();
+    //}
 
-    public static void auto_save_json_client() {
-
-        DAO_Client.auto_save_json_client();
-    }
+//    public static void auto_save_json_client() {
+//
+//        DAO_Client.auto_save_json_client();
+//    }
 
     public static void change_table_user() {
 

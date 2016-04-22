@@ -15,7 +15,7 @@ public class DAO_Client_mongo {
     /**
      * Carga los clientes de la base de datos mongo a la Array de la aplicacion
      *
-     * @param db
+     * 
      */
     public static void load() {
         DBCursor cursor = null;

@@ -22,20 +22,21 @@ public class BLL_Client_mongo {
      * BLL que utiliza un DAO mongo para insertar un cliente en la base de datos
      * mongo
      *
-     * @return
+     *
      */
-    public static int save() {
+    public static void save() {
 
         DAO_Client_mongo.save();
 
-        return 0;
     }
 
-    public static int save_modified() {
-        
+    /**
+     * BLL que modifica un cliente de mongo seleccionado previamente.
+     */
+    public static void save_modified() {
+
         DAO_Client_mongo.save_modified();
 
-        return 0;
     }
 
     /**
