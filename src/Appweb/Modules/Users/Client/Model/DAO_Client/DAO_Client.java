@@ -16,10 +16,6 @@ import Appweb.Modules.Users.Client.View.create_Client_view;
 import Appweb.Modules.Users.Client.View.edit_Client_view;
 import Appweb.Modules.Users.Client.View.show_Client_view;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
-import com.google.gson.stream.JsonReader;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.Annotations;
 import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
@@ -34,7 +30,6 @@ import java.awt.HeadlessException;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -1203,76 +1198,76 @@ public class DAO_Client {
         }
     }
 
-    public static void auto_save_json_client() {
-
-        String PATH = " ";
-
-        try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/Client/Model/Client_files/clientusers";
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            XStream xstreamjson = new XStream(new JettisonMappedXmlDriver());
-            xstreamjson.setMode(XStream.NO_REFERENCES);
-            xstreamjson.alias("Client", Client.class);
-
-            File JFC = new File(PATH);
-            PATH = JFC.getAbsolutePath();
-            PATH = PATH + ".json";
-
-            Gson gson = new Gson();
-            String json = gson.toJson(singleclient.Client_array);
-            FileWriter fileXml = new FileWriter(PATH);
-            fileXml.write(json.toString());
-            fileXml.close();
-
-            System.out.print(Lang.getInstance().getProperty("User_file_saved") + " Client json \n");
-
-        } catch (Exception e) {
-            System.out.print(Lang.getInstance().getProperty("Failed_to_save_user") + " Client json" + " \n");
-        }
-    }
-
-    public static void auto_open_json_client() {
-
-        String PATH = " ";
-
-        Client c = new Client("");
-
-        try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/Client/Model/Client_files/clientusers.json";
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            XStream xstream = new XStream(new JettisonMappedXmlDriver());
-            xstream.setMode(XStream.NO_REFERENCES);
-            xstream.alias("Client", Client.class);
-
-            File JFC = new File(PATH);
-            PATH = JFC.getAbsolutePath();
-
-            singleclient.Client_array.clear();
-
-            JsonReader lector = new JsonReader(new FileReader(PATH));
-            JsonParser parseador = new JsonParser();
-            JsonElement raiz = parseador.parse(lector);
-
-            Gson json = new Gson();
-            JsonArray lista = raiz.getAsJsonArray();
-            for (JsonElement elemento : lista) {
-                c = json.fromJson(elemento, Client.class);
-                singleclient.Client_array.add(c);
-
-            }
-            System.out.print(Lang.getInstance().getProperty("Loaded_user_file") + " Client json" + " \n");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.print(Lang.getInstance().getProperty("Error_loading_user_file") + " json" + " \n");
-        }
-    }
+//    public static void auto_save_json_client() {
+//
+//        String PATH = " ";
+//
+//        try {
+//            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/Client/Model/Client_files/clientusers";
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            XStream xstreamjson = new XStream(new JettisonMappedXmlDriver());
+//            xstreamjson.setMode(XStream.NO_REFERENCES);
+//            xstreamjson.alias("Client", Client.class);
+//
+//            File JFC = new File(PATH);
+//            PATH = JFC.getAbsolutePath();
+//            PATH = PATH + ".json";
+//
+//            Gson gson = new Gson();
+//            String json = gson.toJson(singleclient.Client_array);
+//            FileWriter fileXml = new FileWriter(PATH);
+//            fileXml.write(json.toString());
+//            fileXml.close();
+//
+//            System.out.print(Lang.getInstance().getProperty("User_file_saved") + " Client json \n");
+//
+//        } catch (Exception e) {
+//            System.out.print(Lang.getInstance().getProperty("Failed_to_save_user") + " Client json" + " \n");
+//        }
+//    }
+//
+//    public static void auto_open_json_client() {
+//
+//        String PATH = " ";
+//
+//        Client c = new Client("");
+//
+//        try {
+//            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/Client/Model/Client_files/clientusers.json";
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        try {
+//            XStream xstream = new XStream(new JettisonMappedXmlDriver());
+//            xstream.setMode(XStream.NO_REFERENCES);
+//            xstream.alias("Client", Client.class);
+//
+//            File JFC = new File(PATH);
+//            PATH = JFC.getAbsolutePath();
+//
+//            singleclient.Client_array.clear();
+//
+//            JsonReader lector = new JsonReader(new FileReader(PATH));
+//            JsonParser parseador = new JsonParser();
+//            JsonElement raiz = parseador.parse(lector);
+//
+//            Gson json = new Gson();
+//            JsonArray lista = raiz.getAsJsonArray();
+//            for (JsonElement elemento : lista) {
+//                c = json.fromJson(elemento, Client.class);
+//                singleclient.Client_array.add(c);
+//
+//            }
+//            System.out.print(Lang.getInstance().getProperty("Loaded_user_file") + " Client json" + " \n");
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            System.out.print(Lang.getInstance().getProperty("Error_loading_user_file") + " json" + " \n");
+//        }
+//    }
 }

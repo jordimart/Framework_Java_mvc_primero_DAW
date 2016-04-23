@@ -101,6 +101,7 @@ public class BLL_Dummies {
 
         } else {
 
+            singleclient.Client_array.clear();
             singletonapp.num = Integer.parseInt(combo);
 
             for (int j = 0; j < singletonapp.num; j++) {
@@ -128,7 +129,7 @@ public class BLL_Dummies {
             }
             if (pass == true) {
 
-                DAO_Dummies.auto_save_json_dummy_client();
+                BLL_Dummy_mongo.create_Dummy_client_mongo();
             }
 
         }
