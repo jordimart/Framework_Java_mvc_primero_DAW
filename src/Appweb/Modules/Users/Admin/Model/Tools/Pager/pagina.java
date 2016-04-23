@@ -2,7 +2,7 @@ package Appweb.Modules.Users.Admin.Model.Tools.Pager;
 
 import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Users.Admin.View.table_Admin_view;
-import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin;
+import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin_class;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -27,30 +27,23 @@ public class pagina {
 
     public static void inicializa() {
         int rowCount = 0;
-        switch (singletonapp.singleton_vtna) {
-            case "Admin":
-                rowCount = ((Table_Admin) Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin.getModel()).getRowCount();
-                break;
-
-        }
+        
+                rowCount = ((Table_Admin_class) Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin.getModel()).getRowCount();
+                
 
         int v = rowCount % itemsPerPage == 0 ? 0 : 1;
         maxPageIndex = rowCount / itemsPerPage + v;
 
         box.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
-        switch (singletonapp.singleton_vtna) {
-            case "Admin":
+        
                 table_Admin_view.jPanel4.setLayout(new BorderLayout());
                 table_Admin_view.jPanel4.add(pagina.box);
-                break;
-
-        }
+                
     }
 
     public static void initLinkBox() {
-        switch (singletonapp.singleton_vtna) {
-            case "Admin":
-                Appweb.Modules.Users.Admin.View.table_Admin_view.sorter.setRowFilter(new RowFilter<TableModel, Integer>() {
+        
+                Appweb.Modules.Users.Admin.Controller.ControllerAdmin.sorter.setRowFilter(new RowFilter<TableModel, Integer>() {
                     @Override
                     public boolean include(RowFilter.Entry<? extends TableModel, ? extends Integer> entry) {
                         int ti = currentPageIndex - 1;
@@ -58,9 +51,7 @@ public class pagina {
                         return ti * itemsPerPage <= ei && ei < ti * itemsPerPage + itemsPerPage;
                     }
                 });
-                break;
-
-        }
+                
 
         int startPageIndex = currentPageIndex - LR_PAGE_SIZE;
         int endPageIndex = 0;
@@ -69,12 +60,9 @@ public class pagina {
         }
 
         int rowCount = 0;
-        switch (singletonapp.singleton_vtna) {
-            case "Admin":
-                rowCount = ((Table_Admin) Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin.getModel()).getRowCount();
-                break;
-
-        }
+        
+                rowCount = ((Table_Admin_class) Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin.getModel()).getRowCount();
+               
 
         int v = rowCount % itemsPerPage == 0 ? 0 : 1;
         maxPageIndex = rowCount / itemsPerPage + v;
@@ -85,17 +73,14 @@ public class pagina {
 
         box.removeAll();
         if ((rowCount <= itemsPerPage) && (rowCount > 0)) { //caben todos los datos en la misma página
-            switch (singletonapp.singleton_vtna) {
-                case "Admin":
+            
                     //actualizar botones y caja: desactivarlos
                     table_Admin_view.primero.setEnabled(false);
                     table_Admin_view.ANTERIOR.setEnabled(false);
                     table_Admin_view.ultimo.setEnabled(false);
                     table_Admin_view.SIGUIENTE.setEnabled(false);
                     table_Admin_view.CAJA.setText("");
-                    break;
-
-            }
+                   
             //actualizar enlaces: sólo 1 enlace
             ButtonGroup bg = new ButtonGroup();
             box.add(Box.createHorizontalGlue());
@@ -107,17 +92,14 @@ public class pagina {
             box.repaint();
 
         } else if (rowCount == 0) { //no hay rdos
-            switch (singletonapp.singleton_vtna) {
-                case "Admin":
+            
                     //actualizar botones y caja: desactivarlos
                     table_Admin_view.primero.setEnabled(false);
                     table_Admin_view.ANTERIOR.setEnabled(false);
                     table_Admin_view.ultimo.setEnabled(false);
                     table_Admin_view.SIGUIENTE.setEnabled(false);
                     table_Admin_view.CAJA.setText("");
-                    break;
-
-            }
+                    
             //actualizar enlaces: no hay enlaces
             ButtonGroup bg = new ButtonGroup();
             box.add(Box.createHorizontalGlue());
@@ -129,17 +111,14 @@ public class pagina {
             box.repaint();
 
         } else if (rowCount > itemsPerPage) {
-            switch (singletonapp.singleton_vtna) {
-                case "Admin":
+            
 
                     table_Admin_view.primero.setEnabled(currentPageIndex > 1);
                     table_Admin_view.ANTERIOR.setEnabled(currentPageIndex > 1);
                     table_Admin_view.ultimo.setEnabled(currentPageIndex < maxPageIndex);
                     table_Admin_view.SIGUIENTE.setEnabled(currentPageIndex < maxPageIndex);
                     table_Admin_view.CAJA.setText(Integer.toString(currentPageIndex) + String.format(" / %d", maxPageIndex));
-                    break;
-
-            }
+                   
 
             ButtonGroup bg = new ButtonGroup();
             box.add(Box.createHorizontalGlue());

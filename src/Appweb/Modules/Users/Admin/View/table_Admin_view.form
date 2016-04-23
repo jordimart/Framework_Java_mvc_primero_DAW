@@ -3,39 +3,6 @@
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
-      <SubComponents>
-        <Menu class="javax.swing.JMenu" name="menu_save">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Guardar"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="menu_save_json">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Guardar json"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_save_jsonActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menu_save_xml">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Guardar xml"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_save_xmlActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menu_save_txt">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Guardar txt"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_save_txtActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-      </SubComponents>
     </Menu>
   </NonVisualComponents>
   <Properties>
@@ -63,7 +30,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="panelImage1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="1897" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="296" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -93,7 +60,7 @@
                   <Component id="panelRect1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="panel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="48" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="421" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -125,8 +92,12 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelRect1" min="-2" pref="130" max="-2" attributes="0"/>
-                          <Component id="comboBoxRound1" min="-2" pref="175" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="labelRect1" min="-2" pref="130" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="combouser" min="-2" pref="175" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="btnchange_user" alignment="0" min="-2" pref="133" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -136,15 +107,18 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="labelRect1" min="-2" pref="17" max="-2" attributes="0"/>
-                      <EmptySpace pref="8" max="32767" attributes="0"/>
-                      <Component id="comboBoxRound1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labelRect1" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                          <Component id="combouser" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnchange_user" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="org.edisoncor.gui.comboBox.ComboBoxRound" name="comboBoxRound1">
+            <Component class="org.edisoncor.gui.comboBox.ComboBoxRound" name="combouser">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
@@ -160,6 +134,14 @@
                 <Property name="text" type="java.lang.String" value="Selecciona user:"/>
               </Properties>
             </Component>
+            <Component class="org.edisoncor.gui.button.ButtonAero" name="btnchange_user">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cambiar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnchange_userActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="org.edisoncor.gui.panel.PanelRect" name="panelRect1">
@@ -168,14 +150,26 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnAdd_admin" pref="201" max="32767" attributes="0"/>
-                          <Component id="btnEditar_admin" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnMostrar_admin" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnBorrar_admin" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btn_Volver" alignment="0" max="32767" attributes="0"/>
-                          <Component id="buttonAction1" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnAdd_admin" pref="201" max="32767" attributes="0"/>
+                                  <Component id="btnEditar_admin" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnMostrar_admin" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnBorrar_admin" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btn_Volver" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btn_delete_all" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="combo_file" max="32767" attributes="0"/>
+                                  <Component id="btn_Save_file" alignment="0" pref="154" max="32767" attributes="0"/>
+                                  <Component id="jLabel4" alignment="0" min="-2" pref="146" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <EmptySpace pref="25" max="32767" attributes="0"/>
                   </Group>
@@ -193,10 +187,16 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnBorrar_admin" min="-2" pref="57" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="buttonAction1" min="-2" pref="61" max="-2" attributes="0"/>
+                      <Component id="btn_delete_all" min="-2" pref="61" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btn_Volver" min="-2" pref="56" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLabel4" min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="combo_file" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btn_Save_file" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -206,49 +206,55 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Editar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditar_adminActionPerformed"/>
-              </Events>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonAction" name="btnBorrar_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Borrar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBorrar_adminActionPerformed"/>
-              </Events>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonAction" name="btnMostrar_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Mostrar"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrar_adminActionPerformed"/>
-              </Events>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonAction" name="btnAdd_admin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdd_adminActionPerformed"/>
-              </Events>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_Volver">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Volver"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_VolverActionPerformed"/>
-              </Events>
             </Component>
-            <Component class="org.edisoncor.gui.button.ButtonAction" name="buttonAction1">
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_delete_all">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Borrar todos"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAction1ActionPerformed"/>
-              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Guardar en:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="combo_file">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="Json"/>
+                    <StringItem index="1" value="Xml"/>
+                    <StringItem index="2" value="Txt"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_Save_file">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Guardar"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -296,9 +302,6 @@
                       <Table columnCount="0" rowCount="4"/>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mini_Table_AdminMouseClicked"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -379,9 +382,6 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="&lt;"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ANTERIORActionPerformed"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -390,9 +390,6 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="&gt;"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SIGUIENTEActionPerformed"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -413,9 +410,6 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="|&lt;"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="primeroActionPerformed"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -424,9 +418,6 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="&gt;|"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ultimoActionPerformed"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
@@ -449,9 +440,6 @@
                       </StringArray>
                     </Property>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
-                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>

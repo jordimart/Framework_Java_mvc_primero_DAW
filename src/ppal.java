@@ -1,8 +1,8 @@
 
-import Appweb.Modules.Config.Classes.Classconfig;
-import static Appweb.Modules.Config.Model.DAO_config.DAO_config.auto_open_config_json;
-import Appweb.Modules.Main.Menu_entrada;
-import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin;
+import Appweb.Modules.Main.Controller.ControllerMain;
+import static Appweb.Modules.Main.Controller.ControllerMain.Login;
+import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
+import Appweb.Modules.Main.View.menu_Input;
 
 import java.text.ParseException;
 
@@ -17,10 +17,11 @@ public class ppal {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             Classconfig.getInstance();
-            auto_open_config_json();
-            DAO_Admin.auto_open_json_admin();
+            
 
-            new Menu_entrada().setVisible(true);
+            new ControllerMain(new menu_Input(),0).Start(0);
+            Login.setVisible(true);
+           // new menu_Input().setVisible(true);
         });
     }
 }

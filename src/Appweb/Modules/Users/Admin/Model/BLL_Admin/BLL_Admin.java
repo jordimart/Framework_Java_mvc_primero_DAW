@@ -1,18 +1,23 @@
 package Appweb.Modules.Users.Admin.Model.BLL_Admin;
 
-import Appweb.Modules.Config.Classes.Language.Lang;
+import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Users.Admin.Model.DAO_Admin.DAO_Admin;
 import Appweb.Modules.Users.Admin.View.edit_Admin_view;
 import Appweb.Modules.Users.Admin.View.table_Admin_view;
 import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 import Appweb.General_tools.singletonapp;
-import Appweb.Modules.Users.Admin.View.create_Admin_view;
+import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
+import static Appweb.Modules.Users.Admin.Controller.ControllerAdmin.Table_Admin;
 import Appweb.Modules.Users.Admin.View.show_Admin_view;
 import static Appweb.Modules.Users.Admin.View.table_Admin_view.mini_Table_Admin;
-import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin;
-import static Appweb.Modules.Users.Admin.Model.Classes.Table_Admin.datos;
+import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin_class;
+import static Appweb.Modules.Users.Admin.Model.Classes.Table_Admin_class.datos;
 import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
+import Appweb.Modules.Users.Client.Controller.ControllerClient;
+import Appweb.Modules.Users.Client.View.table_Client_view;
+import Appweb.Modules.Users.User_reg.Controller.ControllerUser;
+import Appweb.Modules.Users.User_reg.View.table_User_view;
 import javax.swing.JOptionPane;
 
 /**
@@ -80,18 +85,16 @@ public class BLL_Admin {
         if (a != null) {
             singleadmin.Admin_array.add(a);
             DAO_Admin.auto_save_json_admin();
+            ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
+            pagina.inicializa();
+            pagina.initLinkBox();
 
-            JOptionPane.showMessageDialog(null, "Usuario creado");
-            create_Admin_view.lab_information_message.setText("Usuario creado");
-            create_Admin_view.labinfo_img.setIcon(singletonapp.good_data);
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("User_created"));
 
             ok = true;
         } else {
 
-            create_Admin_view.lab_information_message.setText("Revise los datos, no puede guardar si hay algun dato incorrecto");
-            create_Admin_view.labinfo_img.setIcon(singletonapp.wrong_data);
-
-            JOptionPane.showMessageDialog(null, "Revise los datos, no puede guardar si hay algun dato incorrecto");
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Check_data,cannot_save_if_there_is_any_incorrect_data"));
         }
         return ok;
     }
@@ -152,12 +155,12 @@ public class BLL_Admin {
         if (a != null) {
             singleadmin.Admin_array.set(singletonapp.pos, a);
             DAO_Admin.auto_save_json_admin();
-            JOptionPane.showMessageDialog(null, "Usuario modificado");
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Modified_user"));
 
             ok = true;
         } else {
 
-            JOptionPane.showMessageDialog(null, "Revise los datos, no puede guardar si hay algun dato incorrecto");
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Check_data,cannot_save_if_there_is_any_incorrect_data"));
         }
         return ok;
     }
@@ -166,14 +169,14 @@ public class BLL_Admin {
     public static boolean modifity_select_admin() {
         String dni = "";
         boolean ok = false;
-        int  selection, inicio, selection1;
+        int selection, inicio, selection1;
 
-        if (((Table_Admin) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
+        if (((Table_Admin_class) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
             int selec = table_Admin_view.mini_Table_Admin.getSelectedRow();
 
             if (selec == -1) {
                 ok = false;
-                JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
+                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("There_is_not_a_selected_user"), "Error!", 2);
 
             } else {
 
@@ -185,16 +188,16 @@ public class BLL_Admin {
 
                 singletonapp.pos = Look_for_dni_admin(dni);
 
-                new edit_Admin_view().setVisible(true);
+                new ControllerAdmin(new edit_Admin_view(), 3).Start(3);
                 DAO_Admin.Load_edit_admin();
-                ((Table_Admin) mini_Table_Admin.getModel()).cargar();
+                ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
                 pagina.inicializa();
                 pagina.initLinkBox();
 
                 ok = true;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "lista vacia", "Error!", 2);
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("List_empty"), "Error!", 2);
 
             ok = false;
         }
@@ -206,36 +209,30 @@ public class BLL_Admin {
         boolean ok = false;
         int selection, inicio, selection1;
 
-        if (((Table_Admin) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
+        if (((Table_Admin_class) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
             //int selec = table_Admin_view.mini_Table_Admin.getSelectedRow();
-            
+
             inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage; //nos situamos al inicio de la pÃ¡gina en cuestiÃ³n
-                selection = mini_Table_Admin.getSelectedRow(); //nos situamos en la fila
-                selection1 = inicio + selection; //nos situamos en la fila correspondiente de esa pÃ¡gina
-            
-            JOptionPane.showMessageDialog(null, "primer selec "+selection1);
+            selection = mini_Table_Admin.getSelectedRow(); //nos situamos en la fila
+            selection1 = inicio + selection; //nos situamos en la fila correspondiente de esa pÃ¡gina
 
             if (selection1 == -1) {
                 ok = false;
-                JOptionPane.showMessageDialog(null, "No hay una persona seleccionada", "Error!", 2);
+                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("There_is_not_a_selected_user"), "Error!", 2);
 
             } else {
 
-                
-                 JOptionPane.showMessageDialog(null, "primer selec "+selection1);
-
                 dni = (String) mini_Table_Admin.getModel().getValueAt(selection1, 0);
                 singletonapp.pos = Look_for_dni_admin(dni);
-                
 
-                ((Table_Admin) mini_Table_Admin.getModel()).removeRow(selection1);
+                ((Table_Admin_class) mini_Table_Admin.getModel()).removeRow(selection1);
                 singleadmin.Admin_array.remove(singletonapp.pos);
                 DAO_Admin.auto_save_json_admin();
 
                 ok = true;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "lista vacia", "Error!", 2);
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("List_empty"), "Error!", 2);
 
             ok = false;
         }
@@ -257,13 +254,12 @@ public class BLL_Admin {
             // arraylist
             singleadmin.Admin_array.clear();
             DAO_Admin.auto_save_json_admin();
-            ((Table_Admin) mini_Table_Admin.getModel()).cargar();
+            ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
             table_Admin_view.jLabel3.setText(String.valueOf(datos.size()));
             pagina.inicializa();
             pagina.initLinkBox();
 
-            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("All_elements_have_been_deleted") + "\n"
-                    + Lang.getInstance().getProperty("Remaining_number_of_elements") + singleadmin.Admin_array.size());
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("All_elements_have_been_deleted") + "\n");
         }
 
     }
@@ -273,12 +269,12 @@ public class BLL_Admin {
         boolean ok = false;
         int selection, inicio, selection1;
 
-        if (((Table_Admin) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
+        if (((Table_Admin_class) table_Admin_view.mini_Table_Admin.getModel()).getRowCount() != 0) {
             int selec = table_Admin_view.mini_Table_Admin.getSelectedRow();
 
             if (selec == -1) {
                 ok = false;
-                JOptionPane.showMessageDialog(null, "No hay una persona seleccionada");
+                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("There_is_not_a_selected_user"));
 
             } else {
                 inicio = (pagina.currentPageIndex - 1) * pagina.itemsPerPage; //nos situamos al inicio de la pagina en cuestiÃ³n
@@ -289,14 +285,15 @@ public class BLL_Admin {
 
                 singletonapp.pos = Look_for_dni_admin(dni);
 
-                show_Admin_view menu = new show_Admin_view();
-                menu.setVisible(true);
+                Table_Admin.dispose();
+                new ControllerAdmin(new show_Admin_view(), 4).Start(4);
+
                 DAO_Admin.Load_show_admin();
 
                 ok = true;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "lista vacia");
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("List_empty"));
 
             ok = false;
         }
@@ -308,6 +305,7 @@ public class BLL_Admin {
      * posicion.
      *
      * @param dni (string)
+     *
      * @return pos (int posicion en el array)
      */
     public static int Look_for_dni_admin(String dni) {
@@ -339,5 +337,42 @@ public class BLL_Admin {
     public static void save_txt_admin() {
 
         DAO_Admin.save_txt_admin();
+    }
+
+    public static void auto_open_json_admin() {
+
+        DAO_Admin.auto_open_json_admin();
+    }
+
+    public static void auto_save_json_admin() {
+
+        DAO_Admin.auto_save_json_admin();
+    }
+
+    public static void change_table_user() {
+
+        int i = Table_Admin.combouser.getSelectedIndex();
+
+        switch (i) {
+
+            case 0:
+
+                JOptionPane.showMessageDialog(null, "Ya esta gestionando administradores");
+                break;
+
+            case 1:
+
+                Table_Admin.dispose();
+                new ControllerClient(new table_Client_view(), 0).Start(0);
+                break;
+
+            case 2:
+
+                Table_Admin.dispose();
+                new ControllerUser(new table_User_view(), 0).Start(0);
+
+                break;
+        }
+
     }
 }

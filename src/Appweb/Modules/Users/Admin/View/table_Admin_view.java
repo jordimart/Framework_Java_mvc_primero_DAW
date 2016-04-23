@@ -1,91 +1,14 @@
 package Appweb.Modules.Users.Admin.View;
 
-import Appweb.General_tools.singletonapp;
-import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
-import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
-import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import javax.swing.JFrame;
-import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
-import Appweb.Modules.Users.Admin.Model.Tools.autocomplete.AutocompleteJComboBox;
-import Appweb.Modules.Users.Admin.Model.Tools.autocomplete.StringSearchable;
-import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.JComboBox;
-import org.edisoncor.gui.button.ButtonAction;
-
 /**
  *
  * @author ASUSG50V
  */
 public class table_Admin_view extends javax.swing.JFrame {
 
-    public static TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(new Table_Admin());
-    public static AutocompleteJComboBox combo = null;
-
-    /**
-     * Creates new form table_Users
-     */
     public table_Admin_view() {
         initComponents();
 
-        this.setTitle("Table Admin");
-        this.setLocationRelativeTo(null);
-        this.setSize(1000, 650);//ancho x alto
-        this.setResizable(true);
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
-        singletonapp.singleton_vtna = "Admin";
-
-        mini_Table_Admin.setModel(new Table_Admin());
-        ((Table_Admin) mini_Table_Admin.getModel()).cargar();
-        mini_Table_Admin.setFillsViewportHeight(true);
-        mini_Table_Admin.setRowSorter(sorter);
-
-        pagina.inicializa();
-        pagina.initLinkBox();
-
-        jLabel3.setText(String.valueOf(singleadmin.Admin_array.size()));
-
-        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                dispose();
-                task_Admin_view menu = new task_Admin_view();
-                menu.setVisible(true);
-
-            }
-        });
-
-        List<String> myWords = new ArrayList<String>();
-        for (int i = 0; i <= singleadmin.Admin_array.size() - 1; i++) {
-            myWords.add(singleadmin.Admin_array.get(i).getName().toLowerCase());
-            myWords.add(singleadmin.Admin_array.get(i).getName().toUpperCase());
-        }
-
-        StringSearchable searchable = new StringSearchable(myWords);
-        combo = new AutocompleteJComboBox(searchable);
-
-        jPanel3.setLayout(new java.awt.BorderLayout());
-        jPanel3.add(combo);
-
-        combo.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboActionPerformed(evt);
-            }
-        });
-    }
-
-    public static void comboActionPerformed(java.awt.event.ActionEvent evt) {
-        System.out.println("word selected: " + ((JComboBox) combo).getSelectedItem());
-        pagina.currentPageIndex = 1;
-        ((Table_Admin) mini_Table_Admin.getModel()).filtrar();
-        combo.requestFocus();
     }
 
     @SuppressWarnings("unchecked")
@@ -95,15 +18,19 @@ public class table_Admin_view extends javax.swing.JFrame {
         panelImage1 = new org.edisoncor.gui.panel.PanelImage();
         panelCurves1 = new org.edisoncor.gui.panel.PanelCurves();
         panelTranslucido1 = new org.edisoncor.gui.panel.PanelTranslucido();
-        comboBoxRound1 = new org.edisoncor.gui.comboBox.ComboBoxRound();
+        combouser = new org.edisoncor.gui.comboBox.ComboBoxRound();
         labelRect1 = new org.edisoncor.gui.label.LabelRect();
+        btnchange_user = new org.edisoncor.gui.button.ButtonAero();
         panelRect1 = new org.edisoncor.gui.panel.PanelRect();
         btnEditar_admin = new org.edisoncor.gui.button.ButtonAction();
         btnBorrar_admin = new org.edisoncor.gui.button.ButtonAction();
         btnMostrar_admin = new org.edisoncor.gui.button.ButtonAction();
         btnAdd_admin = new org.edisoncor.gui.button.ButtonAction();
         btn_Volver = new org.edisoncor.gui.button.ButtonAction();
-        buttonAction1 = new org.edisoncor.gui.button.ButtonAction();
+        btn_delete_all = new org.edisoncor.gui.button.ButtonAction();
+        jLabel4 = new javax.swing.JLabel();
+        combo_file = new javax.swing.JComboBox<>();
+        btn_Save_file = new org.edisoncor.gui.button.ButtonAction();
         panel2 = new org.edisoncor.gui.panel.PanelRect();
         jScrollPane2 = new javax.swing.JScrollPane();
         mini_Table_Admin = new org.jdesktop.swingx.JXTable();
@@ -122,18 +49,21 @@ public class table_Admin_view extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        menu_save = new javax.swing.JMenu();
-        menu_save_json = new javax.swing.JMenuItem();
-        menu_save_xml = new javax.swing.JMenuItem();
-        menu_save_txt = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/General_tools/Img/Fondo_claro_1.jpg"))); // NOI18N
 
-        comboBoxRound1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Client", "User_reg" }));
+        combouser.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Client", "User_reg" }));
 
         labelRect1.setText("Selecciona user:");
+
+        btnchange_user.setText("Cambiar");
+        btnchange_user.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnchange_userActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelTranslucido1Layout = new javax.swing.GroupLayout(panelTranslucido1);
         panelTranslucido1.setLayout(panelTranslucido1Layout);
@@ -141,74 +71,63 @@ public class table_Admin_view extends javax.swing.JFrame {
             panelTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelTranslucido1Layout.createSequentialGroup()
                 .addGroup(panelTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelRect1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboBoxRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelTranslucido1Layout.createSequentialGroup()
+                        .addComponent(labelRect1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(combouser, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnchange_user, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelTranslucido1Layout.setVerticalGroup(
             panelTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelTranslucido1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelRect1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                .addComponent(comboBoxRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelTranslucido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelRect1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combouser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnchange_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         btnEditar_admin.setText("Editar");
-        btnEditar_admin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditar_adminActionPerformed(evt);
-            }
-        });
 
         btnBorrar_admin.setText("Borrar");
-        btnBorrar_admin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBorrar_adminActionPerformed(evt);
-            }
-        });
 
         btnMostrar_admin.setText("Mostrar");
-        btnMostrar_admin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrar_adminActionPerformed(evt);
-            }
-        });
 
         btnAdd_admin.setText("Añadir");
-        btnAdd_admin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdd_adminActionPerformed(evt);
-            }
-        });
 
         btn_Volver.setText("Volver");
-        btn_Volver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_VolverActionPerformed(evt);
-            }
-        });
 
-        buttonAction1.setText("Borrar todos");
-        buttonAction1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAction1ActionPerformed(evt);
-            }
-        });
+        btn_delete_all.setText("Borrar todos");
+
+        jLabel4.setText("Guardar en:");
+
+        combo_file.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Json", "Xml", "Txt" }));
+
+        btn_Save_file.setText("Guardar");
 
         javax.swing.GroupLayout panelRect1Layout = new javax.swing.GroupLayout(panelRect1);
         panelRect1.setLayout(panelRect1Layout);
         panelRect1Layout.setHorizontalGroup(
             panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRect1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnAdd_admin, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                    .addComponent(btnEditar_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMostrar_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBorrar_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_Volver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonAction1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRect1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnAdd_admin, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                            .addComponent(btnEditar_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnMostrar_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnBorrar_admin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_Volver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_delete_all, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(panelRect1Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(panelRect1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(combo_file, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_Save_file, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         panelRect1Layout.setVerticalGroup(
@@ -223,10 +142,16 @@ public class table_Admin_view extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnBorrar_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonAction1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_delete_all, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Volver, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(combo_file, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_Save_file, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
 
         mini_Table_Admin.setModel(new javax.swing.table.DefaultTableModel(
@@ -240,55 +165,25 @@ public class table_Admin_view extends javax.swing.JFrame {
 
             }
         ));
-        mini_Table_Admin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mini_Table_AdminMouseClicked(evt);
-            }
-        });
         jScrollPane2.setViewportView(mini_Table_Admin);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         ANTERIOR.setText("<");
-        ANTERIOR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ANTERIORActionPerformed(evt);
-            }
-        });
 
         SIGUIENTE.setText(">");
-        SIGUIENTE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SIGUIENTEActionPerformed(evt);
-            }
-        });
 
         CAJA.setEditable(false);
         CAJA.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         CAJA.setPreferredSize(new java.awt.Dimension(140, 20));
 
         primero.setText("|<");
-        primero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                primeroActionPerformed(evt);
-            }
-        });
 
         ultimo.setText(">|");
-        ultimo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ultimoActionPerformed(evt);
-            }
-        });
 
         jLabel2.setText("Show entries:");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "5", "10", "15", "20", "50", "100" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -439,7 +334,7 @@ public class table_Admin_view extends javax.swing.JFrame {
                 .addComponent(panelRect1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 48, Short.MAX_VALUE))
+                .addGap(0, 421, Short.MAX_VALUE))
         );
         panelImage1Layout.setVerticalGroup(
             panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -454,34 +349,6 @@ public class table_Admin_view extends javax.swing.JFrame {
                 .addGap(1378, 1378, 1378))
         );
 
-        menu_save.setText("Guardar");
-
-        menu_save_json.setText("Guardar json");
-        menu_save_json.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_save_jsonActionPerformed(evt);
-            }
-        });
-        menu_save.add(menu_save_json);
-
-        menu_save_xml.setText("Guardar xml");
-        menu_save_xml.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_save_xmlActionPerformed(evt);
-            }
-        });
-        menu_save.add(menu_save_xml);
-
-        menu_save_txt.setText("Guardar txt");
-        menu_save_txt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_save_txtActionPerformed(evt);
-            }
-        });
-        menu_save.add(menu_save_txt);
-
-        jMenuBar1.add(menu_save);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -490,7 +357,7 @@ public class table_Admin_view extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1897, Short.MAX_VALUE))
+                .addGap(0, 296, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -500,103 +367,17 @@ public class table_Admin_view extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ANTERIORActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANTERIORActionPerformed
-        pagina.currentPageIndex -= 1;
-        pagina.initLinkBox();
-    }//GEN-LAST:event_ANTERIORActionPerformed
 
-    private void SIGUIENTEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SIGUIENTEActionPerformed
-        pagina.currentPageIndex += 1;
-        pagina.initLinkBox();
-    }//GEN-LAST:event_SIGUIENTEActionPerformed
-
-    private void primeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_primeroActionPerformed
-        pagina.currentPageIndex = 1;
-        pagina.initLinkBox();
-    }//GEN-LAST:event_primeroActionPerformed
-
-    private void ultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultimoActionPerformed
-        pagina.currentPageIndex = pagina.maxPageIndex;
-        pagina.initLinkBox();
-    }//GEN-LAST:event_ultimoActionPerformed
-
-/**
+    /**
     private void btnA�adir_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA�adir_adminActionPerformed
-            
-
+       
+     *
 
     }//GEN-LAST:event_btnA�adir_adminActionPerformed
 */
-    private void btnEditar_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditar_adminActionPerformed
-
-        boolean ok = false;
-        ok = BLL_Admin.modifity_select_admin();
-        if (true == ok) {
-
-            this.dispose();
-        }
-    }//GEN-LAST:event_btnEditar_adminActionPerformed
-
-    private void btn_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VolverActionPerformed
-
-        this.dispose();
-        task_Admin_view menu = new task_Admin_view();
-        menu.setVisible(true);
-    }//GEN-LAST:event_btn_VolverActionPerformed
-
-    private void btnMostrar_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrar_adminActionPerformed
-        BLL_Admin.show_select_admin();
-
-    }//GEN-LAST:event_btnMostrar_adminActionPerformed
-
-    private void btnBorrar_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrar_adminActionPerformed
-        BLL_Admin.delete_select_admin();
-    }//GEN-LAST:event_btnBorrar_adminActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-
-        pagina.itemsPerPage = Integer.parseInt(jComboBox1.getSelectedItem().toString());
-        pagina.currentPageIndex = 1;
-        pagina.initLinkBox();
-
-
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void buttonAction1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction1ActionPerformed
-        BLL_Admin.Delete_all_admin();
-    }//GEN-LAST:event_buttonAction1ActionPerformed
-
-    private void menu_save_jsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_save_jsonActionPerformed
-        BLL_Admin.save_json_admin();
-    }//GEN-LAST:event_menu_save_jsonActionPerformed
-
-    private void menu_save_xmlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_save_xmlActionPerformed
-        BLL_Admin.save_xml_admin();
-    }//GEN-LAST:event_menu_save_xmlActionPerformed
-
-    private void menu_save_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_save_txtActionPerformed
-        BLL_Admin.save_txt_admin();
-    }//GEN-LAST:event_menu_save_txtActionPerformed
-
-    private void mini_Table_AdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mini_Table_AdminMouseClicked
-
-        if (evt.getClickCount() == 2) {
-            boolean modificar;
-
-            modificar = BLL_Admin.modifity_select_admin();
-            if (modificar == false) {
-            } else {
-                this.dispose();
-            }
-
-        }
-    }//GEN-LAST:event_mini_Table_AdminMouseClicked
-
-    private void btnAdd_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd_adminActionPerformed
-        this.dispose();
-            create_Admin_view menu = new create_Admin_view();
-            menu.setVisible(true);
-    }//GEN-LAST:event_btnAdd_adminActionPerformed
+    private void btnchange_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnchange_userActionPerformed
+       
+    }//GEN-LAST:event_btnchange_userActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -607,13 +388,17 @@ public class table_Admin_view extends javax.swing.JFrame {
     public static org.edisoncor.gui.button.ButtonAction btnBorrar_admin;
     public static org.edisoncor.gui.button.ButtonAction btnEditar_admin;
     public static org.edisoncor.gui.button.ButtonAction btnMostrar_admin;
+    public static org.edisoncor.gui.button.ButtonAction btn_Save_file;
     public static org.edisoncor.gui.button.ButtonAction btn_Volver;
-    public static org.edisoncor.gui.button.ButtonAction buttonAction1;
-    public static org.edisoncor.gui.comboBox.ComboBoxRound comboBoxRound1;
+    public static org.edisoncor.gui.button.ButtonAction btn_delete_all;
+    public static org.edisoncor.gui.button.ButtonAero btnchange_user;
+    public static javax.swing.JComboBox<String> combo_file;
+    public static org.edisoncor.gui.comboBox.ComboBoxRound combouser;
     public static javax.swing.JComboBox jComboBox1;
     public static javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel jLabel2;
     public static javax.swing.JLabel jLabel3;
+    public static javax.swing.JLabel jLabel4;
     public static javax.swing.JMenuBar jMenuBar1;
     public static javax.swing.JPanel jPanel1;
     public static javax.swing.JPanel jPanel2;
@@ -622,10 +407,6 @@ public class table_Admin_view extends javax.swing.JFrame {
     public static javax.swing.JPanel jPanel5;
     public static javax.swing.JScrollPane jScrollPane2;
     public static org.edisoncor.gui.label.LabelRect labelRect1;
-    public static javax.swing.JMenu menu_save;
-    public static javax.swing.JMenuItem menu_save_json;
-    public static javax.swing.JMenuItem menu_save_txt;
-    public static javax.swing.JMenuItem menu_save_xml;
     public static org.jdesktop.swingx.JXTable mini_Table_Admin;
     public static org.edisoncor.gui.panel.PanelRect panel2;
     public static org.edisoncor.gui.panel.PanelCurves panelCurves1;
@@ -635,4 +416,5 @@ public class table_Admin_view extends javax.swing.JFrame {
     public static javax.swing.JButton primero;
     public static javax.swing.JButton ultimo;
     // End of variables declaration//GEN-END:variables
+
 }

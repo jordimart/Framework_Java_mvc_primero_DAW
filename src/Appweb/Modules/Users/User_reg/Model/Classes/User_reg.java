@@ -6,7 +6,6 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 import Appweb.Classes.Date.ClassDate;
 import Appweb.Modules.Users.Classes.User;
-import javax.swing.Icon;
 
 /**
  * 
@@ -186,7 +185,7 @@ public class User_reg extends User implements Serializable {
 
 		return karma;
 	}
-
+/**
 	// String type one
 	// to string all attributes mum and son
 	public String toString() {
@@ -200,6 +199,10 @@ public class User_reg extends User implements Serializable {
 		return buffer.toString();
 
 	}
+       */ 
+         public String toString() {
+        return "client{" + "Dni=" + super.getDni() + "Last_name=" + super.getLast_name() + "Date_birth=" + super.getDate_birth() + "Benefits=" + super.getBenefits() + "Karma=" + karma+ '}';
+    }
 
 	// String type two
 	// only show key attribute

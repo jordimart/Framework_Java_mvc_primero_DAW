@@ -14,9 +14,9 @@ import javax.swing.event.DocumentListener;
 import javax.swing.text.JTextComponent;
 
 public class AutocompleteJComboBox extends JComboBox{
-    private final Searchable<String,String> searchable;
+    private final Searchable_client<String,String> searchable;
 
-    public AutocompleteJComboBox(Searchable<String,String> s){
+    public AutocompleteJComboBox(Searchable_client<String,String> s){
 	super();
 	this.searchable = s;
 

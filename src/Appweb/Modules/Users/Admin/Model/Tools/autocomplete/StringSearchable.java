@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class StringSearchable implements Searchable<String,String>{
+public class StringSearchable implements Searchable_client<String,String>{
 	private List<String> terms = new ArrayList<String>();
 
 	/**

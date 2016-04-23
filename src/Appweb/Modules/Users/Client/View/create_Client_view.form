@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JDialog" name="Information_dialog">
+      <Properties>
+        <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[900, 100]"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="panelRound1" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="panelRound1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="org.edisoncor.gui.panel.PanelRound" name="panelRound1">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="labinfo_img" min="-2" pref="58" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      <Component id="lab_information_message" min="-2" pref="626" max="-2" attributes="0"/>
+                      <EmptySpace pref="48" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="labinfo_img" min="-2" pref="51" max="-2" attributes="0"/>
+                      <EmptySpace pref="27" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="lab_information_message" min="-2" pref="26" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="labinfo_img">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lab_information_message">
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="9"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="panImage" min="-2" pref="954" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="674" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <Component id="panImage" pref="1123" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="org.edisoncor.gui.panel.PanelImage" name="panImage">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="A&#xf1;adir datos de un Cliente">
+              <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                <TitledBorder/>
+              </Border>
+              <Font PropertyName="font" name="Segoe UI" size="18" style="0"/>
+              <Color PropertyName="color" blue="14" green="14" red="14" type="rgb"/>
+            </TitledBorder>
+          </Border>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Appweb/General_tools/Img/Fondo_claro_1.jpg"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[1000, 1200]"/>
+        </Property>
+      </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                  <Component id="panelRect1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="panelRect2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="126" max="32767" attributes="0"/>
+              </Group>
+              <Component id="panelCurves2" alignment="0" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="panelCurves2" min="-2" pref="50" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="panelRect1" alignment="0" pref="1011" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="panelRect2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="875" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="org.edisoncor.gui.panel.PanelRect" name="panelRect1">
+          <Properties>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[460, 950]"/>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="labelHeader14" max="32767" attributes="0"/>
+                          <Component id="labelHeader10" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelHeader9" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelHeader8" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelHeader7" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelHeader6" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelHeader5" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelHeader4" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelHeader3" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelHeader2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelHeader1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelHeader11" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelHeader12" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelHeader13" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="labAvatar" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtDni" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtName" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtLast_name" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtMobile" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtUser" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtPurchase" alignment="0" max="32767" attributes="0"/>
+                          <Component id="pick_date_birth" alignment="0" max="32767" attributes="0"/>
+                          <Component id="pick_date_reg" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtPassword" alignment="0" max="32767" attributes="0"/>
+                          <Component id="comboStatus" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnAvatar" alignment="0" pref="162" max="32767" attributes="0"/>
+                          <Component id="combo_premium" alignment="0" max="32767" attributes="0"/>
+                          <Component id="combo_client" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                              <Component id="labDni" min="-2" pref="60" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="labLast_name" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Component id="labName" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Component id="labMobile" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Component id="labdate_birth" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Component id="labEmail" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Component id="labUser" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Component id="labPassword" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Component id="labdate_reg" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Component id="labPurchase" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Component id="labActivity" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="31" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="labelHeader1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtDni" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labDni" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="labelHeader2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="labName" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="labelHeader3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtLast_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="labLast_name" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="labelHeader4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtMobile" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labMobile" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="labdate_birth" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="labelHeader5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="pick_date_birth" alignment="0" pref="20" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="labelHeader6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labEmail" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="labelHeader7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labUser" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="labelHeader8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labPassword" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="labelHeader9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="labdate_reg" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="labelHeader10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="pick_date_reg" alignment="0" pref="20" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="labelHeader11" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtPurchase" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="labPurchase" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="labelHeader12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labActivity" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="combo_premium" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labelHeader14" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="combo_client" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="labelHeader13" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAvatar" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="labAvatar" min="-2" pref="136" max="-2" attributes="0"/>
+                      <EmptySpace pref="172" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Dni:"/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nombre:"/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Apellido:"/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Movil:"/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Fecha de nacimiento:"/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader6">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Email:"/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader7">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Usuario:"/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader8">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader9">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Status:"/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader10">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Fecha de registro:"/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader11">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Compras:"/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader12">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Premium:"/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader13">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Avatar:"/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.textField.TextField" name="txtDni">
+            </Component>
+            <Component class="org.edisoncor.gui.textField.TextField" name="txtName">
+            </Component>
+            <Component class="org.edisoncor.gui.textField.TextField" name="txtLast_name">
+            </Component>
+            <Component class="org.edisoncor.gui.textField.TextField" name="txtMobile">
+            </Component>
+            <Component class="org.edisoncor.gui.textField.TextField" name="txtEmail">
+            </Component>
+            <Component class="org.edisoncor.gui.textField.TextField" name="txtUser">
+            </Component>
+            <Component class="org.edisoncor.gui.textField.TextField" name="txtPurchase">
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="pick_date_birth">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Para modificar fecha pulse el boton"/>
+                <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
+              </Properties>
+              <Events>
+                <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="pick_date_birthPropertyChange"/>
+              </Events>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="pick_date_reg">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Para modificar fecha pulse el boton"/>
+                <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
+              </Properties>
+              <Events>
+                <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="pick_date_regPropertyChange"/>
+              </Events>
+            </Component>
+            <Component class="org.edisoncor.gui.passwordField.PasswordField" name="txtPassword">
+            </Component>
+            <Component class="javax.swing.JLabel" name="labAvatar">
+            </Component>
+            <Component class="javax.swing.JLabel" name="labDni">
+            </Component>
+            <Component class="javax.swing.JLabel" name="labName">
+            </Component>
+            <Component class="javax.swing.JLabel" name="labLast_name">
+            </Component>
+            <Component class="javax.swing.JLabel" name="labMobile">
+            </Component>
+            <Component class="javax.swing.JLabel" name="labdate_birth">
+            </Component>
+            <Component class="javax.swing.JLabel" name="labEmail">
+            </Component>
+            <Component class="javax.swing.JLabel" name="labUser">
+            </Component>
+            <Component class="javax.swing.JLabel" name="labPassword">
+            </Component>
+            <Component class="javax.swing.JLabel" name="labdate_reg">
+            </Component>
+            <Component class="javax.swing.JLabel" name="labPurchase">
+            </Component>
+            <Component class="javax.swing.JLabel" name="labActivity">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="comboStatus">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="2">
+                    <StringItem index="0" value="Conected"/>
+                    <StringItem index="1" value="Disconected"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="org.edisoncor.gui.button.ButtonAero" name="btnAvatar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="A&#xf1;adir Avatar"/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.label.LabelHeader" name="labelHeader14">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tipo de cliente:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="combo_premium">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="2">
+                    <StringItem index="0" value="Yes"/>
+                    <StringItem index="1" value="No"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="combo_client">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="Frecuente"/>
+                    <StringItem index="1" value="Normal"/>
+                    <StringItem index="2" value="Infrecuente"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="org.edisoncor.gui.panel.PanelRect" name="panelRect2">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btn_Cancel" alignment="1" min="-2" pref="118" max="-2" attributes="0"/>
+                          <Component id="btn_Aceptar" alignment="1" min="-2" pref="118" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="32" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="btn_Aceptar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btn_Cancel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="36" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="org.edisoncor.gui.button.ButtonAeroRight" name="btn_Cancel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cancelar"/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.button.ButtonAeroRight" name="btn_Aceptar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Aceptar"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="org.edisoncor.gui.panel.PanelCurves" name="panelCurves2">
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+        </Container>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
