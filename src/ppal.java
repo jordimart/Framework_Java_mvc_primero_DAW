@@ -5,7 +5,7 @@ import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Modules.Main.View.menu_Input;
 
 /**
- *
+ *Rama login
  * @author ASUSG50V
  */
 public class ppal {
