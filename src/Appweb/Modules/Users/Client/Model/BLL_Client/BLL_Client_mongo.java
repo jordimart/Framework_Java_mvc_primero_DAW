@@ -47,11 +47,10 @@ public class BLL_Client_mongo {
      *
      * @return
      */
-    public static int delete(String dni) {
+    public static void delete(String dni) {
 
         DAO_Client_mongo.delete(dni);
 
-        return 0;
     }
 
     public static int delete_all() {

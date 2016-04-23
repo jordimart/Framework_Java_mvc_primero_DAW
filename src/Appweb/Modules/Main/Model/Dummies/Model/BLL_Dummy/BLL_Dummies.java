@@ -1,17 +1,20 @@
 package Appweb.Modules.Main.Model.Dummies.Model.BLL_Dummy;
 
+import Appweb.Classes.ConectionBD;
 import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.Model.Dummies.Model.DAO_Dummy.DAO_Dummies;
+import Appweb.Modules.Main.Model.Dummies.Model.DAO_Dummy.DAO_Dummy_BD;
 import Appweb.Modules.Main.Model.Dummies.View.task_Dummy_view;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin_BD;
-import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
+import Appweb.Modules.Users.Client.Model.BLL_Client.BLL_Client_mongo;
 import Appweb.Modules.Users.Client.Model.Classes.Client;
 import Appweb.Modules.Users.Client.Model.Classes.singleclient;
 import Appweb.Modules.Users.User_reg.Model.Classes.User_reg;
 import Appweb.Modules.Users.User_reg.Model.Classes.singleuser_reg;
 import java.awt.Color;
+import java.sql.Connection;
 
 /**
  *
@@ -20,15 +23,19 @@ import java.awt.Color;
 public class BLL_Dummies {
 
     public static void create_Dummy_admin() {
-        Admin a = null;
+
         String combo = "";
         boolean pass = false;
+        int ok = 0;
+
+        Connection con = null;
+        con = ConectionBD.getConexion();
 
         combo = task_Dummy_view.comboDummy_admin.getSelectedItem().toString();
 
         if (combo.equals("cargar")) {
 
-            DAO_Dummies.auto_open_json_dummy_admin();
+            BLL_Admin_BD.load_BD();
 
         } else {
 
@@ -38,9 +45,13 @@ public class BLL_Dummies {
 
                 try {
 
-                    a = DAO_Dummies.Dummyadmin();
+                    ok = DAO_Dummy_BD.create_Dummy_adminBD(con);//creamos al admin y lo metemos en la base de datos
 
-                    singleadmin.Admin_array.add(a);
+                    if (ok == 1) {//si el admin se ha metido bien en la base de datos lo metemos en el arraylist
+
+                        singleadmin.Admin_array.add(singleadmin.a);
+
+                    }
 
                     if (0 != singleadmin.Admin_array.size()) {
 
@@ -58,8 +69,8 @@ public class BLL_Dummies {
 
             }
             if (pass == true) {
+                ConectionBD.liberaConexion(con);
 
-                DAO_Dummies.auto_save_json_dummy_admin();
             }
 
         }
@@ -97,7 +108,7 @@ public class BLL_Dummies {
 
         if (combo.equals("cargar")) {
 
-            DAO_Dummies.auto_open_json_dummy_client();
+            BLL_Client_mongo.load();
 
         } else {
 
