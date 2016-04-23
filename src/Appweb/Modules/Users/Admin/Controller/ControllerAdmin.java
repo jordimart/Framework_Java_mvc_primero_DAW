@@ -7,6 +7,7 @@ import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.View.menu_Input;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
+import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin_BD;
 import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin_class;
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
@@ -612,8 +613,10 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
 
                 break;
             case btnBorrar_admin:
-
+                
+                BLL_Admin_BD.load_BD();
                 BLL_Admin.delete_select_admin();
+                
                 break;
             case btnMostrar_admin:
 
@@ -679,7 +682,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
                     Create_Admin.dispose();
                     new ControllerAdmin(new table_Admin_view(), 1).Start(1);
 
-                    ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
+                    
                 }
                 break;
 
@@ -700,7 +703,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
                 if (ok == true) {
                     Edit_Admin.dispose();
                     new ControllerAdmin(new table_Admin_view(), 1).Start(1);
-                    ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
+                   // ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
 
                 }
 

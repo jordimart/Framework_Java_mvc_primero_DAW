@@ -14,13 +14,7 @@ import static Appweb.General_tools.singletonapp.wrong_data;
 import Appweb.Modules.Users.Admin.View.edit_Admin_view;
 import Appweb.Modules.Users.Admin.View.show_Admin_view;
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
-import Appweb.Modules.Users.Client.Model.Classes.Client;
-import Appweb.Modules.Users.User_reg.Model.Classes.User_reg;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
-import com.google.gson.stream.JsonReader;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.Annotations;
 import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
@@ -35,7 +29,6 @@ import java.awt.HeadlessException;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -194,7 +187,7 @@ public class DAO_Admin {
         if (ok == false) {
             create_Admin_view.labMobile.setIcon(wrong_data);
             create_Admin_view.txtMobile.setBackground(Color.red);
-            create_Admin_view.labMobile.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly")+","+ Lang.getInstance().getProperty("It_can_only_contain_9_numbers"));
+            create_Admin_view.labMobile.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + "," + Lang.getInstance().getProperty("It_can_only_contain_9_numbers"));
 
         } else {
             create_Admin_view.labMobile.setToolTipText("");
@@ -221,7 +214,7 @@ public class DAO_Admin {
         if (ok == false) {
             create_Admin_view.labEmail.setIcon(wrong_data);
             create_Admin_view.txtEmail.setBackground(Color.red);
-            create_Admin_view.labEmail.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly")+","+ Lang.getInstance().getProperty("Example")+": xxxx@xxxx.xxx");
+            create_Admin_view.labEmail.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + "," + Lang.getInstance().getProperty("Example") + ": xxxx@xxxx.xxx");
 
         } else {
             create_Admin_view.labEmail.setToolTipText("");
@@ -276,7 +269,7 @@ public class DAO_Admin {
         if (ok == false) {
             create_Admin_view.labPassword.setIcon(wrong_data);
             create_Admin_view.txtPassword.setBackground(Color.red);
-            create_Admin_view.labPassword.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly")+","+ Lang.getInstance().getProperty("The_password_should_contain_letters_,mayus_letters_and_numbers"));
+            create_Admin_view.labPassword.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + "," + Lang.getInstance().getProperty("The_password_should_contain_letters_,mayus_letters_and_numbers"));
 
         } else {
             ok = true;
@@ -374,10 +367,8 @@ public class DAO_Admin {
      */
     public static boolean booleanEnterdate_birth_admin() {
 
-        String s = "";  
+        String s = "";
         boolean ok = false;
-     
-       
 
         s = ((JTextFieldDateEditor) create_Admin_view.pick_date_birth.getDateEditor()).getText();
 
@@ -494,7 +485,6 @@ public class DAO_Admin {
      */
     public static ClassDate Enter_date_cntr_admin() {
 
-   
         Calendar date_birth;
         int dia = 0, mes = 0, anio = 0;
 
@@ -664,7 +654,7 @@ public class DAO_Admin {
             edit_Admin_view.labName.setIcon(wrong_data);
             edit_Admin_view.txtName.setBackground(Color.red);
             edit_Admin_view.labName.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
-            
+
         } else {
             ok = true;
             edit_Admin_view.labName.setToolTipText("");
@@ -685,7 +675,7 @@ public class DAO_Admin {
             edit_Admin_view.labLast_name.setIcon(wrong_data);
             edit_Admin_view.txtLast_name.setBackground(Color.red);
             edit_Admin_view.labLast_name.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
-            
+
         } else {
             edit_Admin_view.labLast_name.setToolTipText("");
             edit_Admin_view.labLast_name.setIcon(good_data);
@@ -711,7 +701,7 @@ public class DAO_Admin {
         if (ok == false) {
             edit_Admin_view.labMobile.setIcon(wrong_data);
             edit_Admin_view.txtMobile.setBackground(Color.red);
-            edit_Admin_view.labMobile.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly")+","+ Lang.getInstance().getProperty("It_can_only_contain_9_numbers"));
+            edit_Admin_view.labMobile.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + "," + Lang.getInstance().getProperty("It_can_only_contain_9_numbers"));
             // J
         } else {
             edit_Admin_view.labMobile.setToolTipText("");
@@ -737,9 +727,8 @@ public class DAO_Admin {
         if (ok == false) {
             edit_Admin_view.labEmail.setIcon(wrong_data);
             edit_Admin_view.txtEmail.setBackground(Color.red);
-            edit_Admin_view.labEmail.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly")+","+ Lang.getInstance().getProperty("Example")+": xxxx@xxxx.xxx");
+            edit_Admin_view.labEmail.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + "," + Lang.getInstance().getProperty("Example") + ": xxxx@xxxx.xxx");
 
-           
         } else {
             edit_Admin_view.labEmail.setToolTipText("");
             edit_Admin_view.labEmail.setIcon(good_data);
@@ -766,7 +755,7 @@ public class DAO_Admin {
             edit_Admin_view.labUser.setIcon(wrong_data);
             edit_Admin_view.txtUser.setBackground(Color.red);
             edit_Admin_view.labUser.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"));
-           
+
         } else {
             ok = true;
             edit_Admin_view.labUser.setToolTipText("");
@@ -794,7 +783,7 @@ public class DAO_Admin {
         if (ok == false) {
             edit_Admin_view.labPassword.setIcon(wrong_data);
             edit_Admin_view.txtPassword.setBackground(Color.red);
-            edit_Admin_view.labPassword.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly")+","+ Lang.getInstance().getProperty("The_password_should_contain_letters_,mayus_letters_and_numbers"));
+            edit_Admin_view.labPassword.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + "," + Lang.getInstance().getProperty("The_password_should_contain_letters_,mayus_letters_and_numbers"));
             // JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_haven't_introduced_data_correctly"),
             //Lang.getInstance().getProperty("Information"), JOptionPane.INFORMATION_MESSAGE);
         } else {
@@ -820,7 +809,6 @@ public class DAO_Admin {
         boolean ok = false;
 
         s = edit_Admin_view.txtSalary.getText();
-      
 
         if (Validate.oksalary(s) == true) {
 
@@ -837,7 +825,7 @@ public class DAO_Admin {
                 edit_Admin_view.labSalary.setToolTipText("");
                 edit_Admin_view.labSalary.setIcon(good_data);
                 edit_Admin_view.txtSalary.setBackground(Color.GREEN);
-               
+
             } else {
                 ok = false;
                 edit_Admin_view.labSalary.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + "," + Lang.getInstance().getProperty("The_number_must_be_between_800_and_2500"));
@@ -890,7 +878,6 @@ public class DAO_Admin {
 
         String s = "";
         boolean ok = false;
-        
 
         s = ((JTextFieldDateEditor) edit_Admin_view.pick_date_birth.getDateEditor()).getText();
 
@@ -927,7 +914,6 @@ public class DAO_Admin {
         String s = "";
         boolean ok = false;
         String date_contr;
-        
 
         s = ((JTextFieldDateEditor) edit_Admin_view.pick_date_birth.getDateEditor()).getText();
 
@@ -978,7 +964,6 @@ public class DAO_Admin {
 
     public static ClassDate Edit_date_birth_admin() {
 
-      
         Calendar date_birth;
         int dia = 0, mes = 0, anio = 0;
 
@@ -993,7 +978,6 @@ public class DAO_Admin {
 
     public static ClassDate Edit_date_cntr_admin() {
 
-     
         Calendar date_birth;
         int dia = 0, mes = 0, anio = 0;
 
@@ -1056,9 +1040,8 @@ public class DAO_Admin {
         char[] password = edit_Admin_view.txtPassword.getPassword();
         Admin a = null;
         String Avatar = null;
-       
 
-        boolean  pass1, pass2, pass3, pass4, pass5, pass6, pass7, pass8, pass9, pass10;
+        boolean pass1, pass2, pass3, pass4, pass5, pass6, pass7, pass8, pass9, pass10;
 
         pass1 = booleanEditname_admin();
         pass2 = booleanEditlast_name_admin();
@@ -1102,7 +1085,6 @@ public class DAO_Admin {
         int act = a.getActivity();
         int age = a.getAge();
         int ant = a.getAntique();
-     
 
         show_Admin_view.txtDni.setText(a.getDni());
         show_Admin_view.txtName.setText(a.getName());
@@ -1269,77 +1251,4 @@ public class DAO_Admin {
         }
     }
 
-    public static void auto_save_json_admin() {
-
-        String PATH = " ";
-
-        try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/Admin/Model/Admin_files/adminusers";
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            XStream xstreamjson = new XStream(new JettisonMappedXmlDriver());
-            xstreamjson.setMode(XStream.NO_REFERENCES);
-            xstreamjson.alias("Admin", Admin.class);
-
-            File JFC = new File(PATH);
-            PATH = JFC.getAbsolutePath();
-            PATH = PATH + ".json";
-
-            Gson gson = new Gson();
-            String json = gson.toJson(singleadmin.Admin_array);
-            FileWriter fileXml = new FileWriter(PATH);
-            fileXml.write(json.toString());
-            fileXml.close();
-
-            System.out.print(Lang.getInstance().getProperty("User_file_saved") + " Admin json \n");
-
-        } catch (Exception e) {
-            System.out.print(Lang.getInstance().getProperty("Failed_to_save_user") + " Admin json" + " \n");
-        }
-    }
-
-    public static void auto_open_json_admin() {
-
-        String PATH = " ";
-        Admin a = new Admin("");
-        Client c = new Client("");
-        User_reg u = new User_reg("");
-
-        try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Users/Admin/Model/Admin_files/adminusers.json";
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            XStream xstream = new XStream(new JettisonMappedXmlDriver());
-            xstream.setMode(XStream.NO_REFERENCES);
-            xstream.alias("Admin", Admin.class);
-
-            File JFC = new File(PATH);
-            PATH = JFC.getAbsolutePath();
-
-            singleadmin.Admin_array.clear();
-
-            JsonReader lector = new JsonReader(new FileReader(PATH));
-            JsonParser parseador = new JsonParser();
-            JsonElement raiz = parseador.parse(lector);
-
-            Gson json = new Gson();
-            JsonArray lista = raiz.getAsJsonArray();
-            for (JsonElement elemento : lista) {
-                a = json.fromJson(elemento, Admin.class);
-                singleadmin.Admin_array.add(a);
-
-            }
-            System.out.print(Lang.getInstance().getProperty("Loaded_user_file") + " Admin json" + " \n");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.print(Lang.getInstance().getProperty("Error_loading_user_file") + " json" + " \n");
-        }
-    }
 }

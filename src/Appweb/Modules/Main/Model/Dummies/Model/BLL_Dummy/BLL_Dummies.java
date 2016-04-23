@@ -4,6 +4,7 @@ import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.Model.Dummies.Model.DAO_Dummy.DAO_Dummies;
 import Appweb.Modules.Main.Model.Dummies.View.task_Dummy_view;
+import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin_BD;
 import Appweb.Modules.Users.Admin.Model.Classes.Admin;
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 import Appweb.Modules.Users.Client.Model.Classes.Client;
@@ -64,6 +65,8 @@ public class BLL_Dummies {
         }
     }
 
+   
+
     /**
      * Borra todos los usuarios admin
      */
@@ -77,6 +80,7 @@ public class BLL_Dummies {
 
             // delete all objects to the
             // arraylist
+            BLL_Admin_BD.delete_all_Admin();
             singleadmin.Admin_array.clear();
             task_Dummy_view.labStatus_dummie_admin.setText(Lang.getInstance().getProperty("All_elements_have_been_deleted"));
 

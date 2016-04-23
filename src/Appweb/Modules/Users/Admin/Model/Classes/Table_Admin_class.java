@@ -2,6 +2,7 @@ package Appweb.Modules.Users.Admin.Model.Classes;
 
 import Appweb.Classes.Date.ClassDate;
 import static Appweb.Modules.Users.Admin.Controller.ControllerAdmin.combo;
+import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin_BD;
 import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
 import Appweb.Modules.Users.Admin.View.table_Admin_view;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class Table_Admin_class extends AbstractTableModel {
 
     public static ArrayList<Admin> datos = new ArrayList<Admin>();
     public static ArrayList<Admin> datosaux = new ArrayList<Admin>();
-    String[] columnas = {"Dni", "Name", "Last name", "Date_birth", "Antique", "Salary"};
+    String[] columnas = {"Dni", "Name", "Last name", "Date birth", "Antique", "Salary"};
 
     @Override
     public String getColumnName(int col) {
@@ -98,7 +99,7 @@ public class Table_Admin_class extends AbstractTableModel {
 
             case 3:
 
-                fila.setDate_birth(new ClassDate(value.toString()));
+                fila.setDate_birth(new ClassDate(value.toString(),1));
                 break;
 
             case 4:
@@ -116,17 +117,17 @@ public class Table_Admin_class extends AbstractTableModel {
     }
 
     public void cargar() {
+
         datos.clear();
         datosaux.clear();
+        singleadmin.Admin_array.clear();
 
-        Admin admin = null;
+        BLL_Admin_BD.load_BD();
 
         for (int i = 0; i <= singleadmin.Admin_array.size() - 1; i++) {
 
-            admin = singleadmin.Admin_array.get(i);
-
-            addRow(admin);
-            datosaux.add(admin);
+            addRow(singleadmin.Admin_array.get(i));
+            datosaux.add(singleadmin.Admin_array.get(i));
 
             try {
                 Thread.sleep(1); //1 milliseconds
@@ -143,7 +144,7 @@ public class Table_Admin_class extends AbstractTableModel {
         String nom = (String) ((JComboBox) combo).getSelectedItem();
         if (nom != null) {
             for (int i = 0; i < datosaux.size(); i++) {
-                
+
                 if (datosaux.get(i).getName().toLowerCase().startsWith(nom.toLowerCase())) {
                     addRow(datosaux.get(i));
                     cont++;
@@ -186,9 +187,6 @@ public class Table_Admin_class extends AbstractTableModel {
 
         fireTableDataChanged();
         table_Admin_view.jLabel3.setText(String.valueOf(datos.size()));
-
-        pagina.inicializa();
-        pagina.initLinkBox();
 
     }
 
