@@ -32,5 +32,11 @@ public class singletonapp {
     public static DB db = null;
     public static String nom_table = "";
     public static DBCollection collection = null;
+    
+    //Singletons Login
+    
+    public static String user;//usuario que recoge del login
+    public static String password;//usuario que recoge del password
+    public static int type=-1;//Tipo de usuario que entra Admin,Client,User reg o Test
 
 }

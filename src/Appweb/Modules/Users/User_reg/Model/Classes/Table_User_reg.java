@@ -3,6 +3,7 @@ package Appweb.Modules.Users.User_reg.Model.Classes;
 
 import Appweb.Classes.Date.ClassDate;
 import static Appweb.Modules.Users.User_reg.Controller.ControllerUser.combo;
+import Appweb.Modules.Users.User_reg.Model.BLL_User.BLL_User_file;
 import Appweb.Modules.Users.User_reg.Model.Tools.Pager.pagina_user;
 import Appweb.Modules.Users.User_reg.View.table_User_view;
 import java.util.ArrayList;
@@ -124,6 +125,7 @@ public class Table_User_reg extends AbstractTableModel {
         datos.clear();
         datosaux.clear();
 
+        BLL_User_file.auto_open_json();
         User_reg user = null;
 
         for (int i = 0; i <= singleuser_reg.User_reg_array.size() - 1; i++) {

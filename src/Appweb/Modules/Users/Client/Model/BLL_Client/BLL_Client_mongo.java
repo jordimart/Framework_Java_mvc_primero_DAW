@@ -58,4 +58,11 @@ public class BLL_Client_mongo {
         return 0;
     }
 
+    public static boolean find_mongo() {
+
+        boolean ok = DAO_Client_mongo.find_in_mongo();
+
+        return ok;
+    }
+
 }

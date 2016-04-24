@@ -15,7 +15,7 @@ public class DAO_Client_mongo {
     /**
      * Carga los clientes de la base de datos mongo a la Array de la aplicacion
      *
-     * 
+     *
      */
     public static void load() {
         DBCursor cursor = null;
@@ -26,7 +26,7 @@ public class DAO_Client_mongo {
             cursor = singletonapp.collection.find();
             if (cursor.count() != 0) {
                 while (cursor.hasNext()) {
-                    
+
                     BasicDBObject document = (BasicDBObject) cursor.next();
                     singleclient.Client_array.add(c.Client_to_DB(document));
 
@@ -55,12 +55,13 @@ public class DAO_Client_mongo {
 
     /**
      * Modifica los datos de un usuario en mongo seleccionado por dni.
-     * @return 
+     *
+     * @return
      */
     public static void save_modified() {
 
         BasicDBObject updateclient = new BasicDBObject();
-        
+
         updateclient.append("$set", singleclient.c.to_DB_Client());//modificara todos los valores
 
         BasicDBObject searchById = new BasicDBObject();
@@ -70,7 +71,37 @@ public class DAO_Client_mongo {
         //sentencia completa
         //que utiliza los dos tipos de objetos busqueda y actualizacion
 
-      
+    }
+
+    public static boolean find_in_mongo() {
+
+        DBCursor cursor = null;
+        boolean ok = false;
+
+        try {
+            BasicDBObject query = new BasicDBObject();
+            query.put("user", singletonapp.user);
+            cursor = singletonapp.collection.find(query);
+            if (cursor.count() != 0) {
+
+                while (cursor.hasNext()) {
+                    BasicDBObject document = (BasicDBObject) cursor.next();
+                    singleclient.c.Client_to_DB(document);
+                }
+
+                if (singleclient.c != null) {
+
+                    ok = true;
+                }
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+
+        return ok;
+
     }
 
     /**
@@ -84,7 +115,6 @@ public class DAO_Client_mongo {
 
         singletonapp.collection.remove(new BasicDBObject().append("dni", dni));
 
-        
     }
 
     public static int delete_all() {

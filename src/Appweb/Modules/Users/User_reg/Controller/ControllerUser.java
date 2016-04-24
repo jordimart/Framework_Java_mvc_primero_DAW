@@ -5,6 +5,7 @@ import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Modules.Main.View.menu_Input;
 import static Appweb.Modules.Users.User_reg.Controller.ControllerUser.Table_User;
 import Appweb.Modules.Users.User_reg.Model.BLL_User.BLL_User;
+import Appweb.Modules.Users.User_reg.Model.BLL_User.BLL_User_file;
 import Appweb.Modules.Users.User_reg.Model.Classes.Table_User_reg;
 import Appweb.Modules.Users.User_reg.Model.Classes.singleuser_reg;
 import Appweb.Modules.Users.User_reg.Model.Tools.Pager.pagina_user;
@@ -468,13 +469,13 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             case btn_Save_file:
 
                 if (Table_User.combo_file.getSelectedItem().equals("Json")) {
-                    BLL_User.save_json();
+                    BLL_User_file.save_json();
                 }
                 if (Table_User.combo_file.getSelectedItem().equals("Xml")) {
-                    BLL_User.save_xml();
+                    BLL_User_file.save_xml();
                 }
                 if (Table_User.combo_file.getSelectedItem().equals("Txt")) {
-                    BLL_User.save_txt();
+                    BLL_User_file.save_txt();
                 }
 
                 break;

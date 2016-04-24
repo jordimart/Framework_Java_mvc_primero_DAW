@@ -110,4 +110,19 @@ public class BLL_Admin_BD {
 
         return ok;
     }
+    
+    public static boolean find_in_BD(){
+        
+        boolean ok=false;
+        
+        Connection con = null;
+
+        con = ConectionBD.getConexion();
+        
+        ok= DAO_Admin_BD.find_in_BD(con);
+        
+        ConectionBD.liberaConexion(con);
+        
+        return ok;
+    }
 }

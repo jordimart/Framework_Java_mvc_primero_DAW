@@ -11,6 +11,7 @@ import static Appweb.Modules.Main.Model.Config.Model.DAO_config.DAO_config.auto_
 import Appweb.Modules.Main.Model.Config.View.menu_Settings;
 import Appweb.Modules.Main.Model.Dummies.Model.BLL_Dummy.BLL_Dummies;
 import Appweb.Modules.Main.Model.Dummies.View.task_Dummy_view;
+import Appweb.Modules.Main.Model.Login.model.BLL_Login.BLL_Login;
 import Appweb.Modules.Main.View.menu_Input;
 import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
@@ -51,7 +52,7 @@ public class ControllerMain implements ActionListener {
 
     public enum Action_menu {
 
-        //botones de cambio de menu//
+        //botones menu Input//
         btnAdminlogin,
         btnClientlogin,
         btnUser_reglogin,
@@ -61,6 +62,7 @@ public class ControllerMain implements ActionListener {
         btn_English_main,
         btn_spain_main,
         btn_valencian_main,
+        btn_ini,
         //botones de menu config//
 
         btn_Accept_Settings,
@@ -95,7 +97,7 @@ public class ControllerMain implements ActionListener {
                 singletonapp.nom_bd = singletonapp.mongo.getNom_bd();//coge el nombre de la base de datos
                 singletonapp.nom_table = singletonapp.mongo.getNom_table();//coge el nombre de la tabla
 
-                 Mongo_DB.connect();//Abre la conexion a mongo
+                Mongo_DB.connect();//Abre la conexion a mongo
                 if (singletonapp.client != null) {
                     singletonapp.db = singletonapp.mongo.getDb();
                     singletonapp.collection = singletonapp.mongo.getCollection();
@@ -145,6 +147,9 @@ public class ControllerMain implements ActionListener {
 
             Login.btn_valencian_main.setActionCommand("btn_valencian_main");
             Login.btn_valencian_main.addActionListener(this);
+
+            Login.btn_ini.setActionCommand("btn_ini");
+            Login.btn_ini.addActionListener(this);
 
             // Login.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             this.Login.addWindowListener(new WindowAdapter() {
@@ -334,6 +339,34 @@ public class ControllerMain implements ActionListener {
                 BLL_config.language_valencian();
                 Login.dispose();
                 new ControllerMain(new menu_Input(), 0).Start(0);
+
+                break;
+
+            case btn_ini:
+
+                if (BLL_Login.Login_Admin() == true || singletonapp.type == 0) {
+
+                    Login.dispose();
+                    new ControllerAdmin(new task_Admin_view(), 0).Start(0);
+
+                } else if (BLL_Login.Login_Client() == true || singletonapp.type == 1) {
+
+                    Login.dispose();
+                    new ControllerClient(new table_Client_view(), 0).Start(0);
+
+                } else if ( singletonapp.type == 2) {
+
+                    Login.dispose();
+                    new ControllerUser(new table_User_view(), 0).Start(0);
+
+                } else if (singletonapp.type == 3) {
+
+                    Login.dispose();
+                    new ControllerMain(new task_Dummy_view(), 2).Start(2);
+                }else{
+                    
+                    JOptionPane.showMessageDialog(null, "Compruebe los datos el usuario o el password puede que sean incorrectos BLL");
+                }
 
                 break;
 

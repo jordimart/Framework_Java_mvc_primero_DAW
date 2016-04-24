@@ -13,6 +13,7 @@ import Appweb.Modules.Users.User_reg.Model.Classes.Table_User_reg;
 import Appweb.Modules.Users.User_reg.Model.Classes.User_reg;
 import Appweb.Modules.Users.User_reg.Model.Classes.singleuser_reg;
 import Appweb.Modules.Users.User_reg.Model.DAO_User.DAO_User;
+import Appweb.Modules.Users.User_reg.Model.DAO_User.DAO_User_file;
 import Appweb.Modules.Users.User_reg.Model.Tools.Pager.pagina_user;
 import Appweb.Modules.Users.User_reg.View.edit_User_view;
 import Appweb.Modules.Users.User_reg.View.show_User_view;
@@ -76,7 +77,7 @@ public class BLL_User {
 
         if (a != null) {
             singleuser_reg.User_reg_array.add(a);
-            DAO_User.auto_save_json();
+            DAO_User_file.auto_save_json();
             ((Table_User_reg) mini_Table_User.getModel()).cargar();
             pagina_user.inicializa();
             pagina_user.initLinkBox();
@@ -142,7 +143,7 @@ public class BLL_User {
 
         if (a != null) {
             singleuser_reg.User_reg_array.set(singletonapp.pos, a);
-            DAO_User.auto_save_json();
+            DAO_User_file.auto_save_json();
             JOptionPane.showMessageDialog(null, "Usuario modificado");
 
             ok = true;
@@ -217,7 +218,8 @@ public class BLL_User {
 
                 ((Table_User_reg) mini_Table_User.getModel()).removeRow(selection1);
                 singleuser_reg.User_reg_array.remove(singletonapp.pos);
-                DAO_User.auto_save_json();
+                DAO_User_file.auto_save_json();
+                ((Table_User_reg) mini_Table_User.getModel()).cargar();
 
                 ok = true;
             }
@@ -243,7 +245,7 @@ public class BLL_User {
             // delete all objects to the
             // arraylist
             singleuser_reg.User_reg_array.clear();
-            DAO_User.auto_save_json();
+            DAO_User_file.auto_save_json();
             ((Table_User_reg) mini_Table_User.getModel()).cargar();
             table_User_view.jLabel3.setText(String.valueOf(datos.size()));
             pagina_user.inicializa();
@@ -316,31 +318,21 @@ public class BLL_User {
         return pos;
 
     }
+    
+    public static int Look_for_user(){
+        int pos=-1;
+        
+        for (int i = 0; i < singleuser_reg.User_reg_array.size(); i++) {
 
-    public static void save_json() {
+            if (singleuser_reg.User_reg_array.get(i).getUser().equals(singletonapp.user)) {
+                pos = i;
+            }
 
-        DAO_User.save_json();
+        }
+        return pos;
     }
 
-    public static void save_xml() {
-
-        DAO_User.save_xml();
-    }
-
-    public static void save_txt() {
-
-        DAO_User.save_txt();
-    }
-
-    public static void auto_open_json() {
-
-        DAO_User.auto_open_json();
-    }
-
-    public static void auto_save_json() {
-
-        DAO_User.auto_save_json();
-    }
+    
 
     public static void change_table_user() {
 

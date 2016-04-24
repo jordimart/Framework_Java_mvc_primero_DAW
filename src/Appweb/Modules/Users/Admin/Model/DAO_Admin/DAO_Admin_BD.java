@@ -256,4 +256,71 @@ public class DAO_Admin_BD {
         }
         return ok;
     }
+
+    public static boolean find_in_BD(Connection con) {
+
+        ResultSet rs = null;
+        PreparedStatement stmt = null;
+        boolean ok = false;
+
+        try {
+            stmt = con.prepareStatement("SELECT * FROM  db_admin.admin WHERE user=? AND password=?");
+
+            stmt.setString(1, singletonapp.user);
+            stmt.setString(2, singletonapp.password);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                singleadmin.a.setDni(rs.getString("dni"));
+                singleadmin.a.setName(rs.getString("name"));
+                singleadmin.a.setLast_name(rs.getString("last_name"));
+                singleadmin.a.setMobile(rs.getString("mobile"));
+                singleadmin.a.setDate_birth(new ClassDate(rs.getString("date_birth"), 1));
+                singleadmin.a.setAge(rs.getInt("age"));
+                singleadmin.a.setEmail(rs.getString("email"));
+                singleadmin.a.setUser(rs.getString("user"));
+                singleadmin.a.setPassword(rs.getString("password"));
+                singleadmin.a.setAvatar(rs.getString("avatar"));
+                singleadmin.a.setBenefits(rs.getFloat("benefits"));
+                singleadmin.a.setStatus(rs.getString("status"));
+                singleadmin.a.setDate_cont(new ClassDate(rs.getString("date_cont"), 1));
+                singleadmin.a.setAntique(rs.getInt("antique"));
+                singleadmin.a.setSalary(rs.getFloat("salary"));
+                singleadmin.a.setActivity(rs.getInt("activity"));
+
+            }
+
+            if (singleadmin.a.getPassword() != null) {
+
+                ok = true;
+               
+            } else {
+
+                ok = false;
+
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ha habido un problema al buscar el usuario por User");
+            ex.printStackTrace();
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Error en el Logger");
+                }
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Error en el Logger");
+                }
+            }
+        }
+
+        return ok;
+    }
 }
