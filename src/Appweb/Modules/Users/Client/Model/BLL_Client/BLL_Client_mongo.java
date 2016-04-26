@@ -53,11 +53,15 @@ public class BLL_Client_mongo {
 
     }
 
-    public static int delete_all() {
+    public static void delete_all() {
 
-        return 0;
     }
 
+    /**
+     * BLL que utiliza un DAO para buscar un cliente en la base de datos mongo.
+     *
+     * @return boolean true/false
+     */
     public static boolean find_mongo() {
 
         boolean ok = DAO_Client_mongo.find_in_mongo();

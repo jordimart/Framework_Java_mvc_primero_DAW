@@ -44,19 +44,18 @@ public class DAO_Client_mongo {
     /**
      * Inserta un cliente nuevo en mongo.
      *
-     * @return
+     *
      */
-    public static int save() {
+    public static void save() {
 
         singletonapp.collection.insert(singleclient.c.to_DB_Client());
 
-        return 0;
     }
 
     /**
      * Modifica los datos de un usuario en mongo seleccionado por dni.
      *
-     * @return
+     *
      */
     public static void save_modified() {
 
@@ -73,6 +72,14 @@ public class DAO_Client_mongo {
 
     }
 
+    /**
+     * DAO que busca a un cliente en la base de datos mongo por el nombre de
+     * usuario recogido previamente.
+     * Si existe crea un objeto client singleton y si este no es null
+     * devolvemos un boolean true.
+     *
+     * @return boolean true/false.
+     */
     public static boolean find_in_mongo() {
 
         DBCursor cursor = null;
@@ -109,7 +116,7 @@ public class DAO_Client_mongo {
      *
      * @param dni
      *
-     * @return
+     *
      */
     public static void delete(String dni) {
 

@@ -344,7 +344,17 @@ public class ControllerMain implements ActionListener {
 
             case btn_ini:
 
-                if (BLL_Login.Login_Admin() == true || singletonapp.type == 0) {
+                BLL_Login.collectdata();
+                BLL_Login.standard_login();
+                //Buscamos escalonadamente en cada tipo de ficheros de esta forma en caso de ser
+                //Admin gastamos menos recursos
+                
+                if (singletonapp.type == 3) {
+
+                    Login.dispose();
+                    new ControllerMain(new task_Dummy_view(), 2).Start(2);
+                    
+                } else if (BLL_Login.Login_Admin() == true || singletonapp.type == 0) {
 
                     Login.dispose();
                     new ControllerAdmin(new task_Admin_view(), 0).Start(0);
@@ -354,17 +364,13 @@ public class ControllerMain implements ActionListener {
                     Login.dispose();
                     new ControllerClient(new table_Client_view(), 0).Start(0);
 
-                } else if ( singletonapp.type == 2) {
+                } else if (BLL_Login.Login_User() == true || singletonapp.type == 2) {
 
                     Login.dispose();
                     new ControllerUser(new table_User_view(), 0).Start(0);
 
-                } else if (singletonapp.type == 3) {
+                } else {
 
-                    Login.dispose();
-                    new ControllerMain(new task_Dummy_view(), 2).Start(2);
-                }else{
-                    
                     JOptionPane.showMessageDialog(null, "Compruebe los datos el usuario o el password puede que sean incorrectos BLL");
                 }
 

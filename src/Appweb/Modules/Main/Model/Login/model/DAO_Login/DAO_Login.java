@@ -4,6 +4,9 @@ import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Main.View.menu_Input;
 import Appweb.Modules.Users.Client.Model.Classes.singleclient;
 import Appweb.Modules.Users.Client.Model.DAO_Client.DAO_Client_mongo;
+import Appweb.Modules.Users.User_reg.Model.BLL_User.BLL_User;
+import Appweb.Modules.Users.User_reg.Model.Classes.singleuser_reg;
+import Appweb.Modules.Users.User_reg.Model.DAO_User.DAO_User_file;
 
 /**
  *
@@ -12,11 +15,9 @@ import Appweb.Modules.Users.Client.Model.DAO_Client.DAO_Client_mongo;
 public class DAO_Login {
 
     /**
-     * Funcion que recoge los datos de los txtfield del login y los guarda en 
+     * Funcion que recoge los datos de los txtfield del login y los guarda en
      * variables singleton user y password para utilizarlas despues.
      */
-    
-    
     public static void collectdata() {
 
         char[] password = menu_Input.txt_password.getPassword();
@@ -27,7 +28,8 @@ public class DAO_Login {
     }
 
     /**
-     * Funcion de entrada standard para entrar en cada tipo de usuario con una entrada
+     * Funcion de entrada standard para entrar en cada tipo de usuario con una
+     * entrada
      * sin usuario.
      */
     public static void standard_login() {
@@ -52,9 +54,12 @@ public class DAO_Login {
     }
 
     /**
-     * Funcion que utilizaremos para comprar las entradas del login con la base de
-     * datos mongo y con ello saber si existe el usuario y es correcta la contraseña.
-     * @return 
+     * Funcion que utilizaremos para comprar las entradas del login con la base
+     * de
+     * datos mongo y con ello saber si existe el usuario y es correcta la
+     * contraseña.
+     *
+     * @return
      */
     public static boolean find_and_compare_mongo() {
 
@@ -66,9 +71,36 @@ public class DAO_Login {
 
             ok = true;
 
-        }else{
-            
-            ok=false;
+        } else {
+
+            ok = false;
+        }
+
+        return ok;
+    }
+
+    /**
+     * Funcion DAO que utilizaremos para buscar un user en ficheros y sacar sus
+     * datospara comparar.
+     * Cargamos en Array list.
+     * Buscamos alusuario por user y si existe comprobamos sus datos con el
+     * login.
+     * Si es cierto devuelve true.
+     *
+     * @return boolean true/false.
+     */
+    public static boolean find_and_compare_files() {
+
+        boolean ok = false;
+
+        DAO_User_file.auto_open_json();
+        singletonapp.pos = BLL_User.Look_for_user();
+
+        if ((singletonapp.pos != -1) && (singleuser_reg.User_reg_array.get(singletonapp.pos).getUser().equals(singletonapp.user))
+                && (singleuser_reg.User_reg_array.get(singletonapp.pos).getPassword().equals(singletonapp.password))) {
+
+            ok = true;
+
         }
 
         return ok;
