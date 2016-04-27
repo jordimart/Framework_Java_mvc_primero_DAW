@@ -174,6 +174,8 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
 
             Task_Admin.setExtendedState(JFrame.MAXIMIZED_BOTH);
             Task_Admin.setVisible(true);
+            
+            singletonapp.window = "Admin";//Nos marca el tipo de usuario que ha entrado.
 
             //traduccion de botones
             Task_Admin.lab_Admin_menu.setText(Lang.getInstance().getProperty("MAIN_ADMINISTRATOR"));
@@ -182,6 +184,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             Task_Admin.btn_ges_averias.setText(Lang.getInstance().getProperty("FAULT_MANAGEMENT"));
             Task_Admin.btn_Volver.setText(Lang.getInstance().getProperty("BACK"));
 
+            
             //Vuelve al pulsar la cruz de la ventana
             this.Task_Admin.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             this.Task_Admin.addWindowListener(new WindowAdapter() {
@@ -225,7 +228,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             Table_Admin.jLabel4.setText(Lang.getInstance().getProperty("Save_as"));
             Table_Admin.btn_Save_file.setText(Lang.getInstance().getProperty("Save"));
 
-            singletonapp.singleton_vtna = "Admin";
+            
 
             Table_Admin.mini_Table_Admin.setModel(new Table_Admin_class());
             ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
@@ -703,7 +706,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
                 if (ok == true) {
                     Edit_Admin.dispose();
                     new ControllerAdmin(new table_Admin_view(), 1).Start(1);
-                   // ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
+                   
 
                 }
 

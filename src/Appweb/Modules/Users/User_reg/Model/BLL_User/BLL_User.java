@@ -182,9 +182,9 @@ public class BLL_User {
                 Table_User.dispose();
                 new ControllerUser(new edit_User_view(), 2).Start(2);
                 DAO_User.Load_edit_user();
-                ((Table_User_reg) mini_Table_User.getModel()).cargar();
-                pagina_user.inicializa();
-                pagina_user.initLinkBox();
+                //((Table_User_reg) mini_Table_User.getModel()).cargar();
+                //pagina_user.inicializa();
+               // pagina_user.initLinkBox();
 
                 ok = true;
             }

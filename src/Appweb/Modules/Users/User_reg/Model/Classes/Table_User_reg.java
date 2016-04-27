@@ -124,6 +124,7 @@ public class Table_User_reg extends AbstractTableModel {
     public void cargar() {
         datos.clear();
         datosaux.clear();
+        singleuser_reg.User_reg_array.clear();
 
         BLL_User_file.auto_open_json();
         User_reg user = null;

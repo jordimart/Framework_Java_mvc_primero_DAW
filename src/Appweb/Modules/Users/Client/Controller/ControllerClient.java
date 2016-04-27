@@ -1,13 +1,16 @@
 package Appweb.Modules.Users.Client.Controller;
 
+import Appweb.General_tools.singletonapp;
 import static Appweb.General_tools.singletonapp.singleactiondate;
 import Appweb.Modules.Main.Controller.ControllerMain;
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
+import Appweb.Modules.Main.Model.Config.View.menu_Settings;
 import Appweb.Modules.Main.View.menu_Input;
 import static Appweb.Modules.Users.Client.Controller.ControllerClient.Table_Client;
 import Appweb.Modules.Users.Client.Model.BLL_Client.BLL_Client;
 import Appweb.Modules.Users.Client.Model.Classes.Table_Client_class;
 import Appweb.Modules.Users.Client.Model.Classes.singleclient;
+import Appweb.Modules.Users.Client.Model.DAO_Client.DAO_Client;
 import Appweb.Modules.Users.Client.Model.Tools.Pager.pagina_client;
 import Appweb.Modules.Users.Client.Model.Tools.autocomplete.AutocompleteJComboBox_client;
 import Appweb.Modules.Users.Client.Model.Tools.autocomplete.StringSearchable_client;
@@ -17,6 +20,7 @@ import Appweb.Modules.Users.Client.View.show_Client_view;
 import Appweb.Modules.Users.Client.View.table_Client_view;
 import static Appweb.Modules.Users.Client.View.table_Client_view.jComboBox1;
 import static Appweb.Modules.Users.Client.View.table_Client_view.mini_Table_Client;
+import Appweb.Modules.Users.Client.View.task_Client_view;
 import java.awt.AWTKeyStroke;
 import java.awt.Color;
 import java.awt.KeyboardFocusManager;
@@ -51,6 +55,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
     public static create_Client_view Create_Client;
     public static edit_Client_view Edit_Client;
     public static show_Client_view Show_Client;
+    public static task_Client_view Task_Client;
 
     public static TableRowSorter<TableModel> sorter = new TableRowSorter<>(new Table_Client_class());
     public static AutocompleteJComboBox_client combo = null;
@@ -70,31 +75,9 @@ public class ControllerClient implements ActionListener, MouseListener, Property
         if (i == 3) {
             Show_Client = (show_Client_view) start;
         }
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (i == 4) {
+            Task_Client = (task_Client_view) start;
+        }
     }
 
     public enum Action_Client {
@@ -146,6 +129,12 @@ public class ControllerClient implements ActionListener, MouseListener, Property
         //botones Mostrar//
 
         btnAccept_s,
+        //botones task//
+
+        btn_exit,
+        btn_modifytask,
+        btn_showtask,
+        btn_configtask,
     }
 
     public void Start(int i) {
@@ -431,6 +420,39 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             Show_Client.btnAcept.setActionCommand("btnAccept_s");
             Show_Client.btnAcept.addActionListener(this);
         }
+
+        if (i == 4) {
+
+            Task_Client.setTitle("Task Client");
+            Task_Client.setLocationRelativeTo(null);
+            Task_Client.setSize(1000, 650);//ancho x alto
+            Task_Client.setResizable(false);
+            Task_Client.setVisible(true);
+
+            singletonapp.window = "Client";
+            Task_Client.lab_username.setText("Bienvenido: " + singleclient.c.getUser());
+
+            this.Task_Client.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+            this.Task_Client.addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e) {
+                    Task_Client.dispose();
+                    new ControllerMain(new menu_Input(), 0).Start(0);
+                }
+            });
+
+            Task_Client.btn_show.setActionCommand("btn_showtask");
+            Task_Client.btn_show.addActionListener(this);
+
+            Task_Client.btn_modify.setActionCommand("btn_modifytask");
+            Task_Client.btn_modify.addActionListener(this);
+
+            Task_Client.btn_config.setActionCommand("btn_configtask");
+            Task_Client.btn_config.addActionListener(this);
+
+            Task_Client.btn_exit.setActionCommand("btn_exit");
+            Task_Client.btn_exit.addActionListener(this);
+        }
+
     }
 
     public void actionPerformed(ActionEvent ae) {
@@ -530,9 +552,13 @@ public class ControllerClient implements ActionListener, MouseListener, Property
 
             case btn_Cancel_a:
 
-                Create_Client.dispose();
-                new ControllerClient(new table_Client_view(), 0).Start(0);
+                if (singletonapp.window.equals("Admin")) {
+                    Create_Client.dispose();
+                    new ControllerClient(new table_Client_view(), 0).Start(0);
+                } else {
 
+                    //ventana client
+                }
                 break;
             case btnAvatar:
 
@@ -542,18 +568,26 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             case btn_Aceptar_e:
 
                 ok = BLL_Client.Enter_edited_client();
-                if (ok == true) {
+                if ((ok == true) && (singletonapp.window.equals("Admin"))) {
                     Edit_Client.dispose();
                     new ControllerClient(new table_Client_view(), 0).Start(0);
-                    ((Table_Client_class) mini_Table_Client.getModel()).cargar();
+                    //((Table_Client_class) mini_Table_Client.getModel()).cargar();
 
+                } else if ((ok == true) && (singletonapp.window.equals("Client"))) {
+                    Edit_Client.dispose();
+                    new ControllerClient(new task_Client_view(), 4).Start(4);
                 }
 
                 break;
             case btn_cancelar_e:
 
-                Edit_Client.dispose();
-                new ControllerClient(new table_Client_view(), 0).Start(0);
+                if (singletonapp.window.equals("Admin")) {
+                    Edit_Client.dispose();
+                    new ControllerClient(new table_Client_view(), 0).Start(0);
+                } else if (singletonapp.window.equals("Client")) {
+                    Edit_Client.dispose();
+                    new ControllerClient(new task_Client_view(), 4).Start(4);
+                }
 
                 break;
             case btnAvatar_e:
@@ -563,8 +597,43 @@ public class ControllerClient implements ActionListener, MouseListener, Property
                 break;
             case btnAccept_s:
 
-                Show_Client.dispose();
-                new ControllerClient(new table_Client_view(), 0).Start(0);
+                if (singletonapp.window.equals("Admin")) {
+                    Show_Client.dispose();
+                    new ControllerClient(new table_Client_view(), 0).Start(0);
+                } else if (singletonapp.window.equals("Client")) {
+                    Show_Client.dispose();
+                    new ControllerClient(new task_Client_view(), 4).Start(4);
+
+                }
+
+                break;
+            case btn_showtask:
+
+                Task_Client.dispose();
+                new ControllerClient(new show_Client_view(), 3).Start(3);
+                DAO_Client.Load_show_client_mongo();
+
+                break;
+
+            case btn_modifytask:
+
+                Task_Client.dispose();
+                new ControllerClient(new edit_Client_view(), 2).Start(2);
+                DAO_Client.Load_edit_client_mongo();
+
+                break;
+
+            case btn_configtask:
+
+                Task_Client.dispose();
+                new ControllerMain(new menu_Settings(), 1).Start(1);
+
+                break;
+
+            case btn_exit:
+
+                Task_Client.dispose();
+                new ControllerMain(new menu_Input(), 0).Start(0);
 
                 break;
 
@@ -717,5 +786,30 @@ public class ControllerClient implements ActionListener, MouseListener, Property
         pagina_client.initLinkBox();
         ((Table_Client_class) mini_Table_Client.getModel()).filtrar();
         combo.requestFocus();
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
     }
 }

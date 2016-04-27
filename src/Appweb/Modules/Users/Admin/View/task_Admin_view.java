@@ -23,6 +23,7 @@ public class task_Admin_view extends javax.swing.JFrame {
         btn_ges_inst = new org.edisoncor.gui.button.ButtonAction();
         btn_ges_averias = new org.edisoncor.gui.button.ButtonAction();
         btn_Volver = new org.edisoncor.gui.button.ButtonAction();
+        btn_config = new org.edisoncor.gui.button.ButtonAction();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -40,6 +41,8 @@ public class task_Admin_view extends javax.swing.JFrame {
 
         btn_Volver.setText("VOLVER");
 
+        btn_config.setText("Configuracion");
+
         javax.swing.GroupLayout panelRect1Layout = new javax.swing.GroupLayout(panelRect1);
         panelRect1.setLayout(panelRect1Layout);
         panelRect1Layout.setHorizontalGroup(
@@ -50,7 +53,8 @@ public class task_Admin_view extends javax.swing.JFrame {
                     .addComponent(btn_ges_inst, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
                     .addComponent(btn_ges_users, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_ges_averias, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_Volver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_Volver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_config, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
         panelRect1Layout.setVerticalGroup(
@@ -63,8 +67,10 @@ public class task_Admin_view extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btn_ges_averias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(btn_config, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btn_Volver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
@@ -107,6 +113,7 @@ public class task_Admin_view extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static org.edisoncor.gui.button.ButtonAction btn_Volver;
+    public static org.edisoncor.gui.button.ButtonAction btn_config;
     public static org.edisoncor.gui.button.ButtonAction btn_ges_averias;
     public static org.edisoncor.gui.button.ButtonAction btn_ges_inst;
     public static org.edisoncor.gui.button.ButtonAction btn_ges_users;

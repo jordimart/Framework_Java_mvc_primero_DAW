@@ -1,13 +1,16 @@
 package Appweb.Modules.Users.User_reg.Controller;
 
+import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Main.Controller.ControllerMain;
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
+import Appweb.Modules.Main.Model.Config.View.menu_Settings;
 import Appweb.Modules.Main.View.menu_Input;
 import static Appweb.Modules.Users.User_reg.Controller.ControllerUser.Table_User;
 import Appweb.Modules.Users.User_reg.Model.BLL_User.BLL_User;
 import Appweb.Modules.Users.User_reg.Model.BLL_User.BLL_User_file;
 import Appweb.Modules.Users.User_reg.Model.Classes.Table_User_reg;
 import Appweb.Modules.Users.User_reg.Model.Classes.singleuser_reg;
+import Appweb.Modules.Users.User_reg.Model.DAO_User.DAO_User;
 import Appweb.Modules.Users.User_reg.Model.Tools.Pager.pagina_user;
 import Appweb.Modules.Users.User_reg.Model.Tools.autocomplete.AutocompleteJComboBox_user;
 import Appweb.Modules.Users.User_reg.Model.Tools.autocomplete.StringSearchable_user;
@@ -17,6 +20,7 @@ import Appweb.Modules.Users.User_reg.View.show_User_view;
 import Appweb.Modules.Users.User_reg.View.table_User_view;
 import static Appweb.Modules.Users.User_reg.View.table_User_view.jComboBox1;
 import static Appweb.Modules.Users.User_reg.View.table_User_view.mini_Table_User;
+import Appweb.Modules.Users.User_reg.View.task_User_view;
 import java.awt.AWTKeyStroke;
 import java.awt.Color;
 import java.awt.KeyboardFocusManager;
@@ -51,6 +55,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
     public static create_User_view Create_User;
     public static edit_User_view Edit_User;
     public static show_User_view Show_User;
+    public static task_User_view Task_User;
 
     public static TableRowSorter<TableModel> sorter = new TableRowSorter<>(new Table_User_reg());
     public static AutocompleteJComboBox_user combo = null;
@@ -70,26 +75,9 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
         if (i == 3) {
             Show_User = (show_User_view) start;
         }
-    }
-
-    public void mousePressed(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void mouseReleased(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void mouseEntered(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void mouseExited(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void keyTyped(KeyEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (i == 4) {
+            Task_User = (task_User_view) start;
+        }
     }
 
     public enum Action_User {
@@ -109,7 +97,6 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
         jComboBox1,//combo filtrar
         Tabla_pager,//mouseclicked
         btnchange_user,
-
         //botones create User registered//
 
         btn_Aceptar,
@@ -137,9 +124,18 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
         txtName_e,
         txtPassword_e,
         txtUser_e,
+        
         //botones Mostrar//
 
         btnAccept_s,
+        
+        //botones task//
+
+        btn_exit,
+        btn_modifytask,
+        btn_showtask,
+        btn_configtask,
+
     }
 
     public void Start(int i) {
@@ -231,7 +227,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
 
             Table_User.mini_Table_User.setName("Tabla_pager");
             Table_User.mini_Table_User.addMouseListener(this);
-            
+
             Table_User.btnchange_user.setActionCommand("btnchange_user");
             Table_User.btnchange_user.addActionListener(this);
         }
@@ -419,6 +415,38 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             Show_User.btnAcept.setActionCommand("btnAccept_s");
             Show_User.btnAcept.addActionListener(this);
         }
+
+        if (i == 4) {
+
+            Task_User.setTitle("Task User registered");
+            Task_User.setLocationRelativeTo(null);
+            Task_User.setSize(1000, 650);//ancho x alto
+            Task_User.setResizable(false);
+            Task_User.setVisible(true);
+
+            singletonapp.window = "User";
+            Task_User.lab_username.setText("Bienvenido: "+singleuser_reg.User_reg_array.get(singletonapp.pos).getUser());
+
+            this.Task_User.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+            this.Task_User.addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e) {
+                    Task_User.dispose();
+                    new ControllerMain(new menu_Input(), 0).Start(0);
+                }
+            });
+
+            Task_User.btn_show.setActionCommand("btn_showtask");
+            Task_User.btn_show.addActionListener(this);
+
+            Task_User.btn_modify.setActionCommand("btn_modifytask");
+            Task_User.btn_modify.addActionListener(this);
+
+            Task_User.btn_config.setActionCommand("btn_configtask");
+            Task_User.btn_config.addActionListener(this);
+
+            Task_User.btn_exit.setActionCommand("btn_exit");
+            Task_User.btn_exit.addActionListener(this);
+        }
     }
 
     public void actionPerformed(ActionEvent ae) {
@@ -445,8 +473,8 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
 
                 BLL_User.delete_select();
                 break;
-                
-                case btnchange_user:
+
+            case btnchange_user:
 
                 BLL_User.change_table_user();
                 break;
@@ -530,19 +558,28 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             case btn_Aceptar_e:
 
                 ok = BLL_User.Enter_edited();
-                if (ok == true) {
+                if ((ok == true) && (singletonapp.window.equals("Admin"))) {
                     Edit_User.dispose();
                     new ControllerUser(new table_User_view(), 0).Start(0);
-                    ((Table_User_reg) mini_Table_User.getModel()).cargar();
+                    //((Table_User_reg) mini_Table_User.getModel()).cargar();
+
+                } else if ((ok == true) && (singletonapp.window.equals("User"))) {
+                    Edit_User.dispose();
+                    new ControllerUser(new task_User_view(), 4).Start(4);
 
                 }
 
                 break;
             case btn_cancelar_e:
 
-                Edit_User.dispose();
-                new ControllerUser(new table_User_view(), 0).Start(0);
+                if (singletonapp.window.equals("Admin")) {
+                    Edit_User.dispose();
+                    new ControllerUser(new table_User_view(), 0).Start(0);
+                } else if (singletonapp.window.equals("User")) {
+                    Edit_User.dispose();
+                    new ControllerUser(new task_User_view(), 4).Start(4);
 
+                }
                 break;
             case btnAvatar_e:
 
@@ -551,8 +588,43 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
                 break;
             case btnAccept_s:
 
-                Show_User.dispose();
-                new ControllerUser(new table_User_view(), 0).Start(0);
+                if (singletonapp.window.equals("Admin")) {
+                    Show_User.dispose();
+                    new ControllerUser(new table_User_view(), 0).Start(0);
+                } else if (singletonapp.window.equals("User")) {
+                    Show_User.dispose();
+                    new ControllerUser(new task_User_view(), 4).Start(4);
+
+                }
+
+                break;
+            case btn_showtask:
+
+                Task_User.dispose();
+                new ControllerUser(new show_User_view(), 3).Start(3);
+                DAO_User.Load_show();
+
+                break;
+
+            case btn_modifytask:
+
+                Task_User.dispose();
+                new ControllerUser(new edit_User_view(), 2).Start(2);
+                DAO_User.Load_edit_user();
+
+                break;
+
+            case btn_configtask:
+
+                Task_User.dispose();
+                new ControllerMain(new menu_Settings(), 1).Start(1);
+
+                break;
+
+            case btn_exit:
+
+                Task_User.dispose();
+                new ControllerMain(new menu_Input(), 0).Start(0);
 
                 break;
 
@@ -702,6 +774,26 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
         pagina_user.initLinkBox();
         ((Table_User_reg) mini_Table_User.getModel()).filtrar();
         combo.requestFocus();
+    }
+
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    public void mouseExited(MouseEvent e) {
+
+    }
+
+    public void keyTyped(KeyEvent e) {
+
     }
 
 }

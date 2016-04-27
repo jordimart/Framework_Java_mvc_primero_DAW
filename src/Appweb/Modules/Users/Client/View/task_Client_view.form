@@ -47,22 +47,22 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lab_Admin_menu" min="-2" pref="464" max="-2" attributes="0"/>
-                      <Component id="panelRect1" min="-2" max="-2" attributes="0"/>
+                      <Component id="panelNice1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lab_username" min="-2" pref="1255" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="325" max="32767" attributes="0"/>
+                  <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                  <Component id="lab_Admin_menu" min="-2" pref="64" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="panelRect1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
                   <Component id="panelCurves1" min="-2" pref="100" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="lab_username" min="-2" pref="35" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="panelNice1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="30" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -72,68 +72,53 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
         </Container>
-        <Component class="org.edisoncor.gui.label.LabelHeader" name="lab_Admin_menu">
-          <Properties>
-            <Property name="horizontalAlignment" type="int" value="2"/>
-            <Property name="text" type="java.lang.String" value="MENU ADMINISTRADOR"/>
-            <Property name="verticalAlignment" type="int" value="3"/>
-          </Properties>
-        </Component>
-        <Container class="org.edisoncor.gui.panel.PanelRect" name="panelRect1">
+        <Container class="org.edisoncor.gui.panel.PanelNice" name="panelNice1">
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace pref="21" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="btn_ges_inst" alignment="0" pref="235" max="32767" attributes="0"/>
-                          <Component id="btn_ges_users" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btn_ges_averias" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btn_Volver" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btn_show" pref="199" max="32767" attributes="0"/>
+                          <Component id="btn_modify" max="32767" attributes="0"/>
+                          <Component id="btn_exit" max="32767" attributes="0"/>
                           <Component id="btn_config" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="38" max="32767" attributes="0"/>
+                      <EmptySpace pref="34" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Component id="btn_ges_users" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="btn_show" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btn_ges_inst" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btn_ges_averias" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_modify" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btn_config" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btn_Volver" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="111" max="32767" attributes="0"/>
+                      <Component id="btn_exit" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="310" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_ges_users">
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_show">
               <Properties>
-                <Property name="text" type="java.lang.String" value="GESTION USUARIOS"/>
+                <Property name="text" type="java.lang.String" value="Mi Profile"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_ges_inst">
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_modify">
               <Properties>
-                <Property name="text" type="java.lang.String" value="GESTION INSTALACIONES"/>
+                <Property name="text" type="java.lang.String" value="Modificar mi profile"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_ges_averias">
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_exit">
               <Properties>
-                <Property name="text" type="java.lang.String" value="GESTION AVERIAS"/>
-              </Properties>
-            </Component>
-            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_Volver">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="VOLVER"/>
+                <Property name="text" type="java.lang.String" value="Salir"/>
               </Properties>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_config">
@@ -143,6 +128,11 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="org.edisoncor.gui.label.LabelRect" name="lab_username">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="labelRect1"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

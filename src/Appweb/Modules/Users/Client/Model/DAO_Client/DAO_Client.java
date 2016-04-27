@@ -593,6 +593,32 @@ public class DAO_Client {
         edit_Client_view.pick_date_reg.setCalendar(date_reg.string_to_cal());
 
     }
+    
+     public static void Load_edit_client_mongo() {
+
+       
+
+        Float sal = singleclient.c.getPurchase();
+
+        ClassDate date_birth = new ClassDate(singleclient.c.getDate_birth().todate());
+        ClassDate date_reg = new ClassDate(singleclient.c.getEntry_date().todate());
+
+        edit_Client_view.txtDni.setText(singleclient.c.getDni());
+        edit_Client_view.txtName.setText(singleclient.c.getName());
+        edit_Client_view.txtLast_name.setText(singleclient.c.getLast_name());
+        edit_Client_view.txtMobile.setText(singleclient.c.getMobile());
+
+        edit_Client_view.txtEmail.setText(singleclient.c.getEmail());
+        edit_Client_view.txtUser.setText(singleclient.c.getUser());
+        edit_Client_view.txtPassword.setText(singleclient.c.getPassword());
+
+        edit_Client_view.txtPurchase.setText("" + sal);
+
+        load_EditAvatar_client(singleclient.c.getAvatar());
+        edit_Client_view.pick_date_birth.setCalendar(date_birth.string_to_cal());
+        edit_Client_view.pick_date_reg.setCalendar(date_reg.string_to_cal());
+
+    }
 
     public static void load_EditAvatar_client(String file) {
 
@@ -1049,6 +1075,33 @@ public class DAO_Client {
         show_Client_view.txt_premium.setText(c.getPremium());
         show_Client_view.txt_client.setText(c.getClient_type());
         ShowAvatar_client(c.getAvatar());
+
+    }
+    
+    public static void Load_show_client_mongo() {
+
+        
+
+        int age = singleclient.c.getAge();
+        int ant = singleclient.c.getAntique_c();
+
+        show_Client_view.txtDni.setText(singleclient.c.getDni());
+        show_Client_view.txtName.setText(singleclient.c.getName());
+        show_Client_view.txtLast_name.setText(singleclient.c.getLast_name());
+        show_Client_view.txtMobile.setText(singleclient.c.getMobile());
+        show_Client_view.txtDate_birth.setText(singleclient.c.getDate_birth().todate());
+        show_Client_view.txtAge.setText("" + age);
+        show_Client_view.txtEmail.setText(singleclient.c.getEmail());
+        show_Client_view.txtUser.setText(singleclient.c.getUser());
+        show_Client_view.txtPassword.setText(singleclient.c.getPassword());
+        show_Client_view.txtStatus.setText(singleclient.c.getStatus());
+        show_Client_view.txtDate_cont.setText(singleclient.c.getEntry_date().todate());
+        show_Client_view.txtAntique.setText("" + ant);
+        show_Client_view.txtPurchase.setText(singleclient.c.toPurchase());
+        show_Client_view.txtBenefits.setText(singleclient.c.toBenefits());
+        show_Client_view.txt_premium.setText(singleclient.c.getPremium());
+        show_Client_view.txt_client.setText(singleclient.c.getClient_type());
+        ShowAvatar_client(singleclient.c.getAvatar());
 
     }
 

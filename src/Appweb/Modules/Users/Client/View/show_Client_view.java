@@ -57,7 +57,7 @@ public class show_Client_view extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1000, 650));
 
-        panelImage1.setBorder(javax.swing.BorderFactory.createTitledBorder("Data Admin"));
+        panelImage1.setBorder(javax.swing.BorderFactory.createTitledBorder("Data Client"));
         panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Appweb/General_tools/Img/Fondo_claro_1.jpg"))); // NOI18N
 
         labelHeader1.setText("DNI:");

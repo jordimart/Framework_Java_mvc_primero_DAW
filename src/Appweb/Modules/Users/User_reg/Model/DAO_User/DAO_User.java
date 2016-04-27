@@ -475,25 +475,22 @@ public class DAO_User {
 
         User_reg a = singleuser_reg.User_reg_array.get(singletonapp.pos);
 
-        //Float sal = a.getSalary();
+        
         int act = a.getActivity_u();
         ClassDate date_birth = new ClassDate(a.getDate_birth().todate());
-        //ClassDate date_cont = new ClassDate(a.getDate_cont().todate());
+        
 
         edit_User_view.txtDni.setText(a.getDni());
         edit_User_view.txtName.setText(a.getName());
         edit_User_view.txtLast_name.setText(a.getLast_name());
         edit_User_view.txtMobile.setText(a.getMobile());
-
         edit_User_view.txtEmail.setText(a.getEmail());
         edit_User_view.txtUser.setText(a.getUser());
         edit_User_view.txtPassword.setText(a.getPassword());
-
-        //edit_User_view.txtSalary.setText("" + sal);
         edit_User_view.txtActivity.setText("" + act);
         load_EditAvatar(a.getAvatar());
         edit_User_view.pick_date_birth.setCalendar(date_birth.string_to_cal());
-        // edit_Admin_view.pick_date_contr.setCalendar(date_cont.string_to_cal());
+        
 
     }
 

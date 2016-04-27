@@ -17,12 +17,19 @@ import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
 import Appweb.Modules.Users.Client.Controller.ControllerClient;
 import Appweb.Modules.Users.Client.View.table_Client_view;
+import Appweb.Modules.Users.Client.View.task_Client_view;
 import Appweb.Modules.Users.User_reg.Controller.ControllerUser;
 import Appweb.Modules.Users.User_reg.View.table_User_view;
+import Appweb.Modules.Users.User_reg.View.task_User_view;
+import java.awt.AWTKeyStroke;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.HashSet;
+import java.util.Set;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
@@ -92,7 +99,6 @@ public class ControllerMain implements ActionListener {
                 auto_open_config_json();
                 ConectionBD.start_pool_conection();
 
-                //BLL_User.auto_open_json();
                 singletonapp.mongo = new Mongo_DB();
                 singletonapp.nom_bd = singletonapp.mongo.getNom_bd();//coge el nombre de la base de datos
                 singletonapp.nom_table = singletonapp.mongo.getNom_table();//coge el nombre de la tabla
@@ -111,6 +117,13 @@ public class ControllerMain implements ActionListener {
             Login.setLocationRelativeTo(null);
             Login.setSize(1000, 650);//ancho x alto
             Login.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+            // Conjunto de teclas que queremos que sirvan para pasar el foco 
+            // al siguiente campo de texto: ENTER y TAB
+            Set<AWTKeyStroke> teclas = new HashSet<AWTKeyStroke>();
+            teclas.add(AWTKeyStroke.getAWTKeyStroke(KeyEvent.VK_ENTER, 0));
+            teclas.add(AWTKeyStroke.getAWTKeyStroke(
+                    KeyEvent.VK_TAB, 0));
 
             //Traduccion de botones y labels
             Login.Login_Admin.setText(Lang.getInstance().getProperty("Login_Administrator"));
@@ -156,7 +169,7 @@ public class ControllerMain implements ActionListener {
                 public void windowClosing(WindowEvent e) {
                     JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
                             JOptionPane.INFORMATION_MESSAGE);
-
+                    Mongo_DB.disconnect();
                     System.exit(0);
                 }
             });
@@ -344,16 +357,16 @@ public class ControllerMain implements ActionListener {
 
             case btn_ini:
 
-                BLL_Login.collectdata();
-                BLL_Login.standard_login();
+                BLL_Login.collectdata();//recogemos los datos del Login
+                BLL_Login.standard_login();//Comprobamos si la entrada es standard
                 //Buscamos escalonadamente en cada tipo de ficheros de esta forma en caso de ser
                 //Admin gastamos menos recursos
-                
+
                 if (singletonapp.type == 3) {
 
                     Login.dispose();
                     new ControllerMain(new task_Dummy_view(), 2).Start(2);
-                    
+
                 } else if (BLL_Login.Login_Admin() == true || singletonapp.type == 0) {
 
                     Login.dispose();
@@ -362,16 +375,21 @@ public class ControllerMain implements ActionListener {
                 } else if (BLL_Login.Login_Client() == true || singletonapp.type == 1) {
 
                     Login.dispose();
-                    new ControllerClient(new table_Client_view(), 0).Start(0);
+                    new ControllerClient(new task_Client_view(), 4).Start(4);
 
                 } else if (BLL_Login.Login_User() == true || singletonapp.type == 2) {
 
                     Login.dispose();
-                    new ControllerUser(new table_User_view(), 0).Start(0);
+                    new ControllerUser(new task_User_view(), 4).Start(4);
 
                 } else {
 
-                    JOptionPane.showMessageDialog(null, "Compruebe los datos el usuario o el password puede que sean incorrectos BLL");
+                    menu_Input.txt_user.setColorDeBorde(Color.red);
+                    menu_Input.txt_user.setToolTipText("Compruebe los datos, el usuario o el password puede que sean incorrectos BLL");
+
+                    menu_Input.txt_password.setColorDeBorde(Color.red);
+                    menu_Input.txt_password.setToolTipText("Compruebe los datos, el usuario o el password puede que sean incorrectos BLL");
+
                 }
 
                 break;
@@ -380,7 +398,7 @@ public class ControllerMain implements ActionListener {
 
                 JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
                         JOptionPane.INFORMATION_MESSAGE);
-
+                Mongo_DB.disconnect();
                 System.exit(0);
 
                 break;
@@ -400,9 +418,20 @@ public class ControllerMain implements ActionListener {
 
             case btn_Return_Settings:
 
-                Settings.dispose();
-                new ControllerMain(new menu_Input(), 0).Start(0);
-
+                if (singletonapp.window.equals("Admin")) {
+                    Settings.dispose();
+                    new ControllerAdmin(new task_Admin_view(), 0).Start(0);
+                }
+                if (singletonapp.window.equals("Client")) {
+                    Settings.dispose();
+                    new ControllerClient(new task_Client_view(), 4).Start(4);
+                }
+                
+                if (singletonapp.window.equals("User")) {
+                    Settings.dispose();
+                    new ControllerUser(new task_User_view(), 4).Start(4);
+                }
+                
                 break;
 
             case btn_Save_setting:

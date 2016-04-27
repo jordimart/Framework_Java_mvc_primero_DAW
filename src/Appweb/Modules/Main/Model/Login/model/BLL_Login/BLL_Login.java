@@ -54,11 +54,21 @@ public class BLL_Login {
 
     }
 
+    /**
+     * Funcion que utiliza un DAO collect data que recoge los datos de los txt
+     * del
+     * del login.
+     */
     public static void collectdata() {
 
         DAO_Login.collectdata();
     }
 
+    /**
+     * Funcion que utiliza un DAO que comprueba si la entrada es
+     * standar,Admin,Client
+     * User o Test.
+     */
     public static void standard_login() {
 
         DAO_Login.standard_login();
