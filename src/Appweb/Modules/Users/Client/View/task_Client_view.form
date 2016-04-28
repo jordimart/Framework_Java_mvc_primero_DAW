@@ -82,8 +82,9 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="btn_show" pref="199" max="32767" attributes="0"/>
                           <Component id="btn_modify" max="32767" attributes="0"/>
-                          <Component id="btn_exit" max="32767" attributes="0"/>
+                          <Component id="btn_Exit" max="32767" attributes="0"/>
                           <Component id="btn_config" max="32767" attributes="0"/>
+                          <Component id="btn_log_out" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="34" max="32767" attributes="0"/>
                   </Group>
@@ -99,8 +100,10 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btn_config" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btn_exit" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="310" max="32767" attributes="0"/>
+                      <Component id="btn_log_out" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btn_Exit" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="257" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -116,7 +119,7 @@
                 <Property name="text" type="java.lang.String" value="Modificar mi profile"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_exit">
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_Exit">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salir"/>
               </Properties>
@@ -124,6 +127,11 @@
             <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_config">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Configuracion"/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_log_out">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="LOG OUT"/>
               </Properties>
             </Component>
           </SubComponents>

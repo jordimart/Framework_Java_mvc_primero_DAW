@@ -2,10 +2,9 @@ package Appweb.Modules.Main.Model.Login.model.DAO_Login;
 
 import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Main.View.menu_Input;
-import Appweb.Modules.Users.Client.Model.Classes.singleclient;
+import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin_BD;
 import Appweb.Modules.Users.Client.Model.DAO_Client.DAO_Client_mongo;
 import Appweb.Modules.Users.User_reg.Model.BLL_User.BLL_User;
-import Appweb.Modules.Users.User_reg.Model.Classes.singleuser_reg;
 import Appweb.Modules.Users.User_reg.Model.DAO_User.DAO_User_file;
 
 /**
@@ -54,6 +53,21 @@ public class DAO_Login {
     }
 
     /**
+     * Funcion Login Admin recoge los datos del txt login y los guarda en dos
+     * singleton.
+     * Compara si la entrada es standard o es un usuario existente.
+     * Busca en la base de datos sql un admin y si existe devuelve un true.
+     *
+     * @return boolean true/false
+     */
+    public static boolean Login_Admin() {
+
+        boolean ok = BLL_Admin_BD.find_in_BD();
+
+        return ok;
+    }
+
+    /**
      * Funcion que utilizaremos para comprar las entradas del login con la base
      * de
      * datos mongo y con ello saber si existe el usuario y es correcta la
@@ -67,7 +81,7 @@ public class DAO_Login {
 
         ok = DAO_Client_mongo.find_in_mongo();
 
-        if (ok == true && (singleclient.c.getUser().equals(singletonapp.user)) && (singleclient.c.getPassword().equals(singletonapp.password))) {
+        if (ok == true) {
 
             ok = true;
 
@@ -92,15 +106,15 @@ public class DAO_Login {
     public static boolean find_and_compare_files() {
 
         boolean ok = false;
+        int comp = 0;
 
         DAO_User_file.auto_open_json();
         singletonapp.pos = BLL_User.Look_for_user();
+        comp = BLL_User.Look_for_password();
 
-        if ((singletonapp.pos != -1) && (singleuser_reg.User_reg_array.get(singletonapp.pos).getUser().equals(singletonapp.user))
-                && (singleuser_reg.User_reg_array.get(singletonapp.pos).getPassword().equals(singletonapp.password))) {
+        if (singletonapp.pos == comp) {
 
             ok = true;
-
         }
 
         return ok;

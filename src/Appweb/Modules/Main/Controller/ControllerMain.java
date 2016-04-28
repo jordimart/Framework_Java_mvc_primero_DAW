@@ -117,6 +117,7 @@ public class ControllerMain implements ActionListener {
             Login.setLocationRelativeTo(null);
             Login.setSize(1000, 650);//ancho x alto
             Login.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            Login.panelNice1.setLocation(500, 300);
 
             // Conjunto de teclas que queremos que sirvan para pasar el foco 
             // al siguiente campo de texto: ENTER y TAB
@@ -126,28 +127,11 @@ public class ControllerMain implements ActionListener {
                     KeyEvent.VK_TAB, 0));
 
             //Traduccion de botones y labels
-            Login.Login_Admin.setText(Lang.getInstance().getProperty("Login_Administrator"));
-            Login.Login_User_reg.setText(Lang.getInstance().getProperty("Login_User_reg"));
-            Login.Login_Client.setText(Lang.getInstance().getProperty("Login_Client"));
-            Login.btn_Test.setText(Lang.getInstance().getProperty("Login_Test"));
-            Login.btnSettings.setText(Lang.getInstance().getProperty("Configuration"));
+            
             Login.btn_Exit.setText(Lang.getInstance().getProperty("Exit"));
 
             //botones de accion
-            Login.Login_Admin.setActionCommand("btnAdminlogin");
-            Login.Login_Admin.addActionListener(this);
-
-            Login.btnSettings.setActionCommand("btnSettings");
-            Login.btnSettings.addActionListener(this);
-
-            Login.btn_Test.setActionCommand("btnTestlogin");
-            Login.btn_Test.addActionListener(this);
-
-            Login.Login_Client.setActionCommand("btnClientlogin");
-            Login.Login_Client.addActionListener(this);
-
-            Login.Login_User_reg.setActionCommand("btnUser_reglogin");
-            Login.Login_User_reg.addActionListener(this);
+           
 
             Login.btn_Exit.setActionCommand("btnExit");
             Login.btn_Exit.addActionListener(this);
@@ -385,10 +369,10 @@ public class ControllerMain implements ActionListener {
                 } else {
 
                     menu_Input.txt_user.setColorDeBorde(Color.red);
-                    menu_Input.txt_user.setToolTipText("Compruebe los datos, el usuario o el password puede que sean incorrectos BLL");
+                   
 
                     menu_Input.txt_password.setColorDeBorde(Color.red);
-                    menu_Input.txt_password.setToolTipText("Compruebe los datos, el usuario o el password puede que sean incorrectos BLL");
+                    
 
                 }
 

@@ -1,8 +1,6 @@
 
 package Appweb.Modules.Users.Client.View;
 
-import Appweb.Modules.Users.User_reg.View.*;
-
 /**
  *
  * @author jorge
@@ -26,8 +24,9 @@ public class task_Client_view extends javax.swing.JFrame {
         panelNice1 = new org.edisoncor.gui.panel.PanelNice();
         btn_show = new org.edisoncor.gui.button.ButtonAction();
         btn_modify = new org.edisoncor.gui.button.ButtonAction();
-        btn_exit = new org.edisoncor.gui.button.ButtonAction();
+        btn_Exit = new org.edisoncor.gui.button.ButtonAction();
         btn_config = new org.edisoncor.gui.button.ButtonAction();
+        btn_log_out = new org.edisoncor.gui.button.ButtonAction();
         lab_username = new org.edisoncor.gui.label.LabelRect();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -38,9 +37,11 @@ public class task_Client_view extends javax.swing.JFrame {
 
         btn_modify.setText("Modificar mi profile");
 
-        btn_exit.setText("Salir");
+        btn_Exit.setText("Salir");
 
         btn_config.setText("Configuracion");
+
+        btn_log_out.setText("LOG OUT");
 
         javax.swing.GroupLayout panelNice1Layout = new javax.swing.GroupLayout(panelNice1);
         panelNice1.setLayout(panelNice1Layout);
@@ -51,8 +52,9 @@ public class task_Client_view extends javax.swing.JFrame {
                 .addGroup(panelNice1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btn_show, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
                     .addComponent(btn_modify, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_config, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_config, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_log_out, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         panelNice1Layout.setVerticalGroup(
@@ -65,8 +67,10 @@ public class task_Client_view extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btn_config, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btn_exit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(310, Short.MAX_VALUE))
+                .addComponent(btn_log_out, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_Exit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(257, Short.MAX_VALUE))
         );
 
         lab_username.setText("labelRect1");
@@ -111,8 +115,9 @@ public class task_Client_view extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static org.edisoncor.gui.button.ButtonAction btn_Exit;
     public static org.edisoncor.gui.button.ButtonAction btn_config;
-    public static org.edisoncor.gui.button.ButtonAction btn_exit;
+    public static org.edisoncor.gui.button.ButtonAction btn_log_out;
     public static org.edisoncor.gui.button.ButtonAction btn_modify;
     public static org.edisoncor.gui.button.ButtonAction btn_show;
     public static org.edisoncor.gui.label.LabelRect lab_username;

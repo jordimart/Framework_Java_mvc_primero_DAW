@@ -1,11 +1,15 @@
 package Appweb.Modules.Users.Client.Controller;
 
+import Appweb.Classes.Mongo_DB;
 import Appweb.General_tools.singletonapp;
 import static Appweb.General_tools.singletonapp.singleactiondate;
 import Appweb.Modules.Main.Controller.ControllerMain;
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
+import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.Model.Config.View.menu_Settings;
 import Appweb.Modules.Main.View.menu_Input;
+import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
+import Appweb.Modules.Users.Admin.View.task_Admin_view;
 import static Appweb.Modules.Users.Client.Controller.ControllerClient.Table_Client;
 import Appweb.Modules.Users.Client.Model.BLL_Client.BLL_Client;
 import Appweb.Modules.Users.Client.Model.Classes.Table_Client_class;
@@ -40,6 +44,7 @@ import java.util.List;
 import java.util.Set;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.table.TableModel;
@@ -135,6 +140,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
         btn_modifytask,
         btn_showtask,
         btn_configtask,
+        btn_log_out,
     }
 
     public void Start(int i) {
@@ -351,8 +357,19 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             this.Edit_Client.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             this.Edit_Client.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
-                    Edit_Client.dispose();
-                    new ControllerClient(new table_Client_view(), 0).Start(0);
+
+                    if (singletonapp.window.equals("Admin")) {
+                        //si es un Admin vuelve al table.
+                        Edit_Client.dispose();
+                        new ControllerClient(new table_Client_view(), 0).Start(0);
+                    } else {
+                        //Si es un client salede la aplicacion
+                        JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
+                                JOptionPane.INFORMATION_MESSAGE);
+                        Mongo_DB.disconnect();
+                        System.exit(0);
+                    }
+
                 }
             });
 
@@ -412,8 +429,18 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             this.Show_Client.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             this.Show_Client.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
-                    Show_Client.dispose();
-                    new ControllerClient(new table_Client_view(), 0).Start(0);
+
+                    if (singletonapp.window.equals("Admin")) {
+                        //si es un Admin vuelve al table.
+                        Show_Client.dispose();
+                        new ControllerClient(new table_Client_view(), 0).Start(0);
+                    } else {
+                        //Si es un client salede la aplicacion
+                        JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
+                                JOptionPane.INFORMATION_MESSAGE);
+                        Mongo_DB.disconnect();
+                        System.exit(0);
+                    }
                 }
             });
 
@@ -423,20 +450,28 @@ public class ControllerClient implements ActionListener, MouseListener, Property
 
         if (i == 4) {
 
+            Task_Client.setVisible(true);
             Task_Client.setTitle("Task Client");
             Task_Client.setLocationRelativeTo(null);
-            Task_Client.setSize(1000, 650);//ancho x alto
+            Task_Client.setSize(1600, 1100);//ancho x alto
             Task_Client.setResizable(false);
-            Task_Client.setVisible(true);
+            Task_Client.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
+            Task_Client.btn_show.setText(Lang.getInstance().getProperty("MY_PROFILE"));
+            Task_Client.btn_modify.setText(Lang.getInstance().getProperty("MODIFY_MY_PROFILE"));
+            Task_Client.btn_config.setText(Lang.getInstance().getProperty("CONFIGURATION"));
+            Task_Client.btn_Exit.setText(Lang.getInstance().getProperty("EXIT"));
 
             singletonapp.window = "Client";
-            Task_Client.lab_username.setText("Bienvenido: " + singleclient.c.getUser());
+            Task_Client.lab_username.setText(Lang.getInstance().getProperty("WELCOME") + ": " + singleclient.c.getUser());
 
             this.Task_Client.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             this.Task_Client.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
-                    Task_Client.dispose();
-                    new ControllerMain(new menu_Input(), 0).Start(0);
+                    JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
+                            JOptionPane.INFORMATION_MESSAGE);
+                    Mongo_DB.disconnect();
+                    System.exit(0);
                 }
             });
 
@@ -449,8 +484,11 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             Task_Client.btn_config.setActionCommand("btn_configtask");
             Task_Client.btn_config.addActionListener(this);
 
-            Task_Client.btn_exit.setActionCommand("btn_exit");
-            Task_Client.btn_exit.addActionListener(this);
+            Task_Client.btn_Exit.setActionCommand("btn_exit");
+            Task_Client.btn_Exit.addActionListener(this);
+
+            Task_Client.btn_log_out.setActionCommand("btn_log_out");
+            Task_Client.btn_log_out.addActionListener(this);
         }
 
     }
@@ -496,7 +534,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             case btn_Return_table:
 
                 Table_Client.dispose();
-                new ControllerMain(new menu_Input(), 0).Start(0);
+                new ControllerAdmin(new task_Admin_view(), 0).Start(0);
 
                 break;
 
@@ -632,11 +670,19 @@ public class ControllerClient implements ActionListener, MouseListener, Property
 
             case btn_exit:
 
+                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
+                        JOptionPane.INFORMATION_MESSAGE);
+                Mongo_DB.disconnect();
+                System.exit(0);
+
+                break;
+
+            case btn_log_out:
+
                 Task_Client.dispose();
                 new ControllerMain(new menu_Input(), 0).Start(0);
 
                 break;
-
         }
 
     }

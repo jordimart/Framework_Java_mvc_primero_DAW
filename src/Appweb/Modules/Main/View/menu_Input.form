@@ -49,27 +49,18 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace pref="707" max="32767" attributes="0"/>
-                          <Component id="btn_English_main" min="-2" pref="46" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btn_spain_main" min="-2" pref="40" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_valencian_main" min="-2" pref="40" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="274" max="-2" attributes="0"/>
-                          <Component id="panelNice2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Component id="panelNice1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-              </Group>
               <Component id="panelCurves1" alignment="1" max="32767" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="274" max="-2" attributes="0"/>
+                  <Component id="panelNice1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="189" max="32767" attributes="0"/>
+                  <Component id="btn_English_main" min="-2" pref="46" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="btn_spain_main" min="-2" pref="40" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="btn_valencian_main" min="-2" pref="40" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -77,17 +68,12 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btn_valencian_main" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                              <Component id="btn_spain_main" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                              <Component id="btn_English_main" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
-                          <Component id="panelNice2" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="panelNice1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_valencian_main" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="btn_spain_main" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="btn_English_main" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                  <Component id="panelNice1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="panelCurves1" min="-2" pref="90" max="-2" attributes="0"/>
               </Group>
@@ -95,70 +81,6 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="org.edisoncor.gui.panel.PanelNice" name="panelNice1">
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Login_Admin" pref="158" max="32767" attributes="0"/>
-                          <Component id="Login_User_reg" alignment="0" max="32767" attributes="0"/>
-                          <Component id="Login_Client" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btn_Test" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnSettings" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="Login_Admin" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="Login_User_reg" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="Login_Client" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btn_Test" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnSettings" min="-2" pref="23" max="-2" attributes="0"/>
-                      <EmptySpace pref="81" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JButton" name="Login_Admin">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Entrada Administrador"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="Login_User_reg">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Entrada User_reg"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="Login_Client">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Entrada Cliente"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btn_Test">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Entrada Test"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnSettings">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Configuracion"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
         <Container class="org.edisoncor.gui.panel.PanelCurves" name="panelCurves1">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -187,7 +109,7 @@
             </Property>
           </Properties>
         </Component>
-        <Container class="org.edisoncor.gui.panel.PanelNice" name="panelNice2">
+        <Container class="org.edisoncor.gui.panel.PanelNice" name="panelNice1">
 
           <Layout>
             <DimensionLayout dim="0">

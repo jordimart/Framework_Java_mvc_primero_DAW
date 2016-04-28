@@ -331,6 +331,19 @@ public class BLL_User {
         }
         return pos;
     }
+    
+    public static int Look_for_password(){
+        int pos=-2;
+        
+        for (int i = 0; i < singleuser_reg.User_reg_array.size(); i++) {
+
+            if (singleuser_reg.User_reg_array.get(i).getPassword().equals(singletonapp.password)) {
+                pos = i;
+            }
+
+        }
+        return pos;
+    }
 
     
 

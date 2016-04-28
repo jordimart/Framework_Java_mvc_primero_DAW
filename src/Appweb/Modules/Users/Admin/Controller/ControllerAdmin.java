@@ -1,10 +1,12 @@
 package Appweb.Modules.Users.Admin.Controller;
 
+import Appweb.Classes.Mongo_DB;
 import Appweb.General_tools.singletonapp;
 import static Appweb.General_tools.singletonapp.singleactiondate;
 import Appweb.Modules.Main.Controller.ControllerMain;
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
+import Appweb.Modules.Main.Model.Config.View.menu_Settings;
 import Appweb.Modules.Main.View.menu_Input;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin_BD;
@@ -39,6 +41,7 @@ import java.util.List;
 import java.util.Set;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.table.TableModel;
@@ -79,31 +82,6 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
         }
     }
 
-    @Override
-    public void mousePressed(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public enum Action_Admin {
 
         //botones de Task_Admin//
@@ -111,6 +89,8 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
         btn_ges_users,
         btn_ges_inst,
         btn_ges_averias,
+        btn_config,
+        btn_Exit,
         //botones table Admin//
 
         btnAdd_admin,
@@ -127,7 +107,6 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
         jComboBox1,//combo filtrar
         Tabla_pager,//mouseclicked
         btnchange_user,
-
         //botones create Admin//
 
         btn_Aceptar,
@@ -167,14 +146,13 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
     public void Start(int i) {
         if (i == 0) {
 
+            Task_Admin.setVisible(true);
             Task_Admin.setTitle(Lang.getInstance().getProperty("Task Admin"));
             Task_Admin.setLocationRelativeTo(null);
             Task_Admin.setSize(1600, 1100);//ancho x alto
             // this.setResizable(false);
-
             Task_Admin.setExtendedState(JFrame.MAXIMIZED_BOTH);
-            Task_Admin.setVisible(true);
-            
+
             singletonapp.window = "Admin";//Nos marca el tipo de usuario que ha entrado.
 
             //traduccion de botones
@@ -182,9 +160,9 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             Task_Admin.btn_ges_users.setText(Lang.getInstance().getProperty("USER_MANAGEMENT"));
             Task_Admin.btn_ges_inst.setText(Lang.getInstance().getProperty("INSTALATION_MANAGEMENT"));
             Task_Admin.btn_ges_averias.setText(Lang.getInstance().getProperty("FAULT_MANAGEMENT"));
-            Task_Admin.btn_Volver.setText(Lang.getInstance().getProperty("BACK"));
+            Task_Admin.btn_config.setText(Lang.getInstance().getProperty("CONFIGURATION"));
+            Task_Admin.btn_Exit.setText(Lang.getInstance().getProperty("EXIT"));
 
-            
             //Vuelve al pulsar la cruz de la ventana
             this.Task_Admin.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             this.Task_Admin.addWindowListener(new WindowAdapter() {
@@ -196,8 +174,8 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             });
 
             //botones de accion
-            Task_Admin.btn_Volver.setActionCommand("btn_Volver");
-            Task_Admin.btn_Volver.addActionListener(this);
+            Task_Admin.btn_log_out.setActionCommand("btn_Volver");
+            Task_Admin.btn_log_out.addActionListener(this);
 
             Task_Admin.btn_ges_users.setActionCommand("btn_ges_users");
             Task_Admin.btn_ges_users.addActionListener(this);
@@ -208,6 +186,12 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             Task_Admin.btn_ges_averias.setActionCommand("btn_ges_averias");
             Task_Admin.btn_ges_averias.addActionListener(this);
 
+            Task_Admin.btn_config.setActionCommand("btn_config");
+            Task_Admin.btn_config.addActionListener(this);
+
+            Task_Admin.btn_Exit.setActionCommand("btn_Exit");
+            Task_Admin.btn_Exit.addActionListener(this);
+
         }
         if (i == 1) {
 
@@ -217,8 +201,8 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             Table_Admin.setSize(1700, 1000);//ancho x alto
             Table_Admin.setResizable(true);
             Table_Admin.setExtendedState(JFrame.MAXIMIZED_BOTH);
-            
-             //traduccion de botones
+
+            //traduccion de botones
             Table_Admin.btnEditar_admin.setText(Lang.getInstance().getProperty("Edit"));
             Table_Admin.btnBorrar_admin.setText(Lang.getInstance().getProperty("Delete"));
             Table_Admin.btnMostrar_admin.setText(Lang.getInstance().getProperty("Show"));
@@ -227,8 +211,6 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             Table_Admin.btn_delete_all.setText(Lang.getInstance().getProperty("Delete_all"));
             Table_Admin.jLabel4.setText(Lang.getInstance().getProperty("Save_as"));
             Table_Admin.btn_Save_file.setText(Lang.getInstance().getProperty("Save"));
-
-            
 
             Table_Admin.mini_Table_Admin.setModel(new Table_Admin_class());
             ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
@@ -245,8 +227,6 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
                 public void windowClosing(WindowEvent e) {
                     Table_Admin.dispose();
                     new ControllerAdmin(new task_Admin_view(), 0).Start(0);
-
-                   
 
                 }
             });
@@ -309,11 +289,11 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
 
             Table_Admin.mini_Table_Admin.setName("Tabla_pager");
             Table_Admin.mini_Table_Admin.addMouseListener(this);
-            
+
             Table_Admin.btnchange_user.setActionCommand("btnchange_user");
             Table_Admin.btnchange_user.addActionListener(this);
-            
-                }
+
+        }
 
         if (i == 2) {
 
@@ -322,25 +302,22 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             Create_Admin.setLocationRelativeTo(null);
             Create_Admin.setSize(1000, 1200);//ancho x alto
             Create_Admin.setResizable(false);
-            
-           
-            
-         //traduccion de botones y labels
-            Create_Admin.labelHeader2.setText(Lang.getInstance().getProperty("Name")+": ");
-            Create_Admin.labelHeader3.setText(Lang.getInstance().getProperty("Last_name")+": ");
-            Create_Admin.labelHeader4.setText(Lang.getInstance().getProperty("Mobile")+": ");
-            Create_Admin.labelHeader5.setText(Lang.getInstance().getProperty("Date_birth")+": ");     
-            Create_Admin.labelHeader7.setText(Lang.getInstance().getProperty("User")+": ");
-            Create_Admin.labelHeader8.setText(Lang.getInstance().getProperty("Password")+": ");
-            Create_Admin.labelHeader9.setText(Lang.getInstance().getProperty("Status")+": ");
-            Create_Admin.labelHeader10.setText(Lang.getInstance().getProperty("Date_contr")+": ");
-            Create_Admin.labelHeader11.setText(Lang.getInstance().getProperty("Salary")+": ");
-            Create_Admin.labelHeader12.setText(Lang.getInstance().getProperty("Activity")+": ");     
-            Create_Admin.btnAvatar.setText(Lang.getInstance().getProperty("Add_Avatar")+": ");
-            Create_Admin.btn_Cancel.setText(Lang.getInstance().getProperty("Cancel")+": ");
-            Create_Admin.btn_Aceptar.setText(Lang.getInstance().getProperty("Accept")+": ");
-        
-        
+
+            //traduccion de botones y labels
+            Create_Admin.labelHeader2.setText(Lang.getInstance().getProperty("Name") + ": ");
+            Create_Admin.labelHeader3.setText(Lang.getInstance().getProperty("Last_name") + ": ");
+            Create_Admin.labelHeader4.setText(Lang.getInstance().getProperty("Mobile") + ": ");
+            Create_Admin.labelHeader5.setText(Lang.getInstance().getProperty("Date_birth") + ": ");
+            Create_Admin.labelHeader7.setText(Lang.getInstance().getProperty("User") + ": ");
+            Create_Admin.labelHeader8.setText(Lang.getInstance().getProperty("Password") + ": ");
+            Create_Admin.labelHeader9.setText(Lang.getInstance().getProperty("Status") + ": ");
+            Create_Admin.labelHeader10.setText(Lang.getInstance().getProperty("Date_contr") + ": ");
+            Create_Admin.labelHeader11.setText(Lang.getInstance().getProperty("Salary") + ": ");
+            Create_Admin.labelHeader12.setText(Lang.getInstance().getProperty("Activity") + ": ");
+            Create_Admin.btnAvatar.setText(Lang.getInstance().getProperty("Add_Avatar") + ": ");
+            Create_Admin.btn_Cancel.setText(Lang.getInstance().getProperty("Cancel") + ": ");
+            Create_Admin.btn_Aceptar.setText(Lang.getInstance().getProperty("Accept") + ": ");
+
             singleactiondate = "add";
 
             //Information_dialog.setLocationRelativeTo(null);
@@ -441,21 +418,21 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             Edit_Admin.pick_date_contr.getDateEditor().setEnabled(false);
             Edit_Admin.pick_date_birth.setDateFormatString(Classconfig.getInstance().getdatef());
             Edit_Admin.pick_date_contr.setDateFormatString(Classconfig.getInstance().getdatef());
-            
+
             //traduccion de botones y labels
-            Edit_Admin.labelHeader2.setText(Lang.getInstance().getProperty("Name")+": ");
-             Edit_Admin.labelHeader3.setText(Lang.getInstance().getProperty("Last_name")+": ");
-             Edit_Admin.labelHeader4.setText(Lang.getInstance().getProperty("Mobile")+": ");
-             Edit_Admin.labelHeader5.setText(Lang.getInstance().getProperty("Date_birth")+": ");     
-             Edit_Admin.labelHeader7.setText(Lang.getInstance().getProperty("User")+": ");
-             Edit_Admin.labelHeader8.setText(Lang.getInstance().getProperty("Password")+": ");
-             Edit_Admin.labelHeader9.setText(Lang.getInstance().getProperty("Status")+": ");
-             Edit_Admin.labelHeader10.setText(Lang.getInstance().getProperty("Date_contr")+": ");
-             Edit_Admin.labelHeader11.setText(Lang.getInstance().getProperty("Salary")+": ");
-             Edit_Admin.labelHeader12.setText(Lang.getInstance().getProperty("Activity")+": ");     
-             Edit_Admin.btnAvatar.setText(Lang.getInstance().getProperty("Add_Avatar")+": ");
-             Edit_Admin.btn_Cancel.setText(Lang.getInstance().getProperty("Cancel")+": ");
-             Edit_Admin.btn_Aceptar.setText(Lang.getInstance().getProperty("Accept")+": ");
+            Edit_Admin.labelHeader2.setText(Lang.getInstance().getProperty("Name") + ": ");
+            Edit_Admin.labelHeader3.setText(Lang.getInstance().getProperty("Last_name") + ": ");
+            Edit_Admin.labelHeader4.setText(Lang.getInstance().getProperty("Mobile") + ": ");
+            Edit_Admin.labelHeader5.setText(Lang.getInstance().getProperty("Date_birth") + ": ");
+            Edit_Admin.labelHeader7.setText(Lang.getInstance().getProperty("User") + ": ");
+            Edit_Admin.labelHeader8.setText(Lang.getInstance().getProperty("Password") + ": ");
+            Edit_Admin.labelHeader9.setText(Lang.getInstance().getProperty("Status") + ": ");
+            Edit_Admin.labelHeader10.setText(Lang.getInstance().getProperty("Date_contr") + ": ");
+            Edit_Admin.labelHeader11.setText(Lang.getInstance().getProperty("Salary") + ": ");
+            Edit_Admin.labelHeader12.setText(Lang.getInstance().getProperty("Activity") + ": ");
+            Edit_Admin.btnAvatar.setText(Lang.getInstance().getProperty("Add_Avatar") + ": ");
+            Edit_Admin.btn_Cancel.setText(Lang.getInstance().getProperty("Cancel") + ": ");
+            Edit_Admin.btn_Aceptar.setText(Lang.getInstance().getProperty("Accept") + ": ");
 
             singleactiondate = "edit";
             Edit_Admin.setVisible(true);
@@ -536,25 +513,24 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             Show_Admin.setSize(1050, 700);//ancho x alto
             Show_Admin.setResizable(false);
             Show_Admin.setVisible(true);
-            
-        Show_Admin.labelHeader1.setText("Dni:");
-        Show_Admin.labelHeader2.setText(Lang.getInstance().getProperty("Name")+": ");
-        Show_Admin.labelHeader3.setText(Lang.getInstance().getProperty("Last_name")+": ");
-        Show_Admin.labelHeader4.setText(Lang.getInstance().getProperty("Mobile")+": ");
-        Show_Admin.labelHeader5.setText(Lang.getInstance().getProperty("Date_birth")+": ");
-        Show_Admin.labelHeader6.setText(Lang.getInstance().getProperty("Age")+": ");
-        Show_Admin.labelHeader7.setText(Lang.getInstance().getProperty("Date_contr")+": ");
-        Show_Admin.labelHeader8.setText(Lang.getInstance().getProperty("Antique")+": ");
-        Show_Admin.labelHeader9.setText(Lang.getInstance().getProperty("Salary")+": ");
-        Show_Admin.labelHeader10.setText(Lang.getInstance().getProperty("Activity")+": ");
-        Show_Admin.labelHeader11.setText(Lang.getInstance().getProperty("Benefits")+": ");
-        Show_Admin.labelHeader12.setText("Avatar:");
-        Show_Admin.labelHeader13.setText("Email:");
-        Show_Admin.labelHeader14.setText(Lang.getInstance().getProperty("User")+": ");
-        Show_Admin.labelHeader15.setText(Lang.getInstance().getProperty("Status")+": ");
-        Show_Admin.labelHeader16.setText(Lang.getInstance().getProperty("Password")+": ");      
-        Show_Admin.btnAcept.setText(Lang.getInstance().getProperty("Accept"));
-            
+
+            Show_Admin.labelHeader1.setText("Dni:");
+            Show_Admin.labelHeader2.setText(Lang.getInstance().getProperty("Name") + ": ");
+            Show_Admin.labelHeader3.setText(Lang.getInstance().getProperty("Last_name") + ": ");
+            Show_Admin.labelHeader4.setText(Lang.getInstance().getProperty("Mobile") + ": ");
+            Show_Admin.labelHeader5.setText(Lang.getInstance().getProperty("Date_birth") + ": ");
+            Show_Admin.labelHeader6.setText(Lang.getInstance().getProperty("Age") + ": ");
+            Show_Admin.labelHeader7.setText(Lang.getInstance().getProperty("Date_contr") + ": ");
+            Show_Admin.labelHeader8.setText(Lang.getInstance().getProperty("Antique") + ": ");
+            Show_Admin.labelHeader9.setText(Lang.getInstance().getProperty("Salary") + ": ");
+            Show_Admin.labelHeader10.setText(Lang.getInstance().getProperty("Activity") + ": ");
+            Show_Admin.labelHeader11.setText(Lang.getInstance().getProperty("Benefits") + ": ");
+            Show_Admin.labelHeader12.setText("Avatar:");
+            Show_Admin.labelHeader13.setText("Email:");
+            Show_Admin.labelHeader14.setText(Lang.getInstance().getProperty("User") + ": ");
+            Show_Admin.labelHeader15.setText(Lang.getInstance().getProperty("Status") + ": ");
+            Show_Admin.labelHeader16.setText(Lang.getInstance().getProperty("Password") + ": ");
+            Show_Admin.btnAcept.setText(Lang.getInstance().getProperty("Accept"));
 
             this.Show_Admin.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             this.Show_Admin.addWindowListener(new WindowAdapter() {
@@ -594,11 +570,25 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             case btn_ges_averias:
                 //nulo
                 break;
-                
-                case btnchange_user:
-                    
+
+            case btn_config:
+
+                Task_Admin.dispose();
+                new ControllerMain(new menu_Settings(), 1).Start(1);
+                break;
+
+            case btn_Exit:
+
+                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
+                        JOptionPane.INFORMATION_MESSAGE);
+                Mongo_DB.disconnect();
+                System.exit(0);
+                break;
+
+            case btnchange_user:
+
                 BLL_Admin.change_table_user();
-                
+
                 break;
             case btnAdd_admin:
 
@@ -616,10 +606,10 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
 
                 break;
             case btnBorrar_admin:
-                
+
                 BLL_Admin_BD.load_BD();
                 BLL_Admin.delete_select_admin();
-                
+
                 break;
             case btnMostrar_admin:
 
@@ -674,8 +664,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
                 pagina.initLinkBox();
 
                 break;
-                
-           
+
             case btn_Aceptar:
 
                 ok = BLL_Admin.Enter_new_admin();
@@ -685,7 +674,6 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
                     Create_Admin.dispose();
                     new ControllerAdmin(new table_Admin_view(), 1).Start(1);
 
-                    
                 }
                 break;
 
@@ -706,7 +694,6 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
                 if (ok == true) {
                     Edit_Admin.dispose();
                     new ControllerAdmin(new table_Admin_view(), 1).Start(1);
-                   
 
                 }
 
@@ -892,5 +879,30 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
         pagina.initLinkBox();
         ((Table_Admin_class) mini_Table_Admin.getModel()).filtrar();
         combo.requestFocus();
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
     }
 }

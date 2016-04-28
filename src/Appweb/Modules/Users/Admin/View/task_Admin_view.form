@@ -90,8 +90,9 @@
                           <Component id="btn_ges_inst" alignment="0" pref="235" max="32767" attributes="0"/>
                           <Component id="btn_ges_users" alignment="0" max="32767" attributes="0"/>
                           <Component id="btn_ges_averias" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btn_Volver" max="32767" attributes="0"/>
+                          <Component id="btn_log_out" max="32767" attributes="0"/>
                           <Component id="btn_config" max="32767" attributes="0"/>
+                          <Component id="btn_Exit" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="38" max="32767" attributes="0"/>
                   </Group>
@@ -109,8 +110,10 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btn_config" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btn_Volver" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="111" max="32767" attributes="0"/>
+                      <Component id="btn_log_out" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btn_Exit" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="58" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -131,14 +134,19 @@
                 <Property name="text" type="java.lang.String" value="GESTION AVERIAS"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_Volver">
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_log_out">
               <Properties>
-                <Property name="text" type="java.lang.String" value="VOLVER"/>
+                <Property name="text" type="java.lang.String" value="Log Out"/>
               </Properties>
             </Component>
             <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_config">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Configuracion"/>
+              </Properties>
+            </Component>
+            <Component class="org.edisoncor.gui.button.ButtonAction" name="btn_Exit">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Salir"/>
               </Properties>
             </Component>
           </SubComponents>

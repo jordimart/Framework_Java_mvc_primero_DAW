@@ -231,6 +231,12 @@ public class DAO_Admin_BD {
         return ok;
     }
 
+    
+    /**
+     * Borra todos los administradores d ela base de datos sql.
+     * @param con
+     * @return 
+     */
     public static int delete_all_Admin(Connection con) {
 
         PreparedStatement stmt = null;
@@ -257,6 +263,12 @@ public class DAO_Admin_BD {
         return ok;
     }
 
+    /**
+     * Funcion que busca en Base de datos sql un admin con los parametros recogidos
+     * en el login.
+     * @param con
+     * @return 
+     */
     public static boolean find_in_BD(Connection con) {
 
         ResultSet rs = null;

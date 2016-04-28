@@ -1,7 +1,6 @@
 package Appweb.Modules.Main.Model.Login.model.BLL_Login;
 
 import Appweb.Modules.Main.Model.Login.model.DAO_Login.DAO_Login;
-import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin_BD;
 
 /**
  *
@@ -12,14 +11,14 @@ public class BLL_Login {
     /**
      * Funcion Login Admin recoge los datos del txt login y los guarda en dos
      * singleton.
-     * Compara si la entrada es standard o es un usuario existente.
-     * Busca en la base de datos sql un admin y si existe devuelve un true.
+     * Utiliza un DAO que busca al usuario y su pasword en sql y nos dice si
+     * existe.
      *
      * @return boolean true/false
      */
     public static boolean Login_Admin() {
 
-        boolean ok = BLL_Admin_BD.find_in_BD();
+        boolean ok = DAO_Login.Login_Admin();
 
         return ok;
     }
@@ -28,7 +27,8 @@ public class BLL_Login {
      * Funcion Login Client recoge los datos del txt del login y los guarda en
      * dos singleton user y password.
      * Compara si la entrada es estandard o es un usurio existente.
-     * Busca en la base de datos mongo un Client y si existe devuelve true.
+     * Utiliza un DAO que busca al usuario y su pasword en mongo y nos dice si
+     * existe.
      *
      * @return boolean true/false
      */
@@ -40,9 +40,11 @@ public class BLL_Login {
     }
 
     /**
-     * Funcion Login User recoge los datos deltxt del login y los gurada en
+     * Funcion Login User recoge los datos del txt del login y los gurada en
      * dos singleton user y password.
      * Compara si la entrada standard o es un usuario existente.
+     * Utiliza un Daoque busca en ficheros si existe el usuario con ese usuario
+     * y el password.
      *
      * @return
      */

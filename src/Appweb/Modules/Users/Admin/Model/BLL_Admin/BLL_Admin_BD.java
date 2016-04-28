@@ -1,4 +1,3 @@
-
 package Appweb.Modules.Users.Admin.Model.BLL_Admin;
 
 import Appweb.Classes.ConectionBD;
@@ -81,7 +80,7 @@ public class BLL_Admin_BD {
      * Administrador de la base de datos.
      * Si se ha eliminado correctamente devuelve un integer 1.
      *
-     * @return
+     * @return boolean true/false
      */
     public static int delete_Admin() {
 
@@ -97,6 +96,12 @@ public class BLL_Admin_BD {
         return ok;
     }
 
+    /**
+     * BLL que utiliza un DAO para borrar a todos losuduarios de base de datos
+     * sql.
+     *
+     * @return boolean true/false
+     */
     public static int delete_all_Admin() {
 
         int ok = 0;
@@ -110,19 +115,25 @@ public class BLL_Admin_BD {
 
         return ok;
     }
-    
-    public static boolean find_in_BD(){
-        
-        boolean ok=false;
-        
+
+    /**
+     * BLL que utiliza un DAO que busca en la base de datos sql si existe
+     * un user y pasword coincidentes con los cogidos en Login.
+     *
+     * @return boolean true/false
+     */
+    public static boolean find_in_BD() {
+
+        boolean ok = false;
+
         Connection con = null;
 
         con = ConectionBD.getConexion();
-        
-        ok= DAO_Admin_BD.find_in_BD(con);
-        
+
+        ok = DAO_Admin_BD.find_in_BD(con);
+
         ConectionBD.liberaConexion(con);
-        
+
         return ok;
     }
 }

@@ -88,6 +88,7 @@ public class DAO_Client_mongo {
         try {
             BasicDBObject query = new BasicDBObject();
             query.put("user", singletonapp.user);
+            query.put("password", singletonapp.password);
             cursor = singletonapp.collection.find(query);
             if (cursor.count() != 0) {
 
