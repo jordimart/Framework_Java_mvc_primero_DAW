@@ -30,12 +30,13 @@ public class Lang extends Properties {
 
 	}
 
-	/**
-	 * 
-	 */
+	
 
 	private String language;
 
+        /**
+         * Constructor vacio
+         */
 	public Lang() {
 
 		// Modificar si quieres a�adir mas idiomas
@@ -57,10 +58,17 @@ public class Lang extends Properties {
 
 	}
 
+        /**
+         * Obtiene el valor de language.
+         * @return 
+         */
 	public String getLanguage() {
 		return language;
 	}
 
+        /**
+         * Modifica el valor de language.
+         */
 	public void setLanguage() {
 
 		switch (Classconfig.getInstance().getLanguage()) {

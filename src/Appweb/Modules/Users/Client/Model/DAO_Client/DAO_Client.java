@@ -598,7 +598,7 @@ public class DAO_Client {
 
        
 
-        Float sal = singleclient.c.getPurchase();
+ 
 
         ClassDate date_birth = new ClassDate(singleclient.c.getDate_birth().todate());
         ClassDate date_reg = new ClassDate(singleclient.c.getEntry_date().todate());
@@ -607,13 +607,10 @@ public class DAO_Client {
         edit_Client_view.txtName.setText(singleclient.c.getName());
         edit_Client_view.txtLast_name.setText(singleclient.c.getLast_name());
         edit_Client_view.txtMobile.setText(singleclient.c.getMobile());
-
         edit_Client_view.txtEmail.setText(singleclient.c.getEmail());
         edit_Client_view.txtUser.setText(singleclient.c.getUser());
         edit_Client_view.txtPassword.setText(singleclient.c.getPassword());
-
-        edit_Client_view.txtPurchase.setText("" + sal);
-
+        edit_Client_view.txtPurchase.setText("" + singleclient.c.getPurchase());
         load_EditAvatar_client(singleclient.c.getAvatar());
         edit_Client_view.pick_date_birth.setCalendar(date_birth.string_to_cal());
         edit_Client_view.pick_date_reg.setCalendar(date_reg.string_to_cal());
@@ -811,13 +808,11 @@ public class DAO_Client {
         s = edit_Client_view.txtPurchase.getText();
         // ok = ;
 
-        if (Validate.oksalary(s) == true) {
+        if ((Validate.oksalary(s) == true) && (s.equals("") == false)) {
 
-            try {
+          
                 sal = Float.parseFloat(s);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            
 
             ok = true;
 
@@ -1055,22 +1050,20 @@ public class DAO_Client {
 
         Client c = singleclient.Client_array.get(singletonapp.pos);
 
-        int age = c.getAge();
-        int ant = c.getAntique_c();
 
         show_Client_view.txtDni.setText(c.getDni());
         show_Client_view.txtName.setText(c.getName());
         show_Client_view.txtLast_name.setText(c.getLast_name());
         show_Client_view.txtMobile.setText(c.getMobile());
         show_Client_view.txtDate_birth.setText(c.getDate_birth().todate());
-        show_Client_view.txtAge.setText("" + age);
+        show_Client_view.txtAge.setText("" + c.getAge());
         show_Client_view.txtEmail.setText(c.getEmail());
         show_Client_view.txtUser.setText(c.getUser());
         show_Client_view.txtPassword.setText(c.getPassword());
         show_Client_view.txtStatus.setText(c.getStatus());
         show_Client_view.txtDate_cont.setText(c.getEntry_date().todate());
-        show_Client_view.txtAntique.setText("" + ant);
-        show_Client_view.txtPurchase.setText(c.toPurchase());
+        show_Client_view.txtAntique.setText("" + c.getAntique_c());
+        show_Client_view.txtPurchase.setText(""+c.toPurchase());
         show_Client_view.txtBenefits.setText(c.toBenefits());
         show_Client_view.txt_premium.setText(c.getPremium());
         show_Client_view.txt_client.setText(c.getClient_type());

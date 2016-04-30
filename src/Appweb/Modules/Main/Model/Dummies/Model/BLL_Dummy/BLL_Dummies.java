@@ -4,7 +4,6 @@ import Appweb.Classes.ConectionBD;
 import Appweb.General_tools.singletonapp;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.Model.Dummies.Model.DAO_Dummy.DAO_Dummies;
-import Appweb.Modules.Main.Model.Dummies.Model.DAO_Dummy.DAO_Dummy_BD;
 import Appweb.Modules.Main.Model.Dummies.View.task_Dummy_view;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin_BD;
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
@@ -45,7 +44,7 @@ public class BLL_Dummies {
 
                 try {
 
-                    ok = DAO_Dummy_BD.create_Dummy_adminBD(con);//creamos al admin y lo metemos en la base de datos
+                    ok = BLL_Dummy_BD.create_Dummy_adminBD(con);//creamos al admin y lo metemos en la base de datos
 
                     if (ok == 1) {//si el admin se ha metido bien en la base de datos lo metemos en el arraylist
 

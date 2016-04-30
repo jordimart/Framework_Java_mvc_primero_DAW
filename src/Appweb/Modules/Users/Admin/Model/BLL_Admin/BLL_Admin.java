@@ -176,7 +176,6 @@ public class BLL_Admin {
 
             ok = BLL_Admin_BD.save_modified_Admin();//modificamos alusuario en la BD
             BLL_Admin_BD.load_BD();// cargamos de BD
-            //singleadmin.Admin_array.set(singletonapp.pos, singleadmin.a);
 
             if (ok == 1) {
 

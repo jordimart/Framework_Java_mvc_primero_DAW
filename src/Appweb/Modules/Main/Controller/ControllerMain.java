@@ -86,8 +86,6 @@ public class ControllerMain implements ActionListener {
         btnCreate_dummis_user,
         btnDelete_all_user,
         btnEntry_admin,
-        btnEntry_client,
-        btnEntry_user_reg
 
     }
 
@@ -127,12 +125,9 @@ public class ControllerMain implements ActionListener {
                     KeyEvent.VK_TAB, 0));
 
             //Traduccion de botones y labels
-            
             Login.btn_Exit.setText(Lang.getInstance().getProperty("Exit"));
 
             //botones de accion
-           
-
             Login.btn_Exit.setActionCommand("btnExit");
             Login.btn_Exit.addActionListener(this);
 
@@ -238,8 +233,6 @@ public class ControllerMain implements ActionListener {
             Dummies.btnDelete_all_user.setText(Lang.getInstance().getProperty("Delete_all"));
 
             Dummies.btnEntry_admin.setText(Lang.getInstance().getProperty("Login_Administrator"));
-            Dummies.btnEntry_client.setText(Lang.getInstance().getProperty("Login_Client"));
-            Dummies.btnEntry_user_reg.setText(Lang.getInstance().getProperty("Login_User_reg"));
 
             //botones de accion
             Dummies.btnCreate_dummis_admin.setActionCommand("btnCreate_dummis_admin");
@@ -262,12 +255,6 @@ public class ControllerMain implements ActionListener {
 
             Dummies.btnEntry_admin.setActionCommand("btnEntry_admin");
             Dummies.btnEntry_admin.addActionListener(this);
-
-            Dummies.btnEntry_client.setActionCommand("btnEntry_client");
-            Dummies.btnEntry_client.addActionListener(this);
-
-            Dummies.btnEntry_user_reg.setActionCommand("btnEntry_user_reg");
-            Dummies.btnEntry_user_reg.addActionListener(this);
 
             this.Dummies.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             this.Dummies.addWindowListener(new WindowAdapter() {
@@ -369,10 +356,8 @@ public class ControllerMain implements ActionListener {
                 } else {
 
                     menu_Input.txt_user.setColorDeBorde(Color.red);
-                   
 
                     menu_Input.txt_password.setColorDeBorde(Color.red);
-                    
 
                 }
 
@@ -410,12 +395,12 @@ public class ControllerMain implements ActionListener {
                     Settings.dispose();
                     new ControllerClient(new task_Client_view(), 4).Start(4);
                 }
-                
+
                 if (singletonapp.window.equals("User")) {
                     Settings.dispose();
                     new ControllerUser(new task_User_view(), 4).Start(4);
                 }
-                
+
                 break;
 
             case btn_Save_setting:
@@ -473,19 +458,6 @@ public class ControllerMain implements ActionListener {
 
                 break;
 
-            case btnEntry_client:
-
-                Dummies.dispose();
-                new ControllerClient(new table_Client_view(), 0).Start(0);
-
-                break;
-
-            case btnEntry_user_reg:
-
-                Dummies.dispose();
-                new ControllerUser(new table_User_view(), 0).Start(0);
-
-                break;
         }
 
     }

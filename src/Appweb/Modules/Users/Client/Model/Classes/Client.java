@@ -56,13 +56,15 @@ public class Client extends User implements Serializable {
         this.setName((String) dBObjectClient.get("name"));
         this.setLast_name((String) dBObjectClient.get("last_name"));
         this.setMobile((String) dBObjectClient.get("mobile"));
-        this.setDate_birth(new ClassDate((String)dBObjectClient.get("date_birth").toString()));
+        this.setDate_birth(new ClassDate((String) dBObjectClient.get("date_birth").toString()));
         this.setEmail((String) dBObjectClient.get("email"));
         this.setUser((String) dBObjectClient.get("user"));
         this.setPassword((String) dBObjectClient.get("password"));
         this.setAvatar((String) dBObjectClient.get("avatar"));
         this.setStatus((String) dBObjectClient.get("status"));
-        this.entry_date = new ClassDate((String)dBObjectClient.get("entry_date"));
+        this.setBenefits(Float.parseFloat(dBObjectClient.get("benefits").toString()));
+        this.entry_date = new ClassDate((String) dBObjectClient.get("entry_date"));
+        this.antique_c = (int) (dBObjectClient.get("antique_c"));
         this.purchase = Float.parseFloat(dBObjectClient.get("purchase").toString());
         this.premium = (String) dBObjectClient.get("premium");
         this.client_type = (String) dBObjectClient.get("client_type");
@@ -91,7 +93,9 @@ public class Client extends User implements Serializable {
         dBObjectClient.append("password", super.getPassword());
         dBObjectClient.append("avatar", super.getAvatar());
         dBObjectClient.append("status", super.getStatus());
+        dBObjectClient.append("benefits", super.getBenefits());
         dBObjectClient.append("entry_date", this.getEntry_date().toString());
+        dBObjectClient.append("antique_c", this.getAntique_c());
         dBObjectClient.append("purchase", this.getPurchase());
         dBObjectClient.append("premium", this.getPremium());
         dBObjectClient.append("client_type", this.getClient_type());

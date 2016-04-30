@@ -10,7 +10,7 @@ import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
  *
  * @author Jorge Martinez
  * @version 1.0 start 27_11_2015 Clase fecha
- *
+ * Clase fecha.
  *
  */
 public class ClassDate implements Serializable {
@@ -40,9 +40,11 @@ public class ClassDate implements Serializable {
     /**
      * Contstructor de fecha para que recoja la fecha en un unico formato de
      * barras.
+     * Se utiliza para pintar la fecha en bases de datos y que no influya en la
+     * configuracion de fecha.
      *
-     * @param date
-     * @param i
+     * @param date String
+     * @param i    int
      */
     public ClassDate(String date, int i) {
 
@@ -59,7 +61,7 @@ public class ClassDate implements Serializable {
     }
 
     /**
-     * Constructor two
+     * Constructor vacio
      */
     public ClassDate() {
 
@@ -70,7 +72,7 @@ public class ClassDate implements Serializable {
      * pero devolvemos el que tenemos por defecto para trbajar con el
      * internamente.
      *
-     * @param date
+     * @param date String
      */
     public ClassDate(String date) {
 
@@ -130,40 +132,72 @@ public class ClassDate implements Serializable {
 
     /**
      *
-     * Getters and setters
+     * Getter del dia.
+     *
+     * @return int dia
      */
     public int getDay() {
         return day;
     }
 
+    /**
+     * Setter del dia
+     *
+     * @param day int
+     */
     public void setDay(int day) {
         this.day = day;
 
     }
 
+    /**
+     * Getter del mes
+     *
+     * @return int mes
+     */
     public int getMonth() {
         return month;
     }
 
+    /**
+     * Setter del mes
+     *
+     * @param month int
+     */
     public void setMonth(int month) {
         this.month = month;
     }
 
+    /**
+     * Getter del año
+     *
+     * @return int año
+     */
     public int getYear() {
         return year;
     }
 
+    /**
+     * Setter del year
+     *
+     * @param year int year
+     */
     public void setYear(int year) {
         this.year = year;
     }
 
+    /**
+     * Getter de la fecha
+     *
+     * @return string fecha
+     */
     public String getDate() {
         return date;
 
     }
 
     /**
-     * Estos sets a�adidos modificaran los atributos cada vez que cambie la
+     * Estos sets añadidos modificaran los atributos cada vez que cambie la
      * fecha.
      */
     public void setDate(String date) {
@@ -176,10 +210,10 @@ public class ClassDate implements Serializable {
     }
 
     /**
-     *  En la ultima version utilizo el tostring 
+     * En la ultima version utilizo el to string
      * para que imprima solo en formato de barras.
      *
-     * @return
+     * @return string fecha en formato barras
      */
     public String toString() {
 
@@ -191,11 +225,10 @@ public class ClassDate implements Serializable {
     }
 
     /**
-     * Print attribute date. Imprime la fecha en el formato que le digamos.
+     * Print attribute date. Imprime la fecha en el formato que le digamos en
+     * la configuracion.
      *
-     * @param Date
-     *
-     * @return
+     * @return string fecha
      */
     public String todate() {
 
@@ -222,7 +255,11 @@ public class ClassDate implements Serializable {
 
     ////// Extract individual data of a string//////
     /**
-     * method that extracts the day of a string
+     * Extrae el dia de una fecha y devuelve un int.
+     *
+     * @param date String
+     *
+     * @return int dia
      */
     public int Dayint(String date) {
 
@@ -236,7 +273,11 @@ public class ClassDate implements Serializable {
     }
 
     /**
-     * method that extracts the month of a string
+     * Extrae el mes de una fecha y devuelve un int.
+     *
+     * @param date String
+     *
+     * @return int mes
      */
     public int Monthint(String date) {
 
@@ -251,7 +292,11 @@ public class ClassDate implements Serializable {
     }
 
     /**
-     * method that extracts the year of a string
+     * Extrae el year de una fecha y devuelve un int.
+     *
+     * @param date String
+     *
+     * @return int year
      */
     public int Yearint(String date) {
 
@@ -270,7 +315,7 @@ public class ClassDate implements Serializable {
      * Method to validate a date, valid year between 1900 and 2100 validates
      * month from 1 to 12 valid day of month 30,31,28 and 29 days
      *
-     * @return boolean
+     * @return boolean true/false
      */
     public boolean okdate() {
 
@@ -338,6 +383,8 @@ public class ClassDate implements Serializable {
 
     /**
      * Subtract method in which the system date to our date
+     *
+     * @return int years
      */
     public int Diference_system_date() {
 
@@ -363,6 +410,8 @@ public class ClassDate implements Serializable {
 
     /**
      * Method that subtracts two dates
+     *
+     * @return int years
      */
     public int Diference_two_dates(ClassDate date) {
         // en el metodo metermos la
@@ -390,6 +439,8 @@ public class ClassDate implements Serializable {
 
     /**
      * Method that compares a date to the system
+     *
+     * @return boolean true/false
      */
     public int Date_compare_system_date() {
 
@@ -419,6 +470,12 @@ public class ClassDate implements Serializable {
 
     /**
      * Method that compares two dates
+     * Devuelve un int 0,1,2 dependiendo la condicion si es anterior,igual o
+     * posterior
+     *
+     * @param date2 ClassDate
+     *
+     * @return int
      */
     public int Date_compare_two_dates(ClassDate date2) {
 
@@ -445,6 +502,8 @@ public class ClassDate implements Serializable {
 
     /**
      * method to pass String to calendar
+     *
+     * @return Calendar
      */
     public Calendar string_to_cal() {
 
@@ -469,6 +528,10 @@ public class ClassDate implements Serializable {
 
     /**
      * method to pass Calendar a string
+     *
+     * @param c Calendar
+     *
+     * @return String s
      */
     public String cal_to_string(Calendar c) {
 

@@ -10,6 +10,15 @@ import Appweb.Classes.Date.ClassDate;
  */
 public class Date_tools {
 
+    /**
+     * Valida un fecha de entrada en string y con una condicion minimaque puede
+     * ser la edad.
+     *
+     * @param date String
+     * @param min  int
+     *
+     * @return true/false
+     */
     public static boolean Date_min_condition_boolean(String date, int min) {
 
         boolean val1 = false;
@@ -56,6 +65,17 @@ public class Date_tools {
         return val1;
     }
 
+    /**
+     * Validamos una fecha de entrada teniendo en cuenta que que cumpla un
+     * maximo
+     * de años y un minimo.
+     *
+     * @param date String
+     * @param min  int
+     * @param max  int
+     *
+     * @return true/false
+     */
     public static boolean Date_min_max_condition_boolean(String date, int min, int max) {
 
         int age = 0;
@@ -103,6 +123,16 @@ public class Date_tools {
         return val1;
     }
 
+    /**
+     * Validar una fecha de registro que tenga en cuenta otra fecha introducida
+     * previamente.
+     *
+     * @param d    ClassDate
+     * @param date String
+     * @param min  int
+     *
+     * @return boolean true/false
+     */
     public static boolean Date_registered_boolean(ClassDate d, String date, int min) {
 
         boolean val1 = false;

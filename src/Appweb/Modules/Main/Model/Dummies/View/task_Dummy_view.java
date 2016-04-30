@@ -32,8 +32,6 @@ public class task_Dummy_view extends javax.swing.JFrame {
         comboDummy_admin = new javax.swing.JComboBox<>();
         panelRound2 = new org.edisoncor.gui.panel.PanelRound();
         btnEntry_admin = new org.edisoncor.gui.button.ButtonRound();
-        btnEntry_client = new org.edisoncor.gui.button.ButtonRound();
-        btnEntry_user_reg = new org.edisoncor.gui.button.ButtonRound();
         panelRound3 = new org.edisoncor.gui.panel.PanelRound();
         labelRound4 = new org.edisoncor.gui.label.LabelRound();
         labelRound5 = new org.edisoncor.gui.label.LabelRound();
@@ -113,31 +111,20 @@ public class task_Dummy_view extends javax.swing.JFrame {
 
         btnEntry_admin.setText("Entrada Administrador");
 
-        btnEntry_client.setText("Entrada Cliente");
-
-        btnEntry_user_reg.setText("Entrada Usuario registrado");
-
         javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
         panelRound2.setLayout(panelRound2Layout);
         panelRound2Layout.setHorizontalGroup(
             panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound2Layout.createSequentialGroup()
-                .addGap(160, 160, 160)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnEntry_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76)
-                .addComponent(btnEntry_client, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81)
-                .addComponent(btnEntry_user_reg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(412, 412, 412))
         );
         panelRound2Layout.setVerticalGroup(
             panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound2Layout.createSequentialGroup()
                 .addContainerGap(39, Short.MAX_VALUE)
-                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEntry_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEntry_client, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEntry_user_reg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnEntry_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37))
         );
 
@@ -312,8 +299,6 @@ public class task_Dummy_view extends javax.swing.JFrame {
     public static org.edisoncor.gui.button.ButtonRound btnDelete_all_client;
     public static org.edisoncor.gui.button.ButtonRound btnDelete_all_user;
     public static org.edisoncor.gui.button.ButtonRound btnEntry_admin;
-    public static org.edisoncor.gui.button.ButtonRound btnEntry_client;
-    public static org.edisoncor.gui.button.ButtonRound btnEntry_user_reg;
     public static javax.swing.JComboBox<String> comboDummy_admin;
     public static javax.swing.JComboBox<String> comboDummy_client;
     public static javax.swing.JComboBox<String> comboDummy_user;

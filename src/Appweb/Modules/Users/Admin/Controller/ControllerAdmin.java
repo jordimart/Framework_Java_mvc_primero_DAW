@@ -216,6 +216,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
             Table_Admin.mini_Table_Admin.setFillsViewportHeight(true);
             Table_Admin.mini_Table_Admin.setRowSorter(sorter);
+            
             pagina.inicializa();
             pagina.initLinkBox();
 

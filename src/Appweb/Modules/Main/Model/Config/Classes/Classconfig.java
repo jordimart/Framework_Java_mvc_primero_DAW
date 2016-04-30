@@ -16,216 +16,250 @@ import Appweb.Modules.Users.User_reg.Model.Classes.singleuser_reg;
 
 /**
  * @author Jorge Martines Frias
- * 
+ *
  */
 @XStreamAlias("Config")
 public class Classconfig implements Serializable {
 
-	private static Classconfig instance;
+    private static Classconfig instance;
 
-	public static Classconfig getInstance() {
+    public static Classconfig getInstance() {
 
-		if (instance == null) {
+        if (instance == null) {
 
-			instance = new Classconfig();
-			Lang.getInstance();
+            instance = new Classconfig();
+            Lang.getInstance();
 
-		}
-		return instance;
+        }
+        return instance;
 
-	}
+    }
 
-	@XStreamAlias("datef")
-	private String datef;
-	@XStreamAlias("num_dec")
-	private String num_dec;
-	@XStreamAlias("currency")
-	private String currency;
-	@XStreamAlias("language")
-	private String language;
-	@XStreamAlias("file")
-	private String file;
-	@XStreamAlias("theme")
-	private String theme;
-	@XStreamAlias("dummy")
-	private boolean dummy;
+    @XStreamAlias("datef")
+    private String datef;
+    @XStreamAlias("num_dec")
+    private String num_dec;
+    @XStreamAlias("currency")
+    private String currency;
+    @XStreamAlias("language")
+    private String language;
+    @XStreamAlias("file")
+    private String file;
+    @XStreamAlias("theme")
+    private String theme;
+    @XStreamAlias("dummy")
+    private boolean dummy;
 
-	/**
-	 * Constructor all atributes. Se construye a�adiendo todos los atributos.
-	 * 
-	 * @param format_date
-	 * @param decimal
-	 * @param currency
-	 * @param language
-	 * @param datef
-	 * @param num_dec
-	 */
+    /**
+     * Constructor all atributes. Se construye a�adiendo todos los atributos.
+     *
+     * @param format_date
+     * @param decimal
+     * @param currency
+     * @param language
+     * @param datef
+     * @param num_dec
+     */
+    public Classconfig(String datef, String num_dec, String currency, String language, String theme) {
 
-	public Classconfig(String datef, String num_dec, String currency, String language, String file, String theme, boolean dummy) {
+        this.datef = datef;
+        this.num_dec = num_dec;
+        this.currency = currency;
+        this.language = language;
+        this.theme = theme;
 
-		this.datef = datef;
-		this.num_dec = num_dec;
-		this.currency = currency;
-		this.language = language;
-		this.file = file;
-		this.theme = theme;
-		this.dummy = dummy;
+    }
 
-	}
+    /**
+     * Constructor vacio que carga unos atributos predeterminados.
+     * Carga los arrays de usuarios.
+     * Carga el dni singleton.
+     * Carga un array objeto que servira de apoyo.
+     * Contine unos parametros predeterminados.
+     */
+    public Classconfig() {
 
-	/**
-	 * Constructor vacio que carga unos atributos predeterminados.
-	 * Carga los arrays de usuarios.
-	 * Carga el dni singleton.
-	 * Carga un array objeto que servira de apoyo.
-	 * Contine unos parametros predeterminados.
-	 */
-	public Classconfig() {
+        datef = "dd/MM/yyyy";
+        num_dec = "0.0";
+        currency = "euro";
+        language = "english";
+        file = "json";
+        theme = "Nimbus";
 
-		datef = "dd/MM/yyyy";
-		num_dec = "0.0";
-		currency = "euro";
-		language = "english";
-		file = "json";
-		theme = "Nimbus";
-		dummy = false;
+        singleadmin.Admin_array = new ArrayList<Admin>();
+        singleclient.Client_array = new ArrayList<Client>();
+        singleuser_reg.User_reg_array = new ArrayList<User_reg>();
 
-		singleadmin.Admin_array = new ArrayList<Admin>();
-		singleclient.Client_array = new ArrayList<Client>();
-		singleuser_reg.User_reg_array = new ArrayList<User_reg>();
-		//singleadmin.Object_array = new ArrayList<Object>();
+    }
 
-               
-	}
+    /**
+     * Obtenemos valor
+     *
+     * @return String
+     */
+    public String getdatef() {
+        return datef;
+    }
 
-	
+    /**
+     * Modifica
+     *
+     * @param datef
+     */
+    public void setdatef(String datef) {
+        this.datef = datef;
+    }
 
-	/**
-	 * Getters and Setters
-	 * 
-	 * @return
-	 */
+    /**
+     * Obtenemos valor
+     *
+     * @return String
+     */
+    public String getnum_dec() {
+        return num_dec;
+    }
 
-	public String getdatef() {
-		return datef;
-	}
+    /**
+     * Modifica
+     *
+     * @param num_dec
+     */
+    public void setnum_dec(String num_dec) {
+        this.num_dec = num_dec;
+    }
 
-	public void setdatef(String datef) {
-		this.datef = datef;
-	}
+    /**
+     * Obtenemos valor
+     *
+     * @return String
+     */
+    public String getCurrency() {
+        return currency;
+    }
 
-	public String getnum_dec() {
-		return num_dec;
-	}
+    /**
+     * Modifica
+     *
+     * @param currency
+     */
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
 
-	public void setnum_dec(String num_dec) {
-		this.num_dec = num_dec;
-	}
+    /**
+     * Obtenemos valor
+     *
+     * @return String
+     */
+    public String getLanguage() {
+        return language;
+    }
 
-	public String getCurrency() {
-		return currency;
-	}
+    /**
+     * Modifica
+     *
+     * @param language
+     */
+    public void setLanguage(String language) {
+        this.language = language;
+        Lang.getInstance().setLanguage();
 
-	public void setCurrency(String currency) {
-		this.currency = currency;
-	}
+    }
 
-	public String getLanguage() {
-		return language;
-	}
+    /**
+     * Obtenemos valor
+     *
+     * @return String
+     */
+    public String getFile() {
+        return file;
+    }
 
-	public void setLanguage(String language) {
-		this.language = language;
-		Lang.getInstance().setLanguage();
+    /**
+     * Modifica
+     *
+     * @param file
+     */
+    public void setFile(String file) {
+        this.file = file;
+    }
 
-	}
+    /**
+     * Obtenemos valor
+     *
+     * @return String
+     */
+    public String getTheme() {
+        return theme;
+    }
 
-	public String getFile() {
-		return file;
-	}
+    /**
+     * Modifica
+     *
+     * @param theme
+     */
+    public void setTheme(String theme) {
+        this.theme = theme;
+        DAO_config.Function_theme();
+    }
 
-	public void setFile(String file) {
-		this.file = file;
-	}
+    /**
+     * Print all attributes Tostring con peticion de salida de fecha. En la
+     * ultima version utilizo el tostring date para imprimir tipos de formato.
+     *
+     * @return
+     */
+    public String tostring() {
 
-	public String getTheme() {
-		return theme;
-	}
+        StringBuffer buffer = new StringBuffer();
 
-	public void setTheme(String theme) {
-		this.theme = theme;
-		DAO_config.Function_theme();
-	}
+        buffer.append(Lang.getInstance().getProperty("Date_format") + ": " + this.getdatef() + "\n");
+        buffer.append(Lang.getInstance().getProperty("Number_of_decimals") + ": " + this.getnum_dec() + "\n");
+        buffer.append(Lang.getInstance().getProperty("Currency") + ": " + this.getCurrency() + "\n");
+        buffer.append(Lang.getInstance().getProperty("Language") + ": " + this.getLanguage() + "\n");
+        buffer.append(Lang.getInstance().getProperty("File_format") + ": " + this.getFile() + "\n");
+        buffer.append(Lang.getInstance().getProperty("Theme") + ": " + this.getTheme() + "\n");
 
-	public boolean getDummy() {
-		return dummy;
-	}
+        return buffer.toString();
+    }
 
-	public void setDummy(boolean dummy) {
-		this.dummy = dummy;
-	}
+    /**
+     * Imprime el atributo que selecionemos.
+     *
+     * @param i
+     *          (0 is format_date,1 is decimal,2 is currency and 3 is
+     *          language,4 is file format,5 is Language)
+     *
+     * @return String
+     */
+    public String tostring(int i) {
 
-	/**
-	 * Print all attributes Tostring con peticion de salida de fecha. En la
-	 * ultima version utilizo el tostring date para imprimir tipos de formato.
-	 * 
-	 * @return
-	 */
-	public String tostring() {
+        String cad = "";
 
-		StringBuffer buffer = new StringBuffer();
+        switch (i) {
 
-		buffer.append(Lang.getInstance().getProperty("Date_format") + ": " + this.getdatef() + "\n");
-		buffer.append(Lang.getInstance().getProperty("Number_of_decimals") + ": " + this.getnum_dec() + "\n");
-		buffer.append(Lang.getInstance().getProperty("Currency") + ": " + this.getCurrency() + "\n");
-		buffer.append(Lang.getInstance().getProperty("Language") + ": " + this.getLanguage() + "\n");
-		buffer.append(Lang.getInstance().getProperty("File_format") + ": " + this.getFile() + "\n");
-		buffer.append(Lang.getInstance().getProperty("Theme") + ": " + this.getTheme() + "\n");
-		buffer.append("Dummy: " + this.getDummy() + "\n");
+            case 0:
+                cad = cad + Lang.getInstance().getProperty("Date_format") + ": " + this.getdatef() + "\n";
+                break;
+            case 1:
+                cad = cad + Lang.getInstance().getProperty("Number_of_decimals") + ": " + this.getnum_dec() + "\n";
+                break;
+            case 2:
+                cad = cad + Lang.getInstance().getProperty("Currency") + ": " + this.getCurrency() + "\n";
+                break;
+            case 3:
+                cad = cad + Lang.getInstance().getProperty("Language") + ": " + this.getLanguage() + "\n";
+                break;
+            case 4:
+                cad = cad + Lang.getInstance().getProperty("File_format") + ": " + this.getFile() + "\n";
+                break;
+            case 5:
+                cad = cad + Lang.getInstance().getProperty("Theme") + ": " + this.getTheme() + "\n";
+                break;
 
-		return buffer.toString();
-	}
+        }
+        return cad;
 
-	/**
-	 * Imprime el atributo que selecionemos.
-	 * 
-	 * @param i
-	 *            (0 is format_date,1 is decimal,2 is currency and 3 is
-	 *            language,4 is file format,5 is Language,6 dummy activado o no.)
-	 * @return String
-	 */
-
-	public String tostring(int i) {
-
-		String cad = "";
-
-		switch (i) {
-
-		case 0:
-			cad = cad + Lang.getInstance().getProperty("Date_format") + ": " + this.getdatef() + "\n";
-			break;
-		case 1:
-			cad = cad + Lang.getInstance().getProperty("Number_of_decimals") + ": " + this.getnum_dec() + "\n";
-			break;
-		case 2:
-			cad = cad + Lang.getInstance().getProperty("Currency") + ": " + this.getCurrency() + "\n";
-			break;
-		case 3:
-			cad = cad + Lang.getInstance().getProperty("Language") + ": " + this.getLanguage() + "\n";
-			break;
-		case 4:
-			cad = cad + Lang.getInstance().getProperty("File_format") + ": " + this.getFile() + "\n";
-			break;
-		case 5:
-			cad = cad + Lang.getInstance().getProperty("Theme") + ": " + this.getTheme() + "\n";
-			break;
-		case 6:
-			cad = cad + "Dummy: " + this.getDummy() + "\n";
-			break;
-
-		}
-		return cad;
-
-	}
+    }
 
 }

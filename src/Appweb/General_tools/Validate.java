@@ -16,12 +16,12 @@ public class Validate {
     private static final String okpassword = "(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$";
     private static final String oksalary = "^(\\d|-)?(\\d|,)*\\.?\\d*$";
     private static final String okuser = "[a-zA-Z1-9À-ÖØ-öø-ÿ]{4,15}";
-     
 
     /**
      * Valida un dni devolviendo un boolean.
      *
      * @param dni
+     *
      * @return true|false
      */
     public static boolean okdni(String dni) {
@@ -32,6 +32,7 @@ public class Validate {
      * Valida un nombre con espacios devolviendo un boolean.
      *
      * @param word
+     *
      * @return true|false
      */
     public static boolean okword(String word) {
@@ -42,6 +43,7 @@ public class Validate {
      * Valida un numero de movil de nueve digitos devolviendo un boolean.
      *
      * @param mobile
+     *
      * @return true|false
      */
     public static boolean okmobile(String mobile) {
@@ -53,6 +55,7 @@ public class Validate {
      * ser: dd/mm/yyyy,dd-mm-yyyy,yyyy/mm/dd,yyyy-mm-dd.
      *
      * @param date
+     *
      * @return true|false
      */
     public static boolean okdate(String date) {
@@ -89,12 +92,11 @@ public class Validate {
         return date.matches(okdate);
     }
 
-   
-
     /**
      * Valida un correo electronico devolviendo un boolean.
      *
      * @param mail
+     *
      * @return true|false
      */
     public static boolean okmail(String mail) {
@@ -105,17 +107,33 @@ public class Validate {
      * Valida una palabra con todo tipo de caracteres devolviendo un boolean.
      *
      * @param password
+     *
      * @return true|false
      */
     public static boolean okpassword(String password) {
         return password.matches(okpassword);
     }
 
+    /**
+     * Valida un salrio con numeros float
+     *
+     * @param salary
+     *
+     * @return
+     */
     public static boolean oksalary(String salary) {
         return salary.matches(oksalary);
     }
-    
-     public static boolean okuser(String user) {
+
+    /**
+     * Valida un nombre de usurio que debe contener de 4 a 15 caracteres,
+     * Numeros,Mayusculas y minusculas.
+     *
+     * @param user
+     *
+     * @return
+     */
+    public static boolean okuser(String user) {
         return user.matches(okuser);
     }
 }

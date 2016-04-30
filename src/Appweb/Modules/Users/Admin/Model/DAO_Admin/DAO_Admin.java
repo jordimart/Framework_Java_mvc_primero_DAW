@@ -604,8 +604,7 @@ public class DAO_Admin {
 
         Admin a = singleadmin.Admin_array.get(singletonapp.pos);
 
-        Float sal = a.getSalary();
-        int act = a.getActivity();
+       
         ClassDate date_birth = new ClassDate(a.getDate_birth().todate());
         ClassDate date_cont = new ClassDate(a.getDate_cont().todate());
 
@@ -613,13 +612,11 @@ public class DAO_Admin {
         edit_Admin_view.txtName.setText(a.getName());
         edit_Admin_view.txtLast_name.setText(a.getLast_name());
         edit_Admin_view.txtMobile.setText(a.getMobile());
-
         edit_Admin_view.txtEmail.setText(a.getEmail());
         edit_Admin_view.txtUser.setText(a.getUser());
         edit_Admin_view.txtPassword.setText(a.getPassword());
-
-        edit_Admin_view.txtSalary.setText("" + sal);
-        edit_Admin_view.txtActivity.setText("" + act);
+        edit_Admin_view.txtSalary.setText("" + a.getSalary());
+        edit_Admin_view.txtActivity.setText("" + a.getActivity());
         load_EditAvatar_admin(a.getAvatar());
         edit_Admin_view.pick_date_birth.setCalendar(date_birth.string_to_cal());
         edit_Admin_view.pick_date_contr.setCalendar(date_cont.string_to_cal());
@@ -803,20 +800,17 @@ public class DAO_Admin {
      */
     public static boolean booleanEditsalary_admin() {
 
-        String s = "";
+        String s = " ";
         float sal = 0.0f;
 
         boolean ok = false;
 
         s = edit_Admin_view.txtSalary.getText();
 
-        if (Validate.oksalary(s) == true) {
+        if ((Validate.oksalary(s) == true) && (s.equals("") == false)) {
 
-            try {
-                sal = Float.parseFloat(s);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            //Si el string en nulo el parse daba fallos dejando bloqueada la aplicacion
+            sal = Float.parseFloat(s);
 
             ok = true;
 
@@ -827,6 +821,7 @@ public class DAO_Admin {
                 edit_Admin_view.txtSalary.setBackground(Color.GREEN);
 
             } else {
+
                 ok = false;
                 edit_Admin_view.labSalary.setToolTipText(Lang.getInstance().getProperty("You_haven't_introduced_data_correctly") + "," + Lang.getInstance().getProperty("The_number_must_be_between_800_and_2500"));
                 edit_Admin_view.labSalary.setIcon(wrong_data);
@@ -1082,24 +1077,20 @@ public class DAO_Admin {
 
         Admin a = singleadmin.Admin_array.get(singletonapp.pos);
 
-        int act = a.getActivity();
-        int age = a.getAge();
-        int ant = a.getAntique();
-
         show_Admin_view.txtDni.setText(a.getDni());
         show_Admin_view.txtName.setText(a.getName());
         show_Admin_view.txtLast_name.setText(a.getLast_name());
         show_Admin_view.txtMobile.setText(a.getMobile());
         show_Admin_view.txtDate_birth.setText(a.getDate_birth().todate());
-        show_Admin_view.txtAge.setText("" + age);
+        show_Admin_view.txtAge.setText("" + a.getAge());
         show_Admin_view.txtEmail.setText(a.getEmail());
         show_Admin_view.txtUser.setText(a.getUser());
         show_Admin_view.txtPassword.setText(a.getPassword());
         show_Admin_view.txtStatus.setText(a.getStatus());
         show_Admin_view.txtDate_cont.setText(a.getDate_cont().todate());
-        show_Admin_view.txtAntique.setText("" + ant);
+        show_Admin_view.txtAntique.setText("" + a.getAntique());
         show_Admin_view.txtSalary.setText(a.toSalary());
-        show_Admin_view.txtActivity.setText("" + act);
+        show_Admin_view.txtActivity.setText("" + a.getActivity());
         show_Admin_view.txtBenefits.setText(a.toBenefits());
         ShowAvatar_admin(a.getAvatar());
 

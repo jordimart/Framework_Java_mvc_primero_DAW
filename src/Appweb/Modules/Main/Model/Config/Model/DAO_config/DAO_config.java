@@ -2,17 +2,10 @@ package Appweb.Modules.Main.Model.Config.Model.DAO_config;
 
 import static Appweb.Modules.Main.Controller.ControllerMain.Settings;
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -22,7 +15,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
 import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.annotations.Annotations;
 import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import static Appweb.Modules.Main.Model.Config.View.menu_Settings.Combo_Theme;
@@ -56,166 +48,7 @@ public class DAO_config {
 
     private static final String ENCODING = "UTF-8";
 
-    /**
-     * Funcion que guarda la configuracion actual a xml donde quiera el usuario.
-     */
-    public static void save_xml_config() {
-
-        String PATH = " ";
-
-        try {
-            OutputStream os = new ByteArrayOutputStream();
-            OutputStreamWriter osw = new OutputStreamWriter(os);
-            XStream xstream = new XStream();
-            Annotations.configureAliases(xstream, Classconfig.class);
-
-            String header = "<?xml version=\"1.0\" encoding=\"" + ENCODING + "\"?>\n";
-            xstream.toXML(Classconfig.getInstance(), osw);
-            StringBuffer xml = new StringBuffer();
-            xml.append(header);
-            xml.append(os.toString());
-
-            JFileChooser fileChooser = new JFileChooser();
-
-            fileChooser.setAcceptAllFileFilterUsed(false);
-            fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("XML (*.xml)", "xml"));
-
-            int seleccion = fileChooser.showSaveDialog(null);
-
-            if (seleccion == JFileChooser.APPROVE_OPTION) {
-                File JFC = fileChooser.getSelectedFile();
-                PATH = JFC.getAbsolutePath();
-                PATH = PATH + ".xml";
-
-                FileWriter fileXml = new FileWriter(PATH);
-                fileXml.write(xml.toString());
-                fileXml.close();
-                osw.close();
-                os.close();
-                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Config_file_saved") + "xml",
-                        Lang.getInstance().getProperty("File") + " xml", JOptionPane.INFORMATION_MESSAGE);
-            }
-        } catch (Exception e1) {
-            e1.printStackTrace();
-            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Failed_to_save_config") + "xml", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-
-    }
-
-    /**
-     * Funcion que carga la configuracion actual a xml donde quiera el usuario.
-     */
-    public static void open_xml_config() {
-        String PATH = " ";
-        Classconfig config = null;
-
-        try {
-            XStream xstream = new XStream();
-            Annotations.configureAliases(xstream, Classconfig.class);
-
-            JFileChooser fileChooser = new JFileChooser();
-
-            fileChooser.setAcceptAllFileFilterUsed(false);
-            fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("XML (*.xml)", "xml"));
-
-            int seleccion = fileChooser.showOpenDialog(null);
-            if (seleccion == JFileChooser.APPROVE_OPTION) {
-                File JFC = fileChooser.getSelectedFile();
-                PATH = JFC.getAbsolutePath();
-                config = (Classconfig) xstream.fromXML(new FileReader(PATH));
-
-                Classconfig.getInstance().setCurrency(config.getCurrency());
-                Classconfig.getInstance().setdatef(config.getdatef());
-                Classconfig.getInstance().setDummy(config.getDummy());
-                Classconfig.getInstance().setFile(config.getFile());
-                Classconfig.getInstance().setLanguage(config.getLanguage());
-                Classconfig.getInstance().setnum_dec(config.getnum_dec());
-                Classconfig.getInstance().setTheme(config.getTheme());
-
-                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Loaded_settings_file") + "xml",
-                        Lang.getInstance().getProperty("File") + " xml", JOptionPane.INFORMATION_MESSAGE);
-            }
-
-        } catch (Exception e1) {
-            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Error_loading_file") + "xml", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-
-    }
-
-    /**
-     * Funcion que guarda la configuracion actual a txt donde quiera el usuario.
-     */
-    public static void save_txt_config() {
-
-        String PATH = " ";
-        try {
-            File f;
-            JFileChooser fileChooser = new JFileChooser();
-
-            fileChooser.setAcceptAllFileFilterUsed(false);
-            fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Texto (*.txt)", "txt"));
-
-            int seleccion = fileChooser.showSaveDialog(null);
-            if (seleccion == JFileChooser.APPROVE_OPTION) {
-                File JFC = fileChooser.getSelectedFile();
-                PATH = JFC.getAbsolutePath();
-                PATH = PATH + ".txt";
-                f = new File(PATH);
-
-                FileOutputStream fo = new FileOutputStream(f);
-                ObjectOutputStream o = new ObjectOutputStream(fo);
-                o.writeObject(Classconfig.getInstance());
-                o.close();
-                JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Config_file_saved") + "txt",
-                        Lang.getInstance().getProperty("File") + " txt", JOptionPane.INFORMATION_MESSAGE);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Error_loading_file") + "txt", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-
-    }
-
-    /**
-     * Funcion que carga la configuracion actual a txt donde quiera el usuario.
-     */
-    public static void open_txt_config() {
-        String PATH = " ";
-        Classconfig config = null;
-
-        try {
-            File f;
-            JFileChooser fileChooser = new JFileChooser();
-
-            fileChooser.setAcceptAllFileFilterUsed(false);
-            fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Texto (*.txt)", "txt"));
-
-            int seleccion = fileChooser.showOpenDialog(null);
-
-            if (seleccion == JFileChooser.APPROVE_OPTION) {
-                File JFC = fileChooser.getSelectedFile();
-                PATH = JFC.getAbsolutePath();
-                f = new File(PATH);
-
-                FileInputStream fi = new FileInputStream(f);
-                ObjectInputStream oi = new ObjectInputStream(fi);
-                config = (Classconfig) oi.readObject();
-                oi.close();
-
-                Classconfig.getInstance().setCurrency(config.getCurrency());
-                Classconfig.getInstance().setdatef(config.getdatef());
-                Classconfig.getInstance().setDummy(config.getDummy());
-                Classconfig.getInstance().setFile(config.getFile());
-                Classconfig.getInstance().setLanguage(config.getLanguage());
-                Classconfig.getInstance().setnum_dec(config.getnum_dec());
-                Classconfig.getInstance().setTheme(config.getTheme());
-            }
-            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Loaded_settings_file") + "txt",
-                    Lang.getInstance().getProperty("File") + " txt", JOptionPane.INFORMATION_MESSAGE);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("Error_loading_file") + "txt", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-
-    }
+   
 
     /**
      * Funcion que guarda la configuracion actual a json donde quiera el
@@ -288,7 +121,6 @@ public class DAO_config {
 
                 Classconfig.getInstance().setCurrency(config.getCurrency());
                 Classconfig.getInstance().setdatef(config.getdatef());
-                Classconfig.getInstance().setDummy(config.getDummy());
                 Classconfig.getInstance().setFile(config.getFile());
                 Classconfig.getInstance().setLanguage(config.getLanguage());
                 Classconfig.getInstance().setnum_dec(config.getnum_dec());
@@ -304,6 +136,9 @@ public class DAO_config {
 
     }
 
+    /**
+     * Autogurada los parametros de configuracion en un fichero Json.
+     */
     public static void auto_save_config_json() {
 
         String PATH = " ";
@@ -339,6 +174,9 @@ public class DAO_config {
 
     }
 
+    /**
+     * Abre automaticamente un fichero de configuracion previamente guardado.
+     */
     public static void auto_open_config_json() {
 
         String PATH = " ";
@@ -368,7 +206,6 @@ public class DAO_config {
 
             Classconfig.getInstance().setCurrency(config.getCurrency());
             Classconfig.getInstance().setdatef(config.getdatef());
-            Classconfig.getInstance().setDummy(config.getDummy());
             Classconfig.getInstance().setFile(config.getFile());
             Classconfig.getInstance().setLanguage(config.getLanguage());
             Classconfig.getInstance().setnum_dec(config.getnum_dec());
@@ -430,6 +267,9 @@ public class DAO_config {
     }
 
     //// Funciones Configuracion//////
+    /**
+     * Modifica el lenguage dependiendo de la selccion delradiobutton.
+     */
     public static void radio_button_language() {
 
         if (chk_lang_en.isSelected()) {
@@ -445,6 +285,10 @@ public class DAO_config {
 
     }
 
+    /**
+     * Modifica la configuracion de la fecha dependiendo de la seleccion del
+     * radio button
+     */
     public static void radio_button_datef() {
 
         if (chk_day_bar.isSelected()) {
@@ -463,6 +307,10 @@ public class DAO_config {
 
     }
 
+    /**
+     * Modifica la configuracion de decimales dependiendo de la seleccion del
+     * radio button
+     */
     public static void radio_button_decimal() {
 
         if (chk_one_d.isSelected()) {
@@ -478,6 +326,10 @@ public class DAO_config {
 
     }
 
+    /**
+     * Modifica la configuracion de moneda dependiendo de la seleccion del
+     * radio button
+     */
     public static void radio_button_currency() {
 
         if (chk_curr_euro.isSelected()) {
@@ -643,21 +495,33 @@ public class DAO_config {
 
     }
 
+    /**
+     * Modifica el lenguaje a ingles(solo para el main)
+     */
     public static void language_english() {
         Classconfig.getInstance().setLanguage("english");
 
     }
 
+    /**
+     * Modifica el lenguaje a español(solo para el main)
+     */
     public static void language_spanish() {
         Classconfig.getInstance().setLanguage("español");
 
     }
 
+    /**
+     * Modifica el lenguaje a valenciano(solo para el main)
+     */
     public static void language_valencian() {
         Classconfig.getInstance().setLanguage("valencia");
 
     }
 
+    /**
+     * Esta funcion carga la configuracion actual en la vista.
+     */
     public static void charge_config() {
 
         String d = Classconfig.getInstance().getdatef();

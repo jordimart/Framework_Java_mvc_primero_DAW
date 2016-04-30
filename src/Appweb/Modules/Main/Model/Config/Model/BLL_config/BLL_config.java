@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Appweb.Modules.Main.Model.Config.Model.BLL_config;
 
 import Appweb.Modules.Main.Model.Config.Model.DAO_config.DAO_config;
@@ -27,43 +22,67 @@ public class BLL_config {
         }
     }
 
+    /**
+     * Utiliza un DAO para autocargar fichero de configuracion
+     */
     public static void auto_save_config_json() {
 
         DAO_config.auto_save_config_json();
     }
 
+    /**
+     * Utiliza un DAO para autoabrir fichero de configuracion
+     */
     public static void auto_open_config_json() {
 
         DAO_config.auto_open_config_json();
     }
 
+    /**
+     * Utiliza un DAO para guardar ficheros de configuracion en json
+     */
     public static void save_config_json() {
 
         DAO_config.save_json_config();
     }
 
+    /**
+     * Utiliza un DAO para abrir ficheros de configuracion en json
+     */
     public static void open_config_json() {
 
         DAO_config.open_json_config();
     }
 
+    /**
+     * Utiliza un DAo para cambiar el lenguaje a ingles.
+     */
     public static void language_english() {
         DAO_config.language_english();
 
     }
 
+    /**
+     * Utiliza un DAo para cambiar el lenguaje a español.
+     */
     public static void language_spanish() {
         DAO_config.language_spanish();
 
     }
 
+    /**
+     * Utiliza un DAo para cambiar el lenguaje a valenciano.
+     */
     public static void language_valencian() {
         DAO_config.language_valencian();
 
     }
-    
-    public static void charge_config(){
-        
+
+    /**
+     * utiliza un DAOpara cargar la configuracion actual en la vista.
+     */
+    public static void charge_config() {
+
         DAO_config.charge_config();
     }
 }

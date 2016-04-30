@@ -14,6 +14,10 @@ import org.apache.commons.dbcp.BasicDataSourceFactory;
  */
 public class ConectionBD {
 
+    /**
+     * Inicializa el pool de conexiones de sql.
+     * Dentro estanlos parametros necesarios para que funcione la base de datos.
+     */
     public static void start_pool_conection() {
 
         Properties propiedades = new Properties();
@@ -35,23 +39,33 @@ public class ConectionBD {
         propiedades.setProperty("maxOpenPreparedStatements", "10");
 
         try {
-            //propiedades.load(new FileInputStream("src/config/datasource_config.properties"));
+
             singletonapp.singlepool = (BasicDataSource) BasicDataSourceFactory.createDataSource(propiedades);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.toString());
         }
     }
 
+    /**
+     * Funcion que ocupa una conexion del pool.
+     *
+     * @return Connection
+     */
     public static Connection getConexion() {
-        Connection conexion = null;
+        Connection con = null;
         try {
-            conexion = singletonapp.singlepool.getConnection();
+            con = singletonapp.singlepool.getConnection();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());
         }
-        return conexion;
+        return con;
     }
 
+    /**
+     * Funcion que libera una conexion que estaba en uso del pool.
+     *
+     * @param conexion Connection
+     */
     public static void liberaConexion(Connection conexion) {
         try {
             if (null != conexion) // En realidad no cierra, solo libera la conexion.
@@ -59,44 +73,8 @@ public class ConectionBD {
                 conexion.close();
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
+
         }
     }
 
-//    /**
-//     * abrimos conexion en la base de datos
-//     *
-//     * @return
-//     */
-//    public Connection AbrirConexion() {
-//
-//        Connection con = null;
-//        try {
-//            Class.forName("com.mysql.jdbc.Driver");
-//            String urlOdbc = "jdbc:mysql://127.0.0.1:3306/db_admin";
-//            con = (java.sql.DriverManager.getConnection(urlOdbc, "root", ""));
-//
-//        } catch (Exception e) {
-//
-//            JOptionPane.showMessageDialog(null, "Ha sido imposible establecer la conexion!");
-//        }
-//        return con;
-//    }
-//
-//    /**
-//     * cerramos la conexion en la bd
-//     *
-//     * @param con
-//     */
-//    public void CerrarConexion(Connection con) {
-//        try {
-//            if (con != null) {
-//                con.close();
-//
-//            }
-//        } catch (SQLException e) {
-//
-//            JOptionPane.showMessageDialog(null, "Ha sido imposible cerrar la conexion!");
-//        }
-//    }
 }
