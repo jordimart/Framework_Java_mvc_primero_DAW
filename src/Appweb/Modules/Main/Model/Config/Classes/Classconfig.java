@@ -53,12 +53,11 @@ public class Classconfig implements Serializable {
     /**
      * Constructor all atributes. Se construye a�adiendo todos los atributos.
      *
-     * @param format_date
-     * @param decimal
      * @param currency
      * @param language
      * @param datef
      * @param num_dec
+     * @param theme
      */
     public Classconfig(String datef, String num_dec, String currency, String language, String theme) {
 
@@ -104,7 +103,7 @@ public class Classconfig implements Serializable {
     /**
      * Modifica
      *
-     * @param datef
+     * @param datef string
      */
     public void setdatef(String datef) {
         this.datef = datef;
@@ -122,7 +121,7 @@ public class Classconfig implements Serializable {
     /**
      * Modifica
      *
-     * @param num_dec
+     * @param num_dec string
      */
     public void setnum_dec(String num_dec) {
         this.num_dec = num_dec;
@@ -140,7 +139,7 @@ public class Classconfig implements Serializable {
     /**
      * Modifica
      *
-     * @param currency
+     * @param currency string
      */
     public void setCurrency(String currency) {
         this.currency = currency;

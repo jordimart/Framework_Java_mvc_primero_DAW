@@ -363,7 +363,7 @@ public class DAO_Admin {
     /**
      * DAO que valida una fecha de nac imiento que deb estar entre 16 y 65 años
      *
-     * @return
+     * @return ture/false
      */
     public static boolean booleanEnterdate_birth_admin() {
 
@@ -404,7 +404,7 @@ public class DAO_Admin {
      * DAO que valida una fecha de contratacion que debe validarse dependiendo
      * de la de nacimiento
      *
-     * @return
+     * @return true/false
      */
     public static boolean booleanEnterdate_contr_admin() {
 
@@ -712,7 +712,7 @@ public class DAO_Admin {
     /**
      * Menu que pide un email y valida su formato.
      *
-     * @return
+     * @return true/false
      */
     public static boolean booleanEditmail_admin() {
 
@@ -739,7 +739,7 @@ public class DAO_Admin {
     /**
      * Menu que pide una palabra que puede tener todo tipo de caracteres.
      *
-     * @return
+     * @return true/false
      */
     public static boolean booleanEdituser_admin() {
 
@@ -766,7 +766,7 @@ public class DAO_Admin {
     /**
      * Menu que pide una palabra que puede tener todo tipo de caracteres.
      *
-     * @return
+     * @return true/false
      */
     public static boolean booleanEditpassword_admin() {
 
@@ -796,7 +796,7 @@ public class DAO_Admin {
     /**
      * Menu que pide una palabra que puede tener todo tipo de caracteres.
      *
-     * @return
+     * @return true/false
      */
     public static boolean booleanEditsalary_admin() {
 

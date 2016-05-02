@@ -20,7 +20,7 @@ public class Validate {
     /**
      * Valida un dni devolviendo un boolean.
      *
-     * @param dni
+     * @param dni string
      *
      * @return true|false
      */
@@ -31,7 +31,7 @@ public class Validate {
     /**
      * Valida un nombre con espacios devolviendo un boolean.
      *
-     * @param word
+     * @param word string
      *
      * @return true|false
      */
@@ -42,7 +42,7 @@ public class Validate {
     /**
      * Valida un numero de movil de nueve digitos devolviendo un boolean.
      *
-     * @param mobile
+     * @param mobile string
      *
      * @return true|false
      */
@@ -54,7 +54,7 @@ public class Validate {
      * Valida un formato de fecha devolviendo un boolean. Los formatos pueden
      * ser: dd/mm/yyyy,dd-mm-yyyy,yyyy/mm/dd,yyyy-mm-dd.
      *
-     * @param date
+     * @param date string
      *
      * @return true|false
      */
@@ -95,7 +95,7 @@ public class Validate {
     /**
      * Valida un correo electronico devolviendo un boolean.
      *
-     * @param mail
+     * @param mail string
      *
      * @return true|false
      */
@@ -106,7 +106,7 @@ public class Validate {
     /**
      * Valida una palabra con todo tipo de caracteres devolviendo un boolean.
      *
-     * @param password
+     * @param password string
      *
      * @return true|false
      */
@@ -117,9 +117,9 @@ public class Validate {
     /**
      * Valida un salrio con numeros float
      *
-     * @param salary
+     * @param salary float
      *
-     * @return
+     * @return true/false
      */
     public static boolean oksalary(String salary) {
         return salary.matches(oksalary);
@@ -129,9 +129,9 @@ public class Validate {
      * Valida un nombre de usurio que debe contener de 4 a 15 caracteres,
      * Numeros,Mayusculas y minusculas.
      *
-     * @param user
+     * @param user string
      *
-     * @return
+     * @return true/false
      */
     public static boolean okuser(String user) {
         return user.matches(okuser);

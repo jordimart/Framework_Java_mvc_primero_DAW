@@ -6,8 +6,9 @@ import Appweb.Modules.Main.Controller.ControllerMain;
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.Model.Config.View.menu_Settings;
-import Appweb.Modules.Main.View.menu_Input;
+import Appweb.Modules.Main.Model.Login.View.menu_Input;
 import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
+import static Appweb.Modules.Users.Admin.Model.Classes.Table_Admin_class.datos;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
 import static Appweb.Modules.Users.User_reg.Controller.ControllerUser.Table_User;
 import Appweb.Modules.Users.User_reg.Model.BLL_User.BLL_User;
@@ -156,6 +157,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
 
             Table_User.mini_Table_User.setModel(new Table_User_reg());
             ((Table_User_reg) mini_Table_User.getModel()).cargar();
+            table_User_view.jLabel3.setText(String.valueOf(datos.size()));
             Table_User.mini_Table_User.setFillsViewportHeight(true);
             Table_User.mini_Table_User.setRowSorter(sorter);
 
@@ -350,8 +352,8 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             this.Edit_User.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             this.Edit_User.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
-                    
-                   if (singletonapp.window.equals("Admin")) {
+
+                    if (singletonapp.window.equals("Admin")) {
                         //si es un Admin vuelve al table.
                         Edit_User.dispose();
                         new ControllerUser(new table_User_view(), 0).Start(0);
@@ -445,22 +447,21 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
             Task_User.setTitle("Task User registered");
             Task_User.setLocationRelativeTo(null);
             Task_User.setSize(1600, 1100);//ancho x alto
-            Task_User.setResizable(false); 
+            Task_User.setResizable(false);
             Task_User.setExtendedState(JFrame.MAXIMIZED_BOTH);
-            
-            
+
             Task_User.btn_show.setText(Lang.getInstance().getProperty("MY_PROFILE"));
             Task_User.btn_modify.setText(Lang.getInstance().getProperty("MODIFY_MY_PROFILE"));
             Task_User.btn_config.setText(Lang.getInstance().getProperty("CONFIGURATION"));
             Task_User.btn_Exit.setText(Lang.getInstance().getProperty("EXIT"));
 
             singletonapp.window = "User";
-            Task_User.lab_username.setText(Lang.getInstance().getProperty("WELCOME")+": " + singleuser_reg.User_reg_array.get(singletonapp.pos).getUser());
+            Task_User.lab_username.setText(Lang.getInstance().getProperty("WELCOME") + ": " + singleuser_reg.User_reg_array.get(singletonapp.pos).getUser());
 
             this.Task_User.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             this.Task_User.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
-                   JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
+                    JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("I_to_exit_aplication"), Lang.getInstance().getProperty("Exit"),
                             JOptionPane.INFORMATION_MESSAGE);
                     Mongo_DB.disconnect();
                     System.exit(0);
@@ -478,7 +479,7 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
 
             Task_User.btn_Exit.setActionCommand("btn_exit");
             Task_User.btn_Exit.addActionListener(this);
-            
+
             Task_User.btn_log_out.setActionCommand("btn_log_out");
             Task_User.btn_log_out.addActionListener(this);
         }
@@ -596,7 +597,6 @@ public class ControllerUser implements ActionListener, MouseListener, PropertyCh
                 if ((ok == true) && (singletonapp.window.equals("Admin"))) {
                     Edit_User.dispose();
                     new ControllerUser(new table_User_view(), 0).Start(0);
-                    //((Table_User_reg) mini_Table_User.getModel()).cargar();
 
                 } else if ((ok == true) && (singletonapp.window.equals("User"))) {
                     Edit_User.dispose();

@@ -1,7 +1,7 @@
 package Appweb.Modules.Main.Model.Login.model.DAO_Login;
 
 import Appweb.General_tools.singletonapp;
-import Appweb.Modules.Main.View.menu_Input;
+import Appweb.Modules.Main.Model.Login.View.menu_Input;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin_BD;
 import Appweb.Modules.Users.Client.Model.DAO_Client.DAO_Client_mongo;
 import Appweb.Modules.Users.User_reg.Model.BLL_User.BLL_User;
@@ -33,15 +33,12 @@ public class DAO_Login {
      */
     public static void standard_login() {
 
+        singletonapp.type = -1;
+
         if (singletonapp.user.equals("Admin") && singletonapp.password.equals("Admin")) {
 
             singletonapp.type = 0;
-        } else if (singletonapp.user.equals("Client") && singletonapp.password.equals("Client")) {
 
-            singletonapp.type = 1;
-        } else if (singletonapp.user.equals("User") && singletonapp.password.equals("User")) {
-
-            singletonapp.type = 2;
         } else if (singletonapp.user.equals("Test") && singletonapp.password.equals("Test")) {
 
             singletonapp.type = 3;
@@ -62,7 +59,9 @@ public class DAO_Login {
      */
     public static boolean Login_Admin() {
 
-        boolean ok = BLL_Admin_BD.find_in_BD();
+        boolean ok = false;
+
+        ok = BLL_Admin_BD.find_in_BD();
 
         return ok;
     }
@@ -73,7 +72,7 @@ public class DAO_Login {
      * datos mongo y con ello saber si existe el usuario y es correcta la
      * contraseña.
      *
-     * @return
+     * @return ture/false
      */
     public static boolean find_and_compare_mongo() {
 

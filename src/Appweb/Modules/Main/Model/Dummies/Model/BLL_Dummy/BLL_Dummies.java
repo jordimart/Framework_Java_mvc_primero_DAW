@@ -10,8 +10,10 @@ import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 import Appweb.Modules.Users.Client.Model.BLL_Client.BLL_Client_mongo;
 import Appweb.Modules.Users.Client.Model.Classes.Client;
 import Appweb.Modules.Users.Client.Model.Classes.singleclient;
+import Appweb.Modules.Users.Client.Model.DAO_Client.DAO_Client_mongo;
 import Appweb.Modules.Users.User_reg.Model.Classes.User_reg;
 import Appweb.Modules.Users.User_reg.Model.Classes.singleuser_reg;
+import Appweb.Modules.Users.User_reg.Model.DAO_User.DAO_User_file;
 import java.awt.Color;
 import java.sql.Connection;
 
@@ -21,16 +23,17 @@ import java.sql.Connection;
  */
 public class BLL_Dummies {
 
+    /**
+     * Interactua con un menu para crear administradores en la cantidad elegida
+     * o cargar de base de datos.
+     */
     public static void create_Dummy_admin() {
 
-        String combo = "";
         boolean pass = false;
-        int ok = 0;
 
-        Connection con = null;
-        con = ConectionBD.getConexion();
+        Connection con = ConectionBD.getConexion();
 
-        combo = task_Dummy_view.comboDummy_admin.getSelectedItem().toString();
+        String combo = task_Dummy_view.comboDummy_admin.getSelectedItem().toString();
 
         if (combo.equals("cargar")) {
 
@@ -44,7 +47,7 @@ public class BLL_Dummies {
 
                 try {
 
-                    ok = BLL_Dummy_BD.create_Dummy_adminBD(con);//creamos al admin y lo metemos en la base de datos
+                    int ok = BLL_Dummy_BD.create_Dummy_adminBD(con);//creamos al admin y lo metemos en la base de datos
 
                     if (ok == 1) {//si el admin se ha metido bien en la base de datos lo metemos en el arraylist
 
@@ -60,7 +63,7 @@ public class BLL_Dummies {
                     }
 
                 } catch (Exception e) {
-                    e.printStackTrace();
+
                     task_Dummy_view.labStatus_dummie_admin.setText(Lang.getInstance().getProperty("Error_loading_dummies"));
 
                 }
@@ -75,14 +78,12 @@ public class BLL_Dummies {
         }
     }
 
-   
-
     /**
      * Borra todos los usuarios admin
      */
     public static void Delete_all_admin_dummies() {
 
-        if (singleadmin.Admin_array.size() == 0) {
+        if (singleadmin.Admin_array.isEmpty()) {
 
             task_Dummy_view.labStatus_dummie_admin.setText(Lang.getInstance().getProperty("You_can_not_erase_because_no_elements"));
 
@@ -98,12 +99,15 @@ public class BLL_Dummies {
 
     }
 
+    /**
+     * Interactua con un menu para crear clientes en la cantidad elegida
+     * o cargar de base de datos.
+     */
     public static void create_Dummy_client() {
-        Client a = null;
-        String combo = "";
+
         boolean pass = false;
 
-        combo = task_Dummy_view.comboDummy_client.getSelectedItem().toString();
+        String combo = task_Dummy_view.comboDummy_client.getSelectedItem().toString();
 
         if (combo.equals("cargar")) {
 
@@ -118,7 +122,7 @@ public class BLL_Dummies {
 
                 try {
 
-                    a = DAO_Dummies.DummyClient();
+                    Client a = DAO_Dummies.DummyClient();
 
                     singleclient.Client_array.add(a);
 
@@ -130,7 +134,7 @@ public class BLL_Dummies {
                     }
 
                 } catch (Exception e) {
-                    e.printStackTrace();
+
                     task_Dummy_view.labStatus_dummie_client.setText(Lang.getInstance().getProperty("Error_loading_dummies"));
 
                 }
@@ -150,7 +154,7 @@ public class BLL_Dummies {
      */
     public static void Delete_all_client_dummies() {
 
-        if (singleclient.Client_array.size() == 0) {
+        if (singleclient.Client_array.isEmpty()) {
 
             task_Dummy_view.labStatus_dummie_client.setText(Lang.getInstance().getProperty("You_can_not_erase_because_no_elements"));
 
@@ -158,23 +162,27 @@ public class BLL_Dummies {
 
             // delete all objects to the
             // arraylist
-            singleclient.Client_array.clear();
+            DAO_Client_mongo.delete_all();
             task_Dummy_view.labStatus_dummie_client.setText(Lang.getInstance().getProperty("All_elements_have_been_deleted"));
 
         }
 
     }
 
+    /**
+     * Interactua con un menu para crear usuarios registrados en la cantidad
+     * elegida
+     * o cargar de base de datos.
+     */
     public static void create_Dummy_user() {
-        User_reg a = null;
-        String combo = "";
+
         boolean pass = false;
 
-        combo = task_Dummy_view.comboDummy_user.getSelectedItem().toString();
+        String combo = task_Dummy_view.comboDummy_user.getSelectedItem().toString();
 
         if (combo.equals("cargar")) {
 
-            DAO_Dummies.auto_open_json_dummy_user();
+            DAO_User_file.auto_open_json();
 
         } else {
 
@@ -184,7 +192,7 @@ public class BLL_Dummies {
 
                 try {
 
-                    a = DAO_Dummies.DummyUser_reg();
+                    User_reg a = DAO_Dummies.DummyUser_reg();
 
                     singleuser_reg.User_reg_array.add(a);
 
@@ -196,7 +204,7 @@ public class BLL_Dummies {
                     }
 
                 } catch (Exception e) {
-                    e.printStackTrace();
+
                     task_Dummy_view.labStatus_dummie_user.setText(Lang.getInstance().getProperty("Error_loading_dummies"));
 
                 }
@@ -205,7 +213,7 @@ public class BLL_Dummies {
             }
             if (pass == true) {
 
-                DAO_Dummies.auto_save_json_dummy_user();
+                DAO_User_file.auto_save_json();
             }
 
         }
@@ -216,7 +224,7 @@ public class BLL_Dummies {
      */
     public static void Delete_all_user_dummies() {
 
-        if (singleuser_reg.User_reg_array.size() == 0) {
+        if (singleuser_reg.User_reg_array.isEmpty()) {
 
             task_Dummy_view.labStatus_dummie_user.setText(Lang.getInstance().getProperty("You_can_not_erase_because_no_elements"));
 
@@ -225,6 +233,7 @@ public class BLL_Dummies {
             // delete all objects to the
             // arraylist
             singleuser_reg.User_reg_array.clear();
+            DAO_User_file.auto_save_json();
             task_Dummy_view.labStatus_dummie_user.setText(Lang.getInstance().getProperty("All_elements_have_been_deleted"));
 
         }

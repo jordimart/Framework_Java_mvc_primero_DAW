@@ -126,7 +126,7 @@ public class Mongo_DB {
     /**
      * Modifica el properties
      *
-     * @param prop
+     * @param prop prop
      */
     public static void setProp(Properties prop) {
         Mongo_DB.prop = prop;
@@ -135,7 +135,7 @@ public class Mongo_DB {
     /**
      * Modifica el InputStream
      *
-     * @param input
+     * @param input input
      */
     public static void setInput(InputStream input) {
         Mongo_DB.input = input;
@@ -144,7 +144,7 @@ public class Mongo_DB {
     /**
      * Modifica el objeto Mongo.
      *
-     * @param client
+     * @param client client
      */
     public static void setClient(Mongo client) {
         singletonapp.client = client;
@@ -153,7 +153,7 @@ public class Mongo_DB {
     /**
      * Modifica el valor de la base de datos.
      *
-     * @param db
+     * @param db db
      */
     public static void setDb(DB db) {
         singletonapp.db = db;
@@ -162,7 +162,7 @@ public class Mongo_DB {
     /**
      * Modifica el valor de la coleccion.
      *
-     * @param collection
+     * @param collection collection
      */
     public static void setCollection(DBCollection collection) {
         singletonapp.collection = collection;
@@ -171,7 +171,7 @@ public class Mongo_DB {
     /**
      * Coge el valor del nombre de la base de datos.
      *
-     * @return
+     * @return nom_db
      */
     public static String getNom_bd() {
         return singletonapp.nom_bd;
@@ -180,7 +180,7 @@ public class Mongo_DB {
     /**
      * Modifica el valor del nombre de la base de datos.
      *
-     * @param nom_bd
+     * @param nom_bd nom_db
      */
     public static void setNom_bd(String nom_bd) {
         singletonapp.nom_bd = nom_bd;
@@ -189,7 +189,7 @@ public class Mongo_DB {
     /**
      * Coge el valor del nombre de la base de datos.
      *
-     * @return
+     * @return nom_table
      */
     public static String getNom_table() {
         return singletonapp.nom_table;
@@ -198,7 +198,7 @@ public class Mongo_DB {
     /**
      * Modifica el valor del nombre de la base de datos.
      *
-     * @param nom_table
+     * @param nom_table nom_table
      */
     public static void setNom_table(String nom_table) {
         singletonapp.nom_table = nom_table;
@@ -207,7 +207,7 @@ public class Mongo_DB {
     /**
      * Coge el valor de machine.
      *
-     * @return
+     * @return machine
      */
     public static String getMachine() {
         return machine;
@@ -216,7 +216,7 @@ public class Mongo_DB {
     /**
      * Coge el valor del puerto.
      *
-     * @return
+     * @return port
      */
     public static String getPort() {
         return port;
@@ -225,7 +225,7 @@ public class Mongo_DB {
     /**
      * Modifica el valor de machine
      *
-     * @param machine
+     * @param machine machine
      */
     public static void setMachine(String machine) {
         Mongo_DB.machine = machine;
@@ -234,7 +234,7 @@ public class Mongo_DB {
     /**
      * Modifica el valor del puerto.
      *
-     * @param port
+     * @param port port
      */
     public static void setPort(String port) {
         Mongo_DB.port = port;

@@ -13,18 +13,26 @@ import java.sql.Connection;
  */
 public class BLL_Dummy_BD {
 
+    /**
+     * Utiliza un DAo para crear administradores de forma aleatoria.
+     *
+     * @param con conexion sql
+     *
+     * @return int 0/1
+     */
     public static int create_Dummy_adminBD(Connection con) {
 
-        int resultado = 0;
-
-        resultado = DAO_Dummy_BD.create_Dummy_adminBD(con);
+        int resultado = DAO_Dummy_BD.create_Dummy_adminBD(con);
 
         return resultado;
     }
 
+    /**
+     * Funcion que borra todos losadministradores utiklizando un BLL de Admin.
+     */
     public static void Delete_all_admin_dummies_BD() {
 
-        if (singleadmin.Admin_array.size() == 0) {
+        if (singleadmin.Admin_array.isEmpty()) {
 
             task_Dummy_view.labStatus_dummie_admin.setText(Lang.getInstance().getProperty("You_can_not_erase_because_no_elements"));
 

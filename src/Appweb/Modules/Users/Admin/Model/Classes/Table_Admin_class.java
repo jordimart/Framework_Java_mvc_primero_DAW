@@ -139,6 +139,7 @@ public class Table_Admin_class extends AbstractTableModel {
 
     public void filtrar() {
         datos.clear();
+        
         int cont = 0;
 
         String nom = (String) ((JComboBox) combo).getSelectedItem();

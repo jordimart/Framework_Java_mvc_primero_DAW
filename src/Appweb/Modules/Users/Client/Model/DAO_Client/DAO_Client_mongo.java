@@ -125,7 +125,13 @@ public class DAO_Client_mongo {
 
     }
 
+    /**
+     * Boirra todos los elementos de la coleccion.
+     * @return 
+     */
     public static int delete_all() {
+        
+         singletonapp.collection.remove(new BasicDBObject());
 
         return 0;
     }

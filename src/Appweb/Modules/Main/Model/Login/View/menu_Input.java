@@ -1,4 +1,4 @@
-package Appweb.Modules.Main.View;
+package Appweb.Modules.Main.Model.Login.View;
 
 /**
  *

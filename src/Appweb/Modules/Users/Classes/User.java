@@ -51,6 +51,11 @@ public abstract class User implements Comparable<User>, Serializable {
      */
     /**
      * constructor de datos, no devuelve nada, recoge todos los datos
+     * @param Dni string
+     * @param Name string
+     * @param Last_name string
+     * @param Avatar string
+     * @param Status string
      */
     public User(String Dni, String Name, String Last_name, String Mobile, ClassDate Date_birth, String Email, String User, String Password,
             String Avatar, String Status) {
@@ -242,6 +247,8 @@ public abstract class User implements Comparable<User>, Serializable {
 
     /**
      * Metodo que retorna un boolean si dos objetos son iguales.
+     * @param o user
+     * @return ture/false
      */
     public boolean equals(User o) {
 
@@ -272,6 +279,7 @@ public abstract class User implements Comparable<User>, Serializable {
 
         return buffer.toString();
     }
+     * @return string
 */
     public String toBenefits() {
 

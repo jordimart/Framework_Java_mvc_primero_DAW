@@ -163,7 +163,7 @@ public class BLL_Admin {
      * un BLL de Base de datos lo modifica en la base de datos.
      * Retorna un boolean el Administrador se ha insertado con exito.
      *
-     * @return
+     * @return true/false
      */
     public static boolean Enter_edited_admin() {
 
@@ -242,7 +242,7 @@ public class BLL_Admin {
      * actualiza
      * la tabla.
      *
-     * @return
+     * @return true/false
      */
     public static boolean delete_select_admin() {
 
@@ -307,7 +307,7 @@ public class BLL_Admin {
      */
     public static void Delete_all_admin() {
 
-        int ok = 0;
+        int ok = -1;
 
         if (singleadmin.Admin_array.isEmpty()) {
 

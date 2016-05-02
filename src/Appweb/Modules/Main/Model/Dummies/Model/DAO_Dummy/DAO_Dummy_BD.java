@@ -12,6 +12,14 @@ import javax.swing.JOptionPane;
  */
 public class DAO_Dummy_BD {
 
+    /**
+     * Funcion que inserta los administradores creados aleatoriamente en la
+     * base de datos sql.
+     *
+     * @param con Connection
+     *
+     * @return int 0/1
+     */
     public static int create_Dummy_adminBD(Connection con) {
 
         int resultado = 0;
@@ -56,7 +64,7 @@ public class DAO_Dummy_BD {
                     stmt.close();
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, "Ha habido un error Logger!");
-                    ex.printStackTrace();
+
                 }
             }
         }

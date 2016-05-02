@@ -43,9 +43,7 @@ public class BLL_Client_mongo {
      * BLL que utiliza un Dao mongo para borrar un cliente de la base de datos
      * mongo
      *
-     * @param dni
-     *
-     * @return
+     * @param dni string
      */
     public static void delete(String dni) {
 
@@ -53,7 +51,12 @@ public class BLL_Client_mongo {
 
     }
 
+    /**
+     * BLL que utiliza un DAO para borrar todos los elementos d ela coleccion.
+     */
     public static void delete_all() {
+        
+        DAO_Client_mongo.delete_all();
 
     }
 

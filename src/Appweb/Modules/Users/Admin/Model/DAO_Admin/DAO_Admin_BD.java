@@ -31,7 +31,7 @@ public class DAO_Admin_BD {
      * Carga los administradores de la base de datos en el arraylist de admin.
      * Pasamos el parametro conexion a base de datos.
      *
-     * @param con
+     * @param con connection
      */
     public static void load(Connection con) {
 
@@ -89,7 +89,7 @@ public class DAO_Admin_BD {
      * Pasamos el parametro conexion.
      * Retornamos un integer si ha insertado bien.
      *
-     * @param con
+     * @param con connection
      *
      * @return int
      */
@@ -145,7 +145,7 @@ public class DAO_Admin_BD {
      * Pasamos el parametro conexion.
      * Retornamos un integer si ha insertado bien.
      *
-     * @param con
+     * @param con connection
      *
      * @return int
      */
@@ -201,7 +201,7 @@ public class DAO_Admin_BD {
      * Pasamos el parametro conexion.
      * Retornamos un integer si se ha insertado correctamente.
      *
-     * @param con
+     * @param con connection
      *
      * @return int
      */
@@ -234,8 +234,8 @@ public class DAO_Admin_BD {
     
     /**
      * Borra todos los administradores d ela base de datos sql.
-     * @param con
-     * @return 
+     * @param con connection
+     * @return connection
      */
     public static int delete_all_Admin(Connection con) {
 
@@ -266,8 +266,8 @@ public class DAO_Admin_BD {
     /**
      * Funcion que busca en Base de datos sql un admin con los parametros recogidos
      * en el login.
-     * @param con
-     * @return 
+     * @param con connection
+     * @return  ture/false
      */
     public static boolean find_in_BD(Connection con) {
 
@@ -315,7 +315,7 @@ public class DAO_Admin_BD {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Ha habido un problema al buscar el usuario por User");
-            ex.printStackTrace();
+            
         } finally {
             if (rs != null) {
                 try {

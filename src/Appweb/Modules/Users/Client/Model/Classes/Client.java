@@ -46,7 +46,7 @@ public class Client extends User implements Serializable {
     /**
      * Constructor basado en los datos extraidos de una BD mongo.
      *
-     * @param dBObjectClient
+     * @param dBObjectClient dbobject
      *
      * @return Objeto Client
      */
@@ -77,7 +77,7 @@ public class Client extends User implements Serializable {
     /**
      * Introduce los datos de un cliente en un objeto BasicDBObject.
      *
-     * @return
+     * @return dbobject
      */
     public BasicDBObject to_DB_Client() {
 
@@ -444,7 +444,7 @@ public class Client extends User implements Serializable {
                 cad = cad + "Antique: " + this.getAntique_c() + "\n";
                 break;
             case 14:
-                cad = cad + "Purchase: " + Format_tools.F_2dec(getPurchase()) + "\n";
+                cad = cad + "Purchase: " + Format_tools.F_Euro(getPurchase()) + "\n";
                 break;
 
             case 15:

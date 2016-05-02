@@ -18,7 +18,7 @@ public class BLL_config {
             DAO_config.Menu_theme();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            
         }
     }
 

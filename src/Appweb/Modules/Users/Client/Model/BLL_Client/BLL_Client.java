@@ -244,18 +244,23 @@ public class BLL_Client {
             JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("You_can_not_erase_because_no_elements"),
                     Lang.getInstance().getProperty("Information"), JOptionPane.ERROR_MESSAGE);
         } else {
+            
+            int opc = JOptionPane.showConfirmDialog(null, "¿Deseas borrar todos los administradores? ",
+                    "Info", JOptionPane.WARNING_MESSAGE);
+            if (opc == 0) {
 
             // delete all objects to the
             // arraylist
-            //singleclient.Client_array.clear();
-           // DAO_Client.auto_save_json_client();
+            singleclient.Client_array.clear();
+            BLL_Client_mongo.delete_all();
             ((Table_Client_class) mini_Table_Client.getModel()).cargar();
             table_Client_view.jLabel3.setText(String.valueOf(datos.size()));
             pagina_client.inicializa();
             pagina_client.initLinkBox();
 
-            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("All_elements_have_been_deleted") + "\n"
-                    + Lang.getInstance().getProperty("Remaining_number_of_elements") + singleclient.Client_array.size());
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("All_elements_have_been_deleted") + "\n");
+            
+            }
         }
 
     }
@@ -334,16 +339,6 @@ public class BLL_Client {
 
         DAO_Client.save_txt_client();
     }
-
-    //public static void auto_open_json_client() {
-
-       // DAO_Client.auto_open_json_client();
-    //}
-
-//    public static void auto_save_json_client() {
-//
-//        DAO_Client.auto_save_json_client();
-//    }
 
     public static void change_table_user() {
 

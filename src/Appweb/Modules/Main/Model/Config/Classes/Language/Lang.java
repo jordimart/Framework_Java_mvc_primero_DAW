@@ -17,7 +17,7 @@ public class Lang extends Properties {
 	/**
 	 * Instanciamos el lenguage para que este en toda la aplicacion.
 	 * 
-	 * @return
+	 * @return instance
 	 */
 	public static Lang getInstance() {
 
@@ -60,7 +60,7 @@ public class Lang extends Properties {
 
         /**
          * Obtiene el valor de language.
-         * @return 
+         * @return language
          */
 	public String getLanguage() {
 		return language;

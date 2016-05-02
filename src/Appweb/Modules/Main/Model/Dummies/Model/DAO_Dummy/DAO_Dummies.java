@@ -2,27 +2,11 @@ package Appweb.Modules.Main.Model.Dummies.Model.DAO_Dummy;
 
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 import Appweb.Classes.Date.ClassDate;
-import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
-import Appweb.Modules.Main.Model.Dummies.View.task_Dummy_view;
 import Appweb.Modules.Users.Admin.Model.Classes.Admin;
-import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 import Appweb.Modules.Users.Client.Model.BLL_Client.BLL_Client;
 import Appweb.Modules.Users.Client.Model.Classes.Client;
-import Appweb.Modules.Users.Client.Model.Classes.singleclient;
 import Appweb.Modules.Users.User_reg.Model.BLL_User.BLL_User;
 import Appweb.Modules.Users.User_reg.Model.Classes.User_reg;
-import Appweb.Modules.Users.User_reg.Model.Classes.singleuser_reg;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
-import com.google.gson.stream.JsonReader;
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class DAO_Dummies {
 
@@ -86,7 +70,7 @@ public class DAO_Dummies {
     /**
      * Funcion que devuelve nombres de forma aleatoria.
      *
-     * @return
+     * @return string
      */
     public static String Dummyname() {
 
@@ -103,7 +87,7 @@ public class DAO_Dummies {
     /**
      * Funcion que devuelve apellidos de forma aleatoria.
      *
-     * @return
+     * @return string
      */
     public static String Dummylast_name() {
 
@@ -120,7 +104,7 @@ public class DAO_Dummies {
     /**
      * Funcion que devuelve numeros de telefono de forma aleatoria.
      *
-     * @return
+     * @return string
      */
     public static String Dummymobile() {
 
@@ -140,9 +124,9 @@ public class DAO_Dummies {
      * Funcion que devuelve una fecha que debe cumplir que los años sean igual o
      * mayores al parametro min.
      *
-     * @param min
+     * @param min int
      *
-     * @return
+     * @return Classdate
      */
     public static ClassDate Dummydate_int_min(int min) {
 
@@ -168,10 +152,10 @@ public class DAO_Dummies {
      * Funcion que devuelve correos que dependen del nombre y el apellido del
      * usuario.
      *
-     * @param name
-     * @param last_name
+     * @param name string
+     * @param last_name string
      *
-     * @return
+     * @return string
      */
     public static String Dummyemail(String name, String last_name) {
 
@@ -187,9 +171,9 @@ public class DAO_Dummies {
      * numero aleatorio ya que no debe repetirse.
      * anterior.
      *
-     * @param name
+     * @param name string
      *
-     * @return
+     * @return string
      */
     public static String Dummyuser(String name) {
 
@@ -206,9 +190,9 @@ public class DAO_Dummies {
      * introduciendo
      * numeros.
      *
-     * @param name
+     * @param name string
      *
-     * @return
+     * @return string
      */
     public static String Dammypassword(String name) {
 
@@ -244,10 +228,10 @@ public class DAO_Dummies {
      * Funcion que devuelve una fecha que debe estar comprendida entre un minimo
      * y un maximo de años.
      *
-     * @param min
-     * @param max
+     * @param min int
+     * @param max int
      *
-     * @return
+     * @return Classdate
      */
     public static ClassDate Dummydate_int_min_max(int min, int max) {
 
@@ -274,10 +258,10 @@ public class DAO_Dummies {
      * o nacimiento del usuario,compara que cuando se registro el producto el
      * usuario era mayor de edad.
      *
-     * @param d
-     * @param min
+     * @param d Classdate
+     * @param min int
      *
-     * @return
+     * @return classdate
      */
     public static ClassDate Dummy_date_entry(ClassDate d, int min) {
 
@@ -340,10 +324,10 @@ public class DAO_Dummies {
     /**
      * Funcion que devuelve un salario comprendido entre dos cotas.
      *
-     * @param n
-     * @param m
+     * @param n int
+     * @param m int
      *
-     * @return
+     * @return float
      */
     public static float Dummysalary(int n, int m) {
 
@@ -355,10 +339,10 @@ public class DAO_Dummies {
     /**
      * Funcion que devuelve una actividad comprendida entre dos cotas.
      *
-     * @param n
-     * @param m
+     * @param n int
+     * @param m int
      *
-     * @return
+     * @return int
      */
     public static int Dummyactivity(int n, int m) {
 
@@ -368,7 +352,7 @@ public class DAO_Dummies {
     }
 
     /**
-     * Esta funcion dummy rellena el objeto admin con unos datos predefinidos.
+     * Esta funcion dummy rellena el objeto admin con unos datos random
      *
      * @return
      */
@@ -396,7 +380,7 @@ public class DAO_Dummies {
         // Enter Admin attributes
         date_cont = new ClassDate(01, 01, 2006);
 
-        salary = DAO_Dummies.Dummysalary(500, 2000);
+        salary = DAO_Dummies.Dummysalary(900, 2000);
 
         activity = DAO_Dummies.Dummyactivity(10, 100);
 
@@ -404,9 +388,9 @@ public class DAO_Dummies {
     }
 
     /**
-     * Esta funcion dummy rellena el objeto client con unos datos predefinidos.
+     * Esta funcion dummy rellena el objeto client con unos datos random.
      *
-     * @return
+     * @return Client
      */
     public static Client DummyClient() {
 
@@ -425,13 +409,12 @@ public class DAO_Dummies {
         Date_birth = DAO_Dummies.Dummydate_int_min(18);
         Email = DAO_Dummies.Dummyemail(Name, Last_name);
         User = DAO_Dummies.Dummyuser(Name);
-        Password = "Client150902client";
-        Avatar = "src/Appweb/Modules/Users/Img/Avatares/images.jpg";
+        Password = DAO_Dummies.Dammypassword(Name);
+        Avatar = DAO_Dummies.Dammyavatar();
         Status = "Conected";
 
-        // Enter Admin attributes
         entry_date = new ClassDate(01, 01, 2006);
-        purchase = 1000;
+        purchase = DAO_Dummies.Dummysalary(900, 3000);
         premium = "Yes";
         client_type = "Bueno";
 
@@ -440,10 +423,10 @@ public class DAO_Dummies {
     }
 
     /**
-     * Esta funcion dummy rellena el objeto user_reg con unos datos
-     * predefinidos.
+     * Esta funcion dummy rellena el objeto user_reg con datos random.
      *
-     * @return
+     *
+     * @return User_reg
      */
     public static User_reg DummyUser_reg() {
 
@@ -460,235 +443,13 @@ public class DAO_Dummies {
         Date_birth = DAO_Dummies.Dummydate_int_min(18);
         Email = DAO_Dummies.Dummyemail(Name, Last_name);
         User = DAO_Dummies.Dummyuser(Name);
-        Password = "User150902user";
-        Avatar = "src/Appweb/Modules/Users/Img/Avatares/images.jpg";
+        Password = DAO_Dummies.Dammypassword(Name);
+        Avatar = DAO_Dummies.Dammyavatar();
         Status = "Conected";
 
-        // Enter Admin attributes
         activity_u = DAO_Dummies.Dummyactivity(10, 100);
 
         return new User_reg(Dni, Name, Last_name, Mobile, Date_birth, Email, User, Password, Avatar, Status, activity_u);
     }
 
-    public static void auto_save_json_dummy_admin() {
-
-        String PATH = " ";
-
-        try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/Model/files/Admin_files/dummyadminusers";
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            XStream xstreamjson = new XStream(new JettisonMappedXmlDriver());
-            xstreamjson.setMode(XStream.NO_REFERENCES);
-            xstreamjson.alias("Admin", Admin.class);
-
-            if (singleadmin.Admin_array.size() != 0) {
-                File JFC = new File(PATH);
-                PATH = JFC.getAbsolutePath();
-                PATH = PATH + ".json";
-
-                Gson gson = new Gson();
-                String json = gson.toJson(singleadmin.Admin_array);
-                FileWriter fileXml = new FileWriter(PATH);
-                fileXml.write(json.toString());
-                fileXml.close();
-
-                System.out.print(Lang.getInstance().getProperty("User_file_saved") + " Dummy  Admin json \n");
-            }
-
-        } catch (Exception e) {
-            System.out.print("Error_save_user_file " + "json dummy Admin" + " \n");
-        }
-    }
-
-    public static void auto_open_json_dummy_admin() {
-
-        String PATH = " ";
-        Admin a = null;
-
-        try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/Model/files/Admin_files/dummyadminusers.json";
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            XStream xstream = new XStream(new JettisonMappedXmlDriver());
-            xstream.setMode(XStream.NO_REFERENCES);
-            xstream.alias("Admin", Admin.class);
-
-            File JFC = new File(PATH);
-            PATH = JFC.getAbsolutePath();
-
-            singleadmin.Admin_array.clear();
-
-            JsonReader lector = new JsonReader(new FileReader(PATH));
-            JsonParser parseador = new JsonParser();
-            JsonElement raiz = parseador.parse(lector);
-
-            Gson json = new Gson();
-            JsonArray lista = raiz.getAsJsonArray();
-            for (JsonElement elemento : lista) {
-                a = json.fromJson(elemento, Admin.class);
-                singleadmin.Admin_array.add(a);
-
-            }
-            task_Dummy_view.labStatus_dummie_admin.setText(Lang.getInstance().getProperty("Loaded_user_file") + " Dummy  Admin json" + " \n");
-
-        } catch (Exception e) {
-
-            task_Dummy_view.labStatus_dummie_admin.setText(Lang.getInstance().getProperty("Error_loading_user_file") + "Admin json" + " \n");
-        }
-    }
-
-    public static void auto_save_json_dummy_client() {
-
-        String PATH = " ";
-
-        try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/Model/files/Client_files/dummyclientusers";
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            XStream xstreamjson = new XStream(new JettisonMappedXmlDriver());
-            xstreamjson.setMode(XStream.NO_REFERENCES);
-            xstreamjson.alias("Admin", Admin.class);
-
-            if (singleclient.Client_array.size() != 0) {
-                File JFC = new File(PATH);
-                PATH = JFC.getAbsolutePath();
-                PATH = PATH + ".json";
-
-                Gson gson = new Gson();
-                String json = gson.toJson(singleclient.Client_array);
-                FileWriter fileXml = new FileWriter(PATH);
-                fileXml.write(json.toString());
-                fileXml.close();
-
-                System.out.print(Lang.getInstance().getProperty("User_file_saved") + " Dummy  Client json \n");
-            }
-
-        } catch (Exception e) {
-            System.out.print("Error_save_user_file " + "json dummy Client" + " \n");
-        }
-    }
-
-    public static void auto_open_json_dummy_client() {
-
-        String PATH = " ";
-        Client a = null;
-
-        try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/Model/files/Client_files/dummyclientusers.json";
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            XStream xstream = new XStream(new JettisonMappedXmlDriver());
-            xstream.setMode(XStream.NO_REFERENCES);
-            xstream.alias("Client", Client.class);
-
-            File JFC = new File(PATH);
-            PATH = JFC.getAbsolutePath();
-
-            singleclient.Client_array.clear();
-
-            JsonReader lector = new JsonReader(new FileReader(PATH));
-            JsonParser parseador = new JsonParser();
-            JsonElement raiz = parseador.parse(lector);
-
-            Gson json = new Gson();
-            JsonArray lista = raiz.getAsJsonArray();
-            for (JsonElement elemento : lista) {
-                a = json.fromJson(elemento, Client.class);
-                singleclient.Client_array.add(a);
-
-            }
-            task_Dummy_view.labStatus_dummie_client.setText(Lang.getInstance().getProperty("Loaded_user_file") + " Dummy  Client json" + " \n");
-
-        } catch (Exception e) {
-
-            task_Dummy_view.labStatus_dummie_client.setText(Lang.getInstance().getProperty("Error_loading_user_file") + " Client json" + " \n");
-        }
-    }
-
-    public static void auto_save_json_dummy_user() {
-
-        String PATH = " ";
-
-        try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/Model/files/User_reg_files/dummyuseregusers";
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            XStream xstreamjson = new XStream(new JettisonMappedXmlDriver());
-            xstreamjson.setMode(XStream.NO_REFERENCES);
-            xstreamjson.alias("Admin", Admin.class);
-
-            if (singleuser_reg.User_reg_array.size() != 0) {
-                File JFC = new File(PATH);
-                PATH = JFC.getAbsolutePath();
-                PATH = PATH + ".json";
-
-                Gson gson = new Gson();
-                String json = gson.toJson(singleuser_reg.User_reg_array);
-                FileWriter fileXml = new FileWriter(PATH);
-                fileXml.write(json.toString());
-                fileXml.close();
-
-                System.out.print(Lang.getInstance().getProperty("User_file_saved") + " Dummy  User registered json \n");
-            }
-
-        } catch (Exception e) {
-            System.out.print("Error_save_user_file " + "json dummy User registered" + " \n");
-        }
-    }
-
-    public static void auto_open_json_dummy_user() {
-
-        String PATH = " ";
-        User_reg a = null;
-
-        try {
-            PATH = new java.io.File(".").getCanonicalPath() + "/src/Appweb/Modules/Main/Model/Dummies/Model/files/User_reg_files/dummyuseregusers.json";
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            XStream xstream = new XStream(new JettisonMappedXmlDriver());
-            xstream.setMode(XStream.NO_REFERENCES);
-            xstream.alias("User_reg", User_reg.class);
-
-            File JFC = new File(PATH);
-            PATH = JFC.getAbsolutePath();
-
-            singleuser_reg.User_reg_array.clear();
-
-            JsonReader lector = new JsonReader(new FileReader(PATH));
-            JsonParser parseador = new JsonParser();
-            JsonElement raiz = parseador.parse(lector);
-
-            Gson json = new Gson();
-            JsonArray lista = raiz.getAsJsonArray();
-            for (JsonElement elemento : lista) {
-                a = json.fromJson(elemento, User_reg.class);
-                singleuser_reg.User_reg_array.add(a);
-
-            }
-            task_Dummy_view.labStatus_dummie_user.setText(Lang.getInstance().getProperty("Loaded_user_file") + " Dummy  User registered json" + " \n");
-
-        } catch (Exception e) {
-
-            task_Dummy_view.labStatus_dummie_user.setText(Lang.getInstance().getProperty("Error_loading_user_file") + " User registered json" + " \n");
-        }
-    }
 }

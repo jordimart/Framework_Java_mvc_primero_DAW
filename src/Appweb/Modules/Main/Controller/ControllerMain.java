@@ -12,8 +12,10 @@ import Appweb.Modules.Main.Model.Config.View.menu_Settings;
 import Appweb.Modules.Main.Model.Dummies.Model.BLL_Dummy.BLL_Dummies;
 import Appweb.Modules.Main.Model.Dummies.View.task_Dummy_view;
 import Appweb.Modules.Main.Model.Login.model.BLL_Login.BLL_Login;
-import Appweb.Modules.Main.View.menu_Input;
+import Appweb.Modules.Main.Model.Login.View.menu_Input;
 import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
+import Appweb.Modules.Users.Admin.Model.Classes.Admin;
+import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
 import Appweb.Modules.Users.Client.Controller.ControllerClient;
 import Appweb.Modules.Users.Client.View.table_Client_view;
@@ -116,6 +118,10 @@ public class ControllerMain implements ActionListener {
             Login.setSize(1000, 650);//ancho x alto
             Login.setExtendedState(JFrame.MAXIMIZED_BOTH);
             Login.panelNice1.setLocation(500, 300);
+            
+            singleadmin.a=new Admin();//se inicializa para el retorno de log out
+            
+           
 
             // Conjunto de teclas que queremos que sirvan para pasar el foco 
             // al siguiente campo de texto: ENTER y TAB
@@ -343,12 +349,12 @@ public class ControllerMain implements ActionListener {
                     Login.dispose();
                     new ControllerAdmin(new task_Admin_view(), 0).Start(0);
 
-                } else if (BLL_Login.Login_Client() == true || singletonapp.type == 1) {
+                } else if (BLL_Login.Login_Client() == true) {
 
                     Login.dispose();
                     new ControllerClient(new task_Client_view(), 4).Start(4);
 
-                } else if (BLL_Login.Login_User() == true || singletonapp.type == 2) {
+                } else if (BLL_Login.Login_User() == true) {
 
                     Login.dispose();
                     new ControllerUser(new task_User_view(), 4).Start(4);

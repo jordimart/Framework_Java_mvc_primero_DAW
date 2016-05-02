@@ -182,9 +182,7 @@ public class BLL_User {
                 Table_User.dispose();
                 new ControllerUser(new edit_User_view(), 2).Start(2);
                 DAO_User.Load_edit_user();
-                //((Table_User_reg) mini_Table_User.getModel()).cargar();
-                //pagina_user.inicializa();
-               // pagina_user.initLinkBox();
+               
 
                 ok = true;
             }
@@ -242,6 +240,9 @@ public class BLL_User {
                     Lang.getInstance().getProperty("Information"), JOptionPane.ERROR_MESSAGE);
         } else {
 
+            int opc = JOptionPane.showConfirmDialog(null, "¿Deseas borrar todos los administradores? ",
+                    "Info", JOptionPane.WARNING_MESSAGE);
+            if (opc == 0) {
             // delete all objects to the
             // arraylist
             singleuser_reg.User_reg_array.clear();
@@ -251,8 +252,8 @@ public class BLL_User {
             pagina_user.inicializa();
             pagina_user.initLinkBox();
 
-            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("All_elements_have_been_deleted") + "\n"
-                    + Lang.getInstance().getProperty("Remaining_number_of_elements") + singleuser_reg.User_reg_array.size());
+            JOptionPane.showMessageDialog(null, Lang.getInstance().getProperty("All_elements_have_been_deleted") + "\n");
+            }
         }
 
     }

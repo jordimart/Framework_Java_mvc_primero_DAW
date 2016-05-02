@@ -47,10 +47,14 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lab_Admin_menu" min="-2" pref="464" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="lab_Admin_menu" min="-2" pref="464" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="lab_username" min="-2" pref="229" max="-2" attributes="0"/>
+                      </Group>
                       <Component id="panelRect1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="325" max="32767" attributes="0"/>
+                  <EmptySpace pref="78" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -58,7 +62,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                  <Component id="lab_Admin_menu" min="-2" pref="64" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="lab_username" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="lab_Admin_menu" min="-2" pref="64" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="panelRect1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
@@ -151,6 +158,11 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="org.edisoncor.gui.label.LabelHeader" name="lab_username">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="labelHeader1"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

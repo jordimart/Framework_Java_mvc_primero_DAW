@@ -311,7 +311,7 @@ public class DAO_User {
     /**
      * DAO que valida una fecha de nac imiento que deb estar entre 16 y 65 años
      *
-     * @return
+     * @return true/false
      */
     public static boolean booleanEnterdate_birth() {
 
@@ -586,7 +586,7 @@ public class DAO_User {
     /**
      * Menu que pide un email y valida su formato.
      *
-     * @return
+     * @return true/false
      */
     public static boolean booleanEditmail() {
 
@@ -615,7 +615,7 @@ public class DAO_User {
     /**
      * Menu que pide una palabra que puede tener todo tipo de caracteres.
      *
-     * @return
+     * @return true/false
      */
     public static boolean booleanEdituser() {
 
@@ -643,7 +643,7 @@ public class DAO_User {
     /**
      * Menu que pide una palabra que puede tener todo tipo de caracteres.
      *
-     * @return
+     * @return true/false
      */
     public static boolean booleanEditpassword() {
 

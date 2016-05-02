@@ -7,10 +7,11 @@ import Appweb.Modules.Main.Controller.ControllerMain;
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.Model.Config.View.menu_Settings;
-import Appweb.Modules.Main.View.menu_Input;
+import Appweb.Modules.Main.Model.Login.View.menu_Input;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin;
 import Appweb.Modules.Users.Admin.Model.BLL_Admin.BLL_Admin_BD;
 import Appweb.Modules.Users.Admin.Model.Classes.Table_Admin_class;
+import static Appweb.Modules.Users.Admin.Model.Classes.Table_Admin_class.datos;
 import Appweb.Modules.Users.Admin.Model.Classes.singleadmin;
 import Appweb.Modules.Users.Admin.Model.Tools.Pager.pagina;
 import Appweb.Modules.Users.Admin.Model.Tools.autocomplete.AutocompleteJComboBox;
@@ -154,6 +155,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
             Task_Admin.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
             singletonapp.window = "Admin";//Nos marca el tipo de usuario que ha entrado.
+            Task_Admin.lab_username.setText(Lang.getInstance().getProperty("WELCOME") + ": " + singletonapp.user);
 
             //traduccion de botones
             Task_Admin.lab_Admin_menu.setText(Lang.getInstance().getProperty("MAIN_ADMINISTRATOR"));
@@ -214,6 +216,7 @@ public class ControllerAdmin implements ActionListener, MouseListener, PropertyC
 
             Table_Admin.mini_Table_Admin.setModel(new Table_Admin_class());
             ((Table_Admin_class) mini_Table_Admin.getModel()).cargar();
+             table_Admin_view.jLabel3.setText(String.valueOf(datos.size()));
             Table_Admin.mini_Table_Admin.setFillsViewportHeight(true);
             Table_Admin.mini_Table_Admin.setRowSorter(sorter);
             

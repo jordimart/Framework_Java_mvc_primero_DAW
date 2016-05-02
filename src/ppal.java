@@ -2,7 +2,7 @@
 import Appweb.Modules.Main.Controller.ControllerMain;
 import static Appweb.Modules.Main.Controller.ControllerMain.Login;
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
-import Appweb.Modules.Main.View.menu_Input;
+import Appweb.Modules.Main.Model.Login.View.menu_Input;
 
 /**
  *Rama login

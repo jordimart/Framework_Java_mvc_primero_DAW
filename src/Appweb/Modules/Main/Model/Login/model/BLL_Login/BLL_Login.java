@@ -18,7 +18,9 @@ public class BLL_Login {
      */
     public static boolean Login_Admin() {
 
-        boolean ok = DAO_Login.Login_Admin();
+        boolean ok = false;
+
+        ok = DAO_Login.Login_Admin();
 
         return ok;
     }
@@ -34,7 +36,9 @@ public class BLL_Login {
      */
     public static boolean Login_Client() {
 
-        boolean ok = DAO_Login.find_and_compare_mongo();
+        boolean ok = false;
+
+        ok = DAO_Login.find_and_compare_mongo();
 
         return ok;
     }
@@ -46,7 +50,7 @@ public class BLL_Login {
      * Utiliza un Daoque busca en ficheros si existe el usuario con ese usuario
      * y el password.
      *
-     * @return
+     * @return true/false
      */
     public static boolean Login_User() {
 

@@ -7,12 +7,13 @@ import Appweb.Modules.Main.Controller.ControllerMain;
 import Appweb.Modules.Main.Model.Config.Classes.Classconfig;
 import Appweb.Modules.Main.Model.Config.Classes.Language.Lang;
 import Appweb.Modules.Main.Model.Config.View.menu_Settings;
-import Appweb.Modules.Main.View.menu_Input;
+import Appweb.Modules.Main.Model.Login.View.menu_Input;
 import Appweb.Modules.Users.Admin.Controller.ControllerAdmin;
 import Appweb.Modules.Users.Admin.View.task_Admin_view;
 import static Appweb.Modules.Users.Client.Controller.ControllerClient.Table_Client;
 import Appweb.Modules.Users.Client.Model.BLL_Client.BLL_Client;
 import Appweb.Modules.Users.Client.Model.Classes.Table_Client_class;
+import static Appweb.Modules.Users.Client.Model.Classes.Table_Client_class.datos;
 import Appweb.Modules.Users.Client.Model.Classes.singleclient;
 import Appweb.Modules.Users.Client.Model.DAO_Client.DAO_Client;
 import Appweb.Modules.Users.Client.Model.Tools.Pager.pagina_client;
@@ -157,6 +158,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
 
             Table_Client.mini_Table_Client.setModel(new Table_Client_class());
             ((Table_Client_class) mini_Table_Client.getModel()).cargar();
+            table_Client_view.jLabel3.setText(String.valueOf(datos.size()));
             Table_Client.mini_Table_Client.setFillsViewportHeight(true);
             Table_Client.mini_Table_Client.setRowSorter(sorter);
 
@@ -463,7 +465,7 @@ public class ControllerClient implements ActionListener, MouseListener, Property
             Task_Client.btn_Exit.setText(Lang.getInstance().getProperty("EXIT"));
 
             singletonapp.window = "Client";
-            Task_Client.lab_username.setText(Lang.getInstance().getProperty("WELCOME") + ": " + singleclient.c.getUser());
+            Task_Client.lab_username.setText(Lang.getInstance().getProperty("WELCOME") + ": " + singletonapp.user);
 
             this.Task_Client.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
             this.Task_Client.addWindowListener(new WindowAdapter() {

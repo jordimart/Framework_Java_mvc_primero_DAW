@@ -24,9 +24,9 @@ public class ClassDate implements Serializable {
      * Constructor one all attributes
      * Construye el objeto con los tres atributos individuales.
      *
-     * @param day
-     * @param month
-     * @param year
+     * @param day int
+     * @param month int
+     * @param year int
      */
     public ClassDate(int day, int month, int year) {
 
@@ -199,6 +199,7 @@ public class ClassDate implements Serializable {
     /**
      * Estos sets añadidos modificaran los atributos cada vez que cambie la
      * fecha.
+     * @param date string
      */
     public void setDate(String date) {
 
@@ -411,6 +412,7 @@ public class ClassDate implements Serializable {
     /**
      * Method that subtracts two dates
      *
+     * @param date Classdate
      * @return int years
      */
     public int Diference_two_dates(ClassDate date) {
